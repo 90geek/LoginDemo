@@ -1,0 +1,8 @@
+TOKEN
+    Name  = "FLASH_MEMORY_MAP_START"
+#    Value  = "((UINT8 *)(((~FLASH_SIZE) + 1) & 0xFFFFFFFF))"
+    Value  = "0"
+    Help  = "Define the ROM region mapping to MMIO space.\Usually x86 is mapping to top of 4G memory, and ARM is mapping to the base of memory."
+    TokenType = Expression
+    TargetH = Yes
+End

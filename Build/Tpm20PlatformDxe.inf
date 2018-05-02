@@ -1,0 +1,72 @@
+## @file
+#   The [Sources] section for this file is auto-generated from ELINKs:
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Tpm20PlatformDxe
+  FILE_GUID                      = 0718AD81-F26A-4850-A6EC-F268E309D707
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Tpm20PlatformEntry
+#
+#  This flag specifies whether HII resource section is generated into PE image.
+#
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+..\AmiModulePkg\TCG2\Common\Tpm20PlatformDxe\Tpm20PlatformDxe.c
+..\AmiModulePkg\TCG2\Common\Tpm20PlatformDxe\Tpm20PlatformDxe.h
+..\AmiModulePkg\TCG2\Common\Tpm20PlatformDxe\Tpm20PlatformDxeFakeTokens.c
+..\AmiModulePkg\TCG2\Common\Tpm20PlatformDxe\Tpm20PlatformDxeString.uni
+
+	
+
+
+[Packages]
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  DevicePathLib
+  UefiLib
+  ShaLib
+  HiiLib
+  DebugLib
+  TimerLib
+  BaseCrbLibDxe
+
+
+[Protocols]
+  gAmiTcgPlatformProtocolguid    ## CONSUMES
+  gEfiFirmwareVolume2ProtocolGuid    ## CONSUMES
+  gEfiBlockIoProtocolGuid    ## CONSUMES
+  gEfiFirmwareVolume2ProtocolGuid ## CONSUMES
+  gEfiAcpiSupportGuid            ## CONSUMES
+  gEfiDiskIoProtocolGuid  	    ## PRODUCES
+  gEfiHiiImageProtocolGuid		## CONSUMES
+  gOpromStartEndProtocolGuid    ## CONSUMES
+  gEfiHiiPackageListProtocolGuid      ## CONSUMES
+
+[Guids]
+  gEfiImageSecurityDatabaseGuid    ## CONSUMES
+
+
+#//>>>
+[Depex]
+  gEfiTrEEProtocolGuid
+#//<<<
+
+[BuildOptions]
+  *_*_*_BUILD_FLAGS=-s
+

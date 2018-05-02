@@ -1,0 +1,69 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UsbRt
+  FILE_GUID                      = 04EAAAA1-29A1-11d7-8838-00500473D4EB
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  PI_SPECIFICATION_VERSION       = 0x00010014
+  ENTRY_POINT                    = USBDriverEntryPoint
+
+[Sources]
+  ../AmiModulePkg\Usb\Rt/AmiUsb.c
+ ../AmiModulePkg\Usb\Rt/UsbKbd.c
+ ../AmiModulePkg\Usb\Rt/Debug.c
+ ../AmiModulePkg\Usb\Rt/Elib.c
+ ../AmiModulePkg\Usb\Rt/Uhci.c
+ ../AmiModulePkg\Usb\Rt/Usb.c
+ ../AmiModulePkg\Usb\Rt/UsbHub.c
+ ../AmiModulePkg\Usb\Rt/UsbMass.c
+ ../AmiModulePkg\Usb\Rt/UsbMass.h
+ ../AmiModulePkg\Usb\Rt/UsbCcid.c
+ ../AmiModulePkg\Usb\Rt/UsbMs.c
+ ../AmiModulePkg\Usb\Rt/UsbHid.c
+ ../AmiModulePkg\Usb\Rt/UsbPoint.c
+ ../AmiModulePkg\Usb\Rt/Uhci.h
+ ../AmiModulePkg\Usb\Rt/UsbKbd.h
+ ../AmiModulePkg\Usb\Rt/Ehci.c
+ ../AmiModulePkg\Usb\Rt/Ehci.h
+ ../AmiModulePkg\Usb\Rt/Ohci.c
+ ../AmiModulePkg\Usb\Rt/Ohci.h
+ ../AmiModulePkg\Usb\Rt/SysKbc.c
+ ../AmiModulePkg\Usb\Rt/SysNoKbc.c
+ ../AmiModulePkg\Usb\Rt/Xhci.h
+ ../AmiModulePkg\Usb\Rt/Xhci.c
+ ../AmiModulePkg\Usb/UsbPort.c
+ 
+ ../AmiModulePkg\Usb/UsbSb.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+ IntelFrameworkPkg/IntelFrameworkPkg.dec
+ AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+ AmiModulePkg/AmiModulePkg.dec
+
+[LibraryClasses]
+  AmiDxeLib
+ UefiDriverEntryPoint
+ AmiBufferValidationLib
+
+[Protocols]
+  gEfiUsbProtocolGuid
+ gAmiUsbSmmProtocolGuid
+ gEfiUsbPolicyProtocolGuid
+ gEfiSmmUsbDispatch2ProtocolGuid
+ gEfiSmmSwDispatch2ProtocolGuid
+ gEfiSmmPeriodicTimerDispatch2ProtocolGuid
+ gEfiSmmGpiDispatch2ProtocolGuid
+ gEmul6064MsInputProtocolGuid
+ gEmul6064TrapProtocolGuid
+ gEmul6064KbdInputProtocolGuid
+
+[Depex]
+  gEfiUsbProtocolGuid AND
+ gEfiSmmBase2ProtocolGuid AND
+ gEfiSmmSwDispatch2ProtocolGuid
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /D USB_RT_DRIVER
+  GCC:*_*_*_CC_FLAGS = -DUSB_RT_DRIVER
+

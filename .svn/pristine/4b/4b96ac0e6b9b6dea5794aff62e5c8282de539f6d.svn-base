@@ -1,0 +1,23 @@
+TOKEN
+	Name  = "IScsi_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IScsi support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	Master = Yes
+End
+
+INFComponent
+	Name  = "IScsiDxe"
+	File  = "IScsiDxe.inf"
+	Package  = "AmiNetworkPkg"
+	ModuleTypes  = "UEFI_DRIVER"
+End
+
+TOKEN
+	Name  = "TSE_SHOW_PROMPT_STRING_AS_TITLE"
+	Value  = "1"
+	Help  = "1 => To display control label string as Password Title. 0 => To display title string from AMITSEStr.uni file."
+	TokenType = Boolean
+	TargetH = Yes
+End

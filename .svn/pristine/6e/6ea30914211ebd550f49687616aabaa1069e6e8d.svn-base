@@ -1,0 +1,80 @@
+#*************************************************************************
+#<OEM_FHDR_START>
+#
+# Name:  <OemPsuPolicy.SDL>
+#
+# Description:     
+#
+#<OEM_FHDR_END>
+#*************************************************************************
+TOKEN
+	Name  = "OEM_PSU_POLICY_SUPPORT"
+	Value  = "1"
+	Help  = "Procure a solution to PSU redundancy"
+	TokenType = Boolean
+        TargetH = Yes
+        Master = Yes
+End
+
+PATH
+	Name  = "PSU_REDUNDANCY_DIR"
+        Path  = "FoxconnPkg/OemPsuPolicy"
+End
+
+ELINK
+	Name  = "$(PSU_REDUNDANCY_DIR)/OemPsuPolicy.sd"
+	Parent  = "SERVER_MGMT_SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(PSU_REDUNDANCY_DIR)/OemPsuPolicy.uni"
+	Parent  = "ServerMgmtSetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SavePsuState,"
+	Parent  = "SetupStringInit"
+	Priority  = 4
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(PSU_REDUNDANCY_DIR)/OemPsuPolicy.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+#TH0110A>>>
+ELINK
+	Name  = "SetPsuPolicy,"
+	Parent  = "SavePsuState,"
+	InvokeOrder = BeforeParent
+End
+#TH0110A<<<
+
+#TH0110A ELINK
+#TH0110A	Name  = "SetPsuPolicy,"
+#TH0110A	Parent  = "SavedConfigChangesHook,"
+#TH0110A	Help  = "Set SPU mode after save setup changes"
+#TH0110A	InvokeOrder = AfterParent
+#TH0110A End
+
+#TH0110A ELINK
+#TH0110A	Name  = "$(PSU_REDUNDANCY_DIR)/OemPsuPolicy.c"
+#TH0110A	Parent  = "TSE_SOURCE_FILES"
+#TH0110A	InvokeOrder = AfterParent
+#TH0110A End
+
+ELINK
+	Name  = "AmiIpmiPkg\AmiIpmiPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+#ELINK
+#	Name  = "IoLib"
+#	Parent  = "AdditionalSetupLibraryClasses"
+#	InvokeOrder = AfterParent
+#End

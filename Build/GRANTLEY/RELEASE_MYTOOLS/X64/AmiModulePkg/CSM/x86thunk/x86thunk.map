@@ -1,0 +1,8 @@
+
+ Start  Stop   Length Name                   Class
+ 00000H 00000H 00000H _TEXT                  CODE
+ 00000H 00494H 00495H THUNK_SEG              CODE
+ 004A0H 004A0H 00000H _DATA                  DATA
+
+ Origin   Group
+ 004A:0   DGROUP

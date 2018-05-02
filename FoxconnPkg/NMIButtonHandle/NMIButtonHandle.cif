@@ -1,0 +1,11 @@
+<component>
+	name = "NMIButtonHandle"
+	category = eModule
+	LocalRoot = "FoxconnPkg\NMIButtonHandle\"
+	RefName = "NMIButtonHandle"
+[INF]
+"NMIButtonHandle.inf"
+[files]
+"NMIButtonHandle.sdl"
+"OemInt2.csm16"
+<endComponent>

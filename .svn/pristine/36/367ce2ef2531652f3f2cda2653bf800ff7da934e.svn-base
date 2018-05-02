@@ -1,0 +1,16 @@
+TOKEN
+    Name  = "SmmIpmiInitialize_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling SmmIpmiInitialize support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+INFComponent
+    Name  = "SmmIpmiInitialize"
+    File  = "SmmIpmiBmcInitialize.inf"
+    Package  = "AmiIpmiPkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+End

@@ -1,0 +1,14 @@
+<component>
+	name = "Include"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Include\"
+	RefName = "TbtInclude"
+[files]
+"Guid\AmiTbtHob.h"	
+"Guid\AmiTbtHrStatus.h"	
+"Library\TbtDxeLib.h"	
+"Library\TbtOemLib.h"	
+"Protocol\AmiTbtNvs.h"  
+"Protocol\AmiTbtPlatformPolicy.h"	
+"TbtCommon.h"	
+<endComponent>

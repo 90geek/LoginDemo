@@ -1,0 +1,1880 @@
+TOKEN
+	Name  = "Foxconn_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Foxconn support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+INFComponent
+	Name  = "Foxconn"
+	File  = "Foxconn.inf"
+	Package  = "Foxconn"
+	Token = "Foxconn_SUPPORT" "=" "1"
+End
+#GCH001002+start
+PATH
+	Name  = "FXPKG_DIR"
+End
+#GCH001002+end
+#WYB011003+START
+TOKEN
+	Name  = "PROJECT_BOOTLEG_SUPPORT"
+ 	Value  = "0"
+	Help  = "Main switch to enable bootleg BIOS version support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "BIOS_BOOTLEG_VERSION"
+	Value  = "A" 
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PROJECT_BOOTLEG_SUPPORT" "=" "1"
+End
+#WYB011003+END
+
+#TH0001>>>
+TOKEN
+	Name  = "SKU_NUM"
+	Value  = "2" 
+	Help  = "0 for generic BIOS in trunk; 1 for A(Baidu) sku release; 2 for B(Ali_1218) sku release; 3 for C(Baidu) sku release (abolishment); 4 for D(Ali_806) sku release."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "X"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 digits"
+End
+
+#WYB011002+START
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "0"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	#TH0128	Token = "Thor_SUPPORT" "=" "1"
+	Token = "SKU_NUM" "=" "0"
+End
+#WYB011002+END
+
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "A"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	#TH0128	Token = "Thor_SUPPORT" "=" "1"
+	Token = "SKU_NUM" "=" "1"	#TH0128
+End
+
+#TH0128>>>
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "B"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "2"
+End
+#TH0128<<<
+
+#TH0140>>>
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "C"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "3"
+End
+#TH0140<<<
+
+#TH0163>>>
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "D"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "4"
+End
+#TH0163<<<
+
+#TH0193>>>
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "E"
+	Help  = "Component of 'BIOS_TAG' which used to distinguish different SKU."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "5"
+End
+#TH0193<<<
+
+#WYB011007+START
+TOKEN
+	Name  = "CUSTOMER_SKU"
+	Value = "0"
+	Help  = "The symbol for different Customers."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "0"
+End
+
+TOKEN
+	Name  = "CUSTOMER_SKU"
+	Value = "D" 
+	Help  = "The symbol for different Customers."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "1"
+End
+
+TOKEN
+	Name  = "CUSTOMER_SKU"
+	Value = "A"
+	Help  = "The symbol for different Customers."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "2"
+End
+
+TOKEN
+	Name  = "CUSTOMER_SKU"
+	Value = "D"
+	Help  = "The symbol for different Customers."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "3"
+End
+
+TOKEN
+	Name  = "CUSTOMER_SKU"
+	Value = "A"
+	Help  = "The symbol for different Customers."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "4"
+End
+#WYB011007+END
+
+TOKEN
+	Name  = "PROJECT_MAJOR_VERSION"
+	Value  = "21" #ZYY006020
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+#WYB011007+START
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "4C4C2"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "SKU_NUM" "=" "0"	
+End
+
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "4C4C2"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "SKU_NUM" "=" "1"	
+End
+
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "4E4C2"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "SKU_NUM" "=" "2"	
+End
+
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "4E4C2"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "SKU_NUM" "=" "3"	
+End
+
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "4C4C2"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "SKU_NUM" "=" "4"	
+End
+#WYB011007+END
+
+TOKEN
+	Name  = "BIOS_TAG"
+	#WYB011007-  Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(PROJECT_BUILD_SKU)"
+	Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(CUSTOMER_SKU)"  #WYB011007+
+	Help  = "BIOS Tag inserted into Firmware ID structure.\9 characters. \5 characters of project tag followed by 3 characters of project version and terminating zero"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+#WYB011003+START
+TOKEN
+	Name  = "BIOS_TAG"
+	#WYB011007-  Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(PROJECT_BUILD_SKU)$(BIOS_BOOTLEG_VERSION)"
+	Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(CUSTOMER_SKU)$(BIOS_BOOTLEG_VERSION)"  #WYB011007A+
+	Help  = "BIOS Tag inserted into Firmware ID structure.\9 characters. \5 characters of project tag followed by 3 characters of project version and terminating zero"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "PROJECT_BOOTLEG_SUPPORT" "=" "1"
+End
+#WYB011003+END
+
+TOKEN
+	Name  = "BIOS_SIGNON_MESSAGE2"
+	Value  = "BIOS Date: $(TODAY) $(NOW) Ver: $(BIOS_TAG)"
+	Help  = "BIOS Sign On Message"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetEQU = Yes
+	TargetH = Yes
+End
+#TH0001<<<
+
+TOKEN
+	Name  = "Thor_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Thor support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+#TH0098>>>
+TOKEN
+	Name  = "FITC_NM_FILE_NAME"
+	Value  = "Thor_SPS_NM_20160106A" #LLY011001
+	Help  = "This token describes the input filename for Node Manager to SPSfitc.exe. Do not fill any value if Node Manager support is not Present"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0098<<<
+
+#TH0010>>>
+TOKEN
+	Name  = "SecureBoot_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable SecureBoot Module support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "SecureMod_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+#TH0010<<<
+
+#TH0011>>>
+TOKEN
+    Name  = "COM0_DEFAULT_CONSOLE_REDIRECTION_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+#TH0011<<<
+
+#TH0012>>>
+TOKEN
+	Name  = "KBC_SUPPORT"
+	Value  = "0"
+	Help  = "Enable/Disable KBC support"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PS2Ctl_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable PS2 Controller support in the project."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+#TH0012<<<
+
+#TH0013>>>
+TOKEN
+	Name  = "DEFAULT_PXE_OPROM_POLICY"
+	Value  = "$(CSMSETUP_LEGACY_ONLY_OPROMS)"
+	Help  = "Default value of Launch PXE OpROM policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+End
+
+TOKEN
+	Name  = "DEFAULT_MASS_STORAGE_OPROM_POLICY"
+	Value  = "$(CSMSETUP_LEGACY_ONLY_OPROMS)"
+	Help  = "Default value of Launch Storage OpROM policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+End
+#TH0013<<<
+
+#TH0014>>>
+TOKEN
+	Name  = "SETUP_BBS_POPUP_ENABLE"
+	Value  = "1"
+	Help  = "Enable or disable the SETUP_BBS_POPUP_ENABLE. CAUTION This works only if complete TSE sources are present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0014<<<
+
+#TH0015 override - start: GpnvErrorLogging support
+TOKEN
+	Name  = "FV_GPNV_SIZE"
+	Value = "$(FV_ERROR_LOGGING_SIZE) + 1"
+	Help  = "Size of the ErrorLogging Area in bytes"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FV_ERROR_LOGGING_BASE"
+	Value  = "$(FLASH_BASE)+$(NVRAM_SIZE)*2+$(FV_WHEA_SIZE)"
+	Help  = "Base Address of the ErrorLogging Space"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 4G - FLASH_SIZE To: 4G"
+	Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+	Token = "WHEA_SUPPORT" "=" "1"	
+End
+
+FD_AREA
+    Name  = "GPNV"
+    TYPE = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(NVRAM_SIZE)"
+    Size  = "$(FV_GPNV_SIZE)"
+    Layout_Attribute  = "0x100"
+    Attributes  = "0xffff"
+    Alignment  = "16"
+    Token = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+FD_AREA
+    Name  = "GPNV"
+    TYPE = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(NVRAM_SIZE)+$(FV_WHEA_SIZE)"
+    Size  = "$(FV_GPNV_SIZE)"
+    Layout_Attribute  = "0x100"
+    Attributes  = "0xffff"
+    Alignment  = "16"
+    Token = "WHEA_SUPPORT" "=" "1"
+    Token = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+FD_AREA
+    Name  = "GPNV"
+    TYPE = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(NVRAM_SIZE)*2"
+    Size  = "$(FV_GPNV_SIZE)"
+    Layout_Attribute  = "0x100"
+    Attributes  = "0xffff"
+    Alignment  = "16"
+    Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+    Token = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+FD_AREA
+    Name  = "GPNV"
+    TYPE = "FV"
+    FD_INFO  = "AMIROM"
+    Offset  = "$(NVRAM_SIZE)*2+$(FV_WHEA_SIZE)"
+    Size  = "$(FV_GPNV_SIZE)"
+    Layout_Attribute  = "0x100"
+    Attributes  = "0xffff"
+    Alignment  = "16"
+    Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+    Token = "WHEA_SUPPORT" "=" "1"
+    Token = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_MAIN_OFFSET"
+	Value  = "$(NVRAM_OFFSET)+$(NVRAM_SIZE)+$(FV_GPNV_SIZE)"
+	Help  = "Offset to the start of the FV_MAIN area from the start of the ROM image"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 0 To: FLASH_SIZE - NVRAM_SIZE - FV_MAIN_SIZE"
+	Token  = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_MAIN_OFFSET"
+	Value  = "$(NVRAM_OFFSET)+$(NVRAM_SIZE)+$(FV_WHEA_SIZE)+$(FV_GPNV_SIZE)"
+	Help  = "Offset to the start of the FV_MAIN area from the start of the ROM image"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 0 To: FLASH_SIZE - NVRAM_SIZE - FV_MAIN_SIZE"
+	Token  = "WHEA_SUPPORT" "=" "1"
+	Token  = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_MAIN_OFFSET"
+	Value  = "$(NVRAM_OFFSET)+$(NVRAM_SIZE)*2+$(FV_GPNV_SIZE)"
+	Help  = "Offset to the start of the FV_MAIN area from the start of the ROM image"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 0 To: FLASH_SIZE - NVRAM_SIZE - FV_MAIN_SIZE"
+	Token  = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+	Token  = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_MAIN_OFFSET"
+	Value  = "$(NVRAM_OFFSET)+$(NVRAM_SIZE)*2+$(FV_WHEA_SIZE)+$(FV_GPNV_SIZE)"
+	Help  = "Offset to the start of the FV_MAIN area from the start of the ROM image"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 0 To: FLASH_SIZE - NVRAM_SIZE - FV_MAIN_SIZE"
+	Token  = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+	Token  = "WHEA_SUPPORT" "=" "1"
+	Token  = "GpnvErrorLogging_SUPPORT" "=" "1"
+End
+
+#ZA0046>>>
+TOKEN
+	Name  = "OEM_ACTIVATION_TABLE_ADDRESS"
+	Value = "$(FV_BB_BASE)- $(FV_MAIN_OFFSET)+ $(FV_GPNV_SIZE) - $(OEM_ACTIVATION_TABLE_SIZE)"
+	Help  = "OEM Activation Table address in the NCB. Port this token!" 
+	TokenType = Integer
+	TargetH = Yes
+	Token = "OEM_ACTIVATION_TABLE_LOCATION" "=" "1" 
+	Token = "GpnvErrorLogging_SUPPORT" "=" "1" 
+	Token = "INTEL_TXT_SUPPORT" "=" "1"      
+End
+#ZA0046<<<
+#TH0015 override - end: GpnvErrorLogging support
+
+#TH0030>>>
+TOKEN
+	Name  = "SETUP_HIDE_SUPPORT"
+	Value  = "1" 
+	Help  = "For hide setup menu question"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0030<<<
+
+#TH0036>>>
+TOKEN
+	Name  = "BEEP_ENABLE"
+	Value  = "1"
+	Help  = "This flag enables/disables all firmware beeps"
+	TokenType = Boolean
+End
+#TH0036<<<
+
+#TH0039>>>
+TOKEN
+	Name  = "IScsi_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable IScsi support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+#TH0039<<<
+
+#TH0041>>>
+TOKEN
+	Name  = "REFLASH_INTERACTIVE"
+	Value  = "0"
+	Help  = "When this switch is enabled, flash update process is interactive.\User can adjust update parameters before the update.\User can also choose not to update the flash.\Once update is completed user has to press a key to reset the system\When this switch is disabled, flash update process is started automatically.\User can only monitor progress of the operation.\Once update is completed system resets."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0041<<<
+
+#TH0047>>>
+TOKEN
+	Name  = "FIXED_BOOT_INCLUDE_DISABLED_OPTION"
+	Value  = "0"
+	Help  = "ON - Include Disabled to each boot priority control.  NOTE: System will be reset after priorities got changed.\OFF - No Disabled option"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "FIXED_BOOT_SWAP_POLICY" "=" "0"
+End
+#TH0047<<<
+
+#TH0049>>>
+TOKEN
+	Name  = "EDK_1_05_RETRIEVE_DATA"
+	Value  = "1"
+	Help  = "Modified code to return BrowserCallback String according to either EDK browser or spec. Please be careful when to change this to 0, May cause Addon Card to not to work."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "EFI_SPECIFICATION_VERSION" ">=" "0x2000A"
+End
+#TH0049<<<
+
+#TH0044A>>>
+TOKEN
+	Name  = "BUILD_UEFI_BOOT_NAME_BY_DP"
+	Value  = "1"
+	Help  = "Switch to control if to build UEFI Boot name according to the device path, currently only support network name"
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0044A<<<
+
+#TH0051>>>
+TOKEN
+	Name  = "A_S3"
+	Value  = "0"
+	Help  = "S3 supported"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "A_S4"
+	Value  = "0"
+	Help  = "S4 supported"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+#TH0051<<<
+
+#TH0055>>>
+TOKEN
+	Name  = "LOAD_DEFAULTS_ON_CMOS_CLEAR"
+	Value  = "1"
+	Help  = "Project level control to enable or disable loading setup defaults when CMOS is cleared."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0055<<<
+
+#TH0056>>>
+TOKEN
+	Name  = "Ipv6_SUPPORT"
+	Value  = "1"	#TH0132
+	Help  = "Main switch to enable Ipv6 stack support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0056<<<
+
+#ZA0006A<<<
+TOKEN
+	Name  = "HIDE_USB_HISPEED_SUPPORT_SETUP_QUESTION"
+	Value  = "0"
+	Help  = "Switch to Hide/Un-hide USB HiSpeed Support setup question."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEFAULT_BOOT_TIMEOUT"
+	Value  = "3"
+	Help  = "Number of seconds that the firmware will wait before initiating the original default boot selection. \A value of 0 indicates that the default boot selection is to be initiated immediately on boot. \A value of 65535(0xFFFF) indicates that firmware will wait for user input before booting. \This means the default boot selection is not automatically started by the firmware."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-65535"
+End
+#ZA0006A<<<
+
+#ZA0015>>>
+TOKEN
+	Name  = "PCI_EXPRESS_GEN2_SUPPORT"
+	Value  = "0"
+	Help  = "Enables / Disables Pci Bus Driver Native PCI Express Gen2 support"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PCI_EXPRESS_SUPPORT" "=" "1"
+End
+#ZA0015<<<
+
+#ZA0017>>>
+TOKEN
+	Name  = "DEFAULT_WAIT_BMC_TIMEOUT"
+	Value  = "50"
+	Help  = "Number of seconds wait for BMC"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "40-120"
+End
+#ZA0017<<<
+
+#ZA0019>>>
+TOKEN
+    Name  = "DEFAULT_ACPI_SPCR_CONSOLE_REDIRECTION_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+#ZA0019<<<
+
+
+#ZA0029>>>>
+TOKEN
+	Name  = "POPUP_MENU_SHOW_ALL_BBS_DEVICES"
+	Value  = "1"
+	Help  = "1 => Shows all BBS devices in BBS POPup menu. 0 => Shows only the first device of a BBS type in BBS POPUP menu."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#ZA0029<<<
+
+#ZA0043>>>
+TOKEN
+	Name  = "S3NvramSave_SUPPORT"
+	#TH0105	Value  = "0"
+	Value  = "1"	#TH0105
+	Help  = "Switch for saving MRC config to NVRAM"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "A_S3" "=" "0"
+End
+#ZA0043<<<
+
+#ZA0019A>>>
+TOKEN
+	Name  = "DRIVER_HEALTH_SUPPORT"
+	Value  = "0"
+	Help  = "1 = Enabling Driver health support in TSE and 0 = Disabling Driver health support in TSE."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "EFI_SPECIFICATION_VERSION" ">=" "0x20014"
+End
+#ZA0019A<<<
+
+#TH0063A>>>
+TOKEN
+	Name  = "TSE_BOOT_NOW_IN_BOOT_ORDER"
+	Value  = "1"
+	Help  = "Turn on to see boot override/BBS Popup menu with in the devices listed in boot order."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0063A<<<
+
+#TH0064>>>
+TOKEN
+	Name  = "SETUP_PASSWORD_NON_CASE_SENSITIVE"
+	Value  = "0"
+	Help  = "Allow to use of case sensitive password. Note:This token should be OFF with SETUP_STORE_KEYCODE_PASSWORD value 1 or 2."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0064<<<
+
+#TH0066>>>
+TOKEN
+    Name  = "OEM_SEL_SUPPORT"
+    Value  = "0"
+    Help  = "Main switch to enable Oem Sel Status codes"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+#TH0066<<<
+
+#TH0072>>>
+TOKEN
+    Name  = "IPMI_SMM_KCS_COMMAND_PORT_READ_RETRY_COUNTER"
+    #TH0072A Value  = "0x3E8"
+    Value  = "0x7D0" #TH0072A
+    Help  = "In SMM, the IPMI_KCS_COMMAND_PORT is read these many times with delay calculated with IPMI_KCS_DELAY_PER_RETRY(Default is 5ms per retry) token for particular bit to set."
+    TokenType = Integer
+    TargetH = Yes
+End
+#TH0072<<<
+
+#TH0072A>>>
+TOKEN
+    Name  = "IPMI_KCS_COMMAND_PORT_READ_RETRY_COUNTER"
+    Value  = "0x2710"
+    Help  = "The IPMI_KCS_COMMAND_PORT is read IPMI_KCS_COMMAND_PORT_READ_RETRY_COUNTER many times with delay calculated with IPMI_KCS_DELAY_PER_RETRY(Default is 5ms per retry) token for particular bit to set."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "IPMI_KCS_DELAY_PER_RETRY"
+    Value  = "5 * 100"
+    Help  = "IPMI_KCS_DELAY_PER_RETRY is given as argument for MicroSecondDelay function in KcsBmc.c file.MicroSecondDelay(1) = 1us delay. By default, delay is given as 5ms."
+    TokenType = Expression
+    TargetH = Yes
+End
+#TH0072A<<<
+
+#TH0084>>>
+TOKEN
+    Name  = "SMBIOS_PRESERVE_NVRAM"
+    Value  = "0"
+    Help = "DMIEdit data is to be preserved across BIOS update using AMI AFU utility. \ON -> AMI DMIEdit data in NVRAM to be preserved \OFF -> No preservation"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "2"
+End
+
+TOKEN
+	Name  = "OEMSETUP_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling OEM SETUP Preserve support in the project"
+	TokenType = Boolean
+End
+#TH0084<<<
+
+#TH0085>>>
+TOKEN   
+    Name  = "NEVER_RESTRICT_GLOBAL_VAR"   
+    Value  = "1"   
+    Help  = "Main switch to enable EdkShellBinPkg support in Project"   
+    TokenType = Boolean   
+    TargetH = Yes   
+End   
+#TH0085<<< 
+
+#TH0090>>>>
+TOKEN   
+    Name  = "PSU_REDUNDANCY_SUPPORT"   
+    #TH0110	Value  = "1"
+    Value  = "0"	#TH0110
+    Help  = "Main switch to enable PSU redundancy support in Project"   
+    TokenType = Boolean   
+    TargetH = Yes
+    TargetMAK = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0090<<<<
+
+#TH0091>>>>
+TOKEN   
+    Name  = "OEM_NMI_SUPPORT"   
+    Value  = "1"   
+    Help  = "Main switch to enable NMI support in Project"   
+    TokenType = Boolean   
+    TargetH = Yes
+    TargetMAK = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0091<<<<
+
+#TH0092>>>>
+TOKEN   
+    Name  = "POWER_RESTORE_POLICY_SUPPORT"   
+#TH0092A    Value  = "1"
+    Value  = "0"	#TH0092A   
+    Help  = "Main switch to enable Power Restore Policy support in Project"   
+    TokenType = Boolean   
+    TargetH = Yes
+    TargetMAK = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0092<<<<
+
+#TH0100>>>>
+TOKEN   
+    Name  = "DEFAULT_NUMA_ENABLED"
+    Value  = "1"   
+    Help  = "NUMA is enabled by Setup default"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_NUMA_ENABLED"
+    Value  = "0"   
+    Help  = "NUMA is enabled by Setup default"   
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_PM_PROMPT"
+#TH0191    Value  = "1"   
+	Value  = "0" #TH0191
+    Help  = "0.Energy Efficient 1.Custom"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_PM_PROMPT"
+#TH0191    Value  = "2"   
+	Value  = "1" #TH0191
+    Help  = "0.Energy Efficient 1.Custom"    
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_TURBO_MODE_ENABLED"
+    Value  = "1"   
+    Help  = "Turbo Mode is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_TURBO_MODE_ENABLED"
+    Value  = "0"   
+    Help  = "Turbo Mode is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_C_STATE_ENABLED"
+    Value  = "1"   
+    Help  = "CPU C State is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_C_STATE_ENABLED"
+    Value  = "0"   
+    Help  = "CPU C State is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_C6_ENABLED"
+    Value  = "1"   
+    Help  = "CPU C6 State is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_C6_ENABLED"
+    Value  = "0"   
+    Help  = "CPU C6 State is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_WHEA_ENABLED"
+    Value  = "0"   
+    Help  = "WHEA is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_WHEA_ENABLED"
+    Value  = "1"   
+    Help  = "WHEA is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_QPI_LINKL0P_ENABLED"
+    Value  = "1"   
+    Help  = "QPI Link L0p is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_QPI_LINKL0P_ENABLED"
+    Value  = "0"   
+    Help  = "QPI Link L0p is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_FRB2_TIMER_ENABLED"
+    Value  = "1"   
+    Help  = "FRB2 Timer is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_FRB2_TIMER_ENABLED"
+    Value  = "0"   
+    Help  = "FRB2 Timer is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_OEM_BOOT_ORDER"
+    Value  = "0"   
+    Help  = "OEM boot order by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_OEM_BOOT_ORDER"
+    Value  = "1"   
+    Help  = "OEM boot order by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0100<<<<
+
+#TH0106>>>
+########################## PXE function #############################
+TOKEN
+	Name  = "F12_Hotkey_Support"
+	Value  = "0"
+	Help  = "Enable or disable the PXE function"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "F12_Hotkey_Support"
+	Value  = "1"
+	Help  = "Enable or disable the F12 function"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SETUP_OEM_KEY1_ENABLE"
+	Value  = "1"
+	Help  = "Enable or disable the SETUP_OEM_KEY1"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "F12_Hotkey_Support" "=" "1"
+End
+
+TOKEN
+	Name  = "SETUP_OEM_KEY1_SCAN"
+	Value  = "EFI_SCAN_F12"
+	Help  = "Set to one of the defined constants from EFI_SIMPLE_TEXT_INPUT protocol"
+	TokenType = Expression
+	TargetH = Yes
+	TargetEQU = Yes
+    TargetMAK = Yes
+	Token = "SETUP_OEM_KEY1_ENABLE" "!=" "0"
+End
+
+TOKEN
+	Name  = "SETUP_OEM_KEY1_EFIKEY"
+	Value  = "0x00"
+	Help  = "Set to one of the defined EFI_KEY enumeration"
+	TokenType = Expression
+	TargetH = Yes
+	Token = "SETUP_OEM_KEY1_ENABLE" "!=" "0"
+	Token = "TSE_USE_AMI_EFI_KEYCODE_PROTOCOL" "!=" "0"
+End
+
+TOKEN
+	Name  = "NetBootHotKey_SUPPORT"	
+	Value  = "1"
+	Help  = "Enable or disable the network PXE boot"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "F12_Hotkey_Support" "=" "1"
+End
+#TH0106<<<
+
+#TH0107>>>
+########## DMI/FRU synchronization #############
+TOKEN
+	Name  = "IpmiRedirFru_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IpmiRedirFru support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "FruSetupScreen_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable FruSetupScreen support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+
+TOKEN
+    Name  = "PRODUCT_NAME_WITH_MODEL_NO"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "UPDATE_UUID_FOLLOW_FRU"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+End
+#TH0107<<<
+
+#TH0107>>>
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdChassisAssetTag"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+#TH0107<<<
+
+#TH0108>>>
+TOKEN
+	Name  = "SIO_VIRTUAL_PORT_SUPPORT"
+	Value  = "0"
+	Help  = "Both SIO and VirtualSerial Module provide Serial Port support. 1 - Support to assign resource for virtual serial according to SIO Setup."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TOTAL_SIO_SERIAL_PORTS"
+	Value  = "2"
+	Help  = "**PORTING NEEDED** Total number of Super IO serial ports present."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "0-10"
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "VirtualSerial_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable Virtual Serial Device support in Project"
+	TokenType = Boolean
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "AST2400_SERIAL_PORT2_PRESENT"
+	Value  = "1"
+	Help  = "Serial Port 2 (COMB / UART2) Present / Not Present."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "AST2400_SUPPORT" "=" "1"
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "DEBUG_COM_PORT_ADDR"
+	Value  = "$(AST2400_SERIAL_PORT2_BASE_ADDRESS)"
+	Help  = "Debug Address from Serial Port x."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "AST2400_SERIAL_PORT2_PRESENT" "=" "1"
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "COM1_DEFAULT_CONSOLE_REDIRECTION_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "DEFAULT_COM_PORT_FOR_LEGACY"
+	Value  = "1"
+	Help  = "Default ComPortforLegacy. 0 - TERMINAL_PORT0, 1 - TERMINAL_PORT1."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "TOTAL_SIO_SERIAL_PORTS" ">=" "2"
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "0"
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE1_UID"
+	Value  = "1"
+	Help  = "Virtual Serial Device 1 UID. Make sure this UID is not used by any SIO serial ports"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE1_BASE_ADDRESS"
+	Value  = "0x3F8"
+	Help  = "Virtual Serial Device 1 Base Address."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE1_IRQ"
+	Value  = "4"
+	Help  = "Virtual Serial Device 1 IRQ."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE1_BASE_ADDRESS1"
+	Value  = "0x2F8"
+	Help  = "Virtual Serial Device 1 Base Address."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE1_IRQ1"
+	Value  = "3"
+	Help  = "Virtual Serial Device 1 IRQ."
+	TokenType = Integer
+	TargetH = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "1"
+End
+
+PCIDEVICE
+	Title  = "COM1 Container"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x0"
+	Dev_type  = "Container"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\VirtualSerial\VirtualSerialComPort1.asl;After Pci Tree'"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	Virtual = Yes
+	Disable = Yes
+	Token = "SIO_VIRTUAL_PORT_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "AST2400_SERIAL_PORT2_BASE_ADDRESS"
+    Value  = "0x02F8"
+    Help  = "Base Address of Serial Port 2 (COMB / UART2)."
+    TokenType = Integer
+    TargetH = Yes
+    Token = "AST2400_SERIAL_PORT2_PRESENT" "=" "1"
+End
+#TH0108<<<
+
+#TH0111>>>>
+TOKEN
+	Name  = "SHOW_CPU_MWAIT_MONITOR_ITEM"
+	Value  = "1"
+	Help  = "show CPU MONIOR/MWAIT item in setup"
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0111<<<<
+
+#TH0112>>>>
+TOKEN
+    Name  = "HddSmart_Support"
+    Value  = "0"
+    Help  = "Main switch to enable HddSMART support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "HddSmart_Support"
+    Value  = "1"
+    Help  = "Main switch to enable HddSMART support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0112<<<<
+
+#TH0114>>>
+TOKEN
+    Name  = "NUM_DIMMSLOT_PERCHANNEL"
+    Value  = "2"
+    Help  = "Num of DIMM Per channel"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+	Name = "REPORT_MEM_CONFIG_TO_BMC"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0114<<<
+
+#TH0115>>>>
+TOKEN
+	Name  = "CSM_DEFAULT_VMODE_SWITCHING"
+	Value  = "1"    
+	Help  = "0 - switch video mode from graphics to text before executing the Option ROM, switch back to graphics afterwards\1 - use text mode during all Option ROMs execution time, no video mode switching during this time frame."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0...1"
+	Token = "Thor_Support" "=" "1"
+End
+#TH0115<<<<
+
+#TH0118>>>
+TOKEN
+	Name = "NCSI_SELECT_SUPPORT"
+	Value = "1"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "Thor_Support" "=" "1"
+End
+
+TOKEN
+	Name  = BMC_LAN_COUNT
+	#DJH002003-- Value  = "2"
+	Value  = "1" #DJH002003:2->1
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "1-2"
+	Help  = "Number of LAN ports available for BMC use"
+   	Token = "NCSI_SELECT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = BMC_LAN2_CHANNEL_NUMBER
+	Value  = "8"
+	TokenType = Integer
+	TargetH = Yes
+	Help  = "BMC Channel number assigned for LAN port 1"
+	Token = "NCSI_SELECT_SUPPORT" "=" "1"
+End
+#TH0118<<<
+
+#TH0119>>>
+TOKEN
+    Name  = "DISPLAY_ALL_DIMM_INFO"
+    Value  = "1"
+    Help  = "1-Display all DIMM info in 'Memory Topology' page; 0-Display DIMM info which is add on memory"
+    TokenType = Boolean
+    TargetH = Yes
+End
+#TH0119<<<
+
+#TH0120>>>
+TOKEN
+	Name  = "TSE_SUPPORT_NATIVE_RESOLUTION"
+	Value  = "0"
+	Help  = "Sets the graphics mode for quiet boot from EDID. 1 - Defaultly enable make 0 to disable the feature"
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0120<<<
+
+#TH0121>>>
+TOKEN   
+    Name  = "DEFAULT_TERMINAL_TYPE_SETTING"
+    Value  = "3"   
+    Help  = "Terminal Type setting by Setup default"
+#TH0191    TokenType = Boolean   
+	TokenType = Integer #TH0191
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_TERMINAL_TYPE_SETTING"
+    Value  = "0"   
+    Help  = "Terminal Type setting by Setup default"
+#TH0191    TokenType = Boolean   
+	TokenType = Integer #TH0191
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN   
+    Name  = "DEFAULT_PROCESSOR_C1E_ENABLED"
+    Value  = "1"   
+    Help  = "Enable the Enhanced C1E state of the CPU by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_PROCESSOR_C1E_ENABLED"
+    Value  = "0"   
+    Help  = "Enable the Enhanced C1E state of the CPU by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0121<<<
+
+#TH0125>>>
+TOKEN
+	Name  = "DiPM_SUPPORT"
+	Value  = "0"
+	Help  = "Support Device Initiated Power Management"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+#TH0125<<<
+
+#TH0127>>>
+TOKEN
+	Name  = "REPORT_SYSTEM_CONFIGURATION_TO_BMC"
+	Value  = "1"
+	Help  = "Report System Configuration To BMC"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0127<<<
+
+#TH0140>>>>
+TOKEN
+	Name  = "LOGO_FILE_NAME"
+	Value  = "FoxconnPkg/Baidu.bmp"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes
+	Token = "SKU_NUM" "=" "3"
+End
+#TH0140<<<<
+
+#TH0140>>>>
+TOKEN
+	Name  = "DEFAULT_QUIET_BOOT"
+	Value  = "1"
+	Help  = "Enable or disable the QuietBoot function"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "SKU_NUM" "=" "3"
+End
+#TH0140<<<<
+
+#TH0141>>>
+TOKEN
+    Name  = "ME_FLASH_OVERRIDE"
+    Value  = "1"
+    Help  = "Main switch to enable ME update without jump the jumper"
+    TokenType = Boolean
+    TargetH = Yes
+End
+#TH0141<<<
+
+#TH0144>>>
+TOKEN
+    Name  = "IPMI_BOOT_OVERRIDE"
+    Value  = "1"
+    Help  = "Enable token to override IPMI boot while Setup boot order changed by Local user "
+    TokenType = Boolean
+End
+
+TOKEN 
+    Name = "IPMI_BOOT_DONOT_USE_BOOTNEXT" 
+    Value = "1" 
+    Help = "Enable token to avoid set BootNext variable on OemFixedBootOrderIpmi " 
+    TokenType = Boolean 
+    TargetH = Yes 
+End
+#TH0144<<<
+
+#TH0145>>>
+TOKEN
+    Name  = "NETBOOT_ON_READYTOBOOT"
+    Value = "1"
+    Help  = "Main switch to enable NetBootHotKey support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+ELINK
+    Name = "NetBootHotKeyEx,"
+    Parent = "NetBootHotKey,"
+    InvokeOrder = ReplaceParent
+    TOKEN = "NETBOOT_ON_READYTOBOOT" "=" "1"
+End
+#TH0145<<<
+
+#TH0145A>>>
+ELINK
+Name = "NetBootReadyToBoot,"
+Parent = "FixedBootOrderToBoot,"
+InvokeOrder = AfterParent
+TOKEN = "NETBOOT_ON_READYTOBOOT" "=" "1"
+End
+#TH0145A<<<
+
+#TH0153>>>
+TOKEN
+	Name  = "NUMA_CMOS_INDEX"
+	Value  = "50h"
+	Help  = "Index of CMOS which store previous setup configuration of 'NUMA' "
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0Eh-7Fh"
+End
+#TH0153<<<
+
+#TH0155>>>
+TOKEN
+	Name  = "RESET_COUNTER_CMOS_INDEX"
+	Value  = "51h"
+	Help  = "Index of CMOS which count the warm reset "
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0Eh-7Fh"
+End
+#TH0155<<<
+
+#TH0157>>>
+TOKEN   
+    Name  = "DEFAULT_HYPER_THREADING_ENABLED"
+    Value  = "1"   
+    Help  = "Hyper-Threading is enabled by Setup default"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0157<<<
+
+#TH0156A>>>
+TOKEN   
+    Name  = "TIME_SYNCH_SEL_ENABLE"
+    Value  = "1"   
+    Help  = "Log time stamp clock sync SEL"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0156A<<<
+
+#TH0162>>>
+TOKEN
+	Name  = "BOOT_FLOW_NORMAL_LAUNCH_DEFAULT_BOOTIMAGE"
+	Value  = "0"
+	Help  = "Support for UEFI specification v 2.3.1 section 3.4.1.1 and 3.4.1.2 to load the default boot image (efi\boot\boot####.efi) from any of the available file system if no boot option found. 1 = Enabling default image boot and 0 = Disabling default image boot."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0162<<<
+
+#TH0163>>>
+TOKEN
+	Name  = "PROJECT_BUILD_SKU"
+	Value = "D"
+	Help  = "Build Number and should be incremented with any new release."
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "Maximum 1 Char"
+	Token = "SKU_NUM" "=" "4"
+End
+#TH0163<<<
+
+#TH0167>>>
+TOKEN   
+    Name  = "PATCH_FOR_BMC_USB_VM_NAME"   
+    Value  = "1"   
+    Help  = "Patch MP EMS Virtual Media name string"   
+    TokenType = Integer   
+    TargetH = Yes   
+End  
+#TH0167<<<
+
+#TH0172>>>
+TOKEN
+	Name  = "SETUP_SHOW_ALL_BBS_DEVICES"
+	Value  = "1"
+	Help  = "1 => Shows all BBS devices in boot override menu. 0 => Shows only the first device of a BBS type in override menu."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0172<<<
+
+#TH0173>>>
+TOKEN   
+    Name  = "DEFAULT_DIRECT_CACHE_ACCESS"
+    Value  = "0"   
+    Help  = "Main switch to config 'Direct Cache Access(DCA)': 0.Enable; 1.Auto"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_BOOT_PERFORMANCE_STATE"
+    Value  = "1"   
+    Help  = "Main switch to show 'Boot performance mode': 0.Hide; 1.Show.  (Default is 'Max Performance')"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_PACKAGE_CSTATE"
+    Value  = "0"   
+    Help  = "Main switch to config 'Package C State Limit': 0.C0/C1 State.(Also change the options); 1.C6(Retention) State."
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_ACPI_T_STATE"
+    Value  = "0"   
+    Help  = "Main switch to enable 'ACPI T-States': 0.Disable; 1.Enable"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_SET_THORTTLING_MODE"
+	#TH0196    Value  = "0"   
+	Value  = "1"  #TH0196
+    Help  = "Main switch to config 'Set Throttling Mode': 0.Disable; 1.CLTT"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_SOCKET_INTERLEAVE_BELOW4GB"
+    Value  = "1"   
+    Help  = "Main switch to show 'Socket Interleave Below 4GB': 0.Hide; 1.Show.  (Default is Disable)"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_PATROL_SCRUB_INTERVAL"
+    Value  = "0"   
+    Help  = "Main switch to config 'Patrol Scrub Interval': 0.default = maximum = 18; 1.default = maximum = 24"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_DEMAND_SCRUB"
+    Value  = "0"   
+    Help  = "Main switch to enable 'Demand Scrub': 0.Disable; 1.Enable"
+    TokenType = Boolean
+	TargetMAK = Yes
+End
+#TH0177<<<
+
+#TH0177>>>
+TOKEN
+	Name  = "RtErrorLogGpnv_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable RtErrorLogGpnv support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+#TH0177<<<
+
+#TH0191>>>
+TOKEN
+    Name  = "OEM_SEL_LOG_SUPPORT"
+    Value = "0"
+    Help  = "Main switch to enable OEM SEL support in Project."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_EIST_ENABLED"
+    Value  = "1"   
+    Help  = "Main switch to enable CPU EIST: 0.Disabled; 1.Enabled"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_UNCORE_FREQ_SCALING"
+    Value  = "0"   
+    Help  = "Main switch to show UFS: 0.Hide; 1.Show. (Default is Enable)"    
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CLUSTER_ON_DIE_EN"
+    Value  = "0"   
+    Help  = "Main switch to show 'Cluster on Die(COD)': 0.Hide(Default is Auto); 1.Show(Default is Disabled)"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_EARLY_SNOOP_EN"
+    Value  = "0"   
+    Help  = "Main switch to show Early Snoop Enable: 0.Hide(Default is Auto); 1.Show(Default is Enabled)"     
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_AFTER_G3"
+    Value  = "0"   
+    Help  = "Main switch to config Restore AC Power Loss(After G3): 0.Power On; 1.Power Off"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_DIRECT_CACHE_ACCESS"
+    Value  = "1"   
+    Help  = "Main switch to config Direct Cache Access(DCA): 0.Enable; 1.Auto"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_BOOT_PERFORMANCE_STATE"
+    Value  = "0"   
+    Help  = "Main switch to show Boot performance mode: 0.Hide; 1.Show.  (Default is 'Max Performance')"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_PACKAGE_CSTATE"
+    Value  = "1"   
+    Help  = "Main switch to config 'Package C State Limit': 0.C0/C1 State.(Also change the options); 1.C6(Retention) State."      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_ACPI_T_STATE"
+    Value  = "1"   
+    Help  = "Main switch to enable 'ACPI T-States': 0.Disable; 1.Enable"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_SET_THORTTLING_MODE"
+    Value  = "1"   
+    Help  = "Main switch to config 'Set Throttling Mode': 0.Disable; 1.CLTT"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_SOCKET_INTERLEAVE_BELOW4GB"
+    Value  = "0"   
+    Help  = "Main switch to show 'Socket Interleave Below 4GB': 0.Hide; 1.Show.  (Default is Disable)"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_PATROL_SCRUB_INTERVAL"
+    Value  = "1"   
+    Help  = "Main switch to config 'Patrol Scrub Interval': 0.default = maximum = 18; 1.default = maximum = 24"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_DEMAND_SCRUB"
+    Value  = "1"   
+    Help  = "Main switch to enable 'Demand Scrub': 0.Disable; 1.Enable"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_MWAIT_MONITOR_ITEM"
+    Value  = "1"   
+    Help  = "Main switch to enable Monitor/Mwait: 0.Disabled; 1.Enabled"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SETUP_COMPORT_CONFIG_SELECT"
+    Value  = "0"   
+    Help  = "Main switch to set the COM port: 0.Physical-3F8, SOL-2F8; 1.Physical-2F8, SOL-3F8"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "CHANGE_ONBOARD_HDD_FIRST"
+    Value  = "1"   
+    Help  = "Change the HDD priority for AHCI mode: 0.Off board HDD first; 1.Onboard HDD first"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "INFORM_BMC_CATCH_QPI_MRC_DEBUG_MESSAGE"
+    Value  = "0"   
+    Help  = "Inform BMC to catch QPI/MRC debug message from com port."   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0191<<<
+#LLY011012+>>>
+TOKEN
+	Name  = "Foxconn_Setup_Debug" 
+	Value  = "0"
+	Help  = "1-Switch to show hide setup items for Test"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+TOKEN
+	Name  = "SETUP_HIDE_SUPPORT"
+	Value  = "1"
+	Help  = "For hide setup menu question"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "Foxconn_Setup_Debug" "=" "1"
+End
+#LLY011012+<<<
+#EIPEIP247431+>>
+TOKEN
+        Name  = "MAX_ERROR_MANAGER_NVRAM_VARIABLE_SIZE"
+        Value  = "0x1000"
+        Help  = "To avoid corruption of NVRAM memory and also to ensure other drivers should have enough free Nvram space to use, size of the variable is defined. Based on the NVRAM_SIZE, the variable size can be changed. Now it is set to 16KB"
+        TokenType = Integer
+        TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVRAM_SMI_FULL_PROTECTION"
+	Value  = "1"
+	Help  = "Switch to enable full SMI protection. If ON all NVRAM services will be handled through SMIs (maximum protection but slowest speed). If OFF only SetVariable will processed through SMI (minimum requirement for Secure Flash)."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#EIPEIP247431+<<
+
+#ZYY006005- #WYB011016+START
+#ZYY006005- TOKEN
+#ZYY006005- Name  = "SETUP_HIDE_DISABLE_BOOT_OPTIONS"
+#ZYY006005- Value  = "1"
+#ZYY006005- Help  = "1 => Hide the disabled boot options in boot override menu. 0 => Shows all boot options boot override menu."
+#ZYY006005- TokenType = Boolean
+#ZYY006005- TargetH = Yes
+#ZYY006005- End
+#ZYY006005- #WYB011016+END

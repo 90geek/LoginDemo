@@ -1,0 +1,93 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DefinitionBlock (
+  "CPUMFC.aml",     
+  "NITR",           
+  2,                
+  "ACPI_OEM_ID_MAK",          
+  "ACPI_OEM_TBL_ID_MAK",       
+  0x01            
+  ) {
+     scope(\_SB)
+     {
+
+				Device(INTS)
+				{
+					Name(_HID, EISAID("INT3510")) 
+					Name(_STR, Unicode ("Intel Nitrous Device")) 
+				}
+				
+	}
+				
+}

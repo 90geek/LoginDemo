@@ -1,0 +1,64 @@
+#*************************************************************************
+#<OEM_FHDR_START>
+#
+# Name: ModifyBiosConfigOverBmc.sdl
+#
+# Description:
+#
+#<OEM_FHDR_END>
+#*************************************************************************
+
+TOKEN
+	Name  = "OEM_DXE_Driver_Support"
+	Value  = "1"
+	Help  = "Main switch to enable OEM DXE drive support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+	Master = Yes
+End
+
+#TH0143A>>>
+TOKEN
+	Name  = "MOD_BIOS_CONFIG_OVER_BMC_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for enable modify BIOS configuration over BMC support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0143A<<<
+
+#TH0155>>>
+TOKEN
+	Name  = "OemFunctions_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable OemFunctions support in Project"
+	TokenType = Boolean
+End
+#TH0155<<<
+
+INFComponent
+	Name  = "ModifyBiosConfigOverBmc"
+	File  = "ModifyBiosConfigOverBmc\ModifyBiosConfigOverBmc.inf"
+	Package  = "FoxconnPkg"
+	ModuleTypes  = "DXE_DRIVER"
+#TH0143A	Token = "OEM_DXE_Driver_Support" "=" "1"
+	Token = "MOD_BIOS_CONFIG_OVER_BMC_SUPPORT" "=" "1" #TH0143A
+End
+
+FFS_FILE
+	Name  = "ModifyBiosConfigOverBmc"
+	FD_AREA  = "FV_MAIN"
+	INFComponent  = "ModifyBiosConfigOverBmc"
+	Apriori_Index  = "5"
+	Token = "MOD_BIOS_CONFIG_OVER_BMC_SUPPORT" "=" "1" #TH0143A
+End
+
+#TH0155>>>
+INFComponent
+	Name  = "OemFunctions"
+	File  = "OemFunctions\OemFunctions.inf"
+	Package  = "FoxconnPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "OemFunctions_SUPPORT" "=" "1"
+End
+#TH0155<<<

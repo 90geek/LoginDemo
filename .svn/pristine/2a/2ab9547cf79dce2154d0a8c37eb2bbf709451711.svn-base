@@ -1,0 +1,18 @@
+<component>
+	name = "Thunderbolt"
+	category = eModule
+	LocalRoot = "AmiChipsetModulePkg\Thunderbolt\"
+	RefName = "Thunderbolt"
+[INF]
+"TbtPei\TbtPei.inf"
+"TbtDxe\TbtDxe.inf"
+"TbtSmm\TbtSmm.inf"
+[files]
+"Thunderbolt.sdl"	
+"Thunderbolt.chm"	
+[parts]
+"TbtInclude"
+"TbtLibrary"
+"TbtAsl"
+"TbtSetup"
+<endComponent>

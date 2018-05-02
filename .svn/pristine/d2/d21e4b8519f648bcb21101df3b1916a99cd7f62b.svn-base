@@ -1,0 +1,18 @@
+<component>
+	name = "Tool"
+	category = ModulePart
+	LocalRoot = "GrantleyPkg\Tool\"
+	RefName = "GrantleyPkg.Tool"
+[files]
+"FTool\SPS\SPSOperational.bin"	
+"FTool\SPS\SPSRecovery.bin"	
+"FTool\SPS\Config\WBGMC_SiEn.xml"	
+"FTool\SPS\Config\WBGMC_NM.xml"	
+"FTool\SPS\Config\WBGIC_SiEn.xml"	
+"FTool\SPS\Config\WBGIC_NM.xml"	
+"FTool\SPS\Config\WBGYC_SiEn.xml"	
+"FTool\SPS\Config\WBGYC_NM.xml"	
+"FTool\SPS\Tools\FlashImageTool\spsFITC.exe"	
+"FTool\SPS\PTU\Grantley_SpsNMPTU_signer.cer"	
+"FTool\SPS\PTU\Grantley_SpsNMPTU_signed.rom"	
+<endComponent>

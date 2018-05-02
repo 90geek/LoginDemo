@@ -1,0 +1,11 @@
+<component>
+	name = "C2FDxe"
+	category = ModulePart
+	LocalRoot = "GrantleyPkg\Platform\Dxe\C2FDxe\"
+	RefName = "GrantleyPkg.C2FDxe"
+[INF]
+"C2FDxe.inf"
+[files]
+"C2FDxe.sdl"	
+"C2FDxe.ssp"	
+<endComponent>

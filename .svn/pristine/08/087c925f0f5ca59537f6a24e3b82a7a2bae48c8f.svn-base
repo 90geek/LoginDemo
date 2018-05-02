@@ -1,0 +1,92 @@
+TOKEN
+	Name  = "SocketPkgSmm_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SocketPkgSmmsupport in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "SmmAccess_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable SmmAccess support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "IioSmm_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IioSmm support in Project"
+	TokenType = Boolean
+End
+
+# AptioV Server Override Start: Restore data during S3 Resume.
+TOKEN
+	Name  = "AMI_PAM_SAVE_RESTORE_SWSMI"
+	Value  = "0xBE"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AMI_PAM_SAVE"
+	Value  = "0xE0"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AMI_PAM_RESTORE"
+	Value  = "0xE1"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+# AptioV Server Override End: Restore data during S3 Resume.
+
+TOKEN
+	Name  = "SmmAccessPei_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IioSmm support in Project"
+	TokenType = Boolean
+End
+
+INFComponent
+	Name  = "SmmAccess"
+	File  = "Access\SmmAccess.inf"
+	Package  = "GrantleySocketPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "SmmAccess_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "PcdLib"
+	Instance  = "MdePkg.DxePcdLib"
+	Override  = "GrantleySocketPkg.SmmAccess"
+	Token = "SmmAccess_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "IioSmm"
+	File  = "Iio\IioSmm.inf"
+	Package  = "GrantleySocketPkg"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "IioSmm_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "PcdLib"
+	Instance  = "MdePkg.DxePcdLib"
+	Override  = "GrantleySocketPkg.IioSmm"
+	Token = "IioSmm_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "SmmAccessPei"
+	File  = "SmmAccessPei\SmmAccessPei.inf"
+	Package  = "GrantleySocketPkg"
+	ModuleTypes  = "PEIM"
+	Token = "SmmAccessPei_SUPPORT" "=" "1"
+End

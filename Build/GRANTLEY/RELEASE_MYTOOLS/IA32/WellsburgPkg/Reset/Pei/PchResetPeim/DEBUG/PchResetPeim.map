@@ -1,0 +1,35 @@
+ PchResetPeim
+
+ Timestamp is 5ae04a9c (Wed Apr 25 17:30:04 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000030H .data                   CODE
+ 0001:00000030 00000000H .rdata                  CODE
+ 0001:00000030 0000063dH .text                   CODE
+ 0001:00000670 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gPchResetCallbackPpiGuid  00000220     PchResetPeim:AutoGen.obj
+ 0001:00000010       _gEfiPeiMemoryDiscoveredPpiGuid 00000230     PchResetPeim:AutoGen.obj
+ 0001:00000020       _gPchResetPpiGuid          00000240     PchResetPeim:AutoGen.obj
+ 0001:00000030       __ModuleEntryPoint         00000250 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000097       _PchResetCallback          000002b7 f   PchResetPeim:PchReset.obj
+ 0001:00000107       _PchReset                  00000327 f   PchResetPeim:PchResetCommon.obj
+ 0001:000002d5       _AllocatePool              000004f5 f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:000002fa       _AllocateZeroPool          0000051a f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:0000030b       _ZeroMem                   0000052b f   BaseMemoryLibRepStr:ZeroMemWrapper.obj
+ 0001:00000319       _GetPciExpressBaseAddress  00000539 f   BasePciExpressLib:PciExpressLib.obj
+ 0001:00000328       _IsPchSupported            00000548 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:00000498       _GetPchSeries              000006b8 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:000005f9       _GetPeiServicesTablePointer 00000819 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00000614       _InternalMemCopyMem        00000834 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000650       _InternalMemZeroMem        00000870 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000670       _LocalPcdPciExpressBaseAddress 00000890     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:00000030
+
+ Static symbols
+

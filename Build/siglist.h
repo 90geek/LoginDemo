@@ -1,0 +1,1 @@
+#define CertSize 608 

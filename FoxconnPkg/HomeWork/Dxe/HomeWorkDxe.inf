@@ -1,0 +1,50 @@
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2010, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+[Defines]
+INF_VERSION           = 0x00010015
+BASE_NAME             = HomeWorkDxe
+FILE_GUID             = 43a12ef5-0372-4119-9f0f-000a8c104c62
+MODULE_TYPE           = DXE_DRIVER
+VERSION_STRING        = 1.0
+ENTRY_POINT           = HomeWorkDxeEntryPoint
+
+
+[Packages]
+MdePkg/MdePkg.dec
+AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+MdeModulePkg/MdeModulePkg.dec
+
+
+[LibraryClasses]
+BaseLib
+UefiLib
+UefiDriverEntryPoint
+AmiDxeLib
+PciLib
+HiiLib
+
+
+[Depex]
+TRUE
+
+
+[Protocols]
+gEfiHiiStringProtocolGuid
+
+
+[Sources]
+HomeWorkDxe.c
+HomeWorkDxe.h
+
+

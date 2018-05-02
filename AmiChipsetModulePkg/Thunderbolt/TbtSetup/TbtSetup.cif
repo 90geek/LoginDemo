@@ -1,0 +1,12 @@
+<component>
+	name = "TbtSetup"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Thunderbolt\TbtSetup\"
+	RefName = "TbtSetup"
+[files]
+"TbtSetup.sdl"	
+"TbtSetup.c"	
+"TbtSetup.sd"	
+"TbtSetup.uni"	
+"TbtSetupReset.c"	
+<endComponent>

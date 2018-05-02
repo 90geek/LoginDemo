@@ -1,0 +1,156 @@
+## @file
+#   The [Sources] section for this file is auto-generated from ELINKs:
+#   SETUP_DEFINITIONS, SETUP_FORMSETS, SetupStringFiles, and SetupCallbackFiles
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Setup
+  FILE_GUID                      = 899407D7-99FE-43d8-9A21-79EC328CAC21
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SetupEntry
+#
+#  This flag specifies whether HII resource section is generated into PE image.
+#
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  ../AmiCompatibilityPkg\Setup/Setup.c
+  ../AmiCompatibilityPkg\Setup/SetupHiiAccess.c
+  ../AmiCompatibilityPkg\Setup/Setup.uni
+  ../AmiCompatibilityPkg\Setup/Setup.vfr
+  ../AmiCompatibilityPkg\Setup/SetupLibrary.c
+  ../AmiCompatibilityPkg\Setup/SetupPrivate.h
+
+  ../AmiModulePkg/TCG2/Common/Setup/TcgSetup.sd
+ ../AmiModulePkg/ACPI/ACPI.sd
+ ../FoxconnPkg/HomeWork/HomeWork.sd
+ ../AmiModulePkg/HddSmart/HddSMART.sd
+ ../AmiModulePkg/IO/AST2400/AST2400Setup.sd
+ ../AmiModulePkg/GenericSio/SioStaticSetup.sd
+ ../AmiGpnvErrorLoggingPkg/Gpnv/SmbiosElog/SmbiosElogSetup.sd
+ ../AmiModulePkg/Terminal/Terminal.sd
+ ../AmiTsePkg/EDK/MiniSetup/TseAdvanced/AddDelBootDrvOpts.sd
+ ../AmiCompatibilityPkg/Setup/AmiBiosInfo.sd
+ ../AmiCompatibilityPkg/Setup/AmiTse.sd
+ ../AmiCompatibilityPkg/Setup/AmiBootOrder.sd
+ ../AmiModulePkg/EfiOsBootOptionNames/EfiOsBootOptionNames.sd
+ ../AmiModulePkg/PCI/PciStaticSetup.sd
+ ../AmiNetworkPkg/UefiNetworkStack/Common/NetworkStackSetupScreen/NetworkStackSetupScreen.sd
+ ../AmiModulePkg/CSM/CsmPolicy/Csm.sd
+ ../AmiModulePkg/HddSecurity/HddSecurityCommon.sd
+ ../AmiModulePkg/Nvme/Nvme.sd
+ ../AmiModulePkg/Usb/Setup/Usb.sd
+ ../FoxconnPkg/FxnChangeSKUType/FxnChangeSKUType.sd
+ ../Build/DefaultFixedBootOrder.sd
+ ../AmiCRBPkg/Board/NB/Nb.sd
+
+  ../AmiModulePkg\IO\AST2400\AST2400Setup.uni
+ ../AmiTsePkg\EDK\MiniSetup\TseAdvanced/AddDelBootDrvOpts.uni
+ ../AmiModulePkg\ACPI/ACPI.uni
+ ../AmiModulePkg\EfiOsBootOptionNames/EfiOsBootOptionNames.uni
+ ../AmiModulePkg\GenericSio\SioStaticSetup.uni
+ ../AmiModulePkg\PCI\PciStaticSetup.uni
+ ../AmiModulePkg\Terminal/Terminal.uni
+ ../AmiNetworkPkg\UefiNetworkStack\Common\NetworkStackSetupScreen/NetworkStackSetupScreen.uni
+ ../AmiModulePkg\CSM\CsmPolicy\Csm.uni
+ ../AmiModulePkg\HddSmart/HddSMART.uni
+ ../AmiModulePkg\HddSecurity/HddSecurity.uni
+ ../AmiModulePkg\Nvme/Nvme.uni
+ ../AmiModulePkg\Ofbd\Meud/Setup/Meud.uni
+ ../AmiModulePkg\TCG2\Common\Setup\TcgSetup.uni
+ ../AmiModulePkg\Usb\Setup/Usb.uni
+ ../FoxconnPkg\FxnChangeSKUType\FxnChangeSKUType.uni
+ ../FoxconnPkg\HomeWork/HomeWork.uni
+ ../AmiModulePkg\FixedBootOrder\DefaultFixedBootOrder\DefaultFixedBootOrder.uni
+ ../AmiCRBPkg\Board\NB/Nb.uni
+
+	../AmiModulePkg\IO\AST2400\AST2400Setup.c
+ ../AmiModulePkg\GenericSio/SioStaticSetup.c
+ ../AmiModulePkg\PCI\PciStaticSetup.c
+ ../AmiModulePkg\Terminal/InitTerminalStrings.c
+ ../AmiModulePkg\CSM\CsmPolicy\CsmSetup.c
+ ../AmiModulePkg\HddSecurity/HddSecuritySetup.c
+ ../AmiModulePkg\Nvme/NvmeSetup.c
+ ../AmiModulePkg\Ofbd\Meud/Setup/InitMeudString.c
+ ../AmiModulePkg\TCG2\Common\Setup\TcgSetup.c
+ ../AmiModulePkg\Usb\Setup/UsbSetup.c
+ ../FoxconnPkg\FxnChangeSKUType\FxnChangeSKUTypeCallback.c
+ ../FoxconnPkg\HomeWork/HomeWork.c
+ ../AmiModulePkg\NVRAM\NvramRead.c
+ ../AmiModulePkg\FixedBootOrder\FixedBootOrder.c
+ ../AmiCRBPkg\Board\NB/NbSetup.c
+ ../FoxconnPkg\OemPsuPolicy/OemPsuPolicy.c
+
+
+[Packages]
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiTsePkg/AmiTsePkg.dec
+  AmiNetworkPkg/AmiNetworkPkg.dec
+ AmiCRBPkg/AmiCRBPkg.dec
+ GrantleySocketPkg/SocketPkg.dec
+ AmiIpmiPkg\AmiIpmiPkg.dec
+
+
+[LibraryClasses]
+  AmiDxeLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  DxeServicesTableLib
+  DevicePathLib
+  HiiLib
+  BaseLib
+  PrintLib
+  UefiLib
+  DebugLib
+
+  HobLib
+
+
+[Protocols]
+  gEfiHiiPackageListProtocolGuid    ## CONSUMES
+  gEfiHiiStringProtocolGuid    ## CONSUMES
+  gEfiHiiDatabaseProtocolGuid    ## CONSUMES
+  gEfiLoadedImageDevicePathProtocolGuid ## CONSUMES
+  gEfiDevicePathProtocolGuid            ## CONSUMES
+  gEfiHiiConfigAccessProtocolGuid  	    ## PRODUCES
+  gEfiHiiConfigRoutingProtocolGuid      ## CONSUMES
+
+  gEfiGraphicsOutputProtocolGuid
+ gAmiNvmeControllerProtocolGuid
+ gEfiComponentName2ProtocolGuid
+ gEfiDevicePathProtocolGuid
+ gEfiPciIoProtocolGuid
+
+[Guids]
+  gEfiGlobalVariableGuid    ## CONSUMES
+  gAmiTseSetupEnterGuid
+  gAmiTseOemTSEVarGuid
+ gEfiGlobalVariableGuid
+ gEfiMemoryMapGuid
+
+
+[Pcd]
+
+  gAmiModulePkgTokenSpaceGuid.DiskController
+ gAmiModulePkgTokenSpaceGuid.PchDiskError
+
+
+[Depex]
+  gAmiConInStartedProtocolGuid
+
+[BuildOptions]
+  *_*_*_BUILD_FLAGS=-s
+

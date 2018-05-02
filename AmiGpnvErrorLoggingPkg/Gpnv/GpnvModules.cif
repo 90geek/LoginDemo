@@ -1,0 +1,16 @@
+<component>
+        name = "GpnvErrorLogging"
+        category = eModule
+        LocalRoot = "AmiGpnvErrorLoggingPkg\Gpnv\"
+        RefName = "GpnvErrorLogging"
+[files]
+"GpnvErrorLogging.sdl"
+"GpnvErrorLogging.mak"
+"GpnvErrorLogging.chm"
+[parts]
+"SmbiosElogCommonAccess"
+"SmbiosElog"
+"SmmSmbiosElog"
+"EventLogsSetupPage"
+"SmbiosElogSetupScreen"
+<endComponent>

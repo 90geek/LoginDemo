@@ -1,0 +1,33 @@
+ PcatSingleSegmentPciCfg2Pei
+
+ Timestamp is 5ae04b0d (Wed Apr 25 17:31:57 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 0000002cH .data                   CODE
+ 0001:00000030 00000000H .rdata                  CODE
+ 0001:00000030 000007c9H .text                   CODE
+ 0001:000007fc 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiPciCfg2PpiGuid        00000220     PcatSingleSegmentPciCfg2Pei:AutoGen.obj
+ 0001:00000010       _gPciCfg2Ppi               00000230     PcatSingleSegmentPciCfg2Pei:PciCfg2.obj
+ 0001:00000020       _gPciCfg2PpiList           00000240     PcatSingleSegmentPciCfg2Pei:PciCfg2.obj
+ 0001:00000030       __ModuleEntryPoint         00000250 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000005a       _PciCfgAddressConvert      0000027a f   PcatSingleSegmentPciCfg2Pei:PciCfg2.obj
+ 0001:000000af       _PciCfg2Read               000002cf f   PcatSingleSegmentPciCfg2Pei:PciCfg2.obj
+ 0001:0000026f       _PciCfg2Write              0000048f f   PcatSingleSegmentPciCfg2Pei:PciCfg2.obj
+ 0001:00000422       _PciCfg2Modify             00000642 f   PcatSingleSegmentPciCfg2Pei:PciCfg2.obj
+ 0001:00000755       _GetPciExpressBaseAddress  00000975 f   BasePciExpressLib:PciExpressLib.obj
+ 0001:00000764       _PciAndThenOr16            00000984 f   BasePciLibPciExpress:PciLib.obj
+ 0001:00000785       _GetPeiServicesTablePointer 000009a5 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:000007a0       _InternalMemCopyMem        000009c0 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:000007dc       _InternalMemZeroMem        000009fc f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:000007fc       _LocalPcdPciExpressBaseAddress 00000a1c     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:00000030
+
+ Static symbols
+

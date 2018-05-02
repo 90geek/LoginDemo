@@ -1,0 +1,2 @@
+{ IfrList[$0] = 1 } 
+END { for (item in IfrList) print "IFR_DIR_LIST+= -i"item }

@@ -1,0 +1,122 @@
+TOKEN
+	Name  = "SmbiosDMIEdit_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AMI DMIEdit for SMBIOS support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Master = Yes
+	Token = "SMBIOS_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "NonSmiDmiEdit_Support"
+	Value  = "0"
+	Help  = "Switch to disable/enable Non-SMI DmiEdit support"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DMI_ARRAY_COUNT"
+	Value  = "256"
+	Help  = "The maximum number of entires DMIEdit array can hold"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "REGISTER_SW_SMI_FN50"
+    Value  = "1"
+    Help  = "Enable/Disable SW SMI Function 0x50 registration"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "REGISTER_SW_SMI_FN51"
+    Value  = "1"
+    Help  = "Enable/Disable SW SMI Function 0x51 registration"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "REGISTER_SW_SMI_FN52"
+    Value  = "1"
+    Help  = "Enable/Disable SW SMI Function 0x52 registration"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "REGISTER_SW_SMI_FN53"
+    Value  = "1"
+    Help  = "Enable/Disable SW SMI Function 0x53 registration"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "FLASHPART_BASE_ADDR"
+    Value  = "0"
+    Help  = "Flash Part base address"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "INTEL_ARCHITECTURE_SUPPORT" "=" "0"
+End
+
+TOKEN
+    Name  = "FLASHPART_BASE_ADDR"
+#    Value  = "0xffffffff - $(FLASH_SIZE) + 1"
+    Value  = "$(FV_BB_BASE)"
+    Help  = "Flash Part base address"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "INTEL_ARCHITECTURE_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "INTEL_ARCH_SUPPORT"
+    Value  = "1"
+    Help  = "Intel Architecture support setting"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "INTEL_ARCH_SUPPORT"
+    Value  = "0"
+    Help  = "Intel Architecture support setting"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "INTEL_ARCHITECTURE_SUPPORT" "=" "0"
+End
+
+PATH
+	Name  = "SMBIOS_DMIEDIT_DIR"
+End
+
+INFComponent
+    Name  = "SmbiosDmiEdit"
+    File  = "SmbiosDmiEdit.inf"
+    Package  = "AmiCompatibilityPkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+    Token = "DMIEDIT_SSI_SUPPORT" "=" "0"
+End
+
+INFComponent
+    Name  = "SmbiosDmiEditSsi"
+    File  = "SmbiosDmiEditSsi.inf"
+    Package  = "AmiCompatibilityPkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+    Token = "DMIEDIT_SSI_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "SmbiosDmiEditProtocol"
+    File  = "SmbiosDmiEditProtocol.inf"
+    Package  = "AmiCompatibilityPkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "NonSmiDmiEdit_Support" "=" "1"
+End

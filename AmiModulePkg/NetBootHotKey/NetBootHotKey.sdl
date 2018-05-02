@@ -1,0 +1,33 @@
+TOKEN
+    Name  = "NetBootHotKey_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable NetBootHotKey support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    Master = Yes
+End
+
+ELINK
+    Name = "NetBootHotKey,"
+    Parent = "OemKey1Hook,"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name = "NetBootHotKey"
+    File = "NetBootHotKey.inf"
+    Package = "AmiModulePkg"
+    ModuleTypes = "DXE_DRIVER"
+End
+
+ELINK
+    Name = "NetBootHotKey"
+    Parent = "ADDITIONAL_AMITSE_LibraryClasses"
+    InvokeOrder = AfterParent
+End
+
+LibraryMapping
+    Class = "NetBootHotKey"
+    Instance = "AmiModulePkg.NetBootHotKey"
+End
+

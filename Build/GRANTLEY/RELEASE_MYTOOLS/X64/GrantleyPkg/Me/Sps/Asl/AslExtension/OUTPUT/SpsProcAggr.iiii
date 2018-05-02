@@ -1,0 +1,89 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DefinitionBlock("SpsProcAggr.aml", "PRAD", 2, "INTEL", "SpsPrAgg", 2)
+{
+  External(\PURA, IntObj)
+  External(\PURB, IntObj)
+  External(\THNU, FieldUnitObj)
+  External(\_SB.PCI0, DeviceObj)
+  External(\_SB.PCI0.HEC2.DCNF, MethodObj)
+
+  Scope(\_SB)
+  {
+    
+    
+    
+    Device(PRAD)
+    {
+      Name(_HID, "ACPI000C")
+      
+      Method(_STA, 0, NotSerialized)
+      {
+        Return(0x0F)
+      }
+      
+      
+      
+      
+      
+      Method(_PUR, 0, NotSerialized)
+      {
+        Store("PRAD: Entering _PUR", Debug)
+        Name(IDL, Package() {1, 0})
+        And(Or(\PURA, 0x80), 0xFFFF, \PURB)
+        And(ShiftRight(\PURA, 16), 0xffff, Index(IDL, 1)) 
+        Return(IDL)
+      }
+      
+      
+      
+      
+      Method(_OST, 3, Serialized)
+      {
+        Store("PRAD: Entering _OST", Debug)
+        
+        
+        
+        
+        
+        If (LEqual(And(\PURB, 0xff), 0x83))
+        {
+          Subtract(\THNU, ToInteger(Arg2), Local0)
+          Or(\PURB, ShiftLeft(Local0, 16), \PURB)
+          \_SB.PCI0.HEC2.DCNF(\PURB) 
+        }
+      } 
+    } 
+  } 
+} 
+

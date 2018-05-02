@@ -1,0 +1,11 @@
+<component>
+	name = "IScsi"
+	category = eModule
+	LocalRoot = "AmiNetworkPkg\IScsiDxe\"
+	RefName = "IScsi"
+[INF]
+"IScsiDxe.inf"
+[files]
+"IScsi.sdl"	
+"IScsi.chm"	
+<endComponent>

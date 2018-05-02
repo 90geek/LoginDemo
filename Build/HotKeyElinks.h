@@ -1,0 +1,1 @@
+#define HOTKEY_LIST {{SCAN_F2, 0 },0,HandlePrevValuesKey, 1 },{{SCAN_F3, 0 },0,HandleOptimalKey, 1 },{{SCAN_F1, 0 },0,HandleHelpKey, 1 },{{SCAN_ESC,0},0, HandleEscKey, 0 },{{SCAN_F11, 0},0, SetupShowDebugScreen, 0 },{{SCAN_F4, 0},0, FxHandleSaveExitKey, 0 },

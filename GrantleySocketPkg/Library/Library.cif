@@ -1,0 +1,17 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "GrantleySocketPkg\Library\"
+	RefName = "GrantleySocketPkg.Library"
+[INF]
+"IioEarlyInitialize\IioEarlyInitialize.inf"
+"IioLateInitialize\IioLateInitialize.inf"
+"MemoryQpiInit\MemoryQpiInit.inf"
+"SmmScriptLib\SmmScriptLib.inf"
+"ProcessorPowerManagement\CpuPpmLib.inf"
+"AmiMrcIntrinsicLib\AmiMrcIntrinsicLib.inf"
+[Parts]
+"GrantleySocketPkg.ProcessorStartup"
+[files]
+"SocketPkgLibrary.sdl"	
+<endComponent>

@@ -1,0 +1,2 @@
+#define SPMI_SCOPE \_SB.PCI0.LPC0
+

@@ -1,0 +1,14 @@
+<component>
+	name = "Error Display Framework"
+	category = eModule
+	LocalRoot = "AmiModulePkg\ErrorDisplayFramework\"
+	RefName = "AmiModulePkg.ErrorDisplayFramework"
+[INF]
+"ErrorDisplayFramework.inf"
+"ErrorDisplayFrameformCallback.inf"
+[files]
+"ErrorDisplayFramework.sdl"	
+"ErrorDisplayFramework.mak"	
+"ErrorDisplayFramework.uni"	
+"ErrorDisplayFramework.chm"	
+<endComponent>

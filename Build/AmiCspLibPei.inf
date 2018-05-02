@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AmiCspLibPei
+  FILE_GUID                      = 4B8F8866-D803-4b13-9A55-44BAEA414905
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = AmiCspLib|PEIM PEI_CORE SEC 
+
+[Sources]
+  ../AmiCompatibilityPkg\Board/OemPort.c
+ ../Build/OemPortList.c
+ ../AmiCompatibilityPkg\CmosManager/CmosBoardPei.c
+ ../AmiCRBPkg\Chipset\SB/SBGeneric.c
+ ../AmiCRBPkg\CRB/CRBLib.c
+  ../AmiCompatibilityPkg\AmiCspLib/CspLibPei.c
+
+[Packages] 
+  MdePkg/MdePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  Build/Platform.dec
+  
+  
+[LibraryClasses]
+  AmiPeiLib
+  PcdLib
+ [Pcd]
+ gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+
+

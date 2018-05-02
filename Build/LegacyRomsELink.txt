@@ -1,0 +1,1 @@
+OPROM(1,0,1,AmiModulePkg\AHCI\Aint13\AI13.BIN) OPROM(3,7,9,AmiModulePkg\LegacySerialRedirection\Sredir.BIN) OPROM(1,0,0,AmiModulePkg\CSM\AmiLegacy16.bin) OPROM(1,0,5,AmiModulePkg\Nvme\NvmeInt13\NvmeI13.BIN) OPROM(1, 0, 3, AmiCompatibilityPkg\Smbios\SmbiosBoard\Smbrun.com) OPROM(1,0,2,AmiModulePkg\Usb\Int13/UI13.BIN) OPROM(20,8086,1521,FoxconnPkg\BA1543L2.LOM)

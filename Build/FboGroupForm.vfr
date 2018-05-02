@@ -1,0 +1,154 @@
+
+
+//**********************************************************************
+//**********************************************************************
+//**                                                                  **
+//**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+//**                                                                  **
+//**                       All Rights Reserved.                       **
+//**                                                                  **
+//**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+//**                                                                  **
+//**                       Phone: (770)-246-8600                      **
+//**                                                                  **
+//**********************************************************************
+//**********************************************************************
+
+//**********************************************************************
+//<AMI_FHDR_START>
+//
+// Name: FboGroupForm.vfr
+//
+// Description:
+//
+//<AMI_FHDR_END>
+//**********************************************************************
+
+#include <token.h>
+#include "Build/AutoId.h"
+#include "AmiModulePkg/FixedBootOrder/FixedBootOrder.h"
+
+#if 0
+STRING_TOKEN(STR_DISABLED)
+STRING_TOKEN(STR_BOOT_OPTION_HELP)
+
+#endif
+
+formset guid  = FBO_GROUP_FORM_FORM_SET_GUID,
+	title     = STRING_TOKEN(STR_FBO_GROUP_FORM_SUBTITLE),
+ 	help      = STRING_TOKEN(STR_FBO_GROUP_FORM_HELP),
+    class     = FBO_GROUP_FORM_FORM_SET_CLASS,
+    subclass  = 0,  
+            
+    varstore FIXED_BOOT_SETUP,
+        key   = FIXED_BOOT_GROUP_KEY,
+        name  = FixedBoot,
+        guid  = FBO_GROUP_FORM_FORM_SET_GUID;
+        
+    // Make default to variable "StdDefault",don't display.
+    form formid = AUTO_ID(STD_DEFAULT_DUMMY_FORM),
+        title = STRING_TOKEN(STR_EMPTY) ;
+        suppressif TRUE;  
+            oneof varid     = FIXED_BOOT_SETUP.LegacyDevice[0], 
+                prompt      = STRING_TOKEN(STR_EMPTY),
+                help        = STRING_TOKEN(STR_EMPTY),
+                option text = STRING_TOKEN(STR_EMPTY),  value = 0, flags = DEFAULT;
+                option text = STRING_TOKEN(STR_EMPTY),  value = 1, flags = 0;
+            endoneof;
+        endif;  
+    endform;
+    
+        //--------------------------------------------------
+        //  UEFI GROUP FORM ITEM
+        //--------------------------------------------------
+
+form formid = UEFI_HDD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_UEFI_HDD_BOOT_ORDER_SUBTITLE);
+    label  UEFI_HDD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = UEFI_NETWORK_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_UEFI_NETWORK_BOOT_ORDER_SUBTITLE);
+    label  UEFI_NETWORK_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = UEFI_USBODD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_UEFI_USBODD_BOOT_ORDER_SUBTITLE);
+    label  UEFI_USBODD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = UEFI_USBHDD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_UEFI_USBHDD_BOOT_ORDER_SUBTITLE);
+    label  UEFI_USBHDD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = UEFI_ODD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_UEFI_ODD_BOOT_ORDER_SUBTITLE);
+    label  UEFI_ODD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = UEFI_APPLICATION_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_UEFI_APPLICATION_BOOT_ORDER_SUBTITLE);
+    label  UEFI_APPLICATION_BOOT_FORM_LABEL;
+endform;
+
+
+
+#if CSM_SUPPORT
+        //--------------------------------------------------
+        //  LEGACY GROUP FORM ITEM
+        //--------------------------------------------------
+
+form formid = HDD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_HDD_BOOT_ORDER_SUBTITLE);
+    label  HDD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = NETWORK_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_NETWORK_BOOT_ORDER_SUBTITLE);
+    label  NETWORK_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = USBODD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_USBODD_BOOT_ORDER_SUBTITLE);
+    label  USBODD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = USBHDD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_USBHDD_BOOT_ORDER_SUBTITLE);
+    label  USBHDD_BOOT_FORM_LABEL;
+endform;
+
+
+form formid = ODD_BOOT_FORM_ID,
+    title = STRING_TOKEN(STR_ODD_BOOT_ORDER_SUBTITLE);
+    label  ODD_BOOT_FORM_LABEL;
+endform;
+
+
+
+#endif
+    
+endformset;
+
+//**********************************************************************
+//**********************************************************************
+//**                                                                  **
+//**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+//**                                                                  **
+//**                       All Rights Reserved.                       **
+//**                                                                  **
+//**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+//**                                                                  **
+//**                       Phone: (770)-246-8600                      **
+//**                                                                  **
+//**********************************************************************
+//**********************************************************************

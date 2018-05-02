@@ -1,0 +1,112 @@
+ SecCore
+
+ Timestamp is 5ae04a67 (Wed Apr 25 17:29:11 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000070H .data                   CODE
+ 0001:00000070 00000010H .rdata                  CODE
+ 0001:00000080 000009f0H .text                   CODE
+ 0001:00000a70 0000000aH .bss                    CODE
+ 0002:00000000 0000004fH _TEXT_REALMODE          CODE
+ 0003:00000000 0000008eH _TEXT_PROTECTED_MODE    CODE
+ 0004:00000000 0000000fH Text                    CODE
+ 0005:00000000 00001276H STARTUP_SEG             CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:0000000a       _gData                     000002ca     SerialPortLib:SerialPortLib.obj
+ 0001:0000000b       _gStop                     000002cb     SerialPortLib:SerialPortLib.obj
+ 0001:0000001c       _gComBase                  000002dc     SerialPortLib:SerialPortLib.obj
+ 0001:00000020       _gBps                      000002e0     SerialPortLib:SerialPortLib.obj
+ 0001:00000024       _BistList                  000002e4     ProcessorStartup:ProcessorStartup.obj
+ 0001:0000002c       _gSecTemporaryRamSupportPpi 000002ec     SecCore:SecMain.obj
+ 0001:00000030       _mPeiSecPpis               000002f0     SecCore:SecMain.obj
+ 0001:00000048       _mIdtEntryTemplate         00000308     SecCore:SecMain.obj
+ 0001:00000050       _gAmiEarlyBistPpiGuid      00000310     SecCore:AutoGen.obj
+ 0001:00000060       _gEfiTemporaryRamSupportPpiGuid 00000320     SecCore:AutoGen.obj
+ 0001:00000078       __gPcd_FixedAtBuild_PcdFlashSecCacheRegionBase 00000338     SecCore:AutoGen.obj
+ 0001:0000007c       __gPcd_FixedAtBuild_PcdFlashSecCacheRegionSize 0000033c     SecCore:AutoGen.obj
+ 0001:00000080       _SecStartup                00000340 f   SecCore:SecMain.obj
+ 0001:000001e5       _SecStartupPhase2          000004a5 f   SecCore:SecMain.obj
+ 0001:00000309       _SecTemporaryRamSupport    000005c9 f   SecCore:SecMain.obj
+ 0001:00000382       _FindImageBase             00000642 f   SecCore:FindPeiCore.obj
+ 0001:000004fa       _FindAndReportEntryPoints  000007ba f   SecCore:FindPeiCore.obj
+ 0001:000005a4       _CpuDeadLoop               00000864 f   BaseLib:CpuDeadLoop.obj
+ 0001:000005b8       _CopyMem                   00000878 f   BaseMemoryLibRepStr:CopyMemWrapper.obj
+ 0001:000005d0       _PeCoffLoaderGetPdbPointer 00000890 f   BasePeCoffGetEntryPointLib:PeCoffGetEntryPoint.obj
+ 0001:000006e3       _GetLocalApicBaseAddress   000009a3 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000701       _ReadLocalApicReg          000009c1 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000736       _WriteLocalApicReg         000009f6 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000778       _GetApicMode               00000a38 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000794       _LShiftU64                 00000a54 f   BaseLib:LShiftU64.obj
+ 0001:000007b7       _PciOr8                    00000a77 f   BasePciLibCf8:PciLib.obj
+ 0001:000007ef       _InitializeSio             00000aaf f   SerialPortLib:SerialPortLib.obj
+ 0001:00000894       _PciCf8Read8               00000b54 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:000008c9       _PciCf8Write16             00000b89 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00000910       _SecSwitchStack            00000bd0 f   SecCore:Stack.obj
+ 0001:00000960       _InitializeFloatingPointUnits 00000c20 f   BaseUefiCpuLib:InitializeFpu.obj
+ 0001:0000098c       _InternalMemCopyMem        00000c4c f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:000009c8       _InternalMemZeroMem        00000c88 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:000009f0       _PS_GetBist                00000cb0 f   ProcessorStartup:ProcessorStartup.obj
+ 0001:00000a20       _InternalMemSetMem         00000ce0 f   BaseMemoryLibRepStr:SetMem.obj
+ 0001:00000a38       _InternalMemSetMem32       00000cf8 f   BaseMemoryLibRepStr:SetMem32.obj
+ 0001:00000a50       _InternalMemSetMem64       00000d10 f   BaseMemoryLibRepStr:SetMem64.obj
+ 0001:00000a70       _SecElinkList              00000d30     ProcessorStartup:ProcessorStartup.obj
+ 0001:00000a74       _RetPpiList                00000d34     ProcessorStartup:ProcessorStartup.obj
+ 0001:00000a78       _gParity                   00000d38     SerialPortLib:SerialPortLib.obj
+ 0001:00000a79       _gBreakSet                 00000d39     SerialPortLib:SerialPortLib.obj
+ 0002:00000000       __ModuleEntryPoint         00000d40 f   SecCore:Startup32.obj
+ 0003:00000000       _ProtectedModeSECStart     00000da0 f   SecCore:Startup32.obj
+ 0003:00000005       _SecPlatformLibEntryEnd    00000da5     SecCore:Startup32.obj
+ 0003:00000007       _HandOffToNextModule       00000da7 f   SecCore:Startup32.obj
+ 0004:00000000       _SecPlatformLibEntry       00000e40 f   ProcessorStartup:SecCore.obj
+ 0004:00000005       __ProcessorStartupEnd      00000e45     ProcessorStartup:SecCore.obj
+ 0004:0000000a       _SECSB_EarlyInitEnd        00000e4a     ProcessorStartup:SecCore.obj
+ 0005:00000000       __ProcessorStartup         00000e60 f   ProcessorStartup:ProcessorStartup.obj
+ 0005:00000130       _SECSB_EarlyInit           00000f90 f   ProcessorStartup:SBSECInit.obj
+ 0005:00000160       _LoadProcessorMicrocode    00000fc0 f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:000001d4       _CheckGenuineIntelCpu      00001034 f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:000001fb       _ConfigDfx                 0000105b f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:00000244       _ConfigDcuMode             000010a4 f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:0000027d       _NemInit                   000010dd f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:00000425       _EstablishNemStack         00001285 f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:0000044d       _TearDownNEMandHalt        000012ad f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:000004ed       _TxtInit                   0000134d f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:00000521       _ReadPciLegacy             00001381 f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:0000052e       _WritePciLegacy            0000138e f   ProcessorStartup:ProcessorStartupCore.obj
+ 0005:00000540       _SetTargetList             000013a0 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:000005d4       _EarlyUncoreInit           00001434 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000623       _MidUncoreInit             00001483 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:0000064d       _PreNemUncoreInit          000014ad f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000762       _PostNemUncoreInit         000015c2 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:0000078a       _EnableAccessCSR           000015ea f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000cbf       _ProcessorWorkaround       00001b1f f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000ce3       _QpiProgramMsrForWorkaound 00001b43 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000d32       _QpiPassInPllRatio         00001b92 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000d7a       _GetSbspSktId              00001bda f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000d81       _GetLocalSktId             00001be1 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000d89       _SetupProcessorCheckinData 00001be9 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000de6       _ParkNbsp                  00001c46 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000e91       _PrepareForReset           00001cf1 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000ea1       _AcquireReleaseGlobalSemaphore 00001d01 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000eeb       _GetCpuCsrAddrNoStack      00001d4b f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000f38       _ReadCpuCsr                00001d98 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000f49       _WriteCpuCsr               00001da9 f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000f5c       _GetBusNum                 00001dbc f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000f9f       _GetMmcfgBase              00001dff f   ProcessorStartup:ProcessorStartupUncore.obj
+ 0005:00000fb0       _EarlyChipsetInit          00001e10 f   ProcessorStartup:ProcessorStartupChipset.obj
+ 0005:00000ff0       _MidChipsetInit            00001e50 f   ProcessorStartup:ProcessorStartupChipset.obj
+ 0005:00000ff5       _LateChipsetInit           00001e55 f   ProcessorStartup:ProcessorStartupChipset.obj
+ 0005:000010c0       _GetPlatformCpuSettings    00001f20 f   ProcessorStartup:ProcessorStartupOem.obj
+ 0005:00001108       __OEMCpuSecInit            00001f68 f   ProcessorStartup:ProcessorStartupOem.obj
+ 0005:00001119       _FindMicrocode             00001f79 f   ProcessorStartup:ProcessorStartupOem.obj
+ 0005:00001257       _OemFindMicrocode          000020b7 f   ProcessorStartup:ProcessorStartupOem.obj
+ 0005:00001270       _EarlyChpsetInit_OemHook   000020d0 f   SecOemHookLib:SecOemHook.obj
+ 0005:00001275       _LateChipsetInit_OemHook   000020d5 f   SecOemHookLib:SecOemHook.obj
+
+ entry point at        0002:00000000
+
+ Static symbols
+

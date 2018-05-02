@@ -1,0 +1,17 @@
+TOKEN
+	Name  = "DxeIpmiUsb_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable IpmiUsb support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Token = "IPMI_USB_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "DxeIpmiUsb"
+	File  = "DxeIpmiUsb.inf"
+	Package  = "AmiIpmiPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End

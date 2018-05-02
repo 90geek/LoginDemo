@@ -1,0 +1,18 @@
+<component>
+	name = "KbcEmulation"
+	category = eModule
+	LocalRoot = "AmiModulePkg\KbcEmulation\"
+	RefName = "KbcEmul"
+[INF]
+"KbcEmul.inf"
+"KbcEmulDxe.inf"
+[files]
+"KbcEmul.sdl"	
+"KbcEmulation.chm"	
+[parts]
+"KbcUhci"
+"KbcOhci"
+"KbcSbTemplate"
+"KbcEmulIrq"
+"KbcIoTrap"
+<endComponent>

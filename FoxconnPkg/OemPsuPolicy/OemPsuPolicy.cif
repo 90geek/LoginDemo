@@ -1,0 +1,12 @@
+<component>
+	name = "OemPsuPolicy"
+	category = ModulePart
+	LocalRoot = "FoxconnPkg\OemPsuPolicy\"
+	RefName = "OemPsuPolicy"
+[files]
+"OemPsuPolicy.sdl"	
+"OemPsuPolicy.sd"	
+"OemPsuPolicy.uni"	
+"OemPsuPolicy.h"	
+"OemPsuPolicy.c"	
+<endComponent>

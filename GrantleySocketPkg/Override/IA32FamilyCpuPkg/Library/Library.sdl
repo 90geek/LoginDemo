@@ -1,0 +1,10 @@
+INFComponent
+	Name  = "CpuConfigLib"
+	File  = "CpuConfigLib/CpuConfigLib.inf"
+	Package  = "GrantleySocketPkg"
+End
+
+LibraryMapping
+	Class  = "CpuConfigLib"
+	Instance  = "GrantleySocketPkg.CpuConfigLib"
+End

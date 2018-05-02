@@ -1,0 +1,41 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = NMIButtonHandle
+  FILE_GUID                      = 9361395F-8428-46f0-A59C-961F2B51B499
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  PI_SPECIFICATION_VERSION       = 0x0001000A  
+  ENTRY_POINT                    = InitializeGpi8Smi
+
+[Sources]
+	NMIButtonHandle.c
+
+[Packages]
+	MdePkg/MdePkg.dec
+	IntelFrameworkPkg/IntelFrameworkPkg.dec
+	WellsburgPkg/WellsburgPkg.dec
+	MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+	UefiBootServicesTableLib
+	UefiDriverEntryPoint
+	IoLib
+	DebugLib
+	BaseLib
+	BaseMemoryLib
+	DevicePathLib
+	PchPlatformLib
+	SmmServicesTableLib
+	ReportStatusCodeLib
+	
+[Protocols]
+	gEfiPciRootBridgeIoProtocolGuid			#CONSUMES
+	gEfiSmmGpiDispatch2ProtocolGuid			#PRODUCES
+	gEfiSmmIchnDispatch2ProtocolGuid		#PRODUCES
+	
+[Pcd]
+  gEfiPchTokenSpaceGuid.PcdPchAcpiIoPortBaseAddress
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+  	
+[Depex]
+	gEfiSmmGpiDispatch2ProtocolGuid	

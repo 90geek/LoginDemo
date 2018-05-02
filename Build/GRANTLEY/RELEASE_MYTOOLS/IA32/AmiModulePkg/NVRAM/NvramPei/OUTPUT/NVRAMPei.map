@@ -1,0 +1,90 @@
+ NVRAMPei
+
+ Timestamp is 5ae04a04 (Wed Apr 25 17:27:32 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000584H .data                   CODE
+ 0001:00000588 000000acH .rdata                  CODE
+ 0001:00000640 00000f4eH .text                   CODE
+ 0001:00001590 00000014H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiIpmiCmosClearVariableGuid 00000220     NVRAMPei:AutoGen.obj
+ 0001:00000010       _gEfiPeiReadOnlyVariable2PpiGuid 00000230     NVRAMPei:AutoGen.obj
+ 0001:00000020       _gEfiPeiReadOnlyVariablePpiGuid 00000240     NVRAMPei:AutoGen.obj
+ 0001:00000030       _IsRecoveryList            00000250     AmiCspLibPei:OemPortList.obj
+ 0001:00000058       _gPirqRegistersSave        00000278     AmiCspLibPei:SBGeneric.obj
+ 0001:00000078       _RRegs                     00000298     AmiCspLibPei:SBGeneric.obj
+ 0001:00000080       _SbRcba                    000002a0     AmiCspLibPei:SBGeneric.obj
+ 0001:00000084       _AmiErrorStatus            000002a4     AmiPeiLib:StdLibC.obj
+ 0001:000000b8       _EfiErrorStatus            000002d8     AmiPeiLib:StdLibC.obj
+ 0001:000003f8       _PiErrorStatus             00000618     AmiPeiLib:StdLibC.obj
+ 0001:00000448       _EfiWarningStatus          00000668     AmiPeiLib:StdLibC.obj
+ 0001:000004b0       _PiWarningStatus           000006d0     AmiPeiLib:StdLibC.obj
+ 0001:000004f8       _EfiUnknown                00000718     AmiPeiLib:StdLibC.obj
+ 0001:00000544       _IsResetConfigModeList     00000764     NVRAMPei:NvramPei.obj
+ 0001:00000550       _IsDefaultConfigModeList   00000770     NVRAMPei:NvramPei.obj
+ 0001:0000055c       _VariablePpi               0000077c     NVRAMPei:NvramPei.obj
+ 0001:00000564       _Variable2Ppi              00000784     NVRAMPei:NvramPei.obj
+ 0001:0000056c       _VariablePpiListTemplate   0000078c     NVRAMPei:NvramPei.obj
+ 0001:00000588       _FlashEmpty                000007a8     AmiPeiLib:Tokens.obj
+ 0001:0000058c       _FlashEmptyNext            000007ac     AmiPeiLib:Tokens.obj
+ 0001:00000590       _NvramAddress              000007b0     AmiPeiLib:Tokens.obj
+ 0001:00000594       _NvramBackupAddress        000007b4     AmiPeiLib:Tokens.obj
+ 0001:00000598       _NvramSize                 000007b8     AmiPeiLib:Tokens.obj
+ 0001:0000059c       _NvSimulation              000007bc     AmiPeiLib:Tokens.obj
+ 0001:000005a0       _NvramHeaderLength         000007c0     AmiPeiLib:Tokens.obj
+ 0001:000005a4       _AmiDefaultsVariableGuid   000007c4     NVRAMPei:NvramRead.obj
+ 0001:000005b4       _MfgDefaults               000007d4     NVRAMPei:NvramRead.obj
+ 0001:000005cc       _StdDefaults               000007ec     NVRAMPei:NvramRead.obj
+ 0001:000005e4       _AmiNvramHobGuid           00000804     NVRAMPei:NvramRead.obj
+ 0001:000005f4       ??_C@_1M@OAMLNNNM@?$AAS?$AAe?$AAt?$AAu?$AAp?$AA?$AA@ 00000814     AmiCspLibPei:OemPort.obj
+ 0001:00000600       ??_C@_1BG@EGBOHNPF@?$AAI?$AAn?$AAt?$AAe?$AAl?$AAS?$AAe?$AAt?$AAu?$AAp?$AA?$AA@ 00000820     AmiCspLibPei:OemPort.obj
+ 0001:00000618       ??_C@_1BM@EIAOGLAJ@?$AAI?$AAp?$AAm?$AAi?$AAC?$AAm?$AAo?$AAs?$AAC?$AAl?$AAe?$AAa?$AAr?$AA?$AA@ 00000838     PeiIpmiCmosClear:PeiIpmiCmosClear.obj
+ 0001:00000640       __ModuleEntryPoint         00000860 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000064b       _VarPpiGetVariable         0000086b f   NVRAMPei:NvramPei.obj
+ 0001:00000685       _VarPpiGetNextVariableName 000008a5 f   NVRAMPei:NvramPei.obj
+ 0001:000006ba       _VarPpi2GetVariable        000008da f   NVRAMPei:NvramPei.obj
+ 0001:0000071f       _VarPpi2GetNextVariableName 0000093f f   NVRAMPei:NvramPei.obj
+ 0001:0000077d       _PeiInitNVHelper           0000099d f   NVRAMPei:NvramPei.obj
+ 0001:00000a36       _NvGetGuid                 00000c56 f   NVRAMPei:NvramRead.obj
+ 0001:00000a51       _NvCalculateNvarChecksum   00000c71 f   NVRAMPei:NvramRead.obj
+ 0001:00000a9e       _NvGetData                 00000cbe f   NVRAMPei:NvramRead.obj
+ 0001:00000b35       _NvIsVariable              00000d55 f   NVRAMPei:NvramRead.obj
+ 0001:00000bb3       _NvGetNextValid            00000dd3 f   NVRAMPei:NvramRead.obj
+ 0001:00000c2e       _NvGetFirstValid           00000e4e f   NVRAMPei:NvramRead.obj
+ 0001:00000c5c       _NvarEqNvar                00000e7c f   NVRAMPei:NvramRead.obj
+ 0001:00000d21       _NvVarEq                   00000f41 f   NVRAMPei:NvramRead.obj
+ 0001:00000dc4       _NvFindVariable            00000fe4 f   NVRAMPei:NvramRead.obj
+ 0001:00000dfe       _NvGetAttributesFromNvar   0000101e f   NVRAMPei:NvramRead.obj
+ 0001:00000e53       _NvGetVariableFromNvar     00001073 f   NVRAMPei:NvramRead.obj
+ 0001:00000ebb       _NvGetNameFromNvar         000010db f   NVRAMPei:NvramRead.obj
+ 0001:00000f80       _NvGetNextVariableNvar     000011a0 f   NVRAMPei:NvramRead.obj
+ 0001:0000100d       _NvInitInfoBuffer          0000122d f   NVRAMPei:NvramRead.obj
+ 0001:00001055       _NvGetDefaultsInfo         00001275 f   NVRAMPei:NvramRead.obj
+ 0001:000010a2       _NvGetVariable2            000012c2 f   NVRAMPei:NvramRead.obj
+ 0001:0000111c       _NvGetNextVariableName2    0000133c f   NVRAMPei:NvramRead.obj
+ 0001:0000128b       _GetNvramFfsFileState      000014ab f   NVRAMPei:NvramRead.obj
+ 0001:000012bd       _IsMainNvramStoreValid     000014dd f   NVRAMPei:NvramRead.obj
+ 0001:00001311       _MemCmp                    00001531 f   AmiPeiLib:Memory.obj
+ 0001:0000136c       _IsPchRtcReset             0000158c f   AmiCspLibPei:SBGeneric.obj
+ 0001:00001377       _IsNvramDataCompatible     00001597 f   AmiCspLibPei:OemPort.obj
+ 0001:000013df       _ForceRecovery             000015ff f   AmiCspLibPei:OemPort.obj
+ 0001:000013e2       _IsIpmiCmosClear           00001602 f   PeiIpmiCmosClear:PeiIpmiCmosClear.obj
+ 0001:00001420       _memset                    00001640     AmiPeiLib:MemSet.obj
+ 0001:0000142a       _MemSetAsm                 0000164a f   AmiPeiLib:MemSet.obj
+ 0001:00001480       _memcpy                    000016a0     AmiPeiLib:MemCpy.obj
+ 0001:00001480       _MemCpyAsm                 000016a0 f   AmiPeiLib:MemCpy.obj
+ 0001:00001480       _MemCpy32                  000016a0     AmiPeiLib:MemCpy.obj
+ 0001:00001520       _EnableLongMode            00001740 f   AmiPeiLib:EnableLongMode.obj
+ 0001:00001590       _PeiGetVariableHookList    000017b0     NVRAMPei:NvramPei.obj
+ 0001:00001594       _PeiGetNextVarNameHookList 000017b4     NVRAMPei:NvramPei.obj
+ 0001:00001598       _IsMfgModeList             000017b8     NVRAMPei:NvramPei.obj
+
+ entry point at        0001:00000640
+
+ Static symbols
+

@@ -1,0 +1,87 @@
+TOKEN
+        Name  = "SmbiosElogSetupScreen_SUPPORT"
+        Value  = "1"
+        Help  = "Switch for Enabling SmbiosElogSetupScreen support in the project"
+        TokenType = Boolean
+        TargetEQU = Yes
+        TargetMAK = Yes
+        TargetH = Yes
+        Master = Yes
+End
+
+MODULE
+        Help  = "Includes EventLogsSetupPage.mak to Project"
+        File  = "SmbiosElogSetupScreen.mak"
+End
+
+TOKEN
+        Name  = "MAX_ERROR_MANAGER_NVRAM_VARIABLE_SIZE"
+        Value  = "0x4000"
+        Help  = "To avoid corruption of NVRAM memory and also to ensure other drivers should have enough free Nvram space to use, size of the variable is defined. Based on the NVRAM_SIZE, the variable size can be changed. Now it is set to 16KB"
+        TokenType = Integer
+        TargetH = Yes
+End
+
+TOKEN
+        Name  = "SMBIOSELOG_GET_SMBIOS_DEVICE_STRING"
+        Value  = "0"
+        Help  = "Enable/disable SMBIOS handle-to-device string conversion and displaying the information in the error description."
+        TokenType = Boolean
+        TargetH = Yes
+End
+
+TOKEN
+        Name  = "OemSmbiosErrorLogging"
+        Value  = "1"
+        Help  = "Main switch to enable OEM SmbiosElogSetupScreen support in Project"
+        TokenType = Boolean
+        TargetMAK = Yes
+        TargetH = Yes
+End
+
+PATH
+        Name  = "SmbiosElogSetupScreen_DIR"
+        Path  = "AmiGpnvErrorLoggingPkg/Gpnv/SmbiosElogSetupScreen"
+End
+
+
+ELINK
+        Name  = "$(SmbiosElogSetupScreen_DIR)/SmbiosElogSetupScreenVfr.sd"
+        Parent  = "EVENT_LOGS_SETUP_DEFINITIONS"
+        Priority  = 40
+        InvokeOrder = AfterParent
+End
+
+
+ELINK
+        Name  = "$(SmbiosElogSetupScreen_DIR)/SmbiosElogSetupScreenVfr.uni"
+        Parent  = "EventLogsSetupStringFiles"
+        InvokeOrder = AfterParent
+End
+
+ELINK
+        Name  = "$(SmbiosElogSetupScreen_DIR)/SmbiosElogLookupTable.h"
+        Parent  = "EventLogsSetupCallbackFiles"
+        InvokeOrder = AfterParent
+End
+
+ELINK
+        Name  = "OEM_SUBCLASS_LOOKUP_TABLE"
+        Help  = "Constructs the Lookup Table for OEM defined Class/SubClass strings. Each entry should contain the Subclass code value and string corresponding to it."
+        Token = "OemSmbiosErrorLogging" "=" "1"
+        InvokeOrder = ReplaceParent
+End
+
+ELINK
+        Name  = "OEM_ERROR_OPERATION_LOOKUP_TABLE"
+        Help  = "Constructs the Lookup table for OEM defined Error operations. Each entry should contain the Subclass code or'ed with error value and string corresponding to it."
+        Token = "OemSmbiosErrorLogging" "=" "1"
+        InvokeOrder = ReplaceParent
+End
+
+INFComponent
+        Name  = "SmbiosElogSetupScreen"
+        File  = "SmbiosElogSetupScreen.inf"
+        Package  = "AmiGpnvErrorLoggingPkg"
+        ModuleTypes  = "DXE_DRIVER"
+End

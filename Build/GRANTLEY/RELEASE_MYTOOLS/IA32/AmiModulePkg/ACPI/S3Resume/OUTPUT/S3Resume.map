@@ -1,0 +1,67 @@
+ S3Resume
+
+ Timestamp is 5ae04ae4 (Wed Apr 25 17:31:16 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000005e4H .data                   CODE
+ 0001:000005e8 00000022H .rdata                  CODE
+ 0001:00000610 00001131H .text                   CODE
+ 0002:00000000 0000012eH ACPI_S3_SEG             CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gAmiGlobalVariableGuid    00000240     S3Resume:AutoGen.obj
+ 0001:00000010       _gEfiPeiReadOnlyVariable2PpiGuid 00000250     S3Resume:AutoGen.obj
+ 0001:00000020       _gEfiPeiS3Resume2PpiGuid   00000260     S3Resume:AutoGen.obj
+ 0001:00000030       _EfiErrorStatus            00000270     AmiPeiLib:StdLibC.obj
+ 0001:00000370       _PiErrorStatus             000005b0     AmiPeiLib:StdLibC.obj
+ 0001:000003bc       _AmiErrorStatus            000005fc     AmiPeiLib:StdLibC.obj
+ 0001:000003f0       _EfiWarningStatus          00000630     AmiPeiLib:StdLibC.obj
+ 0001:00000458       _PiWarningStatus           00000698     AmiPeiLib:StdLibC.obj
+ 0001:000004a0       _EfiUnknown                000006e0     AmiPeiLib:StdLibC.obj
+ 0001:000004ec       _gAcpiGlobalVariable       0000072c     S3Resume:AcpiPeiS3Func.obj
+ 0001:00000514       _gEfiAcpiVariableGuid      00000754     S3Resume:AcpiPeiS3Func.obj
+ 0001:00000524       _gBootScriptExecuterGuid   00000764     S3Resume:BootScriptExecuter.obj
+ 0001:00000534       _gSmBusGuid                00000774     S3Resume:BootScriptExecuter.obj
+ 0001:00000544       _gStallGuid                00000784     S3Resume:BootScriptExecuter.obj
+ 0001:00000554       _gBootScriptExecuterPpi    00000794     S3Resume:BootScriptExecuter.obj
+ 0001:00000558       _gPpiList                  00000798     S3Resume:BootScriptExecuter.obj
+ 0001:00000564       _gEfiPeiS3ResumePpiGuid    000007a4     S3Resume:S3Resume.obj
+ 0001:00000574       _gEfiPeiBootScriptExecuterPpiGuid 000007b4     S3Resume:S3Resume.obj
+ 0001:00000584       _gEfiPeiEndOfPeiPhasePpiGuid 000007c4     S3Resume:S3Resume.obj
+ 0001:00000594       _gSetupVariable            000007d4     S3Resume:S3Resume.obj
+ 0001:000005a0       _gGDT                      000007e0     S3Resume:S3Resume.obj
+ 0001:000005b8       _S3ResumePpi               000007f8     S3Resume:S3Resume.obj
+ 0001:000005bc       _S3ResumePpi2              000007fc     S3Resume:S3Resume.obj
+ 0001:000005e8       ??_C@_1CC@PADJCINO@?$AAF?$AAP?$AAD?$AAT?$AA_?$AAV?$AAa?$AAr?$AAi?$AAa?$AAb?$AAl?$AAe?$AA_?$AAN?$AAV?$AA?$AA@ 00000828     S3Resume:S3Resume.obj
+ 0001:00000610       __ModuleEntryPoint         00000850 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000630       _S3RestoreConfig           00000870 f   S3Resume:S3Resume.obj
+ 0001:0000099a       _S3RestoreConfig2          00000bda f   S3Resume:S3Resume.obj
+ 0001:000009c9       _SwitchPciCfgPpi           00000c09 f   S3Resume:BootScriptExecuter.obj
+ 0001:00000a3e       _ExecuteScript             00000c7e f   S3Resume:BootScriptExecuter.obj
+ 0001:0000132e       _GetAcpiS3Info             0000156e f   S3Resume:AcpiPeiS3Func.obj
+ 0001:0000137c       _Div64                     000015bc f   AmiPeiLib:Ia32CLib.obj
+ 0001:000013bc       _InitLongModeExt           000015fc f   AmiPeiLib:Ia32CLib.obj
+ 0001:00001415       _CPULib_CpuID              00001655 f   AmiPeiLib:Ia32CLib.obj
+ 0001:0000145c       _FillPageTable             0000169c f   AmiPeiLib:Memory.obj
+ 0001:000015a0       _InternalMemCopyMem        000017e0 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:000015e0       _EnableLongMode            00001820 f   AmiPeiLib:EnableLongMode.obj
+ 0001:00001650       _memset                    00001890     AmiPeiLib:MemSet.obj
+ 0001:0000165a       _MemSetAsm                 0000189a f   AmiPeiLib:MemSet.obj
+ 0001:000016b0       _memcpy                    000018f0     AmiPeiLib:MemCpy.obj
+ 0001:000016b0       _MemCpyAsm                 000018f0 f   AmiPeiLib:MemCpy.obj
+ 0001:000016b0       _MemCpy32                  000018f0     AmiPeiLib:MemCpy.obj
+ 0002:00000000       _RealModeThunk             000019a0 f   S3Resume:AcpiS3Wake.obj
+ 0002:00000108       LegacyLdtDescriptor        00001aa8     S3Resume:AcpiS3Wake.obj
+ 0002:0000010e       StackSave                  00001aae     S3Resume:AcpiS3Wake.obj
+ 0002:00000118       GdtSave                    00001ab8     S3Resume:AcpiS3Wake.obj
+ 0002:00000120       IdtSave                    00001ac0     S3Resume:AcpiS3Wake.obj
+ 0002:00000126       _RealModeThunkStart        00001ac6     S3Resume:AcpiS3Wake.obj
+ 0002:0000012a       _RealModeThunkSize         00001aca     S3Resume:AcpiS3Wake.obj
+
+ entry point at        0001:00000610
+
+ Static symbols
+

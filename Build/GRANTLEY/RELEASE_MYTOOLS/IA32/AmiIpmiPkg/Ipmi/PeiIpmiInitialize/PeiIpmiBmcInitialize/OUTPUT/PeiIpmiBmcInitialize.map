@@ -1,0 +1,50 @@
+ PeiIpmiBmcInitialize
+
+ Timestamp is 5ae04acd (Wed Apr 25 17:30:53 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000038H .data                   CODE
+ 0001:00000038 0000005eH .rdata                  CODE
+ 0001:00000098 00000c91H .text                   CODE
+ 0001:00000d2c 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiServerMgmtSetupVariableGuid 00000220     PeiIpmiBmcInitialize:AutoGen.obj
+ 0001:00000010       _gEfiPeiReadOnlyVariable2PpiGuid 00000230     PeiIpmiBmcInitialize:AutoGen.obj
+ 0001:00000020       _gEfiPeiIpmiTransportPpiGuid 00000240     PeiIpmiBmcInitialize:AutoGen.obj
+ 0001:00000030       _InitLpcBmcHookList        00000250     PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:00000038       ??_C@_1BI@LKCPJJPH@?$AAS?$AAe?$AAr?$AAv?$AAe?$AAr?$AAS?$AAe?$AAt?$AAu?$AAp?$AA?$AA@ 00000258     PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:00000050       ??_C@_1BG@EGBOHNPF@?$AAI?$AAn?$AAt?$AAe?$AAl?$AAS?$AAe?$AAt?$AAu?$AAp?$AA?$AA@ 00000270     PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:00000068       ??_C@_1CO@CDGDJFJK@?$AAP?$AAr?$AAe?$AAv?$AAi?$AAo?$AAu?$AAs?$AAS?$AAe?$AAt?$AAu?$AAp?$AAB?$AAi?$AAo?$AAs?$AAC?$AAo?$AAn?$AAf?$AAg?$AA?$AA@ 00000288     PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:00000098       __ModuleEntryPoint         000002b8 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000de       _GetDeviceId               000002fe f   PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:00000120       _InitializeIpmiPhysicalLayer 00000340 f   PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:000005be       _AddWarmResetSEL           000007de f   PeiIpmiBmcInitialize:PeiIpmiBmcInitialize.obj
+ 0001:0000065e       _UpdateSoftErrorCount      0000087e f   PeiIpmiBmcInitialize:IpmiBmc.obj
+ 0001:000006a5       _IpmiSendCommand           000008c5 f   PeiIpmiBmcInitialize:IpmiBmc.obj
+ 0001:000007ee       _EfiIpmiSendCommand        00000a0e f   PeiIpmiBmcInitialize:IpmiBmc.obj
+ 0001:00000813       _IpmiBmcStatus             00000a33 f   PeiIpmiBmcInitialize:IpmiBmc.obj
+ 0001:00000885       _EfiIpmiBmcStatus          00000aa5 f   PeiIpmiBmcInitialize:IpmiBmc.obj
+ 0001:0000089c       _InitLpcBmc                00000abc f   PeiIpmiBmcInitialize:PeiBmcBoard.obj
+ 0001:000008a9       _KcsErrorExit              00000ac9 f   PeiIpmiBmcInitialize:KcsBmc.obj
+ 0001:000009e9       _KcsCheckStatus            00000c09 f   PeiIpmiBmcInitialize:KcsBmc.obj
+ 0001:00000a94       _SendDataToBmcPort         00000cb4 f   PeiIpmiBmcInitialize:KcsBmc.obj
+ 0001:00000b73       _ReceiveBmcDataFromPort    00000d93 f   PeiIpmiBmcInitialize:KcsBmc.obj
+ 0001:00000bc5       _CopyMem                   00000de5 f   BaseMemoryLibRepStr:CopyMemWrapper.obj
+ 0001:00000be4       _AllocatePool              00000e04 f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:00000c0a       _AllocateZeroPool          00000e2a f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:00000c25       _GetPciExpressBaseAddress  00000e45 f   BasePciExpressLib:PciExpressLib.obj
+ 0001:00000c75       _MicroSecondDelay          00000e95 f   IntelIchAcpiTimerLib:IntelIchAcpiTimerLib.obj
+ 0001:00000cb6       _GetPeiServicesTablePointer 00000ed6 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00000cd0       _InternalMemCopyMem        00000ef0 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000d0c       _InternalMemZeroMem        00000f2c f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000d2c       _LocalPcdPciExpressBaseAddress 00000f4c     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:00000098
+
+ Static symbols
+
+ 0001:00000c34       _InternalAcpiDelay         00000e54 f    CIL library: CIL module

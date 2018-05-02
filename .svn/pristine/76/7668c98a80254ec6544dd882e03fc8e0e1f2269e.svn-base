@@ -1,0 +1,84 @@
+#ifdef SETUP_DATA_DEFINITION
+//----------------------------------------------------------------------------
+// Put NVRAM data definitions here.
+// For example: UINT8 Data1;
+// These definitions will be converted by the build process
+// to a definitions of SETUP_DATA fields.
+//----------------------------------------------------------------------------
+    UINT8   AliConfig; //ZYY006022+
+#endif
+
+
+
+
+#ifdef CONTROL_DEFINITION
+
+#define ALI_CONFIG_ITEM\
+        oneof varid = SETUP_DATA.AliConfig,questionid = AUTO_ID(ALI_CONFIG_KEY),\
+            prompt  = STRING_TOKEN(STR_ALI_CONFIG),\
+            help    = STRING_TOKEN(STR_ALI_CONFIG_HELP),\
+            option text = STRING_TOKEN(STR_DEFAULT),  value = 0, flags = INTERACTIVE |DEFAULT | MANUFACTURING |RESET_REQUIRED;\
+            option text = STRING_TOKEN(STR_UC),  value = 1, flags = INTERACTIVE | RESET_REQUIRED;\
+        endoneof;
+        	
+
+#endif //#ifdef CONTROL_DEFINITION
+
+#ifdef CONTROLS_WITH_DEFAULTS
+		
+  ALI_CONFIG_ITEM
+		
+#endif
+//**********************************************************************
+//                ADVANCED - Change SKU Type Configuration Form
+//**********************************************************************
+
+#ifdef ADVANCED_FORM_SET
+
+  #ifdef FORM_SET_GOTO
+  	//suppressif ideqval CMOS_FLG_VAR.Cmos68 == 1;//LCJ_ALIHiddenOption+
+    grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER;
+
+  	// Define goto commands for the forms defined in this file
+  	goto CHANGE_SKU_TYPE_FORM_ID,
+             prompt = STRING_TOKEN(STR_CHANGE_SKU_TYPE_TITLT),
+             help = STRING_TOKEN(STR_CHANGE_SKU_TYPE_HELP);
+             
+	endif; //grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER;
+	//endif; //LCJ_ALIHiddenOption+
+  #endif
+  
+  
+  #ifdef FORM_SET_FORM
+  
+    	#ifndef CHANGE_SKU_TYPE_SETUP
+		#define CHANGE_SKU_TYPE_SETUP
+		
+    		form formid = AUTO_ID(CHANGE_SKU_TYPE_FORM_ID),
+			title = STRING_TOKEN(STR_CHANGE_SKU_TYPE_TITLT);
+		
+			subtitle text = STRING_TOKEN(STR_SUB_CHANGE_SKU_TYPE_TITLE);
+			subtitle text = STRING_TOKEN(STR_HORIZONTAL_LINE);
+			
+			
+			//grayoutif ideqval TRUE
+				//text
+           			//    help   = STRING_TOKEN(STR_EMPTY),
+                		  //  text   = STRING_TOKEN(STR_STATUS),
+           	                  //  text   = STRING_TOKEN(STR_STATUS_VAL),
+                                  //  flags  = 0,
+                                  //  key    = 0; 
+			//endif;
+  			ALI_CONFIG_ITEM
+	    endform;
+	    	
+  		#endif // PXE_RETRY_SETUP
+  #endif  //#ifdef FORM_SET_FORM
+  
+
+  #ifdef FORM_SET_ITEM
+	 	
+  #endif  //#ifdef FORM_SET_ITEM
+
+    
+#endif //#ifdef SECURITY_FORM_SET

@@ -1,0 +1,55 @@
+ LoadHob
+
+ Timestamp is 5ae04ab7 (Wed Apr 25 17:30:31 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000004a0H .data                   CODE
+ 0001:000004a0 00000059H .rdata                  CODE
+ 0001:00000500 00000a79H .text                   CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiPeiLoadFilePpiGuid    00000220     LoadHob:AutoGen.obj
+ 0001:00000010       _EfiErrorStatus            00000230     AmiPeiLib:StdLibC.obj
+ 0001:00000350       _PiErrorStatus             00000570     AmiPeiLib:StdLibC.obj
+ 0001:0000039c       _AmiErrorStatus            000005bc     AmiPeiLib:StdLibC.obj
+ 0001:000003d0       _EfiWarningStatus          000005f0     AmiPeiLib:StdLibC.obj
+ 0001:00000438       _PiWarningStatus           00000658     AmiPeiLib:StdLibC.obj
+ 0001:00000480       _EfiUnknown                000006a0     AmiPeiLib:StdLibC.obj
+ 0001:000004a0       ??_C@_04JLDCBBGI@?$FL?$CFG?$FN?$AA@ 000006c0     LoadHob:LoadHobPeim.obj
+ 0001:000004a8       ??_C@_0M@LCCONGAO@EFI_SUCCESS?$AA@ 000006c8     AmiPeiLib:StdLibC.obj
+ 0001:000004b4       ??_C@_0DB@PMLHLBMO@?$CF08x?9?$CF04x?9?$CF04x?9?$CF02x?$CF02x?9?$CF02x?$CF02x@ 000006d4     AmiPeiLib:StdLibC.obj
+ 0001:000004e8       ??_C@_06DCBEJCPP@?$CFs?$CI?$CFX?$CJ?$AA@ 00000708     AmiPeiLib:StdLibC.obj
+ 0001:000004f0       ??_C@_02DKCKIIND@?$CFs?$AA@ 00000710     AmiPeiLib:StdLibC.obj
+ 0001:000004f4       ??_C@_04DEAGFDMC@?4pdb?$AA@ 00000714     AmiPeiLib:PeLoader.obj
+ 0001:00000500       __ModuleEntryPoint         00000720 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000050c       _LoadHobPeimEntry          0000072c f   LoadHob:LoadHobPeim.obj
+ 0001:000005fc       _FindNextHobByType         0000081c f   AmiPeiLib:Misc.obj
+ 0001:00000639       _FindNextHobByGuid         00000859 f   AmiPeiLib:Misc.obj
+ 0001:000006e9       _ItoaHelper                00000909 f   AmiPeiLib:StdLibC.obj
+ 0001:000007a8       _ItoaEx                    000009c8 f   AmiPeiLib:StdLibC.obj
+ 0001:000007da       _StrtolEx                  000009fa f   AmiPeiLib:StdLibC.obj
+ 0001:0000087e       _Strupr                    00000a9e f   AmiPeiLib:StdLibC.obj
+ 0001:0000089d       _GetStatusCodeString       00000abd f   AmiPeiLib:StdLibC.obj
+ 0001:00000920       _Sprintf_s_va_list         00000b40 f   AmiPeiLib:StdLibC.obj
+ 0001:00000bfa       _Sprintf_s                 00000e1a f   AmiPeiLib:StdLibC.obj
+ 0001:00000c17       _GetDebugDirectory         00000e37 f   AmiPeiLib:PeLoader.obj
+ 0001:00000ca9       _GetName                   00000ec9 f   AmiPeiLib:PeLoader.obj
+ 0001:00000d58       _InternalMemSetMem         00000f78 f   BaseMemoryLibRepStr:SetMem.obj
+ 0001:00000d70       _InternalMemSetMem32       00000f90 f   BaseMemoryLibRepStr:SetMem32.obj
+ 0001:00000d88       _InternalMemSetMem64       00000fa8 f   BaseMemoryLibRepStr:SetMem64.obj
+ 0001:00000db0       _memset                    00000fd0     AmiPeiLib:MemSet.obj
+ 0001:00000dba       _MemSetAsm                 00000fda f   AmiPeiLib:MemSet.obj
+ 0001:00000e10       _MemCpy32                  00001030     AmiPeiLib:MemCpy.obj
+ 0001:00000e10       _memcpy                    00001030     AmiPeiLib:MemCpy.obj
+ 0001:00000e10       _MemCpyAsm                 00001030 f   AmiPeiLib:MemCpy.obj
+ 0001:00000eb0       _EnableLongMode            000010d0 f   AmiPeiLib:EnableLongMode.obj
+ 0001:00000f20       _InternalMemCopyMem        00001140 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000f5c       _InternalMemZeroMem        0000117c f   BaseMemoryLibRepStr:ZeroMem.obj
+
+ entry point at        0001:00000500
+
+ Static symbols
+

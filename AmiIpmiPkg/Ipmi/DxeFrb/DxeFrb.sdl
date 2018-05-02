@@ -1,0 +1,90 @@
+TOKEN
+    Name  = "DxeFrb_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling DxeFrb support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "DxeFrb_DIR"
+    Path  = "AmiIpmiPkg/Ipmi/DxeFrb"
+End
+
+INFComponent
+    Name  = "DxeFrb"
+    File  = "DxeFrb.inf"
+    Package  = "AmiIpmiPkg"
+    ModuleTypes  = "DXE_DRIVER"
+End
+
+FFS_FILE
+    Name  = "DxeFrb"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "AmiIpmiPkg.DxeFrb"
+    Apriori_Index  = "6"
+End
+
+ELINK
+    Name  = "$(DxeFrb_DIR)/DxeFrb.sd"
+    Parent  = "SERVER_MGMT_SETUP_DEFINITIONS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(DxeFrb_DIR)/DxeFrb.uni"
+    Parent  = "ServerMgmtSetupStringFiles"
+    InvokeOrder = AfterParent
+End
+
+# Elinks added for adding guids/protocol used in DxeFrb to TSE
+ELINK
+    Name  = "AmiModulePkg/AmiModulePkg.dec"
+    Parent  = "ADDITIONAL_AMITSE_Packages"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "MdePkg/MdePkg.dec"
+    Parent  = "ADDITIONAL_AMITSE_Packages"
+    InvokeOrder = AfterParent
+End
+ELINK
+    Name  = "$(DxeFrb_DIR)/DxeFrb.c"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(DxeFrb_DIR)/DxeFrb.h"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+End
+ELINK
+    Name  = "gEfiHobListGuid"
+    Parent  = "ADDITIONAL_AMITSE_Guids"
+    InvokeOrder = AfterParent
+End
+ELINK
+    Name  = "gOpromStartEndProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiLegacyBootProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+ELINK
+    Name  = "gEfiSmFrbProtocolGuid"
+    Parent  = "ADDITIONAL_AMITSE_Protocols"
+    InvokeOrder = AfterParent
+End
+ELINK
+    Name  = "DisableEnableOsWdtTimer,"
+    Parent  = "AfterEfiBootLaunchHook,"
+    InvokeOrder = AfterParent
+End

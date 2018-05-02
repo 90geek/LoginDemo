@@ -1,0 +1,10 @@
+<component>
+	name = "AcpiS3SaveDxe"
+	category = ModulePart
+	LocalRoot = "AmiCRBPkg\Universal\Acpi\AcpiS3SaveDxe"		
+	RefName = "AcpiS3SaveDxe"
+[INF]
+"AcpiS3SaveDxe.inf"
+[files]
+"AcpiS3SaveDxe.sdl"	
+<endComponent>

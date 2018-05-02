@@ -1,0 +1,33 @@
+TOKEN
+    Name  = "SerialMuxControl_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling SerialMuxControl support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "SerialMuxControl_DIR"
+    Path  = "AmiIpmiPkg/Ipmi/SerialMuxControl"
+End
+
+ELINK
+    Name  = "$(SerialMuxControl_DIR)/SerialMux.sd"
+    Parent  = "SERVER_MGMT_SETUP_DEFINITIONS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(SerialMuxControl_DIR)/SerialMux.uni"
+    Parent  = "ServerMgmtSetupStringFiles"
+    InvokeOrder = AfterParent
+End
+
+INFComponent
+    Name  = "SerialMuxControl"
+    File  = "SerialMuxControl.inf"
+    Package  = "AmiIpmiPkg"
+    ModuleTypes  = "DXE_DRIVER"
+End

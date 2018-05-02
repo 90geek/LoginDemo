@@ -1,0 +1,411 @@
+#include "FxnChangeSKUType.h"
+
+
+VOID       *gCallbackRegistry;
+EFI_GUID   gDefaulVariabletGuid = DEFAULTS_GUID;
+EFI_GUID  gSetupGuid = SETUP_GUID;  
+EFI_GUID gEfiSocketPowermanagementVarGuid = SYSTEM_CONFIGURATION_GUID;
+
+#define UC_STATE 0x01
+#define DEFAULT_STATE 0x00
+BOOLEAN AliConfigUpdated = FALSE;
+UINT8   LastALIConfig;
+UINTN   LastAliConfigVarSize = sizeof(LastALIConfig);
+VARIABLE_PATCH_FUNCTION VariablePatchTable [] = {
+    {
+     &gEfiSocketPowermanagementVarGuid,
+     {"IntelSetup\0"},   //SYSTEM_CONFIGURATION Restore AC Power Loss
+     PatchSocketPowerManagementConfig
+    },    
+    {
+       &gSetupGuid,
+       {"Setup\0"}, 
+       PatchSetupVariableConfig
+    },      
+    {
+     NULL,
+     {0}, 
+     NULL
+    }
+};
+
+
+
+BOOLEAN
+PatchSocketPowerManagementConfig(
+		VOID         *VariableBuffer
+		)
+{
+	SYSTEM_CONFIGURATION *SocketManagementConfig;
+	BOOLEAN                              Updated = FALSE;
+	
+	SocketManagementConfig = (SYSTEM_CONFIGURATION*)(UINTN)VariableBuffer;
+	if(AliConfigUpdated)
+	{
+		switch(LastALIConfig)
+		{
+		case(UC_STATE):
+				SocketManagementConfig->PowerState = 2;//Last State
+				break;
+		case(DEFAULT_STATE):
+				SocketManagementConfig->PowerState = 1;//Power Off
+				break;		
+		}
+		Updated = TRUE;
+	}
+	return Updated;
+}
+BOOLEAN
+PatchSetupVariableConfig(
+		VOID         *VariableBuffer
+		)
+{
+	BOOLEAN                              Updated = FALSE;
+	SETUP_DATA                           *SetupData;
+	SetupData = (SETUP_DATA*)(UINTN)VariableBuffer;
+	if(AliConfigUpdated)
+	{
+		switch(LastALIConfig)
+		{
+		case(UC_STATE):
+		        SetupData->AliConfig=1; //UC
+				SetupData->LegacyPriorities[0] = 1;//Bios pxe
+				SetupData->LegacyPriorities[1] = 0;//bios HDD
+				SetupData->UefiPriorities[0] = 1; //UEFI pxe
+				SetupData->UefiPriorities[1] = 0;  //UEFI HDD
+				break;
+		case(DEFAULT_STATE):
+				SetupData->AliConfig=0; //DEFAULT				
+				SetupData->LegacyPriorities[0] = 0;//Bios HDD
+				SetupData->LegacyPriorities[1] = 1;//bios PXE
+				SetupData->UefiPriorities[0] = 0;//UEFI Bios HDD
+				SetupData->UefiPriorities[1] = 1;//UEFI bios PXE
+				break;		
+		}
+		Updated = TRUE;
+	}
+	return Updated;
+}
+//LJC000008+<<
+
+
+UINT8
+CmosRead (
+    IN UINT8    Offset
+    ){
+    IoWrite8 (0x70, Offset);
+    return IoRead8 (0x71);
+}
+
+VOID*
+GetVariableContent (
+    NVAR          *VarPtr
+    ) {
+    CHAR8     *Ptr;
+    
+    Ptr = (CHAR8 *)(UINTN)VarPtr->VariableName;
+    DEBUG ((-1, "[Fxn] Ptr: %a\n", Ptr)); 
+    while ((*Ptr) != 0) {      
+	  Ptr ++;
+	}        
+    Ptr++; 
+    return Ptr;
+}
+
+BOOLEAN
+UpdateCurrentVariable (
+    IN VARIABLE_PATCH_FUNCTION   *VariableInfo
+    )
+{
+    EFI_STATUS        Status;
+    UINT32            Attribute;
+    UINTN             VariableSize;
+    CHAR16            UniVariableName [50];
+    UINT8             *VariableBuffer;
+    
+    VariableSize = 0;
+    AsciiStrToUnicodeStr (VariableInfo->VariableName, UniVariableName);
+    Status = gRT->GetVariable(
+                  UniVariableName,
+                  VariableInfo->VariableGuid,
+                  NULL,
+                  &VariableSize,
+                  NULL
+                  );
+    if (Status != EFI_BUFFER_TOO_SMALL) {
+        return FALSE;
+    }
+    VariableBuffer = NULL;
+    VariableBuffer = AllocateZeroPool (VariableSize);
+    if (VariableBuffer == NULL) {
+        return FALSE;
+    }
+    
+    Status = gRT->GetVariable(
+                  UniVariableName,
+                  VariableInfo->VariableGuid,
+                  &Attribute,
+                  &VariableSize,
+                  VariableBuffer
+                  );
+    if (EFI_ERROR (Status)) {
+        gBS->FreePool (VariableBuffer);
+        return FALSE;
+    }
+    
+    if (VariableInfo->Function (VariableBuffer)) {
+        //
+        // Update the changed variable into NVRAM.
+        //
+        Status = gRT->SetVariable(
+                          UniVariableName,
+                          VariableInfo->VariableGuid,
+                          Attribute,
+                          VariableSize,
+                          VariableBuffer
+                          );
+
+        if (!EFI_ERROR (Status)) {
+            gBS->FreePool (VariableBuffer);
+            return TRUE;
+        }
+    }
+    gBS->FreePool (VariableBuffer);
+    return FALSE;
+}
+
+BOOLEAN
+UpdateStdDefaultVariable (
+    VOID
+    )
+{
+    EFI_STATUS    Status;
+    VOID          *VariableBuffer;
+    UINTN         VariableSize, Index;
+    UINT32        Attribute;
+    NVAR          *VarPtr;
+    BOOLEAN       Updated;
+    SETUP_DATA         SetupData;
+    UINTN         SetupDataSize=sizeof(SETUP_DATA);
+    LastAliConfigVarSize = sizeof(LastALIConfig);
+    Status = gRT->GetVariable(
+    			       L"LastAliConfig",
+    			       &gSetupGuid,
+    			       NULL,
+    			       &LastAliConfigVarSize,
+    			       &LastALIConfig
+    			       );
+    	  DEBUG((EFI_D_LOAD, "[FXN] GetVariable LastAliConfig Status: %r DataSize:%x \n", Status,LastAliConfigVarSize));
+    	  if(Status == EFI_NOT_FOUND)
+    	  {
+    		  LastALIConfig = DEFAULT_STATE; //default
+    		  Status = gRT->SetVariable(
+    				  L"LastAliConfig",
+    				  &gSetupGuid,
+    				  EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
+    				  LastAliConfigVarSize,
+    				  &LastALIConfig
+    				  );
+    		  if(EFI_ERROR(Status))
+    		  {
+    			  DEBUG((EFI_D_LOAD, "[FXN] SetVariable LastAliConfig Status: %r\n", Status));
+    		  }
+    		  else
+    			  DEBUG((EFI_D_LOAD, "[FXN] SetVariable LastAliConfig Status: %r\n", Status));
+    	  }
+    	  DEBUG((EFI_D_LOAD, "[FXN] LastALIConfig: %x\n", LastALIConfig));
+    	  Status = gRT->GetVariable(
+		       L"Setup",
+		       &gSetupGuid,
+		       NULL,
+		       &SetupDataSize,
+		       &SetupData
+		       );
+    DEBUG((EFI_D_LOAD, "[FXN] GetVariable SetupData Status: %r\n", Status));
+    if(EFI_ERROR(Status))
+    {
+    	return FALSE;
+    }
+    DEBUG((EFI_D_LOAD, "SetupData->AliConfig: %x\n", SetupData.AliConfig));
+    //DEBUG((EFI_D_LOAD, "SetupData->PowerState: %x\n", FxnOemTseVarData.PowerState));
+    if(SetupData.AliConfig != LastALIConfig)
+    {
+    	AliConfigUpdated = TRUE;
+    	LastALIConfig = SetupData.AliConfig;
+    	Status = gRT->SetVariable(
+    	    		L"LastAliConfig",
+    	    		&gSetupGuid,
+    	    		EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
+    	    		LastAliConfigVarSize,
+    	    		&LastALIConfig
+    	    		);
+    
+    	 DEBUG((EFI_D_LOAD, "[FXN] SetVariable LastAliConfig Status: %r\n", Status));
+    	  if(EFI_ERROR(Status))
+    	  {
+    		  return FALSE;
+    	  }
+    	   
+    }
+    //
+    // Get the real size and allocate correct memory buffer for StdDefault
+    //
+    DEBUG ((-1, "[Fxn] Get StdDefault variable :"));
+    VariableSize = 0;
+    Status = gRT->GetVariable(
+                  L"StdDefaults",
+                  &gDefaulVariabletGuid,
+                  NULL,
+                  &VariableSize,
+                  NULL
+                  );
+    
+    if (Status != EFI_BUFFER_TOO_SMALL) {
+        DEBUG ((-1, "%r\n", Status));
+        return FALSE;
+    }
+    VariableBuffer = NULL;
+    VariableBuffer = AllocateZeroPool (VariableSize);
+    if (VariableBuffer == NULL) {
+        DEBUG ((-1, "AllocatePool Failed\n"));      
+        return FALSE;
+    }
+    
+    Status = gRT->GetVariable(
+                  L"StdDefaults",
+                  &gDefaulVariabletGuid,
+                  &Attribute,
+                  &VariableSize,
+                  VariableBuffer
+                  );
+    if (EFI_ERROR (Status)) {
+      gBS->FreePool (VariableBuffer);
+      DEBUG ((-1, "%r\n", Status));      
+      return FALSE;
+    }
+    DEBUG ((-1, "%r\n", Status)); 
+
+    VarPtr = VariableBuffer;
+    Updated = FALSE;
+    //
+    // Passing the StdDefault until there's no valid variable signature or exceed variable buffer.
+    //
+    while (((UINTN)VarPtr <= ((UINTN)VariableBuffer + (UINTN)VariableSize)) && (VarPtr->signature == NVAR_SIGNATURE)) {
+      //
+      // Compare the variable name with each entries of VariablePatchTable.
+      //
+      for (Index = 0; VariablePatchTable[Index].VariableName[0] != 0; Index ++) {
+        if (AsciiStrCmp (VarPtr->VariableName, VariablePatchTable[Index].VariableName) == 0) {
+          DEBUG ((-1, "[Fxn] Updating variable %a in StdDefault Index:%x\n", VariablePatchTable[Index].VariableName,Index)); 
+          //
+          //Match entry found. Invoke the patch function of VariablePatchTable to patch the variable setting of StdDefault.
+          //
+          if (VariablePatchTable[Index].Function (GetVariableContent (VarPtr))) {
+            //
+            // StdDefault Setting is changed meanwhile we have to patch the current variable as well.
+            //
+            DEBUG ((-1, "[Fxn] StdDefault is changed, update current variable\n")); 
+            if (UpdateCurrentVariable (&VariablePatchTable[Index])) {
+              //
+              // Current setting is changed, set flag to indicate system reboot is required.
+              //
+              Updated = TRUE;
+            }
+          }
+          break;
+        }
+        
+      }
+      //
+      // Get next variable from StdDefault.
+      //
+      VarPtr = (NVAR *)((UINTN)VarPtr + (UINTN)VarPtr->size);
+    }
+    
+    Status = gRT->SetVariable(
+                    L"StdDefaults",
+                    &gDefaulVariabletGuid,
+                    Attribute,
+                    VariableSize,
+                    VariableBuffer
+                    );
+    DEBUG ((-1, "[Fxn] Update StdDefault to NVRAM : %r\n", Status)); 
+    gBS->FreePool (VariableBuffer);
+    return Updated;
+}
+
+
+VOID
+EFIAPI
+VariableWriteNotifyCallback (
+    IN EFI_EVENT Event,
+    IN VOID      *Context
+    )
+{
+    if (UpdateStdDefaultVariable ()) {
+      //
+      // Current Setup variable has been updated. Issue a system cold boot to apply the updated setting.
+      //
+      DEBUG ((-1, "[Fxn] BIOS setting is changed, perform system cold reset!! \n"));
+      //gRT->ResetSystem (EfiResetCold, EFI_SUCCESS, 0, NULL);
+      IoWrite8 (0xCF9, 0xE);
+      while (1);
+    }
+    //
+    // No variable changed, just close the event.
+    //
+    gBS->CloseEvent(Event);
+}
+
+
+EFI_STATUS EFIAPI FxnChangeSKUTypeEntryPoint(
+	IN EFI_HANDLE       ImageHandle,
+	IN EFI_SYSTEM_TABLE *SystemTable
+)
+{
+    EFI_STATUS                  Status;
+    VOID                        *Protocol;
+    EFI_EVENT                   VariableWriteyEvent;
+    
+
+    DEBUG ((-1, "[Fxn] DxeSetupDefaultEntryPoint start.\n"));
+    //
+    // Check if Variable architecture protocol ready for variable write.
+    //
+    Status = gBS->LocateProtocol (
+                     &gEfiVariableWriteArchProtocolGuid,
+                     NULL,
+                     &Protocol
+                     );
+    if (!EFI_ERROR (Status)) {
+        //
+        // Update the default value to StdDefault
+        //
+        DEBUG ((-1, "[Fxn] Variable Write Architecture Protocol available. Start to patch default variable.\n"));
+        VariableWriteNotifyCallback (NULL, NULL);
+        return Status;
+    }
+    
+    //
+    // Register protocol notification callback to update the default value.
+    //
+    DEBUG ((-1, "[Fxn] Variable Write protocol is not available yet, register callback :"));
+    Status = gBS->CreateEvent(
+                        EVT_NOTIFY_SIGNAL, 
+                        TPL_CALLBACK,
+                        VariableWriteNotifyCallback, 
+                        NULL, 
+                        &VariableWriteyEvent
+                        );
+    if (EFI_ERROR (Status)) {
+      DEBUG ((-1, "%r\n", Status));
+      return Status;
+    }
+    Status = gBS->RegisterProtocolNotify (
+                        &gEfiVariableWriteArchProtocolGuid, 
+                        VariableWriteyEvent, 
+                        &gCallbackRegistry
+                        );
+    DEBUG ((-1, "%r\n", Status));
+  	return Status;
+}

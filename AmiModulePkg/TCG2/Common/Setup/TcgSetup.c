@@ -1,0 +1,273 @@
+//**********************************************************************
+//**********************************************************************
+//**                                                                  **
+//**        (C)Copyright 1985-2010, American Megatrends, Inc.         **
+//**                                                                  **
+//**                       All Rights Reserved.                       **
+//**                                                                  **
+//**        5555 Oakbrook Pkwy, Suite 200, Norcross, GA 30093         **
+//**                                                                  **
+//**                       Phone: (770)-246-8600                      **
+//**                                                                  **
+//**********************************************************************
+//*************************************************************************
+// $Header: /Alaska/SOURCE/Modules/TcgNext/Common/TcgSetup/TcgSetup.c 1     10/08/13 12:05p Fredericko $
+//
+// $Revision: 1 $
+//
+// $Date: 10/08/13 12:05p $
+//*************************************************************************
+// Revision History
+// ----------------
+// $Log: /Alaska/SOURCE/Modules/TcgNext/Common/TcgSetup/TcgSetup.c $
+// 
+// 1     10/08/13 12:05p Fredericko
+// Initial Check-In for Tpm-Next module
+// 
+// 1     7/10/13 5:57p Fredericko
+// [TAG]  		EIP120969
+// [Category]  	New Feature
+// [Description]  	TCG (TPM20)
+// 
+// 2     3/29/11 1:24p Fredericko
+// 
+// [TAG]        EIP 54642
+// [Category] Improvement
+// [Description] 1. Checkin Files related to TCG function override 
+// 2. Include TCM and TPM auto detection
+// [Files] Affects all TCG files
+//
+// 
+// 
+//**********************************************************************
+//<AMI_FHDR_START>
+//
+// Name:  TcgSetup.c
+//
+// Description:
+//      
+//
+//<AMI_FHDR_END>
+//**********************************************************************
+#include <AmiLib.h>
+#include <AmiDxeLib.h>
+#include <Protocol/AMIPostMgr.h>
+#include <AmiTcg\TcgMisc.h>
+#include <Setup.h>
+
+
+#define TCG_INTERNAL_FLAGS_GUID \
+  {\
+    0x70fff0ff, 0xa543, 0x45b9, 0x8b, 0xe3, 0x1b, 0xdb, 0x90, 0x41, 0x20, 0x80 \
+  }
+
+/**
+    This function is eLink'ed with the chain executed right before
+    the Setup.
+
+**/
+
+void printbuffer(UINT8 *Buffer, UINTN BufferSize)
+{
+    UINTN i=0; UINTN j=0;
+    
+    DEBUG((-1,"\n**********PrintBuffer Entry********"));
+    
+    for(i=0; i<BufferSize; i++){
+        
+        if(i%16 == 0){
+            DEBUG((-1,"\n"));
+            DEBUG((-1,"%04x :", j));
+            j+=1;
+        }
+
+        DEBUG((-1,"%02x ", Buffer[i]));
+    }
+    DEBUG((-1,"\n"));
+}
+
+
+VOID InitTcgStrings(EFI_HII_HANDLE HiiHandle, UINT16 Class)
+{
+    UINTN          Size = sizeof(AMITCGSETUPINFOFLAGS);
+    AMITCGSETUPINFOFLAGS    Info;
+    EFI_STATUS     Status;
+    EFI_GUID       gTcgInternalflagGuid = TCG_INTERNAL_FLAGS_GUID;
+    UINT32         VariableAttributes=0;
+    
+    UINTN                   VariableSize  = sizeof(SETUP_DATA);
+    SETUP_DATA              SetupDataBuffer;
+    UINTN                   SetupVariableSize = sizeof(SETUP_DATA);
+    UINT32                  SetupVariableAttributes;
+    EFI_GUID                gSetupGuid = SETUP_GUID;
+    
+    CHAR16         *String[0x500];
+    CHAR8          *StringBegin;
+    UINTN          len=0;
+    BOOLEAN        Comma=FALSE;
+    
+    DEBUG(( -1," InitTcgStrings entry \n"));
+
+    Status = pRS->GetVariable( L"PCRBitmap", \
+                               &gTcgInternalflagGuid, \
+                               &VariableAttributes, \
+                               &Size, \
+                               &Info );
+    if(EFI_ERROR(Status))return;
+    
+    Status = pRS->GetVariable (L"Setup",
+                               &gSetupGuid,
+                               &SetupVariableAttributes,
+                               &SetupVariableSize,
+                               &SetupDataBuffer);
+    if(EFI_ERROR(Status))return;
+    
+    pBS->SetMem(String, 0x500, 0);
+    
+    StringBegin = (UINT8 *)&String[0];
+    if(Info.SupportedPcrBitMap & 1){
+        len = Wcslen(L"SHA-1");
+        pBS->CopyMem(StringBegin, L"SHA-1", len*2);
+        StringBegin += len*2;
+        Comma = TRUE;
+        SetupDataBuffer.Sha1Supported=1;
+    }
+       
+    if(Info.SupportedPcrBitMap & 2){
+        if(Comma){
+            len = Wcslen(L",SHA256");   
+            pBS->CopyMem(StringBegin, L",SHA256", len*2);
+        }else{
+            len = Wcslen(L"SHA256");
+            pBS->CopyMem(StringBegin, L"SHA256", len*2);
+        }
+        StringBegin += len*2;
+        Comma = TRUE;
+        SetupDataBuffer.Sha256Supported=2;
+    }
+        
+    if(Info.SupportedPcrBitMap & 4){
+        if(Comma){
+            len = Wcslen(L",SHA384");
+            pBS->CopyMem(StringBegin, L",SHA384", len*2);
+        }else{
+            len = Wcslen(L"SHA384");
+            pBS->CopyMem(StringBegin, L"SHA384", len*2); 
+        }
+        StringBegin += len*2;
+        Comma = TRUE;
+        SetupDataBuffer.Sha384Supported=4;
+    }
+    
+    if(Info.SupportedPcrBitMap & 0x8){
+        if(Comma){
+            len = Wcslen(L",SHA512");
+            pBS->CopyMem(StringBegin,  L",SHA512", len*2);
+        }else{
+            len = Wcslen(L"SHA512");
+            pBS->CopyMem(StringBegin,  L"SHA512", len*2);
+        }
+        StringBegin += len*2;
+        Comma = TRUE;
+        SetupDataBuffer.Sha512Supported=8;
+    }
+    
+    if(Info.SupportedPcrBitMap & 0x10){
+        if(Comma){
+            len = Wcslen(L",SM3");
+            pBS->CopyMem(StringBegin,  L",SM3", len*2);
+        }else{
+            len = Wcslen(L"SM3");
+            pBS->CopyMem(StringBegin,  L"SM3", len*2);
+        }
+        StringBegin += len*2;
+        SetupDataBuffer.SM3Supported=0x10;
+    }
+    
+    Status = pRS->SetVariable (
+                       L"Setup",
+                       &gSetupGuid,
+                       SetupVariableAttributes,
+                       SetupVariableSize,
+                       &SetupDataBuffer); 
+    
+    InitString(HiiHandle, STRING_TOKEN(STR_TPM_SUPPORTED_PCR_BANKS_VALUE),
+                L"%S", String);
+        
+    pBS->SetMem(String, 0x500, 0);
+    
+    StringBegin = (UINT8 *)&String[0];
+    Comma = FALSE;
+    
+    if(Info.ActivePcrBitMap & 1){
+        len = Wcslen(L"SHA-1");
+        pBS->CopyMem(StringBegin, L"SHA-1", len*2);
+        StringBegin += len*2;
+        Comma = TRUE;
+    }
+    
+    if(Info.ActivePcrBitMap & 2){
+        if(Comma){
+            len = Wcslen(L",SHA256");
+            pBS->CopyMem(StringBegin, L",SHA256", len*2);
+        }else{
+            len = Wcslen(L"SHA256");
+            pBS->CopyMem(StringBegin, L"SHA256", len*2); 
+        }
+        StringBegin += len*2;
+        Comma = TRUE;
+    }
+    
+    if(Info.ActivePcrBitMap & 4){
+        if(Comma){
+            len = Wcslen(L",SHA384");
+            pBS->CopyMem(StringBegin, L",SHA384", len*2);
+        }else{
+            len = Wcslen(L"SHA384");
+            pBS->CopyMem(StringBegin, L"SHA384", len*2);
+        }
+        StringBegin += len*2;
+        Comma = TRUE;
+    }
+    
+    if(Info.ActivePcrBitMap & 0x8){
+        if(Comma){
+            len = Wcslen(L",SHA512");        
+            pBS->CopyMem(StringBegin, L",SHA512", len*2);
+        }else{
+            len = Wcslen(L"SHA512");        
+            pBS->CopyMem(StringBegin, L"SHA512", len*2);
+        }
+        StringBegin += len*2;
+        Comma = TRUE;
+    }
+    
+    if(Info.ActivePcrBitMap & 0x10){
+        if(Comma){
+            len = Wcslen(L",SM3");
+            pBS->CopyMem(StringBegin, L",SM3", len*2);
+        }else{
+            len = Wcslen(L"SM3");
+            pBS->CopyMem(StringBegin, L"SM3", len*2);
+        }
+        StringBegin += len*2;
+    }
+    
+    InitString(HiiHandle, STRING_TOKEN(STR_TPM_ACTIVE_PCR_BANKS_VALUE),
+                L"%S", String);
+
+}
+
+//**********************************************************************
+//**********************************************************************
+//**                                                                  **
+//**        (C)Copyright 1985-2010, American Megatrends, Inc.         **
+//**                                                                  **
+//**                       All Rights Reserved.                       **
+//**                                                                  **
+//**     5555 Oakbrook Pkwy, Suite 200, Norcross, GA 30093            **
+//**                                                                  **
+//**                       Phone: (770)-246-8600                      **
+//**                                                                  **
+//**********************************************************************
+//**********************************************************************

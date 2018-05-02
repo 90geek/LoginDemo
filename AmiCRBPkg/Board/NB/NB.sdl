@@ -1,0 +1,3617 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2012, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+# $Header: $
+#
+# $Revision: $
+#
+# $Date: $
+#*************************************************************************
+# Revision History
+# ----------------
+# $Log: $
+# 
+# 
+#*************************************************************************
+#<AMI_FHDR_START>
+#
+# Name:  <NB.SDL>
+#
+# Description:     
+#
+#<AMI_FHDR_END>
+#*************************************************************************
+TOKEN
+    Name  = "NB_DEVICE_REGS_RC_DEFINITION_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "NB_DEVICE_REGS_RC_DEFINITION_HEADER"
+    Value  = "<GrantleySocketPkg\Include\Iio\IioRegs.h>"
+    TokenType = Expression
+    TargetH = Yes
+    Lock = Yes
+    Token = "NB_DEVICE_REGS_RC_DEFINITION_SUPPORT" "=" "1"
+End
+
+PCIDEVICE
+	Title  = "NB to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	Fun  = 00h
+	BridgeBusNum  = 00h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\SysBus.asi'"
+	ASLdeviceName  = "PCI0"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+	ASL_PTS  = "Method;IPTS(Arg0)"
+	ASL_WAK  = "Method;IWAK(Arg0)"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #0 (DMI)"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 04h
+	ASLdeviceName  = "DMI0"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #1"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR1A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #1"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR1A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "HOTPLUG_SUPPORT" "=" "1"
+	Token = "PLATFORM_TYPE" "=" "0"		
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	HotPlug = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	ResPadding = Yes
+	BusResPad  = "0x1"
+	Io16ResPad  = "0x1000"
+	Io32ResPad  = "0x0"
+	Mmio32ResPad  = "0x1000000"
+	Mmio32PfResPad  = "0x1000000"
+	Mmio64ResPad  = "0x1000000"
+	Mmio64PfResPad  = "0x1000000"
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #2"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR1B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19	
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #3"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #4"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #5"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #6"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #7"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #8"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #9"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #a"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+# NB_IOxAPIC_SUPPORT == 0 For NB1 PCIE root ports
+PCIDEVICE
+	Title  = "NB1 to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	BridgeBusNum  = 040h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Sck1Ejd.asi'"
+	ASLdeviceName  = "PCI1"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #0 (D0, F0)"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QRP0"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #1"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR1A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #2"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR1B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #3"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #4"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #5"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #6"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #7"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #8"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #9"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #a"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+#For NB2
+PCIDEVICE
+	Title  = "NB2 to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	BridgeBusNum  = 080h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Sck2Ejd.asi'"
+	ASLdeviceName  = "PCI2"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #0"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RRP0"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #1"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR1A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #2"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR1B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #3"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #4"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #5"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #6"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #7"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #8"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #9"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #a"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+#For NB3
+PCIDEVICE
+	Title  = "NB3 to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	BridgeBusNum  = 0C0h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Sck3Ejd.asi'"
+	ASLdeviceName  = "PCI3"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #0"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SRP0"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #1"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR1A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #2"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR1B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #3"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #4"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #5"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #6"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #7"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3A"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #8"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3B"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #9"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3C"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #a"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3D"
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+# NB_IOxAPIC_SUPPORT == 1 For NB PCIE root ports
+PCIDEVICE
+	Title  = "NB to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	Fun  = 00h
+	BridgeBusNum  = 00h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\SysBus.asi'"
+	ASLdeviceName  = "PCI0"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+	ASL_PTS  = "Method;IPTS(Arg0)"
+	ASL_WAK  = "Method;IWAK(Arg0)"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #0 (DMI)"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 04h
+	ASLdeviceName  = "DMI0"
+	IntA = 	LNKA; 24
+	IntB = 	LNKB; 25
+	IntC = 	LNKC; 25
+	IntD = 	LNKD; 25
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #1"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR1A"
+	IntA = 	LNKA; 26
+	IntB = 	LNKB; 28
+	IntC = 	LNKC; 29
+	IntD = 	LNKD; 30
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #1"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR1A"
+	IntA = 	LNKA; 26
+	IntB = 	LNKB; 28
+	IntC = 	LNKC; 29
+	IntD = 	LNKD; 30
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "HOTPLUG_SUPPORT" "=" "1"
+	Token = "PLATFORM_TYPE" "=" "0"		
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	HotPlug = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	ResPadding = Yes
+	BusResPad  = "0x1"
+	Io16ResPad  = "0x1000"
+	Mmio32ResPad  = "0x1000000"
+	Mmio32PfResPad  = "0x1000000"
+	Mmio64ResPad  = "0x1000000"
+	Mmio64PfResPad  = "0x1000000"
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #2"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR1B"
+	IntA = 	LNKA; 27
+	IntB = 	LNKB; 30
+	IntC = 	LNKC; 28
+	IntD = 	LNKD; 29
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #3"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2A"
+	IntA = 	LNKA; 32
+	IntB = 	LNKB; 36
+	IntC = 	LNKC; 37
+	IntD = 	LNKD; 38
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #4"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2B"
+	IntA = 	LNKA; 33
+	IntB = 	LNKB; 37
+	IntC = 	LNKC; 38
+	IntD = 	LNKD; 36
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"	
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #5"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2C"
+	IntA = 	LNKA; 34
+	IntB = 	LNKB; 37
+	IntC = 	LNKC; 36
+	IntD = 	LNKD; 38
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #6"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR2D"
+	IntA = 	LNKA; 35
+	IntB = 	LNKB; 36
+	IntC = 	LNKC; 38
+	IntD = 	LNKD; 37
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"	
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #7"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3A"
+	IntA = 	LNKA; 40
+	IntB = 	LNKB; 44
+	IntC = 	LNKC; 45
+	IntD = 	LNKD; 46
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #8"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3B"
+	IntA = 	LNKA; 41
+	IntB = 	LNKB; 45
+	IntC = 	LNKC; 46
+	IntD = 	LNKD; 44
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #9"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3C"
+	IntA = 	LNKA; 42
+	IntB = 	LNKB; 45
+	IntC = 	LNKC; 44
+	IntD = 	LNKD; 46
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB PCI-E Root Port #a"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "BR3D"
+	IntA = 	LNKA; 43
+	IntB = 	LNKB; 44
+	IntC = 	LNKC; 46
+	IntD = 	LNKD; 45
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+# NB_IOxAPIC_SUPPORT == 1 For NB1 PCIE root ports
+PCIDEVICE
+	Title  = "NB1 to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	BridgeBusNum  = 040h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Sck1Ejd.asi'"
+	ASLdeviceName  = "PCI1"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #0 (D0, F0)"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QRP0"
+	IntA = 	LNKA; 48
+	IntB = 	LNKB; 49
+	IntC = 	LNKC; 49
+	IntD = 	LNKD; 49
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #1"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR1A"
+	IntA = 	LNKA; 50
+	IntB = 	LNKB; 52
+	IntC = 	LNKC; 53
+	IntD = 	LNKD; 54
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #2"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR1B"
+	IntA = 	LNKA; 51
+	IntB = 	LNKB; 54
+	IntC = 	LNKC; 52
+	IntD = 	LNKD; 53
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"	
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #3"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2A"
+	IntA = 	LNKA; 56
+	IntB = 	LNKB; 60
+	IntC = 	LNKC; 61
+	IntD = 	LNKD; 62
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"	
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #4"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2B"
+	IntA = 	LNKA; 57
+	IntB = 	LNKB; 61
+	IntC = 	LNKC; 62
+	IntD = 	LNKD; 60
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #5"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2C"
+	IntA = 	LNKA; 58
+	IntB = 	LNKB; 61
+	IntC = 	LNKC; 60
+	IntD = 	LNKD; 62
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"	
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #6"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR2D"
+	IntA = 	LNKA; 59
+	IntB = 	LNKB; 60
+	IntC = 	LNKC; 62
+	IntD = 	LNKD; 61
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #7"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3A"
+	IntA = 	LNKA; 64
+	IntB = 	LNKB; 68
+	IntC = 	LNKC; 69
+	IntD = 	LNKD; 70
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #8"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3B"
+	IntA = 	LNKA; 65
+	IntB = 	LNKB; 69
+	IntC = 	LNKC; 70
+	IntD = 	LNKD; 68
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #9"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3C"
+	IntA = 	LNKA; 66
+	IntB = 	LNKB; 69
+	IntC = 	LNKC; 68
+	IntD = 	LNKD; 70
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB1 PCI-E Root Port #a"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio1Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "QR3D"
+	IntA = 	LNKA; 67
+	IntB = 	LNKB; 68
+	IntC = 	LNKC; 70
+	IntD = 	LNKD; 69
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+#For NB2
+PCIDEVICE
+	Title  = "NB2 to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	BridgeBusNum  = 080h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Sck2Ejd.asi'"
+	ASLdeviceName  = "PCI2"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #0"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RRP0"
+	IntA = 	LNKA; 72
+	IntB = 	LNKB; 73
+	IntC = 	LNKC; 73
+	IntD = 	LNKD; 73
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #1"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR1A"
+	IntA = 	LNKA; 74
+	IntB = 	LNKB; 76
+	IntC = 	LNKC; 77
+	IntD = 	LNKD; 78
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #2"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR1B"
+	IntA = 	LNKA; 75
+	IntB = 	LNKB; 78
+	IntC = 	LNKC; 76
+	IntD = 	LNKD; 77
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #3"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2A"
+	IntA = 	LNKA; 80
+	IntB = 	LNKB; 84
+	IntC = 	LNKC; 85
+	IntD = 	LNKD; 86
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #4"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2B"
+	IntA = 	LNKA; 81
+	IntB = 	LNKB; 85
+	IntC = 	LNKC; 86
+	IntD = 	LNKD; 84
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #5"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2C"
+	IntA = 	LNKA; 82
+	IntB = 	LNKB; 85
+	IntC = 	LNKC; 84
+	IntD = 	LNKD; 86
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #6"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR2D"
+	IntA = 	LNKA; 83
+	IntB = 	LNKB; 84
+	IntC = 	LNKC; 86
+	IntD = 	LNKD; 85
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #7"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3A"
+	IntA = 	LNKA; 88
+	IntB = 	LNKB; 92
+	IntC = 	LNKC; 93
+	IntD = 	LNKD; 94
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #8"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3B"
+	IntA = 	LNKA; 89
+	IntB = 	LNKB; 93
+	IntC = 	LNKC; 94
+	IntD = 	LNKD; 92
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #9"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3C"
+	IntA = 	LNKA; 90
+	IntB = 	LNKB; 93
+	IntC = 	LNKC; 92
+	IntD = 	LNKD; 94
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB2 PCI-E Root Port #a"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio2Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "RR3D"
+	IntA = 	LNKA; 91
+	IntB = 	LNKB; 92
+	IntC = 	LNKC; 94
+	IntD = 	LNKD; 93
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+#for NB3 IOAPIC
+PCIDEVICE
+	Title  = "NB3 to PCI-E Root Port (D0, F0)"
+	Parent  = "PciHost (Virtual)"
+	Attribute  = "0x303f"
+	Dev_type  = "RootBridge"
+	Dev  = 00h
+	BridgeBusNum  = 0C0h
+	SleepNum  = 01h
+	ASLfile  = "'AmiModulePkg\PCI\OSCM.ASL','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Sck3Ejd.asi'"
+	ASLdeviceName  = "PCI3"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	FixedBus = Yes
+	PCIExpress = Yes
+	InitRoutine  = "RootBrgInit"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #0"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SRP0"
+	IntA = 	LNKA; 96
+	IntB = 	LNKB; 97
+	IntC = 	LNKC; 97
+	IntD = 	LNKD; 97
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #1"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR1A"
+	IntA = 	LNKA; 98
+	IntB = 	LNKB; 100
+	IntC = 	LNKC; 101
+	IntD = 	LNKD; 102
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #2"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 01h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR1B"
+	IntA = 	LNKA; 99
+	IntB = 	LNKB; 102
+	IntC = 	LNKC; 100
+	IntD = 	LNKD; 101
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #3"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2A"
+	IntA = 	LNKA; 104
+	IntB = 	LNKB; 108
+	IntC = 	LNKC; 109
+	IntD = 	LNKD; 110
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #4"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2B"
+	IntA = 	LNKA; 105
+	IntB = 	LNKB; 109
+	IntC = 	LNKC; 110
+	IntD = 	LNKD; 108
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #5"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 02h
+	GPEbit  = 09h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2C"
+	IntA = 	LNKA; 106
+	IntB = 	LNKB; 109
+	IntC = 	LNKC; 108
+	IntD = 	LNKD; 110
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #6"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 02h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR2D"
+	IntA = 	LNKA; 107
+	IntB = 	LNKB; 108
+	IntC = 	LNKC; 110
+	IntD = 	LNKD; 109
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #7"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 00h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3A"
+	IntA = 	LNKA; 112
+	IntB = 	LNKB; 116
+	IntC = 	LNKC; 117
+	IntD = 	LNKD; 118
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #8"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 01h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3B"
+	IntA = 	LNKA; 113
+	IntB = 	LNKB; 117
+	IntC = 	LNKC; 118
+	IntD = 	LNKD; 116
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #9"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 02h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3C"
+	IntA = 	LNKA; 114
+	IntB = 	LNKB; 117
+	IntC = 	LNKC; 116
+	IntD = 	LNKD; 118
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+PCIDEVICE
+	Title  = "NB3 PCI-E Root Port #a"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 03h
+	Fun  = 03h
+	GPEbit  = 09h
+	SleepNum  = 04h
+	ASLfile  = "'GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieHp.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\PcieNonHpDev.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\Iio3Ejd.asi','GrantleyPkg\Acpi\AcpiTables\Dsdt\GPE_PME.asl'"
+	ASLdeviceName  = "SR3D"
+	IntA = 	LNKA; 115
+	IntB = 	LNKB; 116
+	IntC = 	LNKC; 118
+	IntD = 	LNKD; 117
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+	InitRoutine  = "PcieRootPortInitCallback"
+End
+
+
+# NB_IOxAPIC_SUPPORT == 0 For NB DMA engines
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn00"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0A"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn01"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0B"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn02"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0C"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn03"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0D"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn04"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0E"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn05"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0F"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn06"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0G"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn07"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0H"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 1 For NB DMA engines
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn00"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0A"
+	IntA = 	LNKA; 31
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn01"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0B"
+	IntB = 	LNKB; 39
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn02"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0C"
+	IntC = 	LNKC; 31
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn03"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0D"
+	IntD = 	LNKD; 39
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn04"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0E"
+	IntA = 	LNKA; 31
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn05"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0F"
+	IntB = 	LNKB; 39
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn06"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0G"
+	IntC = 	LNKC; 31
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB Crystal Beach DMA Engine Fn07"
+	Parent  = "NB to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB0H"
+	IntD = 	LNKD; 39
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 0 For NB1 DMA engines
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn00"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1A"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn01"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1B"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn02"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1C"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn03"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1D"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn04"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1E"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn05"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1F"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn06"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1G"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn07"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1H"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 1 For NB DMA engines
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn00"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1A"
+	IntA = 	LNKA; 55
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn01"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1B"
+	IntB = 	LNKB; 63
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn02"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1C"
+	IntC = 	LNKC; 55
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn03"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1D"
+	IntD = 	LNKD; 63
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn04"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1E"
+	IntA = 	LNKA; 55
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn05"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1F"
+	IntB = 	LNKB; 63
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn06"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1G"
+	IntC = 	LNKC; 55
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB1 Crystal Beach DMA Engine Fn07"
+	Parent  = "NB1 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB1H"
+	IntD = 	LNKD; 63
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 0 For NB2 DMA engines
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn00"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2A"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn01"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2B"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn02"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2C"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn03"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2D"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn04"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2E"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn05"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2F"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn06"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2G"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn07"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2H"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 1 For NB DMA engines
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn00"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2A"
+	IntA = 	LNKA; 79
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn01"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2B"
+	IntB = 	LNKB; 87
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn02"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2C"
+	IntC = 	LNKC; 79
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn03"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2D"
+	IntD = 	LNKD; 87
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn04"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2E"
+	IntA = 	LNKA; 79
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn05"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2F"
+	IntB = 	LNKB; 87
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn06"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2G"
+	IntC = 	LNKC; 79
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB2 Crystal Beach DMA Engine Fn07"
+	Parent  = "NB2 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB2H"
+	IntD = 	LNKD; 87
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 0 For NB3 DMA engines
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn00"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3A"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn01"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3B"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn02"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3C"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn03"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3D"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn04"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3E"
+	IntA = 	LNKA; 16
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn05"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3F"
+	IntB = 	LNKB; 17
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn06"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3G"
+	IntC = 	LNKC; 18
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn07"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3H"
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+# NB_IOxAPIC_SUPPORT == 1 For NB DMA engines
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn00"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 00h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3A"
+	IntA = 	LNKA; 103
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn01"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 01h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3B"
+	IntB = 	LNKB; 111
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn02"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 02h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3C"
+	IntC = 	LNKC; 103
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn03"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 03h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3D"
+	IntD = 	LNKD; 111
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn04"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 04h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3E"
+	IntA = 	LNKA; 103
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn05"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 05h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3F"
+	IntB = 	LNKB; 111
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn06"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 06h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3G"
+	IntC = 	LNKC; 103
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "NB3 Crystal Beach DMA Engine Fn07"
+	Parent  = "NB3 to PCI-E Root Port (D0, F0)"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 04h
+	Fun  = 07h
+	SleepNum  = 01h
+	ASLdeviceName  = "CB3H"
+	IntD = 	LNKD; 111
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+IOAPIC
+	Title  = "NB IOxAPIC"
+	APICID  = 02h
+	VectorBase  = 018h
+	VectorRange  = 018h
+	AddressBase  = 0fec01000h
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+End
+
+IOAPIC
+	Title  = "NB1 IOxAPIC"
+	APICID  = 03h
+	VectorBase  = 030h
+	VectorRange  = 018h
+	AddressBase  = 0fec40000h
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+End
+
+IOAPIC
+	Title  = "NB2 IOxAPIC"
+	APICID  = 04h
+	VectorBase  = 048h
+	VectorRange  = 018h
+	AddressBase  = 0fec80000h
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+End
+
+IOAPIC
+	Title  = "NB3 IOxAPIC"
+	APICID  = 05h
+	VectorBase  = 060h
+	VectorRange  = 018h
+	AddressBase  = 0fecc0000h
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "IOH1_ID"
+	Value  = "0"
+	Help  = "IOH 2 ID"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IOH2_ID"
+	Value  = "1"
+	Help  = "IOH 2 ID"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IOH3_ID"
+	Value  = "2"
+	Help  = "IOH 3 ID"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IOH4_ID"
+	Value  = "3"
+	Help  = "IOH 4 ID"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCIEX_BASE_ADDRESS"
+	Value  = "0x80000000"
+	Help  = "Contains the base address programmed for PCI Express. \Set this value to 0 if PCI Express support is not present. \Enables/disables PCI configuration access through memory. \Make sure PCIEX_BASE_ADDRESS is set appropriately. \If PCI is accessed through PCI \config mechanism then the maximum register offset that can be accessed is 256."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "DYNAMIC_MMCFG_BASE_SUPPORT" "=" "0" #//AptioV server overrride: Dynamic mmcfg base address change
+End
+
+TOKEN
+	Name  = "PCIEX_LENGTH"
+	Value  = "0x10000000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NB_IOxAPIC_SUPPORT"
+	Value  = "1"
+	Help  = "Enable I/O APIC Supportt in IOH."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Lock = Yes
+End
+
+PATH
+	Name  = "NB_CHIPSET_DIR"
+	Path  = "AmiCRBPkg/Chipset/NB"
+End
+
+PATH
+	Name  = "NB_BOARD_DIR"
+    Path  = "AmiCRBPkg/Board/NB"
+End
+
+MODULE
+	Help  = "Includes NB.mak to Project"
+	File  = "NB.mak"
+End
+
+ELINK
+	Name  = "$(NB_BOARD_DIR)/NbSetup.c"
+	Parent  = "SetupCallbackFiles"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiCRBPkg/AmiCRBPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "GrantleySocketPkg/SocketPkg.dec"
+	Parent  = "AdditionalSetupPackages"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "HobLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "gEfiMemoryMapGuid"
+	Parent  = "AdditionalSetupGuids"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "InitNbStrings,"
+	Parent  = "SetupStringInit"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(NB_BOARD_DIR)/Nb.sd"
+	Parent  = "SETUP_DEFINITIONS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "$(NB_BOARD_DIR)/Nb.uni"
+	Parent  = "SetupStringFiles"
+	InvokeOrder = AfterParent
+End
+
+RSVCHIPSET
+	Name  = "CPUCSR"
+	BASEADDR  = "0xFC000000"
+	LENGTH  = "0x1000000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x1"
+End
+
+RSVCHIPSET
+	Name  = "IOHCSR"
+	BASEADDR  = "0xFD000000"
+	LENGTH  = "0x1000000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x1"
+End
+
+RSVCHIPSET
+	Name  = "misc"
+	BASEADDR  = "0xFE000000"
+	LENGTH  = "0xB00000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x1"
+End
+
+RSVCHIPSET
+	Name  = "localCSR"
+	BASEADDR  = "0xFEB00000"
+	LENGTH  = "0x100000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x1"
+End
+
+RSVCHIPSET
+	Name  = "LocalApicSpace"
+	BASEADDR  = "0xfee00000"
+	LENGTH  = "0x100000"
+	TYPE  = "EfiGcdMemoryTypeMemoryMappedIo"
+	ATTRIBUTES  = "0x1"
+End
+
+RSVCHIPSET
+	Name  = "PCI Config Space Index Data"
+	BASEADDR  = "0xCF8"
+	LENGTH  = "0x8"
+	TYPE  = "EfiGcdIoTypeIo"
+	ATTRIBUTES  = "0xffffffffffffffff"
+End
+

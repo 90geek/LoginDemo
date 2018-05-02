@@ -1,0 +1,42 @@
+TOKEN
+	Name  = "NMIButtonHandle_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable NMIButtonHandle support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Master = Yes
+	Token = "SMM_SUPPORT" "=" "1"
+	Token = "OEM_NMI_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "NMIButtonHandle"
+    File  = "NMIButtonHandle.inf"
+    Package  = "FoxconnPkg"
+    ModuleTypes = "DXE_SMM_DRIVER"
+    Token = "NMIButtonHandle_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "NMI_Button_GPI_NUM"
+	Value  = "8"
+	Help  = "value of NMI Button ICH GPI num"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0 - GPI0, 1 -GPI1 , 2 - GPI2, 3 - GPI3, 4 - GPI4,15 - GPI15"
+End
+
+ELINK
+	Name  = "OemInt2"
+	Parent  = "CsmOemInterrupts"
+	ProcID  = 02h
+	SrcFile  = "FoxconnPkg\NMIButtonHandle\OemInt2.csm16"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "FoxconnPkg\NMIButtonHandle\OemInt2.csm16"
+	Parent  = "CSM_OEMINT_SRC"
+	InvokeOrder = AfterParent
+End

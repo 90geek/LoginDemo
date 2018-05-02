@@ -1,0 +1,162 @@
+TOKEN
+    Name  = "BmcUserSettings_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable BmcUserSettings support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "BmcUserSettings_DIR"
+    Path  = "AmiIpmiPkg/Ipmi/BmcUserSettings"
+End
+
+TOKEN
+    Name  = "BMC_USER_PASSWORD_MIN_SIZE"
+    Value  = "1"
+    Help  = "BMC User Password Minimum Size"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "BMC_USER_PASSWORD_MAX_SIZE"
+    Value  = "20"
+    Help  = "Maximum BMC User Password Size. For BMC which is following IPMI Spec v2.0, 20 bytes is the maximum password size"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+ELINK
+    Name  = "$(BmcUserSettings_DIR)/BmcUserSettings.sd"
+    Parent  = "SERVER_MGMT_SETUP_DEFINITIONS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiDxeIpmiTransportProtocolGuid"
+    Parent  = "AdditionalServerMgmtSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiPostManagerProtocolGuid"
+    Parent  = "AdditionalServerMgmtSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(BmcUserSettings_DIR)/BmcUserSettings.uni"
+    Parent  = "ServerMgmtSetupStringFiles"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(BmcUserSettings_DIR)/BmcUserSettings.c"
+    Parent  = "ServerMgmtSetupCallbackFiles"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(BmcUserSettings_DIR)/BmcUserSettings.h"
+    Parent  = "ServerMgmtSetupCallbackFiles"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,BMC_USER_SETTINGS_KEY,BmcUserSettingsCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,ADD_BMC_USER_KEY,BmcUserSettingsAddUserCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,ADD_BMC_USER_NAME_KEY,BmcAddUserNameCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,ADD_BMC_USER_PASSWORD_KEY,BmcAddUserPasswordCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,ADD_BMC_USER_CHANNEL_NO_KEY,BmcAddUserChannelCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,ADD_BMC_USER_PRIVILEGE_LIMIT_KEY,BmcAddUserChannelPrivilegeLimitCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,DELETE_BMC_USER_KEY,BmcDeleteUserCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,DELETE_BMC_USER_NAME_KEY,BmcDeleteUserNameCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,DELETE_BMC_USER_PASSWORD_KEY,BmcDeleteUserPasswordCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_BMC_USER_SETTINGS_KEY,ChangeUserSettingsCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_USER_SETTINGS_BMC_CURRENT_USER_NAME_KEY,ChangeUserSettingsCurrentBmcUserNameCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_USER_SETTINGS_BMC_USER_CURRENT_PASSWORD_KEY,ChangeUserSettingsCurrentBmcUserPasswordCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_USER_SETTINGS_BMC_USER_KEY,ChangeUserSettingsEnableOrDisableBmcUserCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_USER_SETTINGS_BMC_USER_PASSWORD_KEY,ChangeUserSettingsBmcUserPasswordCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_USER_SETTINGS_BMC_USER_CHANNEL_NO_KEY,ChangeUserSettingsBmcUserChannelCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,CHANGE_USER_SETTINGS_BMC_USER_PRIVILEGE_LIMIT_KEY,ChangeUserSettingsBmcUserChannelPrivilegeLimitCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+End

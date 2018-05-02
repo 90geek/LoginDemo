@@ -1,0 +1,1407 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DefinitionBlock("SpsNm.aml", "SSDT", 2, "INTEL", "SpsNm   ", 2)
+{
+  External(\HWPE, IntObj)
+  External(\PETE, IntObj)
+  External(\PSLM, PkgObj)
+  External(\TSLM, PkgObj)
+  
+  External(\PURE, IntObj)
+  External(\PURA, IntObj)
+  External(\PURB, IntObj)
+  External(\_SB.PRAD, DeviceObj)
+  
+  External(\_SB.SCK0, DeviceObj)
+  External(\_SB.SCK0.CP00, DeviceObj)
+  External(\_SB.SCK0.CP01, DeviceObj)
+  External(\_SB.SCK0.CP02, DeviceObj)
+  External(\_SB.SCK0.CP03, DeviceObj)
+  External(\_SB.SCK0.CP04, DeviceObj)
+  External(\_SB.SCK0.CP05, DeviceObj)
+  External(\_SB.SCK0.CP06, DeviceObj)
+  External(\_SB.SCK0.CP07, DeviceObj)
+  External(\_SB.SCK0.CP08, DeviceObj)
+  External(\_SB.SCK0.CP09, DeviceObj)
+  External(\_SB.SCK0.CP0A, DeviceObj)
+  External(\_SB.SCK0.CP0B, DeviceObj)
+  External(\_SB.SCK0.CP0C, DeviceObj)
+  External(\_SB.SCK0.CP0D, DeviceObj)
+  External(\_SB.SCK0.CP0E, DeviceObj)
+  External(\_SB.SCK0.CP0F, DeviceObj)
+  External(\_SB.SCK0.CP10, DeviceObj)
+  External(\_SB.SCK0.CP11, DeviceObj)
+  External(\_SB.SCK0.CP12, DeviceObj)
+  External(\_SB.SCK0.CP13, DeviceObj)
+  External(\_SB.SCK0.CP14, DeviceObj)
+  External(\_SB.SCK0.CP15, DeviceObj)
+  External(\_SB.SCK0.CP16, DeviceObj)
+  External(\_SB.SCK0.CP17, DeviceObj)
+  External(\_SB.SCK0.CP18, DeviceObj)
+  External(\_SB.SCK0.CP19, DeviceObj)
+  External(\_SB.SCK0.CP1A, DeviceObj)
+  External(\_SB.SCK0.CP1B, DeviceObj)
+  External(\_SB.SCK0.CP1C, DeviceObj)
+  External(\_SB.SCK0.CP1D, DeviceObj)
+  External(\_SB.SCK0.CP1E, DeviceObj)
+  External(\_SB.SCK0.CP1F, DeviceObj)
+  External(\_SB.SCK0.CP20, DeviceObj)
+  External(\_SB.SCK0.CP21, DeviceObj)
+  External(\_SB.SCK0.CP22, DeviceObj)
+  External(\_SB.SCK0.CP23, DeviceObj)
+  External(\_SB.SCK0.CP24, DeviceObj)
+  External(\_SB.SCK0.CP25, DeviceObj)
+  External(\_SB.SCK0.CP26, DeviceObj)
+  External(\_SB.SCK0.CP27, DeviceObj)
+  External(\_SB.SCK0.CP28, DeviceObj)
+  External(\_SB.SCK0.CP29, DeviceObj)
+  External(\_SB.SCK0.CP2A, DeviceObj)
+  External(\_SB.SCK0.CP2B, DeviceObj)
+  External(\_SB.SCK0.CP2C, DeviceObj)
+  External(\_SB.SCK0.CP2D, DeviceObj)
+  External(\_SB.SCK0.CP2E, DeviceObj)
+  External(\_SB.SCK0.CP2F, DeviceObj)
+  External(\_SB.SCK1, DeviceObj)
+  External(\_SB.SCK1.CP00, DeviceObj)
+  External(\_SB.SCK1.CP01, DeviceObj)
+  External(\_SB.SCK1.CP02, DeviceObj)
+  External(\_SB.SCK1.CP03, DeviceObj)
+  External(\_SB.SCK1.CP04, DeviceObj)
+  External(\_SB.SCK1.CP05, DeviceObj)
+  External(\_SB.SCK1.CP06, DeviceObj)
+  External(\_SB.SCK1.CP07, DeviceObj)
+  External(\_SB.SCK1.CP08, DeviceObj)
+  External(\_SB.SCK1.CP09, DeviceObj)
+  External(\_SB.SCK1.CP0A, DeviceObj)
+  External(\_SB.SCK1.CP0B, DeviceObj)
+  External(\_SB.SCK1.CP0C, DeviceObj)
+  External(\_SB.SCK1.CP0D, DeviceObj)
+  External(\_SB.SCK1.CP0E, DeviceObj)
+  External(\_SB.SCK1.CP0F, DeviceObj)
+  External(\_SB.SCK1.CP10, DeviceObj)
+  External(\_SB.SCK1.CP11, DeviceObj)
+  External(\_SB.SCK1.CP12, DeviceObj)
+  External(\_SB.SCK1.CP13, DeviceObj)
+  External(\_SB.SCK1.CP14, DeviceObj)
+  External(\_SB.SCK1.CP15, DeviceObj)
+  External(\_SB.SCK1.CP16, DeviceObj)
+  External(\_SB.SCK1.CP17, DeviceObj)
+  External(\_SB.SCK1.CP18, DeviceObj)
+  External(\_SB.SCK1.CP19, DeviceObj)
+  External(\_SB.SCK1.CP1A, DeviceObj)
+  External(\_SB.SCK1.CP1B, DeviceObj)
+  External(\_SB.SCK1.CP1C, DeviceObj)
+  External(\_SB.SCK1.CP1D, DeviceObj)
+  External(\_SB.SCK1.CP1E, DeviceObj)
+  External(\_SB.SCK1.CP1F, DeviceObj)
+  External(\_SB.SCK1.CP20, DeviceObj)
+  External(\_SB.SCK1.CP21, DeviceObj)
+  External(\_SB.SCK1.CP22, DeviceObj)
+  External(\_SB.SCK1.CP23, DeviceObj)
+  External(\_SB.SCK1.CP24, DeviceObj)
+  External(\_SB.SCK1.CP25, DeviceObj)
+  External(\_SB.SCK1.CP26, DeviceObj)
+  External(\_SB.SCK1.CP27, DeviceObj)
+  External(\_SB.SCK1.CP28, DeviceObj)
+  External(\_SB.SCK1.CP29, DeviceObj)
+  External(\_SB.SCK1.CP2A, DeviceObj)
+  External(\_SB.SCK1.CP2B, DeviceObj)
+  External(\_SB.SCK1.CP2C, DeviceObj)
+  External(\_SB.SCK1.CP2D, DeviceObj)
+  External(\_SB.SCK1.CP2E, DeviceObj)
+  External(\_SB.SCK1.CP2F, DeviceObj)
+  External(\_SB.SCK2, DeviceObj)
+  External(\_SB.SCK2.CP00, DeviceObj)
+  External(\_SB.SCK2.CP01, DeviceObj)
+  External(\_SB.SCK2.CP02, DeviceObj)
+  External(\_SB.SCK2.CP03, DeviceObj)
+  External(\_SB.SCK2.CP04, DeviceObj)
+  External(\_SB.SCK2.CP05, DeviceObj)
+  External(\_SB.SCK2.CP06, DeviceObj)
+  External(\_SB.SCK2.CP07, DeviceObj)
+  External(\_SB.SCK2.CP08, DeviceObj)
+  External(\_SB.SCK2.CP09, DeviceObj)
+  External(\_SB.SCK2.CP0A, DeviceObj)
+  External(\_SB.SCK2.CP0B, DeviceObj)
+  External(\_SB.SCK2.CP0C, DeviceObj)
+  External(\_SB.SCK2.CP0D, DeviceObj)
+  External(\_SB.SCK2.CP0E, DeviceObj)
+  External(\_SB.SCK2.CP0F, DeviceObj)
+  External(\_SB.SCK2.CP10, DeviceObj)
+  External(\_SB.SCK2.CP11, DeviceObj)
+  External(\_SB.SCK2.CP12, DeviceObj)
+  External(\_SB.SCK2.CP13, DeviceObj)
+  External(\_SB.SCK2.CP14, DeviceObj)
+  External(\_SB.SCK2.CP15, DeviceObj)
+  External(\_SB.SCK2.CP16, DeviceObj)
+  External(\_SB.SCK2.CP17, DeviceObj)
+  External(\_SB.SCK2.CP18, DeviceObj)
+  External(\_SB.SCK2.CP19, DeviceObj)
+  External(\_SB.SCK2.CP1A, DeviceObj)
+  External(\_SB.SCK2.CP1B, DeviceObj)
+  External(\_SB.SCK2.CP1C, DeviceObj)
+  External(\_SB.SCK2.CP1D, DeviceObj)
+  External(\_SB.SCK2.CP1E, DeviceObj)
+  External(\_SB.SCK2.CP1F, DeviceObj)
+  External(\_SB.SCK2.CP20, DeviceObj)
+  External(\_SB.SCK2.CP21, DeviceObj)
+  External(\_SB.SCK2.CP22, DeviceObj)
+  External(\_SB.SCK2.CP23, DeviceObj)
+  External(\_SB.SCK2.CP24, DeviceObj)
+  External(\_SB.SCK2.CP25, DeviceObj)
+  External(\_SB.SCK2.CP26, DeviceObj)
+  External(\_SB.SCK2.CP27, DeviceObj)
+  External(\_SB.SCK2.CP28, DeviceObj)
+  External(\_SB.SCK2.CP29, DeviceObj)
+  External(\_SB.SCK2.CP2A, DeviceObj)
+  External(\_SB.SCK2.CP2B, DeviceObj)
+  External(\_SB.SCK2.CP2C, DeviceObj)
+  External(\_SB.SCK2.CP2D, DeviceObj)
+  External(\_SB.SCK2.CP2E, DeviceObj)
+  External(\_SB.SCK2.CP2F, DeviceObj)
+  External(\_SB.SCK3, DeviceObj)
+  External(\_SB.SCK3.CP00, DeviceObj)
+  External(\_SB.SCK3.CP01, DeviceObj)
+  External(\_SB.SCK3.CP02, DeviceObj)
+  External(\_SB.SCK3.CP03, DeviceObj)
+  External(\_SB.SCK3.CP04, DeviceObj)
+  External(\_SB.SCK3.CP05, DeviceObj)
+  External(\_SB.SCK3.CP06, DeviceObj)
+  External(\_SB.SCK3.CP07, DeviceObj)
+  External(\_SB.SCK3.CP08, DeviceObj)
+  External(\_SB.SCK3.CP09, DeviceObj)
+  External(\_SB.SCK3.CP0A, DeviceObj)
+  External(\_SB.SCK3.CP0B, DeviceObj)
+  External(\_SB.SCK3.CP0C, DeviceObj)
+  External(\_SB.SCK3.CP0D, DeviceObj)
+  External(\_SB.SCK3.CP0E, DeviceObj)
+  External(\_SB.SCK3.CP0F, DeviceObj)
+  External(\_SB.SCK3.CP10, DeviceObj)
+  External(\_SB.SCK3.CP11, DeviceObj)
+  External(\_SB.SCK3.CP12, DeviceObj)
+  External(\_SB.SCK3.CP13, DeviceObj)
+  External(\_SB.SCK3.CP14, DeviceObj)
+  External(\_SB.SCK3.CP15, DeviceObj)
+  External(\_SB.SCK3.CP16, DeviceObj)
+  External(\_SB.SCK3.CP17, DeviceObj)
+  External(\_SB.SCK3.CP18, DeviceObj)
+  External(\_SB.SCK3.CP19, DeviceObj)
+  External(\_SB.SCK3.CP1A, DeviceObj)
+  External(\_SB.SCK3.CP1B, DeviceObj)
+  External(\_SB.SCK3.CP1C, DeviceObj)
+  External(\_SB.SCK3.CP1D, DeviceObj)
+  External(\_SB.SCK3.CP1E, DeviceObj)
+  External(\_SB.SCK3.CP1F, DeviceObj)
+  External(\_SB.SCK3.CP20, DeviceObj)
+  External(\_SB.SCK3.CP21, DeviceObj)
+  External(\_SB.SCK3.CP22, DeviceObj)
+  External(\_SB.SCK3.CP23, DeviceObj)
+  External(\_SB.SCK3.CP24, DeviceObj)
+  External(\_SB.SCK3.CP25, DeviceObj)
+  External(\_SB.SCK3.CP26, DeviceObj)
+  External(\_SB.SCK3.CP27, DeviceObj)
+  External(\_SB.SCK3.CP28, DeviceObj)
+  External(\_SB.SCK3.CP29, DeviceObj)
+  External(\_SB.SCK3.CP2A, DeviceObj)
+  External(\_SB.SCK3.CP2B, DeviceObj)
+  External(\_SB.SCK3.CP2C, DeviceObj)
+  External(\_SB.SCK3.CP2D, DeviceObj)
+  External(\_SB.SCK3.CP2E, DeviceObj)
+  External(\_SB.SCK3.CP2F, DeviceObj)
+  
+  External (\_SB.OSYS) 
+
+
+
+
+
+
+
+
+
+  External(\_SB.PCI0, DeviceObj)
+  External(\_SB.PCI0.HECI, DeviceObj)
+  External(\_SB.PCI0.HEC2, DeviceObj)
+  Scope(\_SB.PCI0.HECI)
+  {
+
+      
+      
+      
+      
+      OperationRegion(MFS1, PCI_Config, 0x40, 0x4)
+      Field(MFS1, DWordAcc, NoLock, Preserve)
+      {
+        MECS, 4, 
+        RVD1, 12,
+        OPMD, 4,
+        RVD2, 12
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      Method(_STA, 0, NotSerialized)
+      {
+
+
+
+
+
+
+        If (LEqual(MECS, 5))
+        {
+          Return(0x0B) 
+        }
+        Else
+        {
+          Return(0x09) 
+        }
+      }
+
+      
+      
+      
+      
+      
+      
+      
+
+ 	  OperationRegion(H1CS, PCIBARTarget, 0x10, 0x10) 
+      Field(H1CS, DWordAcc, NoLock, Preserve)
+      {
+        CBWW,32, 
+        
+        HIE, 1,
+        HIS, 1,
+        HIG, 1,
+        HRD, 1,
+        HRS, 1,
+           , 3,
+        HRP, 8, 
+        HWP, 8, 
+        HBD, 8, 
+        CBRW,32, 
+        
+        MIE, 1,
+        MIS, 1,
+        MIG, 1,
+        MRD, 1,
+        MRS, 1,
+           , 3,
+        MRP, 8, 
+        MWP, 8, 
+        MBD, 8  
+      }
+
+
+
+
+
+
+
+  } 
+  
+  Scope(\_SB.PCI0.HEC2)
+  {
+
+      
+      
+      
+      
+      OperationRegion(NMFS, PCI_Config, 0x40, 0x4)
+      Field(NMFS, DWordAcc, NoLock, Preserve)
+      {
+
+
+			,28,   
+        NMEN, 4    
+		
+      }
+      
+      
+      
+      
+      
+      OperationRegion(H2RP, PCI_Config, 0x60, 0x4)
+      Field(H2RP, DWordAcc, NoLock, Preserve)
+      {
+        RPS0, 4,
+        RPS1, 4,
+        RPS2, 4,
+        RPS3, 4,
+        RPS4, 4,
+        RPS5, 4,
+        RPS6, 4,
+        RPS7, 4
+      }
+      
+      
+      
+      
+      
+      OperationRegion(H2RT, PCI_Config, 0x64, 0x4)
+      Field(H2RT, DWordAcc, NoLock, Preserve)
+      {
+        RTS0, 4,
+        RTS1, 4,
+        RTS2, 4,
+        RTS3, 4,
+        RTS4, 4,
+        RTS5, 4,
+        RTS6, 4,
+        RTS7, 4
+      }
+      
+      
+      
+      
+      
+      OperationRegion(H2CP, PCI_Config, 0x70, 0x4)
+      Field(H2CP, DWordAcc, NoLock, Preserve)
+      {
+        CPS0, 4,
+        CPS1, 4,
+        CPS2, 4,
+        CPS3, 4,
+        CPS4, 4,
+        CPS5, 4,
+        CPS6, 4,
+        CPS7, 4
+      }
+      
+      
+      
+      
+      
+      OperationRegion(H2CT, PCI_Config, 0x74, 0x4)
+      Field(H2CT, DWordAcc, NoLock, Preserve)
+      {
+        CTS0, 4,
+        CTS1, 4,
+        CTS2, 4,
+        CTS3, 4,
+        CTS4, 4,
+        CTS5, 4,
+        CTS6, 4,
+        CTS7, 4
+      }
+      
+      
+      
+      
+      
+      OperationRegion(H2IM, PCI_Config, 0xA0, 0x1)
+      Field(H2IM, ByteAcc, NoLock, Preserve)
+      {
+        HIDM, 8
+      }
+      
+      
+      
+      
+      
+      
+      
+      OperationRegion(H2CS, SystemMemory, 0x8000000080000000, 0x10)
+      Field(H2CS, DWordAcc, Lock, Preserve)
+      {
+        CBWW,32, 
+        
+        HIE, 1,
+        HIS, 1,
+        HIG, 1,
+        HRD, 1,
+        HRS, 1,
+           , 3,
+        HRP, 8, 
+        HWP, 8, 
+        HBD, 8, 
+        CBRW,32, 
+        
+        MIE, 1,
+        MIS, 1,
+        MIG, 1,
+        MRD, 1,
+        MRS, 1,
+           , 3,
+        MRP, 8, 
+        MWP, 8, 
+        MBD, 8  
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      Method(_STA, 0, NotSerialized)
+      {
+        If (LOr(LNotEqual(HIDM, 0x01), LNot(NMEN)))
+        {
+          Return(0x00) 
+        }
+        If (LEqual(\_SB.PCI0.HECI.MECS, 5))
+        {
+          Return(0x0B) 
+        }
+        Else
+        {
+          Return(0x01) 
+        }
+      }
+      
+      
+      
+      
+      Method(_INI, 0, Serialized)
+      {
+        If (CondRefOf(\_OSI, Local0))
+        {
+          
+          If (\_OSI("Processor Aggregator Device"))
+          {
+            Store(One, \PURE)
+            LoadTable("PRAD", "ALASKA", "A M I ",,,) 
+          }
+        }
+        HWAK()
+      }
+      
+      
+      
+      
+      Method(HWAK, 0, Serialized)
+      {
+        
+        If (LEqual(HIDM, 0x01)) 
+        {
+          Store(1, HRD) 
+          Store(1, HIE) 
+          Store(1, HIG) 
+        }
+      }
+      
+      
+      
+      
+      Method(HPTS, 0, Serialized)
+      {
+        
+        If (LEqual(HIDM, 0x01)) 
+        {
+          Store(0, HIE) 
+          Store(0, HRD) 
+          Store(1, HIG) 
+        }
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      Method(DCNF, 1, Serialized)
+      {
+        
+        If (LEqual(HIDM, 0x01)) 
+        {
+          Store(0x80040011, CBWW)
+          Store(Arg0, CBWW)
+          Store(1, HIG)
+        }
+      }
+
+      
+      
+      
+      Method(H2RD, 0, Serialized)
+      {
+        If (LNotEqual(HIDM, 0x01)) 
+        {
+          Return(0xFF);
+        }
+        If (MRS) 
+        {
+          
+          Store(1, HRS)
+          Store(1, HIG)
+        }
+        Else
+        {
+          If (MRD) 
+          {
+            If (LNot(HRD)) 
+            {
+              
+              Store(0, HRS)
+              Store(1, HRD)
+              Store(1, HIG) 
+            }
+            If (LNotEqual(MWP, MRP)) 
+            {
+              Store(CBRW, Local1) 
+              Store(CBRW, Local0) 
+              
+              
+              
+              Store(1, HIG) 
+              And(Local0, 0xff, Local5) 
+              If (LEqual(Local5, 0x00)) 
+              {
+                
+                If (\HWPE)
+                {
+                  
+                  
+                  
+                  
+                  Store(Local1, CBWW)
+                  Or(Local0, 0x01, CBWW) 
+                  Store(1, HIG)
+                }
+                Else
+                {
+                  
+                  
+                  
+                  
+                  Store(RPS0, Index(\PSLM, 0))
+                  Store(RTS0, Index(\TSLM, 0))
+                  Store(RPS1, Index(\PSLM, 1))
+                  Store(RTS1, Index(\TSLM, 1))
+                  Store(RPS2, Index(\PSLM, 2))
+                  Store(RTS2, Index(\TSLM, 2))
+                  Store(RPS3, Index(\PSLM, 3))
+                  Store(RTS3, Index(\TSLM, 3))
+                  If (And(\PETE, 0x80))
+                  {
+                    
+                    Notify(\_SB.SCK0.CP00, 0x80)
+                    Notify(\_SB.SCK0.CP01, 0x80)
+                    Notify(\_SB.SCK0.CP02, 0x80)
+                    Notify(\_SB.SCK0.CP03, 0x80)
+                    Notify(\_SB.SCK0.CP04, 0x80)
+                    Notify(\_SB.SCK0.CP05, 0x80)
+                    Notify(\_SB.SCK0.CP06, 0x80)
+                    Notify(\_SB.SCK0.CP07, 0x80)
+                    Notify(\_SB.SCK0.CP08, 0x80)
+                    Notify(\_SB.SCK0.CP09, 0x80)
+                    Notify(\_SB.SCK0.CP0A, 0x80)
+                    Notify(\_SB.SCK0.CP0B, 0x80)
+                    Notify(\_SB.SCK0.CP0C, 0x80)
+                    Notify(\_SB.SCK0.CP0D, 0x80)
+                    Notify(\_SB.SCK0.CP0E, 0x80)
+                    Notify(\_SB.SCK0.CP0F, 0x80)
+                    Notify(\_SB.SCK0.CP10, 0x80)
+                    Notify(\_SB.SCK0.CP11, 0x80)
+                    Notify(\_SB.SCK0.CP12, 0x80)
+                    Notify(\_SB.SCK0.CP13, 0x80)
+                    Notify(\_SB.SCK0.CP14, 0x80)
+                    Notify(\_SB.SCK0.CP15, 0x80)
+                    Notify(\_SB.SCK0.CP16, 0x80)
+                    Notify(\_SB.SCK0.CP17, 0x80)
+                    Notify(\_SB.SCK0.CP18, 0x80)
+                    Notify(\_SB.SCK0.CP19, 0x80)
+                    Notify(\_SB.SCK0.CP1A, 0x80)
+                    Notify(\_SB.SCK0.CP1B, 0x80)
+                    Notify(\_SB.SCK0.CP1C, 0x80)
+                    Notify(\_SB.SCK0.CP1D, 0x80)
+                    Notify(\_SB.SCK0.CP1E, 0x80)
+                    Notify(\_SB.SCK0.CP1F, 0x80)
+                    Notify(\_SB.SCK0.CP20, 0x80)
+                    Notify(\_SB.SCK0.CP21, 0x80)
+                    Notify(\_SB.SCK0.CP22, 0x80)
+                    Notify(\_SB.SCK0.CP23, 0x80)
+                    Notify(\_SB.SCK0.CP24, 0x80)
+                    Notify(\_SB.SCK0.CP25, 0x80)
+                    Notify(\_SB.SCK0.CP26, 0x80)
+                    Notify(\_SB.SCK0.CP27, 0x80)
+                    Notify(\_SB.SCK0.CP28, 0x80)
+                    Notify(\_SB.SCK0.CP29, 0x80)
+                    Notify(\_SB.SCK0.CP2A, 0x80)
+                    Notify(\_SB.SCK0.CP2B, 0x80)
+                    Notify(\_SB.SCK0.CP2C, 0x80)
+                    Notify(\_SB.SCK0.CP2D, 0x80)
+                    Notify(\_SB.SCK0.CP2E, 0x80)
+                    Notify(\_SB.SCK0.CP2F, 0x80)
+                    
+                    Notify(\_SB.SCK1.CP00, 0x80)
+                    Notify(\_SB.SCK1.CP01, 0x80)
+                    Notify(\_SB.SCK1.CP02, 0x80)
+                    Notify(\_SB.SCK1.CP03, 0x80)
+                    Notify(\_SB.SCK1.CP04, 0x80)
+                    Notify(\_SB.SCK1.CP05, 0x80)
+                    Notify(\_SB.SCK1.CP06, 0x80)
+                    Notify(\_SB.SCK1.CP07, 0x80)
+                    Notify(\_SB.SCK1.CP08, 0x80)
+                    Notify(\_SB.SCK1.CP09, 0x80)
+                    Notify(\_SB.SCK1.CP0A, 0x80)
+                    Notify(\_SB.SCK1.CP0B, 0x80)
+                    Notify(\_SB.SCK1.CP0C, 0x80)
+                    Notify(\_SB.SCK1.CP0D, 0x80)
+                    Notify(\_SB.SCK1.CP0E, 0x80)
+                    Notify(\_SB.SCK1.CP0F, 0x80)
+                    Notify(\_SB.SCK1.CP10, 0x80)
+                    Notify(\_SB.SCK1.CP11, 0x80)
+                    Notify(\_SB.SCK1.CP12, 0x80)
+                    Notify(\_SB.SCK1.CP13, 0x80)
+                    Notify(\_SB.SCK1.CP14, 0x80)
+                    Notify(\_SB.SCK1.CP15, 0x80)
+                    Notify(\_SB.SCK1.CP16, 0x80)
+                    Notify(\_SB.SCK1.CP17, 0x80)
+                    Notify(\_SB.SCK1.CP18, 0x80)
+                    Notify(\_SB.SCK1.CP19, 0x80)
+                    Notify(\_SB.SCK1.CP1A, 0x80)
+                    Notify(\_SB.SCK1.CP1B, 0x80)
+                    Notify(\_SB.SCK1.CP1C, 0x80)
+                    Notify(\_SB.SCK1.CP1D, 0x80)
+                    Notify(\_SB.SCK1.CP1E, 0x80)
+                    Notify(\_SB.SCK1.CP1F, 0x80)
+                    Notify(\_SB.SCK1.CP20, 0x80)
+                    Notify(\_SB.SCK1.CP21, 0x80)
+                    Notify(\_SB.SCK1.CP22, 0x80)
+                    Notify(\_SB.SCK1.CP23, 0x80)
+                    Notify(\_SB.SCK1.CP24, 0x80)
+                    Notify(\_SB.SCK1.CP25, 0x80)
+                    Notify(\_SB.SCK1.CP26, 0x80)
+                    Notify(\_SB.SCK1.CP27, 0x80)
+                    Notify(\_SB.SCK1.CP28, 0x80)
+                    Notify(\_SB.SCK1.CP29, 0x80)
+                    Notify(\_SB.SCK1.CP2A, 0x80)
+                    Notify(\_SB.SCK1.CP2B, 0x80)
+                    Notify(\_SB.SCK1.CP2C, 0x80)
+                    Notify(\_SB.SCK1.CP2D, 0x80)
+                    Notify(\_SB.SCK1.CP2E, 0x80)
+                    Notify(\_SB.SCK1.CP2F, 0x80)
+                    
+                    Notify(\_SB.SCK2.CP00, 0x80)
+                    Notify(\_SB.SCK2.CP01, 0x80)
+                    Notify(\_SB.SCK2.CP02, 0x80)
+                    Notify(\_SB.SCK2.CP03, 0x80)
+                    Notify(\_SB.SCK2.CP04, 0x80)
+                    Notify(\_SB.SCK2.CP05, 0x80)
+                    Notify(\_SB.SCK2.CP06, 0x80)
+                    Notify(\_SB.SCK2.CP07, 0x80)
+                    Notify(\_SB.SCK2.CP08, 0x80)
+                    Notify(\_SB.SCK2.CP09, 0x80)
+                    Notify(\_SB.SCK2.CP0A, 0x80)
+                    Notify(\_SB.SCK2.CP0B, 0x80)
+                    Notify(\_SB.SCK2.CP0C, 0x80)
+                    Notify(\_SB.SCK2.CP0D, 0x80)
+                    Notify(\_SB.SCK2.CP0E, 0x80)
+                    Notify(\_SB.SCK2.CP0F, 0x80)
+                    Notify(\_SB.SCK2.CP10, 0x80)
+                    Notify(\_SB.SCK2.CP11, 0x80)
+                    Notify(\_SB.SCK2.CP12, 0x80)
+                    Notify(\_SB.SCK2.CP13, 0x80)
+                    Notify(\_SB.SCK2.CP14, 0x80)
+                    Notify(\_SB.SCK2.CP15, 0x80)
+                    Notify(\_SB.SCK2.CP16, 0x80)
+                    Notify(\_SB.SCK2.CP17, 0x80)
+                    Notify(\_SB.SCK2.CP18, 0x80)
+                    Notify(\_SB.SCK2.CP19, 0x80)
+                    Notify(\_SB.SCK2.CP1A, 0x80)
+                    Notify(\_SB.SCK2.CP1B, 0x80)
+                    Notify(\_SB.SCK2.CP1C, 0x80)
+                    Notify(\_SB.SCK2.CP1D, 0x80)
+                    Notify(\_SB.SCK2.CP1E, 0x80)
+                    Notify(\_SB.SCK2.CP1F, 0x80)
+                    Notify(\_SB.SCK2.CP20, 0x80)
+                    Notify(\_SB.SCK2.CP21, 0x80)
+                    Notify(\_SB.SCK2.CP22, 0x80)
+                    Notify(\_SB.SCK2.CP23, 0x80)
+                    Notify(\_SB.SCK2.CP24, 0x80)
+                    Notify(\_SB.SCK2.CP25, 0x80)
+                    Notify(\_SB.SCK2.CP26, 0x80)
+                    Notify(\_SB.SCK2.CP27, 0x80)
+                    Notify(\_SB.SCK2.CP28, 0x80)
+                    Notify(\_SB.SCK2.CP29, 0x80)
+                    Notify(\_SB.SCK2.CP2A, 0x80)
+                    Notify(\_SB.SCK2.CP2B, 0x80)
+                    Notify(\_SB.SCK2.CP2C, 0x80)
+                    Notify(\_SB.SCK2.CP2D, 0x80)
+                    Notify(\_SB.SCK2.CP2E, 0x80)
+                    Notify(\_SB.SCK2.CP2F, 0x80)
+                    
+                    Notify(\_SB.SCK3.CP00, 0x80)
+                    Notify(\_SB.SCK3.CP01, 0x80)
+                    Notify(\_SB.SCK3.CP02, 0x80)
+                    Notify(\_SB.SCK3.CP03, 0x80)
+                    Notify(\_SB.SCK3.CP04, 0x80)
+                    Notify(\_SB.SCK3.CP05, 0x80)
+                    Notify(\_SB.SCK3.CP06, 0x80)
+                    Notify(\_SB.SCK3.CP07, 0x80)
+                    Notify(\_SB.SCK3.CP08, 0x80)
+                    Notify(\_SB.SCK3.CP09, 0x80)
+                    Notify(\_SB.SCK3.CP0A, 0x80)
+                    Notify(\_SB.SCK3.CP0B, 0x80)
+                    Notify(\_SB.SCK3.CP0C, 0x80)
+                    Notify(\_SB.SCK3.CP0D, 0x80)
+                    Notify(\_SB.SCK3.CP0E, 0x80)
+                    Notify(\_SB.SCK3.CP0F, 0x80)
+                    Notify(\_SB.SCK3.CP10, 0x80)
+                    Notify(\_SB.SCK3.CP11, 0x80)
+                    Notify(\_SB.SCK3.CP12, 0x80)
+                    Notify(\_SB.SCK3.CP13, 0x80)
+                    Notify(\_SB.SCK3.CP14, 0x80)
+                    Notify(\_SB.SCK3.CP15, 0x80)
+                    Notify(\_SB.SCK3.CP16, 0x80)
+                    Notify(\_SB.SCK3.CP17, 0x80)
+                    Notify(\_SB.SCK3.CP18, 0x80)
+                    Notify(\_SB.SCK3.CP19, 0x80)
+                    Notify(\_SB.SCK3.CP1A, 0x80)
+                    Notify(\_SB.SCK3.CP1B, 0x80)
+                    Notify(\_SB.SCK3.CP1C, 0x80)
+                    Notify(\_SB.SCK3.CP1D, 0x80)
+                    Notify(\_SB.SCK3.CP1E, 0x80)
+                    Notify(\_SB.SCK3.CP1F, 0x80)
+                    Notify(\_SB.SCK3.CP20, 0x80)
+                    Notify(\_SB.SCK3.CP21, 0x80)
+                    Notify(\_SB.SCK3.CP22, 0x80)
+                    Notify(\_SB.SCK3.CP23, 0x80)
+                    Notify(\_SB.SCK3.CP24, 0x80)
+                    Notify(\_SB.SCK3.CP25, 0x80)
+                    Notify(\_SB.SCK3.CP26, 0x80)
+                    Notify(\_SB.SCK3.CP27, 0x80)
+                    Notify(\_SB.SCK3.CP28, 0x80)
+                    Notify(\_SB.SCK3.CP29, 0x80)
+                    Notify(\_SB.SCK3.CP2A, 0x80)
+                    Notify(\_SB.SCK3.CP2B, 0x80)
+                    Notify(\_SB.SCK3.CP2C, 0x80)
+                    Notify(\_SB.SCK3.CP2D, 0x80)
+                    Notify(\_SB.SCK3.CP2E, 0x80)
+                    Notify(\_SB.SCK3.CP2F, 0x80)
+                  }
+                  If (And(\PETE, 0x40))
+                  {
+                    
+                    Notify(\_SB.SCK0.CP00, 0x82)
+                    Notify(\_SB.SCK0.CP01, 0x82)
+                    Notify(\_SB.SCK0.CP02, 0x82)
+                    Notify(\_SB.SCK0.CP03, 0x82)
+                    Notify(\_SB.SCK0.CP04, 0x82)
+                    Notify(\_SB.SCK0.CP05, 0x82)
+                    Notify(\_SB.SCK0.CP06, 0x82)
+                    Notify(\_SB.SCK0.CP07, 0x82)
+                    Notify(\_SB.SCK0.CP08, 0x82)
+                    Notify(\_SB.SCK0.CP09, 0x82)
+                    Notify(\_SB.SCK0.CP0A, 0x82)
+                    Notify(\_SB.SCK0.CP0B, 0x82)
+                    Notify(\_SB.SCK0.CP0C, 0x82)
+                    Notify(\_SB.SCK0.CP0D, 0x82)
+                    Notify(\_SB.SCK0.CP0E, 0x82)
+                    Notify(\_SB.SCK0.CP0F, 0x82)
+                    Notify(\_SB.SCK0.CP10, 0x82)
+                    Notify(\_SB.SCK0.CP11, 0x82)
+                    Notify(\_SB.SCK0.CP12, 0x82)
+                    Notify(\_SB.SCK0.CP13, 0x82)
+                    Notify(\_SB.SCK0.CP14, 0x82)
+                    Notify(\_SB.SCK0.CP15, 0x82)
+                    Notify(\_SB.SCK0.CP16, 0x82)
+                    Notify(\_SB.SCK0.CP17, 0x82)
+                    Notify(\_SB.SCK0.CP18, 0x82)
+                    Notify(\_SB.SCK0.CP19, 0x82)
+                    Notify(\_SB.SCK0.CP1A, 0x82)
+                    Notify(\_SB.SCK0.CP1B, 0x82)
+                    Notify(\_SB.SCK0.CP1C, 0x82)
+                    Notify(\_SB.SCK0.CP1D, 0x82)
+                    Notify(\_SB.SCK0.CP1E, 0x82)
+                    Notify(\_SB.SCK0.CP1F, 0x82)
+                    Notify(\_SB.SCK0.CP20, 0x82)
+                    Notify(\_SB.SCK0.CP21, 0x82)
+                    Notify(\_SB.SCK0.CP22, 0x82)
+                    Notify(\_SB.SCK0.CP23, 0x82)
+                    Notify(\_SB.SCK0.CP24, 0x82)
+                    Notify(\_SB.SCK0.CP25, 0x82)
+                    Notify(\_SB.SCK0.CP26, 0x82)
+                    Notify(\_SB.SCK0.CP27, 0x82)
+                    Notify(\_SB.SCK0.CP28, 0x82)
+                    Notify(\_SB.SCK0.CP29, 0x82)
+                    Notify(\_SB.SCK0.CP2A, 0x82)
+                    Notify(\_SB.SCK0.CP2B, 0x82)
+                    Notify(\_SB.SCK0.CP2C, 0x82)
+                    Notify(\_SB.SCK0.CP2D, 0x82)
+                    Notify(\_SB.SCK0.CP2E, 0x82)
+                    Notify(\_SB.SCK0.CP2F, 0x82)
+                    
+                    Notify(\_SB.SCK1.CP00, 0x82)
+                    Notify(\_SB.SCK1.CP01, 0x82)
+                    Notify(\_SB.SCK1.CP02, 0x82)
+                    Notify(\_SB.SCK1.CP03, 0x82)
+                    Notify(\_SB.SCK1.CP04, 0x82)
+                    Notify(\_SB.SCK1.CP05, 0x82)
+                    Notify(\_SB.SCK1.CP06, 0x82)
+                    Notify(\_SB.SCK1.CP07, 0x82)
+                    Notify(\_SB.SCK1.CP08, 0x82)
+                    Notify(\_SB.SCK1.CP09, 0x82)
+                    Notify(\_SB.SCK1.CP0A, 0x82)
+                    Notify(\_SB.SCK1.CP0B, 0x82)
+                    Notify(\_SB.SCK1.CP0C, 0x82)
+                    Notify(\_SB.SCK1.CP0D, 0x82)
+                    Notify(\_SB.SCK1.CP0E, 0x82)
+                    Notify(\_SB.SCK1.CP0F, 0x82)
+                    Notify(\_SB.SCK1.CP10, 0x82)
+                    Notify(\_SB.SCK1.CP11, 0x82)
+                    Notify(\_SB.SCK1.CP12, 0x82)
+                    Notify(\_SB.SCK1.CP13, 0x82)
+                    Notify(\_SB.SCK1.CP14, 0x82)
+                    Notify(\_SB.SCK1.CP15, 0x82)
+                    Notify(\_SB.SCK1.CP16, 0x82)
+                    Notify(\_SB.SCK1.CP17, 0x82)
+                    Notify(\_SB.SCK1.CP18, 0x82)
+                    Notify(\_SB.SCK1.CP19, 0x82)
+                    Notify(\_SB.SCK1.CP1A, 0x82)
+                    Notify(\_SB.SCK1.CP1B, 0x82)
+                    Notify(\_SB.SCK1.CP1C, 0x82)
+                    Notify(\_SB.SCK1.CP1D, 0x82)
+                    Notify(\_SB.SCK1.CP1E, 0x82)
+                    Notify(\_SB.SCK1.CP1F, 0x82)
+                    Notify(\_SB.SCK1.CP20, 0x82)
+                    Notify(\_SB.SCK1.CP21, 0x82)
+                    Notify(\_SB.SCK1.CP22, 0x82)
+                    Notify(\_SB.SCK1.CP23, 0x82)
+                    Notify(\_SB.SCK1.CP24, 0x82)
+                    Notify(\_SB.SCK1.CP25, 0x82)
+                    Notify(\_SB.SCK1.CP26, 0x82)
+                    Notify(\_SB.SCK1.CP27, 0x82)
+                    Notify(\_SB.SCK1.CP28, 0x82)
+                    Notify(\_SB.SCK1.CP29, 0x82)
+                    Notify(\_SB.SCK1.CP2A, 0x82)
+                    Notify(\_SB.SCK1.CP2B, 0x82)
+                    Notify(\_SB.SCK1.CP2C, 0x82)
+                    Notify(\_SB.SCK1.CP2D, 0x82)
+                    Notify(\_SB.SCK1.CP2E, 0x82)
+                    Notify(\_SB.SCK1.CP2F, 0x82)
+                    
+                    Notify(\_SB.SCK2.CP00, 0x82)
+                    Notify(\_SB.SCK2.CP01, 0x82)
+                    Notify(\_SB.SCK2.CP02, 0x82)
+                    Notify(\_SB.SCK2.CP03, 0x82)
+                    Notify(\_SB.SCK2.CP04, 0x82)
+                    Notify(\_SB.SCK2.CP05, 0x82)
+                    Notify(\_SB.SCK2.CP06, 0x82)
+                    Notify(\_SB.SCK2.CP07, 0x82)
+                    Notify(\_SB.SCK2.CP08, 0x82)
+                    Notify(\_SB.SCK2.CP09, 0x82)
+                    Notify(\_SB.SCK2.CP0A, 0x82)
+                    Notify(\_SB.SCK2.CP0B, 0x82)
+                    Notify(\_SB.SCK2.CP0C, 0x82)
+                    Notify(\_SB.SCK2.CP0D, 0x82)
+                    Notify(\_SB.SCK2.CP0E, 0x82)
+                    Notify(\_SB.SCK2.CP0F, 0x82)
+                    Notify(\_SB.SCK2.CP10, 0x82)
+                    Notify(\_SB.SCK2.CP11, 0x82)
+                    Notify(\_SB.SCK2.CP12, 0x82)
+                    Notify(\_SB.SCK2.CP13, 0x82)
+                    Notify(\_SB.SCK2.CP14, 0x82)
+                    Notify(\_SB.SCK2.CP15, 0x82)
+                    Notify(\_SB.SCK2.CP16, 0x82)
+                    Notify(\_SB.SCK2.CP17, 0x82)
+                    Notify(\_SB.SCK2.CP18, 0x82)
+                    Notify(\_SB.SCK2.CP19, 0x82)
+                    Notify(\_SB.SCK2.CP1A, 0x82)
+                    Notify(\_SB.SCK2.CP1B, 0x82)
+                    Notify(\_SB.SCK2.CP1C, 0x82)
+                    Notify(\_SB.SCK2.CP1D, 0x82)
+                    Notify(\_SB.SCK2.CP1E, 0x82)
+                    Notify(\_SB.SCK2.CP1F, 0x82)
+                    Notify(\_SB.SCK2.CP20, 0x82)
+                    Notify(\_SB.SCK2.CP21, 0x82)
+                    Notify(\_SB.SCK2.CP22, 0x82)
+                    Notify(\_SB.SCK2.CP23, 0x82)
+                    Notify(\_SB.SCK2.CP24, 0x82)
+                    Notify(\_SB.SCK2.CP25, 0x82)
+                    Notify(\_SB.SCK2.CP26, 0x82)
+                    Notify(\_SB.SCK2.CP27, 0x82)
+                    Notify(\_SB.SCK2.CP28, 0x82)
+                    Notify(\_SB.SCK2.CP29, 0x82)
+                    Notify(\_SB.SCK2.CP2A, 0x82)
+                    Notify(\_SB.SCK2.CP2B, 0x82)
+                    Notify(\_SB.SCK2.CP2C, 0x82)
+                    Notify(\_SB.SCK2.CP2D, 0x82)
+                    Notify(\_SB.SCK2.CP2E, 0x82)
+                    Notify(\_SB.SCK2.CP2F, 0x82)
+                    
+                    Notify(\_SB.SCK3.CP00, 0x82)
+                    Notify(\_SB.SCK3.CP01, 0x82)
+                    Notify(\_SB.SCK3.CP02, 0x82)
+                    Notify(\_SB.SCK3.CP03, 0x82)
+                    Notify(\_SB.SCK3.CP04, 0x82)
+                    Notify(\_SB.SCK3.CP05, 0x82)
+                    Notify(\_SB.SCK3.CP06, 0x82)
+                    Notify(\_SB.SCK3.CP07, 0x82)
+                    Notify(\_SB.SCK3.CP08, 0x82)
+                    Notify(\_SB.SCK3.CP09, 0x82)
+                    Notify(\_SB.SCK3.CP0A, 0x82)
+                    Notify(\_SB.SCK3.CP0B, 0x82)
+                    Notify(\_SB.SCK3.CP0C, 0x82)
+                    Notify(\_SB.SCK3.CP0D, 0x82)
+                    Notify(\_SB.SCK3.CP0E, 0x82)
+                    Notify(\_SB.SCK3.CP0F, 0x82)
+                    Notify(\_SB.SCK3.CP10, 0x82)
+                    Notify(\_SB.SCK3.CP11, 0x82)
+                    Notify(\_SB.SCK3.CP12, 0x82)
+                    Notify(\_SB.SCK3.CP13, 0x82)
+                    Notify(\_SB.SCK3.CP14, 0x82)
+                    Notify(\_SB.SCK3.CP15, 0x82)
+                    Notify(\_SB.SCK3.CP16, 0x82)
+                    Notify(\_SB.SCK3.CP17, 0x82)
+                    Notify(\_SB.SCK3.CP18, 0x82)
+                    Notify(\_SB.SCK3.CP19, 0x82)
+                    Notify(\_SB.SCK3.CP1A, 0x82)
+                    Notify(\_SB.SCK3.CP1B, 0x82)
+                    Notify(\_SB.SCK3.CP1C, 0x82)
+                    Notify(\_SB.SCK3.CP1D, 0x82)
+                    Notify(\_SB.SCK3.CP1E, 0x82)
+                    Notify(\_SB.SCK3.CP1F, 0x82)
+                    Notify(\_SB.SCK3.CP20, 0x82)
+                    Notify(\_SB.SCK3.CP21, 0x82)
+                    Notify(\_SB.SCK3.CP22, 0x82)
+                    Notify(\_SB.SCK3.CP23, 0x82)
+                    Notify(\_SB.SCK3.CP24, 0x82)
+                    Notify(\_SB.SCK3.CP25, 0x82)
+                    Notify(\_SB.SCK3.CP26, 0x82)
+                    Notify(\_SB.SCK3.CP27, 0x82)
+                    Notify(\_SB.SCK3.CP28, 0x82)
+                    Notify(\_SB.SCK3.CP29, 0x82)
+                    Notify(\_SB.SCK3.CP2A, 0x82)
+                    Notify(\_SB.SCK3.CP2B, 0x82)
+                    Notify(\_SB.SCK3.CP2C, 0x82)
+                    Notify(\_SB.SCK3.CP2D, 0x82)
+                    Notify(\_SB.SCK3.CP2E, 0x82)
+                    Notify(\_SB.SCK3.CP2F, 0x82)
+                    Store(DeRefOf(Index(\TSLM, 0)), CTS0)
+                    Store(DeRefOf(Index(\TSLM, 1)), CTS1)
+                    Store(DeRefOf(Index(\TSLM, 2)), CTS2)
+                    Store(DeRefOf(Index(\TSLM, 3)), CTS3)
+                  }
+                  If (And(\PETE, 0x80))
+                  {
+                    Store(DeRefOf(Index(\PSLM, 0)), CPS0)
+                    Store(DeRefOf(Index(\PSLM, 1)), CPS1)
+                    Store(DeRefOf(Index(\PSLM, 2)), CPS2)
+                    Store(DeRefOf(Index(\PSLM, 3)), CPS3)
+                  }
+                  
+                  
+                  
+                  Store(Local1, CBWW)
+                  Or(Local0, And(\PETE, 0xff), CBWW)
+                  Store(1, HIG)
+                }
+              } 
+              ElseIf (LEqual(Local5, 0x03)) 
+              {
+                
+                If (\PURE)
+                {
+                  Store(Local0, \PURA)
+                  Notify(\_SB.PRAD, 0x80)
+                }
+                else
+                {
+                  DCNF(Local0)
+                }
+              }
+
+              ElseIf (LEqual(Local5, 0x04)) 
+              {
+                Store(Multiply(And(ShiftRight(Local0, 0x10), 0xFFFF), 1000), PWR)
+                DCNF(Or(Local0, 0x80))
+              }
+              ElseIf (LEqual(Local5, 0x05)) 
+              {
+                Store(Multiply(And(ShiftRight(Local0, 0x10), 0xFFFF), 1000), PMAI)
+                DCNF(Or(Local0, 0x80))
+                Notify(\_SB.PMT1, 0x84)
+              }
+              ElseIf (LEqual(Local5, 0x06)) 
+              {
+                Store(Multiply(And(ShiftRight(Local0, 0x10), 0xFFFF), 1000), HWL)
+                DCNF(Or(Local0, 0x80))
+                Notify(\_SB.PMT1, 0x82)
+              }
+              ElseIf (LEqual(Local5, 0x0C)) 
+              {
+                
+                DCNF(Or(ShiftLeft(PMAV, 0x10), And(Or(Local0, 0x80), 0xFFFF)))
+                If (LEqual(1, PMAV)) 
+                {
+                  
+                  If (LEqual(And(ShiftRight(Local0, 0x10), 0xFF), 1))
+                  {
+                    \_SB.PCI0.HEC2.SSFW(0, 0x08, 0, 0)
+                  }
+                  Store(Divide(HWL, 1000), Local2)
+                  \_SB.PCI0.HEC2.SSFW(0, 0x07, Local2, 0) 
+                  Store(Divide(PMAI, 1000), Local2)
+                  \_SB.PCI0.HEC2.SSFW(0, 0x0A, Local2, 0) 
+                  Store(Divide(PTPU, 1000), Local2)
+                  Store(Divide(PTPL, 1000), Local3)
+                  \_SB.PCI0.HEC2.SSFW(1, 0x0B, Local2, Local3) 
+                }
+              }
+             
+              ElseIf (Or(LEqual(Local5, 0x88),   
+                          LEqual(Local5, 0x0D))) 
+              {
+                Store(And(ShiftRight(Local0, 0x18), 0xFF), Index(PMCP, 0)) 
+                Store(And(ShiftRight(Local0, 0x11), 0x01), Index(PMCP, 2)) 
+                If (LEqual(And(ShiftRight(Local0, 0x10), 0x01), 0x01))    
+                {
+                  Store(0xFFFFFFFF, Index(PMCP, 8))
+                }
+                Else
+                {
+                  Store(0x00000000, Index(PMCP, 8))
+                }
+                Store(CBRW, Index(PMCP, 3))
+                Store(CBRW, Index(PMCP, 4))
+                Store(CBRW, Index(PMCP, 5))
+                Store(CBRW, Index(PMCP, 6))
+                Store(CBRW, Index(PMCP, 7))
+                Store(CBRW, Index(PMCP, 9))
+                Store(CBRW, Index(PMCP, 10))
+                If (LEqual(Local5, 0x0D))
+                {
+                  DCNF(And(Or(Local0, 0x80), 0xFFFF))
+                }
+                Else
+                {
+                  Store(1, HIG)
+                }
+                Store(1, PMAV)
+                Notify(\_SB.PMT1, 0x80)
+              }
+              ElseIf (LEqual(Local5, 0x09)) 
+              {
+                DCNF(Or(Local0, 0x80))
+                Notify(\_SB.PMT1, 0x81)
+              }
+              ElseIf (LEqual(Local5, 0x87)) 
+              {
+                Store(And(ShiftRight(Local0, 0x08), 0xFF), HLST)
+              }
+              ElseIf (LEqual(Local5, 0x8A)) 
+              {
+                Store(And(ShiftRight(Local0, 0x08), 0xFF), AIST)
+              }
+              ElseIf (LEqual(Local5, 0x8B)) 
+              {
+                Store(And(ShiftRight(Local0, 0x08), 0xFF), TPST)
+              }
+
+              Return(Local5) 
+            } 
+          } 
+        } 
+        Return(0xFF) 
+      } 
+      
+      
+      
+      
+      Method(HSCI, 0, Serialized)
+      {
+        
+        If (HIS) 
+        {
+          Store(1, HIS)    
+          Store(0, Local0) 
+
+          H2RD()
+
+
+
+
+
+
+
+        } 
+        Store(1, HIE)
+      } 
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      Method(SSFW, 4, Serialized)
+      {
+        Store(HIE, Local1) 
+        Store(0, HIE)      
+        If (LEqual (Arg0, 0)) 
+        {
+          Store(0x80040011, CBWW)
+          Store(Or(ShiftLeft(Arg2, 0x10), And(Arg1, 0x00FF)), CBWW)
+        }
+        ElseIf (LEqual(Arg0, 1))
+        {
+          Store(0x80080011, CBWW)
+          Store(And (Arg1, 0xFF), CBWW)
+          Store(Or(ShiftLeft(Arg3, 0x10), And(Arg2, 0xFFFF)), CBWW)
+        }
+        Store(1, HIG)
+        Store(0, Local0)  
+        While (LNotEqual(Local0, 10))
+        {
+          If (LEqual(1, HIS))
+          {
+            Store(1, HIS) 
+            If (LEqual(H2RD(), Or(Arg1, 0x80)))
+            {
+              Break
+            }
+          }
+          Add(Local0, 1, Local0)
+          Sleep(100)
+        }
+        Store(Local1, HIE)  
+      }
+
+
+
+
+  } 
+  
+
+  Scope (\_SB)
+  {
+    Name(PWR, 0xFFFFFFFF)  
+    Name(PMAI, 0xFFFFFFFF) 
+    Name(HWL, 0xFFFFFFFF)  
+    Name(PTPU, 0)          
+    Name(PTPL, 0)          
+    Name(PMAV, 0)          
+    Name(HLST, 0)          
+    Name(AIST, 0)          
+    Name(TPST, 0)          
+    
+    
+    Name(PMCP, Package()
+    {
+      0x00000000, 
+      0x00000000, 
+      0x00000000, 
+      0x00000000, 
+      0xFFFFFFFF, 
+      0x00000000, 
+      0x00000000, 
+      0xFFFFFFFF, 
+      0x00000000, 
+      0x00000000, 
+      0x00000000, 
+      "Intel(R) Node Manager",
+      "",         
+      "Meter measures total domain" 
+    })
+    
+    Device(PMT1) 
+    {
+      Name(_HID, "ACPI000D")
+      Name(_UID,  0x00)      
+
+      
+      
+      
+      
+      Method(_STA, 0, NotSerialized)
+      {
+      
+        if (LGreaterEqual (\_SB.OSYS, 12)) { 
+          Return(Or(\_SB.PCI0.HEC2._STA, 0x04))
+        } else {
+        Return(\_SB.PCI0.HEC2._STA)
+        }
+      
+
+
+        
+        
+        Store(\_SB.PCI0.HEC2._STA, Local0)
+
+        
+        
+        And(Local0, 3, Local0)
+
+        
+        
+        If (LEqual(Local0, 3)) {
+          Return(0xF)
+
+        
+        
+        } Else {
+          Return(0x0)
+        }
+
+      }
+      
+      
+      
+      Method(_PMC, 0, NotSerialized)
+      {
+        If (LEqual(PMAV, 0))
+        {
+          \_SB.PCI0.HEC2.SSFW(0, 0x08, 0, 0)
+        }
+        Return(PMCP)
+      }
+      
+      
+      
+      
+      Method(_PMD, 0, NotSerialized)
+      {
+        Return(Package(){\_SB})
+      }
+      
+      
+      
+      
+      Method(_PMM, 0, NotSerialized)
+      {
+        Return(PWR)
+      }
+      
+      
+      
+      
+      Method(_PAI, 1, NotSerialized)
+      {
+        Store(Divide(Arg0, 1000), Local0)
+        Store(0x00000002, AIST)
+        \_SB.PCI0.HEC2.SSFW(0, 0x0A, Local0, 0) 
+        If (LEqual(And (AIST, 0xFF), 0x00))
+        {
+          Store(Arg0, PMAI)
+          Notify(\_SB.PMT1, 0x84)
+        }
+        Return(AIST)
+      }
+      
+      
+      
+      
+      Method(_GAI, 0, NotSerialized)
+      {
+        Return(PMAI)
+      }
+      
+      
+      
+      
+      Method(_PTP, 2, NotSerialized)
+      {
+        Store(Divide(Arg0, 1000), Local0)
+        
+        
+        
+        Store(Add(Arg1, 500), Local1)
+        Store(Divide(Arg1, 1000), Local1)
+        Store(0x00000002, TPST)
+        \_SB.PCI0.HEC2.SSFW(1, 0x0B, Local0, Local1)
+        If (LEqual(And(TPST, 0xFF), 0))
+        {
+          Store(Arg0, PTPU)
+          Store(Arg1, PTPL)
+        }
+        Return (TPST)
+      }
+      
+      
+      
+      
+      Method(_GHL, 0, NotSerialized)
+      {
+        Return(HWL)
+      }
+      
+      
+      
+      
+      Method(_SHL, 1, NotSerialized)
+      {
+        Store(Divide(Arg0, 1000), Local0)
+        Store(0x00000002, HLST)
+        \_SB.PCI0.HEC2.SSFW (0, 0x07, Local0, 0)
+        If (LEqual(And(HLST, 0xFF), 0x00))
+        {
+          Store(Arg0, HWL)
+          Notify(\_SB.PMT1, 0x83)
+        }
+        Return (HLST)
+      }
+    } 
+  } 
+
+
+  Scope(\_GPE)
+  {
+    Method(_L24, 0x0, Serialized) 
+    { 
+      \_SB.PCI0.HEC2.HSCI()
+    }
+  }
+}
+
+

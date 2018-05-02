@@ -1,0 +1,44 @@
+[MODULE]
+ModuleID = 1
+VendorID = 0
+DeviceID = 1
+File = AmiModulePkg\AHCI\Aint13\AI13.BIN
+
+ [MODULE]
+ModuleID = 3
+VendorID = 7
+DeviceID = 9
+File = AmiModulePkg\LegacySerialRedirection\Sredir.BIN
+
+ [MODULE]
+ModuleID = 1
+VendorID = 0
+DeviceID = 0
+File = AmiModulePkg\CSM\AmiLegacy16.bin
+
+ [MODULE]
+ModuleID = 1
+VendorID = 0
+DeviceID = 5
+File = AmiModulePkg\Nvme\NvmeInt13\NvmeI13.BIN
+
+ [MODULE]
+ModuleID = 1
+VendorID = 0
+DeviceID = 3
+File = AmiCompatibilityPkg\Smbios\SmbiosBoard\Smbrun.com
+
+ [MODULE]
+ModuleID = 1
+VendorID = 0
+DeviceID = 2
+File = AmiModulePkg\Usb\Int13/UI13.BIN
+
+ [MODULE]
+ModuleID = 20
+VendorID = 8086
+DeviceID = 1521
+File = FoxconnPkg\BA1543L2.LOM
+
+
+

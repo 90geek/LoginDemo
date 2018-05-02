@@ -1,0 +1,15 @@
+<component>
+	name = "FxnChangeSKUType"
+	category = ModulePart
+	LocalRoot = "FoxconnPkg\FxnChangeSKUType\" #ZYY006022+
+	RefName = "Foxconn.FxnChangeSKUType"    #ZYY006022+
+[INF]
+"FxnChangeSKUType.inf"
+[files]
+"FxnChangeSKUTypeCallback.c"	
+"FxnChangeSKUType.sd"	
+"FxnChangeSKUType.uni"	
+"FxnChangeSKUType.sdl"	
+#ZYY006022- "BmcLanConfig.c";"AmiIpmiPkg\Ipmi\BmcLanConfig\BmcLanConfig.c"	
+#ZYY006022- "Ip6BmcLanConfig.c";"AmiIpmiPkg\Ipmi\BmcLanConfig\Ip6BmcLanConfig.c"	
+<endComponent>

@@ -1,0 +1,52 @@
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2010, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+[Defines]
+INF_VERSION           = 0x00010015
+BASE_NAME             = HomeWorkPeim
+FILE_GUID             = d133c000-7911-4e7f-abff-71f14f3337a8
+MODULE_TYPE           = PEIM
+VERSION_STRING        = 1.0
+ENTRY_POINT           = HomeWorkPeimEntryPoint
+
+
+[Packages]
+MdePkg/MdePkg.dec
+AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+AmiTsePkg/AmiTsePkg.dec
+AmiModulePkg/AmiModulePkg.dec
+MdeModulePkg/MdeModulePkg.dec
+AmiModulePkg/AmiModulePkg.dec
+AmiChipsetModulePkg/AmiChipsetModulePkg.dec
+
+
+[LibraryClasses]
+BaseLib
+HobLib
+PeimEntryPoint
+BaseMemoryLib
+PeiServicesLib
+
+
+[Ppis]
+gEfiPeiReadOnlyVariable2PpiGuid
+
+
+[Depex]
+TRUE
+
+
+[Sources]
+HomeWorkPeim.c
+
+

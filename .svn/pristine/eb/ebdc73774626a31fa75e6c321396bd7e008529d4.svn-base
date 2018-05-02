@@ -1,0 +1,11 @@
+<component>
+	name = "Server/Workstation CPU uCode Patches"
+	category = ModulePart
+	LocalRoot = "AmiIntelCpuPkg\Microcode\ServWork\"
+	RefName = "AmiIntelCpuPkg.IntelServWorkUc"
+[files]
+"IntelServWorkUc.sdl"
+[parts]
+"BroadwellServerUc"
+"HaswellServer2Uc"
+<endComponent>

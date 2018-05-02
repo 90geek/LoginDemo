@@ -1,0 +1,62 @@
+ IdeRecovery
+
+ Timestamp is 5ae04af4 (Wed Apr 25 17:31:32 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000000b0H .data                   CODE
+ 0001:000000b0 00000000H .rdata                  CODE
+ 0001:000000b0 00001132H .text                   CODE
+ 0001:000011e4 00000014H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiPeiVirtualBlockIoPpiGuid 00000220     IdeRecovery:AutoGen.obj
+ 0001:00000010       _gEfiPeiStallPpiGuid       00000230     IdeRecovery:AutoGen.obj
+ 0001:00000020       _gPeiAtaControllerPpiGuid  00000240     IdeRecovery:AutoGen.obj
+ 0001:00000030       _gIdeRecoveryNativeModePpiGuid 00000250     IdeRecovery:IdeRecovery.obj
+ 0001:00000040       _PrimaryChannelLegacyIdeIoPortRegisters 00000260     IdeRecovery:IdeRecovery.obj
+ 0001:00000054       _SecondaryChannelLegacyIdeIoPortRegisters 00000274     IdeRecovery:IdeRecovery.obj
+ 0001:00000068       _PrimaryChannelNativeIdeIoPortRegisters 00000288     IdeRecovery:IdeRecovery.obj
+ 0001:0000007c       _SecondaryChannelNativeIdeIoPortRegisters 0000029c     IdeRecovery:IdeRecovery.obj
+ 0001:00000090       _Atapi_PpiDescriptor       000002b0     IdeRecovery:IdeRecovery.obj
+ 0001:0000009c       _Ata_PpiDescriptor         000002bc     IdeRecovery:IdeRecovery.obj
+ 0001:000000b0       __ModuleEntryPoint         000002d0 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000c3       _Atapi_RecoveryPeimEntry   000002e3 f   IdeRecovery:IdeRecovery.obj
+ 0001:0000013c       _Ata_RecoveryPeimEntry     0000035c f   IdeRecovery:IdeRecovery.obj
+ 0001:000001b5       _AtaAtapiCommonInit        000003d5 f   IdeRecovery:IdeRecovery.obj
+ 0001:000004b3       _Atapi_GetNumberOfBlockDevices 000006d3 f   IdeRecovery:IdeRecovery.obj
+ 0001:000004ed       _Atapi_GetBlockDeviceMediaInfo 0000070d f   IdeRecovery:IdeRecovery.obj
+ 0001:00000559       _Atapi_ReadBlocks          00000779 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000605       _Ata_GetNumberOfBlockDevices 00000825 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000636       _Ata_GetBlockDeviceMediaInfo 00000856 f   IdeRecovery:IdeRecovery.obj
+ 0001:0000068d       _Ata_ReadBlocks            000008ad f   IdeRecovery:IdeRecovery.obj
+ 0001:00000776       _EnumerateDevices          00000996 f   IdeRecovery:IdeRecovery.obj
+ 0001:000008ec       _Atapi_DiscoverDevice      00000b0c f   IdeRecovery:IdeRecovery.obj
+ 0001:00000955       _Ata_DiscoverDevice        00000b75 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000a06       _AtapiPacketCommandIn      00000c26 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000bf3       _Inquiry                   00000e13 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000c59       _Atapi_DetectMedia         00000e79 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000d19       _RequestSense              00000f39 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000d96       _ReadCapacity              00000fb6 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000e19       _Atapi_ReadSectors         00001039 f   IdeRecovery:IdeRecovery.obj
+ 0001:00000ebb       _AtaPioDataIn              000010db f   IdeRecovery:IdeRecovery.obj
+ 0001:0000100a       _Ata_ReadSectors           0000122a f   IdeRecovery:IdeRecovery.obj
+ 0001:00001096       _WaitForBitsToClear        000012b6 f   IdeRecovery:IdeRecovery.obj
+ 0001:000010e0       _WaitForBSYClear           00001300 f   IdeRecovery:IdeRecovery.obj
+ 0001:000010f6       _DRQClear2                 00001316 f   IdeRecovery:IdeRecovery.obj
+ 0001:0000110c       _DRQReadyHelper            0000132c f   IdeRecovery:IdeRecovery.obj
+ 0001:00001190       _memset                    000013b0     AmiPeiLib:MemSet.obj
+ 0001:0000119a       _MemSetAsm                 000013ba f   AmiPeiLib:MemSet.obj
+ 0001:000011e4       _gHaveCalledAtaAtapiCommonInit 00001404     IdeRecovery:IdeRecovery.obj
+ 0001:000011e5       _gIdeRecoveryNativeModeSupport 00001405     IdeRecovery:IdeRecovery.obj
+ 0001:000011e6       _gNativeIdeCount           00001406     IdeRecovery:IdeRecovery.obj
+ 0001:000011f0       _gNativeModePortRegsiters  00001410     <common>
+ 0001:000011f4       _ThisPeiServices           00001414     <common>
+
+ entry point at        0001:000000b0
+
+ Static symbols
+
+ 0001:00001171       _ZeroMem                   00001391 f    CIL library: CIL module

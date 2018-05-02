@@ -1,0 +1,55 @@
+
+#
+# This file contains code for Thunderbolt initialization in the SMM stage.
+#
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TbtSmm
+  FILE_GUID                      = B7D9F0D7-EBDB-4EE4-AB77-B30C4B9093CC
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  PI_SPECIFICATION_VERSION       = 0x0001000A
+  ENTRY_POINT                    = TbtSmmInit
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+#  
+
+[Sources]
+  TbtSmm.c
+
+[Packages]
+  MdePkg/MdePkg.dec   
+  AmiChipsetModulePkg/AmiChipsetModulePkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  
+[LibraryClasses]
+  UefiDriverEntryPoint
+  AmiDxeLib
+  AmiCspLib
+  PcdLib
+  TbtDxeLib
+  TbtOemLib
+
+[Guids]
+  gAmiTbtHrStatusGuid
+
+[Protocols]
+  gEfiSmmSwDispatch2ProtocolGuid
+  gEfiSmmSxDispatch2ProtocolGuid
+  gEfiSmmPowerButtonDispatch2ProtocolGuid
+  gAmiTbtPlatformPolicyProtocolGuid
+  gAmiTbtNvsProtocolGuid
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+
+[Depex]     
+  gEfiSmmBase2ProtocolGuid AND
+  gEfiSmmSwDispatch2ProtocolGuid AND
+  gEfiSmmSxDispatch2ProtocolGuid AND
+  gEfiSmmPowerButtonDispatch2ProtocolGuid AND
+  gAmiTbtPlatformPolicyProtocolGuid

@@ -1,0 +1,17 @@
+<component>
+	name = "SuperI/O - AST2400"
+	category = IO
+	LocalRoot = "AmiModulePkg\IO\AST2400\"
+	RefName = "AST2400"
+[INF]
+"AST2400DxeInit.inf"
+"AST2400PeiInit.inf"
+"AST2400PlatformHookSerialPortLib.inf"
+[files]
+"AST2400.sdl"	
+"AST2400.mak"	
+"AST2400.chm"	
+[parts]
+"AST2400Asl"
+"AST2400Setup"
+<endComponent>

@@ -1,0 +1,957 @@
+TOKEN
+    Name  = "Thunderbolt_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable Thunderbolt support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Master = Yes
+    Token = "HOTPLUG_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "Thunderbolt_CR_VERSION"
+    Value  = "16"
+    Help  = "Thunderbolt Spec Version for Cactus Ridge chip."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "Thunderbolt_RR_VERSION"
+    Value  = "10"
+    Help  = "Thunderbolt Spec Version for Redwood Ridge chip."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "Thunderbolt_FR_VERSION"
+    Value  = "12"
+    Help  = "Thunderbolt Spec Version for Falcon Ridge chip."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "Thunderbolt_WR_VERSION"
+    Value  = "11"
+    Help  = "Thunderbolt Spec Version for BDW-TBT-LP chip."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RC_VERSION"
+    Value  = "111"
+    Help  = "Thunderbolt RC Version."
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_INTEL_RC_CONFIG"
+    Value  = "1"
+    Help  = "If set, it means PCH and ACPI platform modules are using Intel RC"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_HIGHLAND_PLATFORM_CONFIG"
+    Value  = "0"
+    Help  = "If set, it means configuration for Grantley platform"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_UP_PORT_BUS"
+    Value  = "0x00"
+    Help  = "Thunderbolt Host Router Upstream Port Bus Number."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_UP_PORT_DEV"
+    Value  = "0x1C"
+    Help  = "Thunderbolt Host Router Upstream Port Device Number."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_UP_PORT_FUNC"
+    Value  = "0x00"
+    Help  = "Thunderbolt Host Router Upstream Port Function Number."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "DEFAULT_TBT_CHIP"
+    Value  = "3"
+    Help  = "1: Cactus Ridge/2: Redwood Ridge/3: Falcon Ridge/4: BDW-TBT-LP."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_GO2SX"
+    Value  = "20"
+    Help  = "Thunderbolt Host Router GO2SX Pin Number. Only for Cactus Ridge chip"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_ForcePWR"
+    Value  = "21"
+    Help  = "Thunderbolt Host Router ForcePWR Pin Number."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_OK2GO2SX_N"
+    Value  = "22"
+    Help  = "Thunderbolt Host Router OK2GO2SX_N Pin Number. Only for Cactus Ridge chip."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_HR_PWR"
+    Value  = "0xFF"
+    Help  = "Thunderbolt Host Router Power Pin Number. Only for Cactus Ridge chip"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_HotPlugEvt"
+    Value  = "11"
+    Help  = "Thunderbolt Host Router HotPlugEvt Pin Number."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_PCIBUS_SKIP"
+    Value  = "1"
+    Help  = "Allow PCI bus skip thunderbolt device initial"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "PciPort_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_PCIBUS_SKIP"
+    Value  = "1"
+    Help  = "Allow PCI bus skip thunderbolt device initial"
+    TokenType = Integer
+    TargetH = Yes
+    Token = "DEFAULT_TBT_CHIP" "=" "1"
+    Token = "PciPort_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_FCTP"
+    Value  = "0"
+    Help  = "Thunderbolt Host Router is 4 CIO and 2 phyical Thunderbolt port on board."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_NB_PCIE_SLOT_SUPPORT"
+    Value  = "0"
+    Help  = "0:Disable / 1:Enable Thunderbolt at NB PCIE slot feature, this function is optional !!!"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBT_ASL_HANDLE_SX_EXIT"
+    Value  = "1"
+    Help  = "1:Enable / 0:Disable ASL code executes Sx_Exit command of Redwood Ridge/Falcon Ridge/Win Ridge chips, if disable, that means Sx_Exit command executed in PEI or Dxe phase."
+    TokenType = Integer
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "====== Chipset PCIE Resource Configuration ======"
+    TokenType = Expression
+End
+
+# project code should take care this token >>>
+#TOKEN
+#    Name  = "PCIEX_BASE_ADDRESS"
+#    Value  = "0xF0000000"
+#    TokenType = Integer
+#    TargetEQU = Yes
+#    TargetMAK = Yes
+#    TargetH = Yes
+#    Token = "TBT_INTEL_RC_CONFIG" "=" "1"
+#End
+
+#TOKEN
+#    Name  = "PCIEX_BASE_ADDRESS"
+#    Value  = "0xE0000000"
+#    TokenType = Integer
+#    TargetEQU = Yes
+#    TargetMAK = Yes
+#    TargetH = Yes
+#    Token = "TBT_FCTP" "=" "1"
+#    Token = "TBT_INTEL_RC_CONFIG" "=" "1"
+#End
+# project code should take care this token <<<
+
+TOKEN
+    Name  = "MAX_ADDITIONAL_P2P_BRIDGES"
+    Value  = "0x80"
+    Help  = "The number of P2P bridges that can be processed in addition to the ones defined in BusNumXlat.INC."
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "1...0FFh"
+    Token = "TBT_FCTP" "=" "1"
+End
+
+TOKEN
+    Name  = "============== PEI SETINNG =============="
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "TbtPei_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable TbtPei support in Project"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "TBT_RR_S5_SXEXIT"
+    Value  = "0"
+    Help  = "Enable/Disable execute Sx_Exit command of Redwood Ridge/Falcon Ridge chip in S5 boot path."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "============== DXE SETINNG =============="
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "TbtDxe_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable TbtDxe support in Project"
+    TokenType = Boolean
+End
+
+PCIDEVICE
+    Title  = "TbtPciHost"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    Fun  = 00h
+    SleepNum  = 01h
+    ASLfile  = "'AmiChipsetModulePkg\ASL\TbtGpe.asl;After Pci Tree'"
+    DeviceType = OnBoard
+    PCIBusSize = 64bit
+    ROMMain = No
+    Virtual = Yes
+    ASL_PTS  = "Method;\TBPS(Arg0)"
+    ASL_WAK  = "Method;\TBWK(Arg0)"
+End
+
+Outputregister
+    Name = "TbtOemPortingASL"
+    Path = "Build"
+    File = "AmiTbtOemPorting.asl"
+    Template = "..\ASL\TbtOemPorting.asl"
+End
+
+TOKEN
+    Name  = "NB_PCIE_ROOT_PORT_0"
+    Value  = "0"
+    Help  = "Set to 'On' if SA Root Complex Port #0  phisically enabled of CPU#0 and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "NB_PCIE_ROOT_PORT_0"
+    Value  = "1"
+    Help  = "Set to 'On' if SA Root Complex Port #0  phisically enabled of CPU#0 and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+    Token = "RC_PEG_0" "=" "1"
+End
+
+TOKEN
+    Name  = "NB_PCIE_ROOT_PORT_1"
+    Value  = "0"
+    Help  = "Set to 'On' if SA Root Complex Port #0  phisically enabled of CPU#0 and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "NB_PCIE_ROOT_PORT_1"
+    Value  = "1"
+    Help  = "Set to 'On' if SA Root Complex Port #0  phisically enabled of CPU#0 and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+    Token = "RC_PEG_1" "=" "1"
+End
+
+TOKEN
+    Name  = "NB_PCIE_ROOT_PORT_2"
+    Value  = "0"
+    Help  = "Set to 'On' if SA Root Complex Port #0  phisically enabled of CPU#0 and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "NB_PCIE_ROOT_PORT_2"
+    Value  = "1"
+    Help  = "Set to 'On' if SA Root Complex Port #0  phisically enabled of CPU#0 and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+    Token = "RC_PEG_2" "=" "1"
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_0"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #0  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "1"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "0"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "0"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_1"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #1  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "2"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "1"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "1"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "1"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_2"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #2  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "3"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "2"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "2"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "2"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_3"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #3  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "4"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "3"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "3"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "3"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_4"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #4  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "5"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "4"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "4"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "4"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_5"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #5  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "6"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "5"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "5"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "5"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_6"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #6  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "7"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "6"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "6"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "6"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "SB_PCIE_ROOT_PORT_7"
+    Value  = "1"
+    Help  = "Set to 'On' if PCH Root Complex Port #7  phisically enabled and connected on the board"
+    TokenType = Boolean
+    TargetH = Yes
+    Range  = "On - Off"
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "8"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "7"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RPNum"
+    Value  = "7"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Token = "TBT_UP_PORT_FUNC" "=" "7"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RP_NUM"
+    Value  = "\_SB.PCI0.RP0$(TBT_RPNum)"
+    TokenType = Expression
+    TargetH = Yes
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RP_NUM"
+    Value  = "\_SB.PCI0.PEX$(TBT_RPNum)"
+    TokenType = Expression
+    TargetH = Yes
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_RMV_REPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Enable:1/Disable:0 Thunderbolt module report _RMV function in ASL code."
+    Token = "DESKTOP_306AX" "=" "1"
+    Token = "HOTPLUG_RMV_SUPPORT" "=" "0"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_RMV_REPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Enable:1/Disable:0 Thunderbolt module report _RMV function in ASL code."
+    Token = "MOBILE_306AX" "=" "1"
+    Token = "HOTPLUG_RMV_SUPPORT" "=" "0"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_WAK_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Main switch to enable TWAK method in ASL code"
+End
+
+TOKEN
+    Name  = "TBT_PTS_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Main switch to enable TPTS method in ASL code"
+End
+
+TOKEN
+    Name  = "TBT_S3_WAK_SMI"
+    Value  = "0"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Enable:1/Disable:0 trigger TBT SMI in ASL code when S3 resuming"
+    Lock = Yes
+End
+
+TOKEN
+    Name  = "TBT_WAK"
+    Value  = "\_SB.PCI0.RP0$(TBT_RPNum).TWAK(Arg0)"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "TBT_WAK_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_WAK"
+    Value  = "\_SB.PCI0.PEX$(TBT_RPNum).TWAK(Arg0)"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "TBT_WAK_SUPPORT" "=" "1"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+End
+
+TOKEN
+    Name  = "TBT_PTS"
+    Value  = "\_SB.PCI0.RP0$(TBT_RPNum).TPTS(Arg0)"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "TBT_PTS_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_PTS"
+    Value  = "\_SB.PCI0.PEX$(TBT_RPNum).TPTS(Arg0)"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "TBT_PTS_SUPPORT" "=" "1"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+End
+
+TOKEN
+    Name  = "TBT_CLEAR_PME_STATUS"
+    Value  = "0"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Enable:1/Disable:0 Clear PCIE root port thunderbolt host located PME status in ASL code."
+    Token = "TBT_PTS_SUPPORT" "=" "1"
+End
+
+#TOKEN
+#    Name  = "TBT_CLEAR_PME_STATUS"
+#    Value  = "0"
+#    TokenType = Boolean
+#    TargetEQU = Yes
+#    TargetMAK = Yes
+#    TargetH = Yes
+#    Help  = "Enable:1/Disable:0 Clear PCIE root port thunderbolt host located PME status in ASL code."
+#    Token = "MOBILE_306AX" "=" "1"
+#    Token = "TBT_PTS_SUPPORT" "=" "1"
+#End
+
+#TOKEN
+#    Name  = "TBT_CLEAR_PME_STATUS"
+#    Value  = "0"
+#    TokenType = Boolean
+#    TargetEQU = Yes
+#    TargetMAK = Yes
+#    TargetH = Yes
+#    Help  = "Enable:1/Disable:0 Clear PCIE root port thunderbolt host located PME status in ASL code."
+#    Token = "DESKTOP_306AX" "=" "1"
+#    Token = "TBT_PTS_SUPPORT" "=" "1"
+#End
+
+TOKEN
+    Name  = "TBT_PCI0_INI_SUPPORT"
+    Value  = "1"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Help  = "Enable/Disable put OS_UP command of RR/FR chip under _INI method of system bus in ASL code."
+End
+
+TOKEN
+    Name  = "TBT_INI"
+    Value  = "\_SB.PCI0.RP0$(TBT_RPNum).TINI()"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "TBT_PCI0_INI_SUPPORT" "=" "1"
+End
+
+TOKEN
+    Name  = "TBT_INI"
+    Value  = "\_SB.PCI0.PEX$(TBT_RPNum).TINI()"
+    TokenType = Expression
+    TargetMak = Yes
+    TargetH = Yes
+    Lock = Yes
+    Token = "TBT_PCI0_INI_SUPPORT" "=" "1"
+    TOKEN = "TBT_INTEL_RC_CONFIG" "=" "0"
+End
+
+ELINK
+    Name  = "OEM_PCI_DEVICE_CALLBACK(0, 0, TbtProtectedPciDevice),"
+    Parent  = "OEM_SKIP_PCI_DEVICE"
+    InvokeOrder = AfterParent
+    TOKEN = "PciPort_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "TbtDxeInvokeSmiHandler,"
+    Parent  = "ConnectRootBridgeHandles,"
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+    Name  = "============== SMM SETINNG =============="
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "TbtSmm_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable TbtSmm support in Project"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "TBT_SWSMI_VALUE"
+    Value  = "0xBC"
+    Help  = "Thunderbolt SWSMI value"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TBSW"
+    Value  = "$(TBT_SWSMI_VALUE)"
+    Help  = "Thunderbolt SWSMI value"
+    TokenType = Integer
+    TargetASL = Yes
+End
+
+TOKEN
+    Name  = "TBT_HR_SX_CHECK"
+    Value  = "1"
+    Help  = "Double check Thunderbolt host router status in SxSMI/PowerButton SMI"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "============== Library SETINNG =============="
+    TokenType = Expression
+End
+
+TOKEN
+    Name  = "AmiTbtPlatformPolicyLib_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable AmiTbtPlatformPolicyLib support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TbtDxeLib_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable TbtDxeLib support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "TbtOemLib_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable TbtOemLib support in Project"
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+PATH
+    Name  = "Thunderbolt_DIR"
+End
+
+PATH
+    Name  = "TBT_LIBRARY_DIR"
+    Path  = "AmiChipsetModulePkg/Library"
+End
+
+ELINK
+    Name  = "/D TBT_UP_PORT_FUNC_FLAG"
+    Parent  = "MSFT:*_*_*_CC_FLAGS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "/D Thunderbolt_SUPPORT_FLAG"
+    Parent  = "MSFT:*_*_*_CC_FLAGS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(TBT_LIBRARY_DIR)/TbtDxeLib/TbtDxeLib.c"
+    Parent  = "AMI_CSP_DXE_SOURCES"
+    InvokeOrder = AfterParent
+    Token = "TbtDxeLib_SUPPORT" "=" "1"
+    Token = "PciPort_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "TbtPei"
+    File  = "TbtPei/TbtPei.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "PEIM"
+    Token = "TbtPei_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "TbtDxe"
+    File  = "TbtDxe/TbtDxe.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "TbtDxe_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "TbtSmm"
+    File  = "TbtSmm/TbtSmm.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_SMM_DRIVER"
+    Token = "TbtSmm_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "AmiTbtPlatformPolicyLib"
+    File  = "AmiTbtPlatformPolicyLib/AmiTbtPlatformPolicyLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Path = "TBT_LIBRARY_DIR"
+    Token = "AmiTbtPlatformPolicyLib_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "TbtDxeLib"
+    File  = "TbtDxeLib/TbtDxeLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    Path = "TBT_LIBRARY_DIR"
+    Token = "TbtDxeLib_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "TbtOemLib"
+    File  = "TbtOemLib/TbtOemLib.inf"
+    Package  = "AmiChipsetModulePkg"
+    Path = "TBT_LIBRARY_DIR"
+    Token = "TbtOemLib_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "AmiTbtPlatformPolicyLib"
+    Instance  = "AmiChipsetModulePkg.AmiTbtPlatformPolicyLib"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "AmiTbtPlatformPolicyLib_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "TbtDxeLib"
+    Instance  = "AmiChipsetModulePkg.TbtDxeLib"
+    Token = "TbtDxeLib_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "NULL"
+    Instance  = "AmiChipsetModulePkg.TbtDxeLib"
+    Override  = "AmiModulePkg.Bds"
+    Token = "TbtDxeLib_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "TbtOemLib"
+    Instance  = "AmiChipsetModulePkg.TbtOemLib"
+    Token = "TbtOemLib_SUPPORT" "=" "1"
+End

@@ -1,0 +1,11 @@
+<component>
+	name = "AmiTsePkg"
+	category = ModulePart
+	LocalRoot = "AmiTsePkg\"
+	RefName = "AmiTsePkg"
+[files]
+"AmiTsePkg.dec"	
+[parts]
+"AmiTsePkg.Include"
+"AmiTsePkg.Protocol"
+<endComponent>

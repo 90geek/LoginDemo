@@ -1,0 +1,54 @@
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2012, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+
+## @file
+#    Module allows AFU to work normally under Xen Dom0.
+##
+
+[Defines]
+    PI_SPECIFICATION_VERSION    = 0x0001000A
+    INF_VERSION                 = 0x00010005
+    FILE_GUID                   = 9921f5a3-d2d7-4c1a-b6b4-5ffa37d377e6
+    MODULE_TYPE                 = DXE_SMM_DRIVER
+    VERSION_STRING              = 1.0
+    BASE_NAME                   = RuntimeMemoryHole
+    ENTRY_POINT                 = RuntimeMemoryHoleEntryPoint
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES          = IA32 X64
+#
+[Sources]
+    RuntimeMemoryHole.c
+    RuntimeMemoryHole.h
+
+[Packages]
+    AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+    MdePkg/MdePkg.dec
+
+[LibraryClasses]
+    UefiDriverEntryPoint
+    AmiDxeLib
+#   DebugLib
+
+[Protocols]
+	gEfiSmmCpuProtocolGuid
+    gEfiSmmBase2ProtocolGuid
+    gEfiSmmSwDispatch2ProtocolGuid
+
+[Depex]
+    gEfiSmmCpuProtocolGuid AND
+    gEfiSmmBase2ProtocolGuid AND
+    gEfiSmmSwDispatch2ProtocolGuid

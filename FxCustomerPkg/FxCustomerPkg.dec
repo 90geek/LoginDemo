@@ -1,0 +1,24 @@
+[Defines]
+ DEC_SPECIFICATION              = 0x00010005
+ PACKAGE_NAME                   = FxCustomerPkg
+ PACKAGE_GUID                   = 3e1e15de-c65f-11e5-a94d-fc15b4840ba5
+ PACKAGE_VERSION                = 0.1
+ 
+[Includes]
+  ../Build
+[LibraryClasses]
+
+[Guids]
+
+[Ppis]
+
+ 
+[Protocols]
+
+[PcdsFixedAtBuild]
+  
+[PcdsFeatureFlag]
+
+[PcdsPatchableInModule]
+
+[PcdsDynamicEx]

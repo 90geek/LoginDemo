@@ -1,0 +1,36 @@
+ PciTableInit
+
+ Timestamp is 5ae049f0 (Wed Apr 25 17:27:12 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000004e0H .data                   CODE
+ 0001:000004e0 00000000H .rdata                  CODE
+ 0001:000004e0 0000026eH .text                   CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gAmiPeiPciTableInitPpiGuid 00000220     PciTableInit:AutoGen.obj
+ 0001:00000010       _EfiErrorStatus            00000230     AmiPeiLib:StdLibC.obj
+ 0001:00000350       _PiErrorStatus             00000570     AmiPeiLib:StdLibC.obj
+ 0001:0000039c       _AmiErrorStatus            000005bc     AmiPeiLib:StdLibC.obj
+ 0001:000003d0       _EfiWarningStatus          000005f0     AmiPeiLib:StdLibC.obj
+ 0001:00000438       _PiWarningStatus           00000658     AmiPeiLib:StdLibC.obj
+ 0001:00000480       _EfiUnknown                000006a0     AmiPeiLib:StdLibC.obj
+ 0001:000004cc       _mPciTableInitPpi          000006ec     PciTableInit:CspLibPei.obj
+ 0001:000004e0       __ModuleEntryPoint         00000700 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000004f2       _PciTableInit              00000712 f   PciTableInit:CspLibPei.obj
+ 0001:00000548       _PciTableInit2             00000768 f   PciTableInit:CspLibPei.obj
+ 0001:000005a3       _PciCfgModify              000007c3 f   AmiPeiLib:PeiLib.obj
+ 0001:000005e0       _memset                    00000800     AmiPeiLib:MemSet.obj
+ 0001:000005ea       _MemSetAsm                 0000080a f   AmiPeiLib:MemSet.obj
+ 0001:00000640       _memcpy                    00000860     AmiPeiLib:MemCpy.obj
+ 0001:00000640       _MemCpy32                  00000860     AmiPeiLib:MemCpy.obj
+ 0001:00000640       _MemCpyAsm                 00000860 f   AmiPeiLib:MemCpy.obj
+ 0001:000006e0       _EnableLongMode            00000900 f   AmiPeiLib:EnableLongMode.obj
+
+ entry point at        0001:000004e0
+
+ Static symbols
+

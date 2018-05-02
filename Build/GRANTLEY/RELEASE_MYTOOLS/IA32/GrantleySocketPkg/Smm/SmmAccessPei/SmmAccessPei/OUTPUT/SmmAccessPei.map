@@ -1,0 +1,50 @@
+ SmmAccessPei
+
+ Timestamp is 5ae04a85 (Wed Apr 25 17:29:41 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000060H .data                   CODE
+ 0001:00000060 0000005cH .rdata                  CODE
+ 0001:000000bc 000003d5H .text                   CODE
+ 0001:00000494 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiSmmPeiSmramMemoryReserveGuid 00000220     SmmAccessPei:AutoGen.obj
+ 0001:00000010       _gPeiSmmAccessPpiGuid      00000230     SmmAccessPei:AutoGen.obj
+ 0001:00000050       _mUniversalDataGuid        00000270     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000060       ??_C@_17HDJIHIPC@?$AAN?$AA?1?$AAA?$AA?$AA@ 00000280     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000068       ??_C@_15HIJHELAL@?$AA3?$AAd?$AA?$AA@ 00000288     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000070       ??_C@_15OFEAHDLC@?$AA3?$AAc?$AA?$AA@ 00000290     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000078       ??_C@_15FNPMBENH@?$AA3?$AAb?$AA?$AA@ 00000298     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000080       ??_C@_15EPEJLLDJ@?$AA3?$AAa?$AA?$AA@ 000002a0     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000088       ??_C@_15LDMLJIKO@?$AA2?$AAd?$AA?$AA@ 000002a8     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000090       ??_C@_15COBMKABH@?$AA2?$AAc?$AA?$AA@ 000002b0     SmmAccessPei:SmmAccessPei.obj
+ 0001:00000098       ??_C@_15JGKAMHHC@?$AA2?$AAb?$AA?$AA@ 000002b8     SmmAccessPei:SmmAccessPei.obj
+ 0001:000000a0       ??_C@_15IEBFGIJM@?$AA2?$AAa?$AA?$AA@ 000002c0     SmmAccessPei:SmmAccessPei.obj
+ 0001:000000a8       ??_C@_15BADELFNM@?$AA1?$AAb?$AA?$AA@ 000002c8     SmmAccessPei:SmmAccessPei.obj
+ 0001:000000b0       ??_C@_15CIBBKDC@?$AA1?$AAa?$AA?$AA@ 000002d0     SmmAccessPei:SmmAccessPei.obj
+ 0001:000000b8       ??_C@_13COJANIEC@?$AA0?$AA?$AA@ 000002d8     SmmAccessPei:SmmAccessPei.obj
+ 0001:000000bc       __ModuleEntryPoint         000002dc f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000d1       _Open                      000002f1 f   SmmAccessPei:SmmAccessPei.obj
+ 0001:0000011d       _Close                     0000033d f   SmmAccessPei:SmmAccessPei.obj
+ 0001:000001ac       _Lock                      000003cc f   SmmAccessPei:SmmAccessPei.obj
+ 0001:000001e2       _GetCapabilities           00000402 f   SmmAccessPei:SmmAccessPei.obj
+ 0001:00000216       _SmmAccessPeiEntryPoint    00000436 f   SmmAccessPei:SmmAccessPei.obj
+ 0001:00000338       _GetHobList                00000558 f   PeiHobLib:HobLib.obj
+ 0001:00000352       _GetNextHob                00000572 f   PeiHobLib:HobLib.obj
+ 0001:0000037f       _GetFirstGuidHob           0000059f f   PeiHobLib:HobLib.obj
+ 0001:000003b5       _AllocatePool              000005d5 f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:000003db       _CopyMem                   000005fb f   BaseMemoryLibRepStr:CopyMemWrapper.obj
+ 0001:000003fa       _CompareGuid               0000061a f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:0000041e       _GetPeiServicesTablePointer 0000063e f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00000438       _InternalMemCopyMem        00000658 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000474       _InternalMemZeroMem        00000694 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000494       _LocalPcdPciExpressBaseAddress 000006b4     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:000000bc
+
+ Static symbols
+

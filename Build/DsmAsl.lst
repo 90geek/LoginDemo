@@ -1,0 +1,7 @@
+
+(0x1, Slot1 x16, \_SB.PCI0.BR2A), 
+(0x3, Slot3 x8, \_SB.PCI0.BR2C), 
+(0x3, Slot3 x4, \_SB.PCI0.BR3D), 
+(0x2, Slot2 x16, \_SB.PCI1.QR3A), 
+(0x4, Slot4 x8, \_SB.PCI1.QR3C), 
+(0x4, Slot4 x8, \_SB.PCI1.QR1A),

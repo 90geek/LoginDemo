@@ -1,0 +1,10 @@
+<component>
+	name = "S3Resume2Pei"
+	category = ModulePart
+	LocalRoot = "AmiCRBPkg\Universal\Acpi\S3Resume2Pei"	
+	RefName = "S3Resume2Pei"
+[INF]
+"S3Resume2Pei.inf"
+[files]
+"S3Resume2Pei.sdl"	
+<endComponent>

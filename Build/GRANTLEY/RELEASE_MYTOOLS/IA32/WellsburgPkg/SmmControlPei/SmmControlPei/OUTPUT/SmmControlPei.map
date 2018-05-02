@@ -1,0 +1,27 @@
+ SmmControlPei
+
+ Timestamp is 5ae04a9d (Wed Apr 25 17:30:05 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000024H .data                   CODE
+ 0001:00000028 00000000H .rdata                  CODE
+ 0001:00000028 000000baH .text                   CODE
+ 0001:000000e4 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gPeiSmmControlPpiGuid     00000220     SmmControlPei:AutoGen.obj
+ 0001:00000010       _mSmmControlPpi            00000230     SmmControlPei:SmmControlPei.obj
+ 0001:00000018       _mPpiList                  00000238     SmmControlPei:SmmControlPei.obj
+ 0001:00000028       __ModuleEntryPoint         00000248 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000044       _SmmClear                  00000264 f   SmmControlPei:SmmControlPei.obj
+ 0001:00000071       _PeiActivate               00000291 f   SmmControlPei:SmmControlPei.obj
+ 0001:000000d0       _PeiDeactivate             000002f0 f   SmmControlPei:SmmControlPei.obj
+ 0001:000000e4       _LocalPcdPciExpressBaseAddress 00000304     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:00000028
+
+ Static symbols
+

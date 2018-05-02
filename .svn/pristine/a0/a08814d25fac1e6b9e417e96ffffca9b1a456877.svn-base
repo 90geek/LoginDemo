@@ -1,0 +1,14 @@
+<component>
+    name = "BmcCommonAccess"
+    category = ModulePart
+    LocalRoot = "AmiIpmiPkg\Ipmi\BmcCommonAccess\"
+    RefName = "AmiIpmiPkg.Ipmi.BmcCommonAccess"
+[files]
+"BtBmc.c"
+"BtBmc.h"
+"IpmiBmc.c"
+"IpmiBmc.h"
+"KcsBmc.c"
+"KcsBmc.h"
+"DxeSmmIpmiBmc.h"
+<endComponent>

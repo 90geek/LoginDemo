@@ -1,0 +1,27 @@
+TOKEN
+    Name  = "SmiVariable_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable SmiVariable support in Project"
+    TokenType = Boolean
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name = "SmiVariable_DIR"
+    Path = "AmiModulePkg\SmiVariable"
+End
+
+INFComponent
+    Name = "SmiVariable"
+    File = "SmiVariable.inf"
+    Package = "AmiModulePkg"
+    ModuleTypes = "DXE_SMM_DRIVER"
+End
+
+INFComponent
+    Name = "ExportHiiDb"
+    File = "ExportHiiDb.inf"
+    Package = "AmiModulePkg"
+    ModuleTypes = "DXE_DRIVER"
+End

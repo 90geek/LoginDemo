@@ -1,0 +1,13 @@
+<component>
+	name = "Haswell - NB Board"
+	category = ModulePart
+	LocalRoot = "AmiCRBPkg\Board\NB\"
+	RefName = "Haswell - NB Board"
+[files]
+"NB.sdl"	
+"Nb.sd"	
+"Nb.uni"	
+"NbSetup.c"	
+"Nb.h"	
+"Nb.mak"	
+<endComponent>

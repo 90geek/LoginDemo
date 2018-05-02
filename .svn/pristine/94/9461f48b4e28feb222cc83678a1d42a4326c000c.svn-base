@@ -1,0 +1,12 @@
+<component>
+	name = "FxUpdateSystemInfoDxe"
+	category = ModulePart	#LCJ001005+
+#LCJ001005+	category = eModule
+#JPG002005-	LocalRoot = "FxCustomerPkg\WCSPkg\WCSSystemInfoUpdate\UpdateSystemInfoDxe"
+	LocalRoot = "FxCustomerPkg\UpdateSystemInfoDxe"
+	RefName = "FxUpdateSystemInfoDxe"
+[INF]
+"FxUpdateSystemInfoDxe.inf"
+[files]
+"FxUpdateSystemInfoDxe.sdl"
+<endComponent>

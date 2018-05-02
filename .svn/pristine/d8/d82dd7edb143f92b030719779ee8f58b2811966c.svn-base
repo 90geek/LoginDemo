@@ -1,0 +1,327 @@
+#****************************************************************************
+#****************************************************************************
+#**                                                                        **
+#**        (C)Copyright 1985-2014, American Megatrends, Inc.               **
+#**                                                                        **
+#**                       All Rights Reserved.                             **
+#**                                                                        **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093              **
+#**                                                                        **
+#**                       Phone: (770)-246-8600                            **
+#**                                                                        **
+#****************************************************************************
+#****************************************************************************
+
+TOKEN
+	Name  = "ErrorDisplayFramework_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable ErrorDisplay support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "BEEP_FOR_ERROR"
+	Value  = "0"
+	Help  = "If BEEP_FOR_ERROR is set to 1 then an Beep will sound when a post error code is displayed\\If BEEP_FOR_ERROR is set to 0 then no Beep will sound when a post error code is displayed\"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PAUSE_AFTER_ALL_ERRORS_DISPLAYED"
+	Value  = "1"
+	Help  = "If PAUSE_AFTER_ALL_ERRORS_DISPLAYED is set to 1 then the system will wait for a key to be pressed after all errors have been displayed\ If set to 0 then the feature will be disabled"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ENABLE_DEFAULT_DISPLAY_ERROR_FUNCTION"
+	Value  = "1"
+	Help  = "If set to 1 then the default version of this function is used in addition is enabled.  \\If set to 0 then the function is disabled"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS"
+	Value  = "1"
+	Help  = "If set to 1 then the default errors provided by Aptio are enabled.  \\If set to 0 then the errors are disabled"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "USE_APTIO_DEFAULT_TRIGGER_EVENT"
+	Value  = "1"
+	Help  = "If set to 1 then the Default Aptio trigger event will be registered and triggered at the BDS All Devices Connected Event"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PAUSE_DELAY_TIME"
+	Value  = "3000000"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+PATH
+	Name  = "ErrorDisplayFramework_DIR"
+	Path  = "AmiModulePkg/ErrorDisplayFramework"
+End
+
+MODULE
+	Help  = "Includes ErrorDisplayFramework.mak to Project"
+	File  = "ErrorDisplayFramework.mak"
+End
+
+ELINK
+	Name  = "$(BUILD_DIR)/ErrorDisplayFramework.ffs"
+	Parent  = "FV_MAIN"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "../$(ErrorDisplayFramework_DIR)/ErrorDisplayFramework.uni"
+	Parent  = "ERROR_DISPLAY_FRAMEWORK_UNI_LIST"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "DisplayMessage,"
+	Parent  = "OemDisplayErrorFunction"
+	Help  = "Default Post Error String Function.  Enabled by default."
+	Token = "ENABLE_DEFAULT_DISPLAY_ERROR_FUNCTION" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "ErrorDisplayFrameworkPlugins.h"
+	Parent  = "ERROR_DISPLAY_STRING_CONSUMERS"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{DXE_USB_PROVISIONING_WRITE_FAILURE, STRING_TOKEN(STR_DXE_USB_PROVISIONING_WRITE_FAILURE), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	Token = "ME_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_USB_PROVISIONING_ME_VERSION_MISMATCH, STRING_TOKEN(STR_DXE_USB_PROVISIONING_ME_VERSION_MISMATCH), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	Token = "ME_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_USB_PROVISIONING_FILE_INVALID_HEADER, STRING_TOKEN(STR_DXE_USB_PROVISIONING_FILE_INVALID_HEADER), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	Token = "ME_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_USB_PROVISIONING_FILE_INVALID, STRING_TOKEN(STR_DXE_USB_PROVISIONING_FILE_INVALID), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	Token = "ME_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_SB_BAD_BATTERY, STRING_TOKEN(STR_DXE_SB_BAD_BATTERY), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ GENERIC_BAD_DATE_TIME_ERROR, STRING_TOKEN(STR_GENERIC_BAD_DATE_TIME_ERROR), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_RESET_NOT_AVAILABLE, STRING_TOKEN(STR_DXE_RESET_NOT_AVAILABLE), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_ARCH_PROTOCOL_NOT_AVAILABLE, STRING_TOKEN(STR_DXE_ARCH_PROTOCOL_NOT_AVAILABLE), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_NO_CON_OUT, STRING_TOKEN(STR_DXE_NO_CON_OUT), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_NO_CON_IN, STRING_TOKEN(STR_DXE_NO_CON_IN), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ PEI_CPU_NO_MICROCODE, STRING_TOKEN(STR_PEI_CPU_NO_MICROCODE), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ PEI_CPU_MISMATCH, STRING_TOKEN(STR_PEI_CPU_MISMATCH), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_IDE_DEVICE_FAILURE, STRING_TOKEN(STR_DXE_IDE_DEVICE_FAILURE), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_LEGACY_OPROM_NO_SPACE, STRING_TOKEN(STR_DXE_LEGACY_OPROM_NO_SPACE), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_IDE_SMART_ERROR, STRING_TOKEN(STR_DXE_IDE_SMART_ERROR), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_PCI_BUS_OUT_OF_RESOURCES, STRING_TOKEN(STR_DXE_PCI_BUS_OUT_OF_RESOURCES), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_KEYBOARD_BUFFER_FULL_ERROR, STRING_TOKEN(STR_DXE_KEYBOARD_BUFFER_FULL_ERROR), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_KEYBOARD_BUFFER_FULL_ERROR, STRING_TOKEN(STR_DXE_KEYBOARD_BUFFER_FULL_ERROR), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_KEYBOARD_STUCK_KEY_ERROR, STRING_TOKEN(STR_DXE_KEYBOARD_STUCK_KEY_ERROR), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ DXE_FLASH_UPDATE_FAILED, STRING_TOKEN(STR_DXE_FLASH_UPDATE_FAILED), 0, 0},"
+	Parent  = "ERROR_LOOKUP_TABLE"
+	Token = "ENABLE_DEFAULT_APTIO_REPORTED_ERRORS" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "ErrorDisplayCallbackEvent,"
+	Parent  = "InitConVars,"
+	Token = "USE_APTIO_DEFAULT_TRIGGER_EVENT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "ERROR_LOOKUP_TABLE"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "ERROR_DISPLAY_FRAMEWORK_UNI_LIST"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "OemPostDisplayFunction"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "OemPreDisplayFunction"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "OemDisplayErrorFunction"
+	Help  = "This elink is used to provide a way to add functions to call with a valid error\\ is detected and its message is to be displayed"
+	InvokeOrder = ReplaceParent
+End
+
+ELINK
+	Name  = "ERROR_DISPLAY_STRING_CONSUMERS"
+	InvokeOrder = ReplaceParent
+End
+
+INFComponent
+	Name  = "ErrorDisplayFramework"
+	File  = "ErrorDisplayFramework.inf"
+	Package  = "AmiModulePkg"
+	PreProcess = Yes
+	ModuleTypes  = "UEFI_DRIVER"
+End
+
+INFComponent
+	Name  = "ErrorDisplayFrameformCallback"
+	File  = "ErrorDisplayFrameformCallback.inf"
+	Package  = "AmiModulePkg"
+	ModuleTypes  = "UEFI_DRIVER"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiModulePkg.ErrorDisplayFrameformCallback"
+	Override  = "AmiModulePkg.Bds"
+End
+
+#****************************************************************************
+#****************************************************************************
+#**                                                                        **
+#**        (C)Copyright 1985-2014, American Megatrends, Inc.               **
+#**                                                                        **
+#**                       All Rights Reserved.                             **
+#**                                                                        **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093              **
+#**                                                                        **
+#**                       Phone: (770)-246-8600                            **
+#**                                                                        **
+#****************************************************************************
+#****************************************************************************
+

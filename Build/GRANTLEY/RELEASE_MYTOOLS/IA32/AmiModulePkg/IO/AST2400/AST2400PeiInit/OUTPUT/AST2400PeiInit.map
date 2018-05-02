@@ -1,0 +1,30 @@
+ AST2400PeiInit
+
+ Timestamp is 5ae04a3d (Wed Apr 25 17:28:29 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000000f8H .data                   CODE
+ 0001:000000f8 00000000H .rdata                  CODE
+ 0001:000000f8 000006ddH .text                   CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _AST2400PeiDecodeTable     00000200     AST2400PeiInit:AST2400PeiInit.obj
+ 0001:00000020       _AST2400PeiInitTable       00000220     AST2400PeiInit:AST2400PeiInit.obj
+ 0001:000000bc       _AST2400_SUC_access_Table  000002bc     AST2400PeiInit:AST2400PeiInit.obj
+ 0001:000000f8       __ModuleEntryPoint         000002f8 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000fd       _AST2400PeiInitEntryPoint  000002fd f   AST2400PeiInit:AST2400PeiInit.obj
+ 0001:00000191       _lpc_read                  00000391 f   AST2400PeiInit:AST2400PeiInit.obj
+ 0001:00000251       _lpc_write                 00000451 f   AST2400PeiInit:AST2400PeiInit.obj
+ 0001:000002f9       _AmiSioLibSetLpcGenericDecoding 000004f9 f   AmiSioPeiLib:AmiSioPeiLib.obj
+ 0001:000003db       _AmiSioLibSetLpcDeviceDecoding 000005db f   AmiSioPeiLib:AmiSioPeiLib.obj
+ 0001:000006d5       _PciCf8AndThenOr16         000008d5 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00000741       _PciCf8Read32              00000941 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00000788       _PciCf8Write32             00000988 f   BasePciCf8Lib:PciCf8Lib.obj
+
+ entry point at        0001:000000f8
+
+ Static symbols
+

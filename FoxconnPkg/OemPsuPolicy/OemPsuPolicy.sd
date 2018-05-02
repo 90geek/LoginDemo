@@ -1,0 +1,80 @@
+//<OEM_FHDR_START>
+//-----------------------------------------------------------------------
+//
+// Name:        OemPsuPolicy.sd
+//
+// Description: This file contains the setup description for OemPsuPolicy Template
+//
+//-----------------------------------------------------------------------
+//<OEM_FHDR_END>
+
+
+#ifdef SERVER_MGMT_CONFIGURATION_DATA_DEFINITION
+//***********************************************************
+// Put NVRAM data definitions here.
+// For example:	UINT8 Data1;
+// These definitions will be converted by the build process
+// to a definitions of SERVER_MGMT_CONFIGURATION_DATA fields.
+//***********************************************************
+ UINT8		PsuMode;
+#endif //#ifdef SERVER_MGMT_CONFIGURATION_DATA_DEFINITION
+
+
+//**********************************************************************
+//            Server Management - Server Management Form
+//**********************************************************************
+#ifdef SERVER_MGMT_FORM_SET
+    #ifdef FORM_SET_ITEM_PSU_POLICY
+        SEPARATOR
+        suppressif ideqval SETUP_HIDE_FEATURES.PsuCount == 0x02;
+            SUBTITLE(STRING_TOKEN(STR_IPMI_SINGLE_PSU_DETECTED))
+        endif;
+        
+        suppressif ideqval SETUP_HIDE_FEATURES.PsuCount == 0x01;
+            oneof varid   = SERVER_MGMT_CONFIGURATION_DATA.PsuMode,
+              prompt      = STRING_TOKEN(STR_IPMI_PSU_OPERATING_MODE),
+              help        = STRING_TOKEN(STR_IPMI_PSU_OPERATING_MODE_HELP),
+              option text = STRING_TOKEN(STR_IPMI_PSU1ACTIVE_PSU2STANDBY), value = 4, flags = RESET_REQUIRED; 
+              option text = STRING_TOKEN(STR_IPMI_PSU1STANDBY_PSU2ACTIVE), value = 5, flags = RESET_REQUIRED;
+              option text = STRING_TOKEN(STR_IPMI_PSU1ACTIVE_PSU2ACTIVE), value = 3, flags = RESET_REQUIRED;
+              option text = STRING_TOKEN(STR_IPMI_PSU_UNSPECIFIED), value = 2, flags = DEFAULT | RESET_REQUIRED;
+            endoneof;
+            
+	        suppressif NOT ideqval SETUP_HIDE_FEATURES.PsuMode == 0x04;
+	        	text
+			        help   = STRING_TOKEN(STR_NULL_STRING),
+			        text = STRING_TOKEN(STR_IPMI_CURRENT_PSU_OPERATING_MODE),
+			        text = STRING_TOKEN(STR_IPMI_PSU1ACTIVE_PSU2STANDBY),
+			        flags  = 0, key = 0;
+		    endif;
+		    
+	        suppressif NOT ideqval SETUP_HIDE_FEATURES.PsuMode == 0x05;
+	        	text
+			        help   = STRING_TOKEN(STR_NULL_STRING),	        
+			        text = STRING_TOKEN(STR_IPMI_CURRENT_PSU_OPERATING_MODE),
+			        text = STRING_TOKEN(STR_IPMI_PSU1STANDBY_PSU2ACTIVE),
+			        flags = 0,
+			        key   = 0;
+		    endif;
+		    
+	        suppressif NOT ideqval SETUP_HIDE_FEATURES.PsuMode == 0x03;
+	        	text
+			        help   = STRING_TOKEN(STR_NULL_STRING),
+			        text = STRING_TOKEN(STR_IPMI_CURRENT_PSU_OPERATING_MODE),
+			        text = STRING_TOKEN(STR_IPMI_PSU1ACTIVE_PSU2ACTIVE),
+			        flags = 0,
+			        key   = 0;
+		    endif;
+		    
+	        suppressif NOT ideqval SETUP_HIDE_FEATURES.PsuMode == 0x02;
+	        	text
+			        help   = STRING_TOKEN(STR_NULL_STRING),
+			        text = STRING_TOKEN(STR_IPMI_CURRENT_PSU_OPERATING_MODE),
+			        text = STRING_TOKEN(STR_IPMI_NOT_SUPPORT),
+			        flags = 0,
+			        key   = 0;
+		    endif;		    		    		    
+        endif;
+        SEPARATOR 
+    #endif  //FORM_SET_ITEM_PSU_POLICY    
+#endif //SERVER_MGMT_FORM_SET

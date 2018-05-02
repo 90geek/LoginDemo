@@ -1,0 +1,57 @@
+TOKEN
+	Name  = "CryptoPkg_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling CryptoPkg support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+        Name  = "DISABLE_STDLIB_WRAPPER_METHODS"
+        Value  = "0"
+        Help  = "Token for disabling build of wrapper methods related to StdLib in the project. 1 - Remove StdLib wrapper methods from build process, 0 - Add StdLib wrapper methods to build process"
+        TOKEN = "StdLib_SUPPORT" "=" "0"
+        TokenType = Boolean
+        TargetH = Yes
+End
+
+TOKEN
+        Name  = "DISABLE_STDLIB_WRAPPER_METHODS"
+        Value  = "1"
+        Help  = "Token for disabling build of wrapper methods related to StdLib in the project. 1 - Remove StdLib wrapper methods from build process, 0 - Add StdLib wrapper methods to build process"
+        TOKEN = "StdLib_SUPPORT" "!=" "0"
+        TokenType = Boolean
+        TargetH = Yes
+End
+
+TOKEN
+	Name  = "OPENSSL_STDIO_FLAG"
+	Value  = "-DOPENSSL_NO_STDIO"
+        TOKEN = "DISABLE_STDLIB_WRAPPER_METHODS" "=" "0"	
+	TokenType = Expression
+        TargetH = Yes	
+End
+
+TOKEN
+	Name  = "OPENSSL_STDIO_FLAG"
+	Value  = "-DOPENSSL_STDIO"
+        TOKEN = "DISABLE_STDLIB_WRAPPER_METHODS" "=" "1"	
+	TokenType = Expression
+        TargetH = Yes	
+End
+
+TOKEN
+	Name  = "OPENSSL_FP_API_FLAG"
+	Value  = "-DOPENSSL_NO_FP_API"
+        TOKEN = "DISABLE_STDLIB_WRAPPER_METHODS" "=" "0"	
+	TokenType = Expression
+        TargetH = Yes	
+End
+
+TOKEN
+	Name  = "OPENSSL_FP_API_FLAG"
+	Value  = "-DOPENSSL_FP_API"
+        TOKEN = "DISABLE_STDLIB_WRAPPER_METHODS" "=" "1"	
+	TokenType = Expression
+        TargetH = Yes	
+End

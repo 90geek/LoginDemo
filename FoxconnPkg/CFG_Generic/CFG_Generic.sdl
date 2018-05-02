@@ -1,0 +1,145 @@
+TOKEN
+	Name  = "Generic_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+#JPG002002-	TOKEN = "SKU_NUM" "=" "5"
+	TOKEN = "SKU_NUM" "=" "0"  #JPG002002+
+	Help  = "Main switch to enable CFG-Generic E support in Project"
+End
+
+TOKEN
+	Name  = "DEFAULT_QUIET_BOOT"
+	Value  = "1"
+	Help  = "Enable or disable the QuietBoot function"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "LOGO_FILE_NAME"
+#JPG002003-	Value  = "FoxconnPkg/Hp.bmp"
+#ZY002001-	Value  = "AmiTsePkg/Core/em/AMITSE/Logo.bmp" #JPG002003+
+	Value  = "FoxconnPkg/HpeBgrtLogo.bmp"  #ZY002001+
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes
+End
+
+TOKEN
+    Name  = "HddSmart_Support"
+    Value  = "0"
+    Help  = "Main switch to enable HddSMART support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_NUMA_ENABLED"
+    Value  = "1"   
+    Help  = "NUMA is enabled by Setup default"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_PM_PROMPT"
+	Value  = "0"
+    Help  = "0.Energy Efficient 1.Custom"    
+    TokenType = Integer   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_EIST_ENABLED"
+    Value  = "1"   
+    Help  = "Main switch to enable 'CPU EIST': 0.Disabled; 1.Enabled"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_TURBO_MODE_ENABLED"
+    Value  = "1"   
+    Help  = "Turbo Mode is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_C_STATE_ENABLED"
+    Value  = "1"   
+    Help  = "CPU C State is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CPU_C6_ENABLED"
+    Value  = "1"   
+    Help  = "CPU C6 State is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_FRB2_TIMER_ENABLED"
+    Value  = "1"   
+    Help  = "FRB2 Timer is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_ENERGY_PERF_BIAS_SETTING"
+    Value  = "2"   
+    Help  = "Energy Performance BIAS setting by Setup default" 
+	TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_PROCESSOR_C1E_ENABLED"
+    Value  = "1"   
+    Help  = "Enable the Enhanced C1E state of the CPU by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "OEM_SENSOR_NUM_DEFINITION_FOR_BAIDU_1218"
+    Value  = "1"   
+    Help  = "Define sensor number according to Baidu IBMC FW Specification."
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN
+	Name  = "INFORM_BMC_CATCH_QPI_MRC_DEBUG_MESSAGE"
+	Value  = "0"#DJH002025:0->1 #CDL002030 Change Token Value 1->0
+	Help  = "Inform BMC to catch QPI/MRC debug message from com port."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN   
+    Name  = "HOTKEY_PROMPT_MESSAGE_FONT_COLOR"
+    Value  = "1"   
+    Help  = "Main switch to control the hotkey prompt message font & background color: 0.background = white, font = black; 1.background = black, font = white"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#DJH002032++>>
+TOKEN   
+    Name  = "SERIAL_DBG_MSG"
+    Value  = "1"   
+    Help  = "Main switch to print QPI/MRC debug message when debug mode is disabled"   
+    TokenType = Boolean   
+    TargetH = Yes
+    TargetMAK = Yes
+End
+#DJH002032++<<

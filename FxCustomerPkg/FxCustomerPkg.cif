@@ -1,0 +1,14 @@
+<component>
+	name = "FxCustomerPkg"
+	category = Flavor
+	Rank = 180
+	LocalRoot = "FxCustomerPkg\"
+	RefName = "FxCustomerPkg"
+[files]
+"FxCustomerPkg.dec"	
+"FxCustomerPkg.sdl"	
+	
+[parts]
+"UpdateSystemInfoDxe"
+
+<endComponent>

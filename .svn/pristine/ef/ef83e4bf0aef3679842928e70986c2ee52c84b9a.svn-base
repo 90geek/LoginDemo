@@ -1,0 +1,13 @@
+#include <PiPei.h>
+
+ typedef void (BIST_LIST)(void *);
+ extern BIST_LIST @elink(GetBistFunc, "@Child"," ", "" ) EndOfOneParamList;
+ BIST_LIST* BistList[] = {@elink(GetBistFunc, "@Child"," ", "" ) NULL};
+
+ typedef void (SEC_ELINK_LIST)();
+ extern SEC_ELINK_LIST @elink(SecElinkFuncs, "@Child"," ", "" ) EndOfNoParamList;
+ SEC_ELINK_LIST* SecElinkList[] = {@elink(SecElinkFuncs, "@Child"," ", "" ) NULL};
+
+ typedef EFI_PEI_PPI_DESCRIPTOR* (RET_PPI_DESC_FUNC)();
+ extern RET_PPI_DESC_FUNC @elink(SecAdditionalPpis, "@Child"," ", "" ) EndOfAddPpiList;
+ RET_PPI_DESC_FUNC *RetPpiList[] = {@elink(SecAdditionalPpis, "@Child"," ", "" ) NULL}; 

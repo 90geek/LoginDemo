@@ -1,0 +1,25 @@
+TOKEN
+	Name  = SmmCore_SUPPORT
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Help  = "Main switch to enable SmmCore support in Project"
+End
+
+INFComponent
+    Name  = "PiSmmCore"
+    File  = "PiSmmCore.inf"
+    Package  = "MdeModulePkg"
+    ModuleTypes  = "SMM_CORE"
+    Token = "SMM_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "PiSmmIpl"
+    File  = "PiSmmIpl.inf"
+    Package  = "MdeModulePkg"
+    ModuleTypes  = "DXE_RUNTIME_DRIVER"
+    Token = "SMM_SUPPORT" "=" "1"
+End

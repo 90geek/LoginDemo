@@ -1,0 +1,124 @@
+ FsRecovery
+
+ Timestamp is 5ae04af5 (Wed Apr 25 17:31:33 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000004ecH .data                   CODE
+ 0001:000004f0 00000030H .rdata                  CODE
+ 0001:00000520 00002e3eH .text                   CODE
+ 0001:00003360 00000151H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gBlockDeviceCapsuleGuid   00000200     FsRecovery:AutoGen.obj
+ 0001:00000010       _gEfiPeiDeviceRecoveryModulePpiGuid 00000210     FsRecovery:AutoGen.obj
+ 0001:00000020       _gEfiPeiVirtualBlockIoPpiGuid 00000220     FsRecovery:AutoGen.obj
+ 0001:00000030       _EfiErrorStatus            00000230     AmiPeiLib:StdLibC.obj
+ 0001:00000370       _PiErrorStatus             00000570     AmiPeiLib:StdLibC.obj
+ 0001:000003bc       _AmiErrorStatus            000005bc     AmiPeiLib:StdLibC.obj
+ 0001:000003f0       _EfiWarningStatus          000005f0     AmiPeiLib:StdLibC.obj
+ 0001:00000458       _PiWarningStatus           00000658     AmiPeiLib:StdLibC.obj
+ 0001:000004a0       _EfiUnknown                000006a0     AmiPeiLib:StdLibC.obj
+ 0001:000004bc       _FsRecoverySupport         000006bc     FsRecovery:FsRecovery.obj
+ 0001:000004d4       _BlockDeviceRecoveryModule 000006d4     FsRecovery:FsRecovery.obj
+ 0001:000004f0       __gPcd_FixedAtBuild_PcdRecoveryImageName 000006f0     FsRecovery:AutoGen.obj
+ 0001:00000500       ??_C@_05HIJPMCJE@CD001?$AA@ 00000700     FsRecovery:FsRecovery.obj
+ 0001:00000508       ??_C@_0BI@EBPPJCHM@EL?5TORITO?5SPECIFICATION?$AA@ 00000708     FsRecovery:FsRecovery.obj
+ 0001:00000520       __ModuleEntryPoint         00000720 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000537       _toupper                   00000737 f   FsRecovery:FsRecovery.obj
+ 0001:00000548       _FileCompare               00000748 f   FsRecovery:FsRecovery.obj
+ 0001:00000629       _FileSearch                00000829 f   FsRecovery:FsRecovery.obj
+ 0001:0000066e       _ConvertToFatFileName      0000086e f   FsRecovery:FsRecovery.obj
+ 0001:00000708       _ReadDevice                00000908 f   FsRecovery:FsRecovery.obj
+ 0001:00000811       _IsFat                     00000a11 f   FsRecovery:FsRecovery.obj
+ 0001:00000854       _ShiftFatWindow            00000a54 f   FsRecovery:FsRecovery.obj
+ 0001:000008a9       _InitFat                   00000aa9 f   FsRecovery:FsRecovery.obj
+ 0001:0000097a       _GetClustersCount          00000b7a f   FsRecovery:FsRecovery.obj
+ 0001:00000aa9       _GetFatData                00000ca9 f   FsRecovery:FsRecovery.obj
+ 0001:00000b1e       _GetFatType                00000d1e f   FsRecovery:FsRecovery.obj
+ 0001:00000cd1       _ProcessFatVolume          00000ed1 f   FsRecovery:FsRecovery.obj
+ 0001:00000d8e       _ProcessFatDevice          00000f8e f   FsRecovery:FsRecovery.obj
+ 0001:00000e3a       _ProcessPrimaryVolume      0000103a f   FsRecovery:FsRecovery.obj
+ 0001:00000f89       _ProcessCd                 00001189 f   FsRecovery:FsRecovery.obj
+ 0001:00001068       _FsRecoveryRead            00001268 f   FsRecovery:FsRecovery.obj
+ 0001:00001121       _GetNumberRecoveryCapsules 00001321 f   FsRecovery:FsRecovery.obj
+ 0001:00001138       _GetRecoveryCapsuleInfo    00001338 f   FsRecovery:FsRecovery.obj
+ 0001:00001171       _OEM_CheckROMID            00001371 f   FsRecovery:FsRecovery.obj
+ 0001:000011e6       _LoadRecoveryCapsule       000013e6 f   FsRecovery:FsRecovery.obj
+ 0001:00001330       _AmiGetFileListFromPrimaryVolume 00001530 f   FsRecovery:FsRecovery.obj
+ 0001:000013a3       _AmiGetFileListFromFatVolume 000015a3 f   FsRecovery:FsRecovery.obj
+ 0001:0000141a       _FindNextPartition         0000161a f   FsRecovery:FsRecovery.obj
+ 0001:00001647       _MemCmp                    00001847 f   AmiPeiLib:Memory.obj
+ 0001:000016a5       _MemSet                    000018a5 f   AmiPeiLib:Memory.obj
+ 0001:000016b8       _Shr64                     000018b8 f   AmiPeiLib:Ia32CLib.obj
+ 0001:000016df       _Shl64                     000018df f   AmiPeiLib:Ia32CLib.obj
+ 0001:00001706       _Mul64                     00001906 f   AmiPeiLib:Ia32CLib.obj
+ 0001:00001728       _Strlen                    00001928 f   AmiPeiLib:StdLibC.obj
+ 0001:00001736       _FindNextHobByType         00001936 f   AmiPeiLib:Misc.obj
+ 0001:00001773       _IsNtfs                    00001973 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:000017c4       _ApplyFixup                000019c4 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00001853       _GetRunListElementData     00001a53 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:0000197c       _GetFrAttribute            00001b7c f   NTFSRecovery:NTFSRecovery.obj
+ 0001:000019a9       _GetFileRecord             00001ba9 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00001b39       _ReadNTFSFile              00001d39 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00001c45       _GetAttributeRecord        00001e45 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00001ca7       _ReadNTFSDirectory         00001ea7 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00001f21       _ReadNTFSRoot              00002121 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00001fd6       _ProcessNTFSVolume         000021d6 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:00002121       _FindFileInNtfsDirectory   00002321 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:000022c7       _AmiGetFileListFromNtfsVolume 000024c7 f   NTFSRecovery:NTFSRecovery.obj
+ 0001:0000232f       _ProcessNTFSDevice         0000252f f   NTFSRecovery:NTFSRecovery.obj
+ 0001:000023d9       _GetNextBlock              000025d9 f   EXTRecovery:ExtRecovery.obj
+ 0001:000025cd       _ReadExtFile               000027cd f   EXTRecovery:ExtRecovery.obj
+ 0001:000027a9       _ReadExtDirectory          000029a9 f   EXTRecovery:ExtRecovery.obj
+ 0001:0000294f       _ProcessExtVolume          00002b4f f   EXTRecovery:ExtRecovery.obj
+ 0001:00002b97       _ProcessExtDevice          00002d97 f   EXTRecovery:ExtRecovery.obj
+ 0001:00002c41       _FindFileInExtDirectory    00002e41 f   EXTRecovery:ExtRecovery.obj
+ 0001:00002cc4       _AmiGetFileListFromExtVolume 00002ec4 f   EXTRecovery:ExtRecovery.obj
+ 0001:00002d2d       _ReadExFatFile             00002f2d f   ExFatRecovery:ExFatRecovery.obj
+ 0001:00002dce       _ReadExFatRoot             00002fce f   ExFatRecovery:ExFatRecovery.obj
+ 0001:00002efa       _ProcessExFatVolume        000030fa f   ExFatRecovery:ExFatRecovery.obj
+ 0001:00002fe0       _ProcessExFatDevice        000031e0 f   ExFatRecovery:ExFatRecovery.obj
+ 0001:0000308a       _FindFileInExFatDirectory  0000328a f   ExFatRecovery:ExFatRecovery.obj
+ 0001:00003187       _AmiGetFileListFromExFatVolume 00003387 f   ExFatRecovery:ExFatRecovery.obj
+ 0001:000031f0       _memset                    000033f0     AmiPeiLib:MemSet.obj
+ 0001:000031fa       _MemSetAsm                 000033fa f   AmiPeiLib:MemSet.obj
+ 0001:00003250       _memcpy                    00003450     AmiPeiLib:MemCpy.obj
+ 0001:00003250       _MemCpyAsm                 00003450 f   AmiPeiLib:MemCpy.obj
+ 0001:00003250       _MemCpy32                  00003450     AmiPeiLib:MemCpy.obj
+ 0001:000032f0       _EnableLongMode            000034f0 f   AmiPeiLib:EnableLongMode.obj
+ 0001:00003364       _ReadBuffer                00003564     FsRecovery:FsRecovery.obj
+ 0001:00003368       _BufferSize                00003568     FsRecovery:FsRecovery.obj
+ 0001:0000336c       _RootBuffer                0000356c     FsRecovery:FsRecovery.obj
+ 0001:00003370       _RootBufferSize            00003570     FsRecovery:FsRecovery.obj
+ 0001:00003374       _RootEntries               00003574     FsRecovery:FsRecovery.obj
+ 0001:00003378       _RootSize                  00003578     FsRecovery:FsRecovery.obj
+ 0001:0000337c       _RootAllocated             0000357c     FsRecovery:FsRecovery.obj
+ 0001:00003380       _ExFatRecoveryFiles        00003580     <common>
+ 0001:000033a8       _BlockList2                000035a8     <common>
+ 0001:000033ac       _BlockList                 000035ac     <common>
+ 0001:000033b0       _InodeBlock                000035b0     <common>
+ 0001:000033c0       _ExtRecoveryFiles          000035c0     <common>
+ 0001:000033e8       _Indirect                  000035e8     <common>
+ 0001:000033ec       _gBs                       000035ec     <common>
+ 0001:000033f0       _ResidentPresent           000035f0     <common>
+ 0001:000033f4       _ResidentSize              000035f4     <common>
+ 0001:00003400       _NtfsRecoveryFiles         00003600     <common>
+ 0001:00003428       _gVolume                   00003628     <common>
+ 0001:0000342c       _PartSector                0000362c     <common>
+ 0001:00003430       _ExtOffset                 00003630     <common>
+ 0001:00003434       _GpeCount                  00003634     <common>
+ 0001:00003440       _FatRecoveryFiles          00003640     <common>
+ 0001:00003468       _ThisVolume                00003668     <common>
+ 0001:0000346c       _MemBlk                    0000366c     <common>
+ 0001:00003480       _CdRecoveryFiles           00003680     <common>
+ 0001:000034a8       _PartCount                 000036a8     <common>
+ 0001:000034ac       _ThisPeiServices           000036ac     <common>
+ 0001:000034b0       _IsMbr                     000036b0     <common>
+
+ entry point at        0001:00000520
+
+ Static symbols
+

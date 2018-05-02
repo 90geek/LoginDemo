@@ -1,0 +1,2 @@
+#define INVALID_PCICOM_DEVICELIST 
+

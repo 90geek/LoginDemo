@@ -1,0 +1,105 @@
+## @file
+#   The [Sources] section for this file is auto-generated from ELINKs:
+#   SERVER_MGMT_SETUP_DEFINITIONS, ServerMgmtSetupStringFiles and ServerMgmtSetupCallbackFiles
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ServerMgmtSetup
+  FILE_GUID                      = 1B08A1DB-F91A-4fa1-A911-255C417F1CF7
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InstallServerMgmtSetupScreen
+#
+#  This flag specifies whether HII resource section is generated into PE image.
+#
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+  
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  ../AmiIpmiPkg/Ipmi/DxeSelStatusCode/SelSetup.sd
+ ../AmiIpmiPkg/Ipmi/DxeFrb/DxeFrb.sd
+ ../AmiIpmiPkg/Ipmi/BmcSelfTestLog/BmcSelfTestLog.sd
+ ../AmiIpmiPkg/Ipmi/FruSetupScreen/FruSetupScreen.sd
+ ../AmiIpmiPkg/Ipmi/SerialMuxControl/SerialMux.sd
+ ../AmiIpmiPkg/Ipmi/BmcLanConfig/BmcLanConfig.sd
+ ../AmiIpmiPkg/Ipmi/ViewSelLog/ViewSelLog.sd
+ ../FoxconnPkg/OemPsuPolicy/OemPsuPolicy.sd
+ ../AmiIpmiPkg/Ipmi/DxeSelStatusCode/SelSetup.uni
+ ../AmiIpmiPkg/Ipmi/DxeFrb/DxeFrb.uni
+ ../AmiIpmiPkg/Ipmi/BmcSelfTestLog/BmcSelfTestLog.uni
+ ../AmiIpmiPkg/Ipmi/FruSetupScreen/FruSetupScreen.uni
+ ../AmiIpmiPkg/Ipmi/SerialMuxControl/SerialMux.uni
+ ../AmiIpmiPkg/Ipmi/BmcLanConfig/BmcLanConfig.uni
+ ../AmiIpmiPkg/Ipmi/ViewSelLog/ViewSelLog.uni
+ ../FoxconnPkg/OemPsuPolicy/OemPsuPolicy.uni
+ ../AmiIpmiPkg/Ipmi/BmcSelfTestLog/BmcSelfTestLog.c
+ ../AmiIpmiPkg/Ipmi/BmcSelfTestLog/BmcSelfTestLog.h
+ ../AmiIpmiPkg/Ipmi/FruSetupScreen/FruSetupScreen.c
+ ../AmiIpmiPkg/Ipmi/BmcLanConfig/BmcLanParam.c
+ ../AmiIpmiPkg/Ipmi/ViewSelLog/ViewSelLog.c
+ ../AmiIpmiPkg/Ipmi/ViewSelLog/ViewSelLog.h
+
+  ../AmiIpmiPkg\Ipmi\ServerMgmtSetup/ServerMgmtSetup.c
+  ../AmiIpmiPkg\Ipmi\ServerMgmtSetup/ServerMgmtSetup.h
+  ../AmiIpmiPkg\Ipmi\ServerMgmtSetup/ServerMgmtSetup.vfr
+  ../AmiIpmiPkg\Ipmi\ServerMgmtSetup/ServerMgmtSetupStrings.uni
+  
+[Packages]
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiIpmiPkg/AmiIpmiPkg.dec
+  AmiTsePkg/AmiTsePkg.dec
+  
+  
+[LibraryClasses]
+  AmiDxeLib
+  BaseLib
+  UefiDriverEntryPoint
+  UefiHiiServicesLib
+  HiiLib
+  UefiLib
+  PcdLib
+  MemoryAllocationLib
+  IpmiInterfaceLib
+ PrintLib
+
+[Protocols]
+  gEfiBmcSelfTestLogProtocolGuid
+ gEfiDxeIpmiTransportProtocolGuid
+ gAmiPostManagerProtocolGuid
+
+[Guids]
+  gEfiServerMgmtSetupVariableGuid
+  
+
+[Pcd]
+  gAmiIpmiPkgTokenSpaceGuid.PcdStrMfg
+ gAmiIpmiPkgTokenSpaceGuid.PcdStrProduct
+ gAmiIpmiPkgTokenSpaceGuid.PcdSystemManufacturer
+ gAmiIpmiPkgTokenSpaceGuid.PcdSystemProductName
+ gAmiIpmiPkgTokenSpaceGuid.PcdSystemVersion
+ gAmiIpmiPkgTokenSpaceGuid.PcdSystemSerialNumber
+ gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardManufacturer
+ gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardProductName
+ gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardVersion
+ gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardSerialNumber
+ gAmiIpmiPkgTokenSpaceGuid.PcdChassisManufacturer
+ gAmiIpmiPkgTokenSpaceGuid.PcdChassisVersion
+ gAmiIpmiPkgTokenSpaceGuid.PcdChassisSerialNumber
+ gAmiIpmiPkgTokenSpaceGuid.PcdSdrVersionNo
+ gAmiIpmiPkgTokenSpaceGuid.PcdSystemUuid
+ gAmiIpmiPkgTokenSpaceGuid.PcdChassisAssetTag
+
+[Depex]
+  TRUE
+
+

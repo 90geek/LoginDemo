@@ -1,0 +1,37 @@
+TOKEN
+	Name  = "C2FDxe_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling C2FDxe support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "C2F_CMOS_LOC"
+	Value  = "0x53"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Lock = Yes
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+End
+
+PATH
+	Name  = "C2F_DXE_DIR"
+	Path  = "GrantleyPkg\Platform\Dxe\C2FDxe"
+End
+
+INFComponent
+	Name  = "C2FDxe" 
+	File  = "C2FDxe.inf"
+	Package  = "GrantleyPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "C2FDxe_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "$(C2F_DXE_DIR)\C2fDxe.ssp"
+	Parent  = "ADDON_SSP_FILES"
+	Token = "CMOS_MANAGER_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End

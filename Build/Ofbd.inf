@@ -1,0 +1,86 @@
+ #**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2015, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+
+
+ [Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Ofbd
+  FILE_GUID                      = 57E56594-CE95-46ad-9531-3C49310CA7CE
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 2.0
+  PI_SPECIFICATION_VERSION       = 0x0001000A
+  ENTRY_POINT                    = AmiOFBDEntryPoint
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  ../AmiModulePkg\Ofbd\SecureFlash/SecureFlash.c
+ ../AmiModulePkg\Ofbd\OemSetup/OemSetup.c
+ ../AmiModulePkg\Ofbd\Meud/Meud.c
+ ../AmiModulePkg\Ofbd\Meud/MeudMsg.c
+ ../AmiModulePkg\Ofbd\Meud/Platform/CspMeud.c
+  ../AmiModulePkg\Ofbd/Ofbd.c
+
+[Packages] 
+  MdePkg/MdePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  AmiCryptoPkg/AmiCryptoPkg.dec
+ GrantleyPkg/Me/MePkg.dec
+ GrantleyPkg/PlatformPkg.dec
+  
+[LibraryClasses]
+  AmiDxeLib
+  FlashLib
+  UefiLib
+  UefiDriverEntryPoint
+  AmiCryptLib
+ FlashLib
+ PciLib
+ TimerLib
+  
+[Guids]
+  gAmiSmbiosNvramGuid
+  
+[Protocols]
+  gEfiSmmBase2ProtocolGuid
+  gEfiSmmSwDispatch2ProtocolGuid
+  gSmmHeciProtocolGuid
+  
+[Depex]
+  gEfiSmmBase2ProtocolGuid AND
+  gEfiSmmSwDispatch2ProtocolGuid
+  
+
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2015, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+
+

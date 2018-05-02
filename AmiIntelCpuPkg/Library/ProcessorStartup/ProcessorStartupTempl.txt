@@ -1,0 +1,20 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ProcessorStartup
+  FILE_GUID                      = 0833A84D-8A39-431f-BD1C-30965AAE71DD
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformSecLib
+
+[Sources]
+ SecCore.asm
+ @elink(SEC_STARTUP_SRC, "../@Child","%n ", "" )
+ 
+[Packages]
+ @elink(SEC_STARTUP_PKG, "@Child","%n " ,"" )
+
+[LibraryClasses]
+ @elink(SEC_STARTUP_LIB_CLASSES, "@Child","%n " ,"" )
+
+[Pcd]
+ @elink(SEC_STARTUP_PCDS, "@Child","%n " ,"" )

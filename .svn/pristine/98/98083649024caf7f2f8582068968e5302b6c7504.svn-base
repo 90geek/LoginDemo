@@ -1,0 +1,13 @@
+<component>
+	name = "Server/Workstation Haswell-EP uCode Patches (306FX)"
+	category = ModulePart
+	Rank = 40
+	LocalRoot = "AmiIntelCpuPkg\Microcode\ServWork\"
+	RefName = "HaswellServer2Uc"
+[files]
+"HaswellServer2Uc.sdl"
+"MEF306F0_FFFF0017.mcb"	= "SERVER WORKSTATION MICROCODE UPDATES"
+"MEF306F1_00000014.mcb" = "SERVER WORKSTATION MICROCODE UPDATES"
+"M6F306F2_00000038.mcb"	= "SERVER WORKSTATION MICROCODE UPDATES"
+"M6F306F2_0000003C.mcb"	= "SERVER WORKSTATION MICROCODE UPDATES"  #ZYY006020+
+<endComponent>

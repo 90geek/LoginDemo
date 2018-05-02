@@ -1,0 +1,2 @@
+#define CRB_DXE_INIT_FUNC_LIST 
+

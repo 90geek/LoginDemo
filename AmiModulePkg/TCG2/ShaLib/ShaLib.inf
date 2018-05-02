@@ -1,0 +1,36 @@
+[Defines]
+  INF_VERSION     = 0x00010015
+  VERSION_STRING  = 1.0
+  BASE_NAME       = ShaLib
+  MODULE_TYPE     = BASE
+  LIBRARY_CLASS   = ShaLib
+  FILE_GUID 		= A646AB01-E90D-4da1-A2FA-9B0264287004
+
+[Sources]
+  sha1.c
+  sha1.h
+  sha256.c
+  sha256.h
+  commonheader.h
+  
+[Guids]
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  TcgHashIntrinsicLib
+
+[Sources.Ia32]
+   IA32math.c
+
+[Packages]
+  MdePkg\MdePkg.dec
+  AmiModulePkg\AmiModulePkg.dec
+ MdeModulePkg\MdeModulePkg.dec
+ 
+ [BuildOptions.IA32]
+#*_*_IA32_CC_FLAGS              =  /GL- /Od /wd4002 /wd4267 /wd4090 /wd4334  -DPEI_BUILD -DDEBUG_TRACE
+DEBUG_MYTOOLS_IA32_CC_FLAGS   =  /GL- /Od /wd4002 /wd4267 /wd4090 /wd4334 -DPEI_BUILD -DDEBUG_TRACE
+RELEASE_MYTOOLS_IA32_CC_FLAGS =  /GL- /Od /wd4002 /wd4267 /wd4090 /wd4334 -DPEI_BUILD
+

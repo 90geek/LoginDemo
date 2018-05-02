@@ -1,0 +1,15 @@
+<component>
+	name = "Iio"
+	category = ModulePart
+	LocalRoot = "GrantleySocketPkg\Include\Iio\"
+	RefName = "GrantleySocketPkg.Iio"
+[files]
+"IioAccess.h"	
+"IioRegs.h"	
+"MmioAccess.h"	
+"PciAccess.h"	
+"PciExpress.h"	
+"Vtd.h"	
+"IoAccess.h"
+"IioMisc.h"
+<endComponent>

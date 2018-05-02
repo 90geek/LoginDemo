@@ -1,0 +1,17 @@
+TOKEN
+	Name  = "SpsSmm_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable SpsDxe support in Project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+INFComponent
+	Name  = "SpsSmm"
+	File  = "SpsSmm.inf"
+	Package  = "GrantleyPkg"
+	Arch  = "X64"
+	ModuleTypes  = "DXE_SMM_DRIVER"
+	Token = "SpsSmm_SUPPORT" "=" "1"
+End
+

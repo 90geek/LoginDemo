@@ -1,0 +1,843 @@
+
+
+
+
+
+#include <token.h>
+
+#ifdef SETUP_DATA_DEFINITION
+/***********************************************************/
+/* Put NVRAM data definitions here.
+/* For example:	UINT8 Data1;
+/* These definitions will be converted by the build process
+/* to a definitions of SETUP_DATA fields.
+/***********************************************************/
+UINT8  BootMode;
+UINT16 LegacyPriorities[16];
+UINT16 UefiPriorities[16];
+#if FBO_DUAL_MODE
+UINT16 DualPriorities[32];
+#endif
+
+#endif
+
+#ifdef FIXED_BOOT_ORDER_SETUP_GROUP_DATA
+UINT8	LegacyHDD;
+UINT8	LegacyHDD1;
+UINT8	LegacyHDD2;
+UINT8	LegacyHDD3;
+UINT8	LegacyHDD4;
+UINT8	LegacyHDD5;
+UINT8	LegacyODD;
+UINT8   LegacyNETWORK;
+UINT8	LegacyUSBHDD;
+UINT8	LegacyUSBODD;
+UINT8	LegacyUSBFDD;
+UINT8	LegacyUSBKEY;
+UINT8	LegacyUSBLAN;
+UINT8   LegacyUSB;
+UINT8   UefiDEVICE;
+UINT8	UefiHDD;
+UINT8	UefiHDD1;
+UINT8	UefiHDD2;
+UINT8	UefiHDD3;
+UINT8	UefiHDD4;
+UINT8	UefiHDD5;
+UINT8	UefiODD;
+UINT8   UefiNETWORK;
+UINT8	UefiUSBHDD;
+UINT8	UefiUSBODD;
+UINT8	UefiUSBKEY;
+UINT8	UefiUSBFDD;		//(EIP96232+)
+UINT8	UefiUSBLAN;
+UINT8   UefiUSB;
+#if SHELL_GROUP_SUPPORT
+UINT8	UefiAPPLICATION;
+#endif 
+#endif
+
+#ifdef FIXED_BOOT_ORDER_SETUP_DATA
+UINT8	LegacyDevice[FIXED_BOOT_ORDER_TOTAL_DEVICES_MAX_NUM];
+UINT8	UefiDevice[FIXED_BOOT_ORDER_TOTAL_DEVICES_MAX_NUM];
+#endif
+
+#if 0
+STRING_TOKEN(STR_BOOT_OPTION)
+STRING_TOKEN(STR_BOOT_OPTION_HELP)
+
+//
+// UEFI STRINGS
+//
+ STRING_TOKEN(STR_BOOT_UEFI_HDD)
+  STRING_TOKEN(STR_BOOT_UEFI_NETWORK)
+  STRING_TOKEN(STR_BOOT_UEFI_USBODD)
+  STRING_TOKEN(STR_BOOT_UEFI_USBHDD)
+  STRING_TOKEN(STR_BOOT_UEFI_ODD)
+  STRING_TOKEN(STR_BOOT_UEFI_APPLICATION)
+
+
+//
+// LEGACY STRINGS
+//
+ STRING_TOKEN(STR_BOOT_HDD)
+  STRING_TOKEN(STR_BOOT_NETWORK)
+  STRING_TOKEN(STR_BOOT_USBODD)
+  STRING_TOKEN(STR_BOOT_USBHDD)
+  STRING_TOKEN(STR_BOOT_ODD)
+
+
+//
+// DUAL MODE STRINGS
+//
+ STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD)
+  STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD)
+  STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD)
+  STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD)
+  STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK)
+  STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION)
+  STRING_TOKEN(STR_BOOT_DUAL_HDD)
+  STRING_TOKEN(STR_BOOT_DUAL_ODD)
+  STRING_TOKEN(STR_BOOT_DUAL_USBHDD)
+  STRING_TOKEN(STR_BOOT_DUAL_USBODD)
+  STRING_TOKEN(STR_BOOT_DUAL_NETWORK)
+
+
+//
+// FOR EIP123284
+//
+ STRING_TOKEN(STR_BOOT_ORDER_1)
+  STRING_TOKEN(STR_BOOT_ORDER_2)
+  STRING_TOKEN(STR_BOOT_ORDER_3)
+  STRING_TOKEN(STR_BOOT_ORDER_4)
+  STRING_TOKEN(STR_BOOT_ORDER_5)
+  STRING_TOKEN(STR_BOOT_ORDER_6)
+  STRING_TOKEN(STR_BOOT_ORDER_7)
+  STRING_TOKEN(STR_BOOT_ORDER_8)
+  STRING_TOKEN(STR_BOOT_ORDER_9)
+  STRING_TOKEN(STR_BOOT_ORDER_10)
+  STRING_TOKEN(STR_BOOT_ORDER_11)
+  STRING_TOKEN(STR_BOOT_ORDER_12)
+  STRING_TOKEN(STR_BOOT_ORDER_13)
+  STRING_TOKEN(STR_BOOT_ORDER_14)
+  STRING_TOKEN(STR_BOOT_ORDER_15)
+  STRING_TOKEN(STR_BOOT_ORDER_16)
+  STRING_TOKEN(STR_BOOT_ORDER_17)
+  STRING_TOKEN(STR_BOOT_ORDER_18)
+  STRING_TOKEN(STR_BOOT_ORDER_19)
+  STRING_TOKEN(STR_BOOT_ORDER_20)
+  STRING_TOKEN(STR_BOOT_ORDER_21)
+  STRING_TOKEN(STR_BOOT_ORDER_22)
+  STRING_TOKEN(STR_BOOT_ORDER_23)
+  STRING_TOKEN(STR_BOOT_ORDER_24)
+  STRING_TOKEN(STR_BOOT_ORDER_25)
+  STRING_TOKEN(STR_BOOT_ORDER_26)
+  STRING_TOKEN(STR_BOOT_ORDER_27)
+  STRING_TOKEN(STR_BOOT_ORDER_28)
+  STRING_TOKEN(STR_BOOT_ORDER_29)
+  STRING_TOKEN(STR_BOOT_ORDER_30)
+  STRING_TOKEN(STR_BOOT_ORDER_31)
+  STRING_TOKEN(STR_BOOT_ORDER_32)
+  STRING_TOKEN(STR_BOOT_ORDER_33)
+  STRING_TOKEN(STR_BOOT_ORDER_34)
+
+
+// LABEL auto ID
+ AUTO_ID(UEFI_HDD_BOOT_FORM_LABEL)
+  AUTO_ID(UEFI_NETWORK_BOOT_FORM_LABEL)
+  AUTO_ID(UEFI_USBODD_BOOT_FORM_LABEL)
+  AUTO_ID(UEFI_USBHDD_BOOT_FORM_LABEL)
+  AUTO_ID(UEFI_ODD_BOOT_FORM_LABEL)
+  AUTO_ID(UEFI_APPLICATION_BOOT_FORM_LABEL)
+
+
+ AUTO_ID(HDD_BOOT_FORM_LABEL)
+  AUTO_ID(NETWORK_BOOT_FORM_LABEL)
+  AUTO_ID(USBODD_BOOT_FORM_LABEL)
+  AUTO_ID(USBHDD_BOOT_FORM_LABEL)
+  AUTO_ID(ODD_BOOT_FORM_LABEL)
+
+
+AUTO_ID(FIXED_BOOT_GROUP_KEY)
+
+#endif
+
+// Don't Modify below line, it's use in makefile !!
+#if defined(BOOT_FORM_SET)
+
+//
+// Define Device
+//
+ #define Device1 0
+  #define Device2 1
+  #define Device3 2
+  #define Device4 3
+  #define Device5 4
+  #define Device6 5
+  #define Device7 6
+  #define Device8 7
+  #define Device9 8
+  #define Device10 9
+  #define Device11 10
+
+
+//
+// Define Uefi Device Values
+//
+ #define UEFI_HDD_VALUE 0
+  #define UEFI_NETWORK_VALUE 1
+  #define UEFI_USBODD_VALUE 2
+  #define UEFI_USBHDD_VALUE 3
+  #define UEFI_ODD_VALUE 4
+  #define UEFI_APPLICATION_VALUE 5
+
+
+//
+// Define Legacy Device Values
+//
+ #define HDD_VALUE 0
+  #define NETWORK_VALUE 1
+  #define USBODD_VALUE 2
+  #define USBHDD_VALUE 3
+  #define ODD_VALUE 4
+
+
+//
+// Define Dual Mode Device Values
+//
+ #define DUAL_UEFI_HDD_VALUE 0
+  #define DUAL_UEFI_ODD_VALUE 1
+  #define DUAL_UEFI_USBODD_VALUE 2
+  #define DUAL_UEFI_USBHDD_VALUE 3
+  #define DUAL_UEFI_NETWORK_VALUE 4
+  #define DUAL_UEFI_APPLICATION_VALUE 5
+  #define DUAL_HDD_VALUE 6
+  #define DUAL_ODD_VALUE 7
+  #define DUAL_USBHDD_VALUE 8
+  #define DUAL_USBODD_VALUE 9
+  #define DUAL_NETWORK_VALUE 10
+
+
+
+	#ifdef FORM_SET_TYPEDEF
+	#include "AmiModulePkg/FixedBootOrder/FixedBootOrder.h"
+	#endif
+
+	#ifdef FORM_SET_VARSTORE
+		varstore FIXED_BOOT_GROUP,
+		key   = AUTO_ID(FIXED_BOOT_KEY1),
+		name  = FixedBootGroup,
+		guid  = SETUP_GUID;	
+	#endif
+					
+  	#ifdef FORM_SET_ITEM
+	
+		//----------------------------------------
+		//Make default to variable "StdDefault",don't display.
+        suppressif TRUE; 
+            goto 
+                formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+                formid = AUTO_ID(STD_DEFAULT_DUMMY_FORM),
+                question = 0, 
+                prompt = STRING_TOKEN(STR_EMPTY),
+                help = STRING_TOKEN(STR_EMPTY);
+        endif;
+        suppressif TRUE; 
+            oneof varid     = FIXED_BOOT_GROUP.LegacyHDD, 
+                prompt      = STRING_TOKEN(STR_EMPTY),
+                help        = STRING_TOKEN(STR_EMPTY),
+                option text = STRING_TOKEN(STR_EMPTY),	value = 0, flags = DEFAULT;
+                option text = STRING_TOKEN(STR_EMPTY),	value = 1, flags = 0;
+            endoneof;
+        endif;
+		//----------------------------------------
+#if EFI_DEVICE_IN_ONE_GROUP
+        // Always set this hidden, because there are no more 
+        // Implement it in Dual Mode.
+	grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER; //TH0046
+        suppressif TRUE;        
+            	oneof varid   = SETUP_DATA.BootMode,
+                	prompt    = STRING_TOKEN(STR_BOOT_MODE_SEL),
+                	help      = STRING_TOKEN(STR_BOOT_MODE_SEL_HELP),
+                	option text  = STRING_TOKEN(STR_BOOT_MODE_DUAL),       value = 2, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;
+	    	endoneof;
+        endif;
+        endif; //TH0046
+#else
+#if CSM_SUPPORT
+        grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER; //TH0046
+        oneof varid   = SETUP_DATA.BootMode,
+            prompt    = STRING_TOKEN(STR_BOOT_MODE_SEL),
+            help      = STRING_TOKEN(STR_BOOT_MODE_SEL_HELP),
+            option text  = STRING_TOKEN(STR_BOOT_MODE_LEGACY),     value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;
+            option text  = STRING_TOKEN(STR_BOOT_MODE_UEFI),       value = 1, flags = 0;
+#if FBO_DUAL_MODE
+            option text  = STRING_TOKEN(STR_BOOT_MODE_DUAL),       value = 2, flags = 0;
+#endif
+        endoneof;
+        endif; //TH0046
+#else
+		//No Legacy device,Set default is UEFI mode, don't display this.
+        grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER; //TH0046
+        suppressif TRUE; 
+            oneof varid   = SETUP_DATA.BootMode,
+                prompt    = STRING_TOKEN(STR_BOOT_MODE_SEL),
+                help      = STRING_TOKEN(STR_BOOT_MODE_SEL_HELP),
+                option text  = STRING_TOKEN(STR_BOOT_MODE_LEGACY),     value = 0, flags = 0;
+                option text  = STRING_TOKEN(STR_BOOT_MODE_UEFI),       value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;
+#if FBO_DUAL_MODE
+                option text  = STRING_TOKEN(STR_BOOT_MODE_DUAL),       value = 2, flags = 0;
+#endif
+            endoneof;
+        endif; //TH0046
+        endif;
+#endif		//#if CSM_SUPPORT
+#endif          //#if EFI_DEVICE_IN_ONE_GROUP
+	
+        	SEPARATOR
+       	 	SUBTITLE(STRING_TOKEN(STR_FIXED_BOOT_ORDER_SUBTITLE))
+grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER; //LLY011008+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 2 3 4 5;
+    oneof varid = SETUP_DATA.UefiPriorities[Device1],
+    questionid = 4352,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_1),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_UEFI_HDD), value = UEFI_HDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_NETWORK), value = UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBODD), value = UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBHDD), value = UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_ODD), value = UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_APPLICATION), value = UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 2 3 4 5;
+    oneof varid = SETUP_DATA.UefiPriorities[Device2],
+    questionid = 4353,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_2),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_UEFI_HDD), value = UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_NETWORK), value = UEFI_NETWORK_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBODD), value = UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBHDD), value = UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_ODD), value = UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_APPLICATION), value = UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 2 3 4 5;
+    oneof varid = SETUP_DATA.UefiPriorities[Device3],
+    questionid = 4354,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_3),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_UEFI_HDD), value = UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_NETWORK), value = UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBODD), value = UEFI_USBODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBHDD), value = UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_ODD), value = UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_APPLICATION), value = UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 2 3 4 5;
+    oneof varid = SETUP_DATA.UefiPriorities[Device4],
+    questionid = 4355,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_4),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_UEFI_HDD), value = UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_NETWORK), value = UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBODD), value = UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBHDD), value = UEFI_USBHDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_ODD), value = UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_APPLICATION), value = UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 2 3 4 5;
+    oneof varid = SETUP_DATA.UefiPriorities[Device5],
+    questionid = 4356,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_5),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_UEFI_HDD), value = UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_NETWORK), value = UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBODD), value = UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBHDD), value = UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_ODD), value = UEFI_ODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_APPLICATION), value = UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 2 3 4 5;
+    oneof varid = SETUP_DATA.UefiPriorities[Device6],
+    questionid = 4357,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_6),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_UEFI_HDD), value = UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_NETWORK), value = UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBODD), value = UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_USBHDD), value = UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_ODD), value = UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_UEFI_APPLICATION), value = UEFI_APPLICATION_VALUE, flags = INTERACTIVE | DEFAULT;
+    endoneof;
+endif;
+
+
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1 2 3 4 5;
+    oneof varid = SETUP_DATA.LegacyPriorities[Device1],
+    questionid = 4096,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_1),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_HDD), value = HDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_NETWORK), value = NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBODD), value = USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBHDD), value = USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_ODD), value = ODD_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1 2 3 4 5;
+    oneof varid = SETUP_DATA.LegacyPriorities[Device2],
+    questionid = 4097,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_2),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_HDD), value = HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_NETWORK), value = NETWORK_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_USBODD), value = USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBHDD), value = USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_ODD), value = ODD_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1 2 3 4 5;
+    oneof varid = SETUP_DATA.LegacyPriorities[Device3],
+    questionid = 4098,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_3),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_HDD), value = HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_NETWORK), value = NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBODD), value = USBODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_USBHDD), value = USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_ODD), value = ODD_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1 2 3 4 5;
+    oneof varid = SETUP_DATA.LegacyPriorities[Device4],
+    questionid = 4099,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_4),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_HDD), value = HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_NETWORK), value = NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBODD), value = USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBHDD), value = USBHDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_ODD), value = ODD_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1 2 3 4 5;
+    oneof varid = SETUP_DATA.LegacyPriorities[Device5],
+    questionid = 4100,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_5),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_HDD), value = HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_NETWORK), value = NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBODD), value = USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_USBHDD), value = USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_ODD), value = ODD_VALUE, flags = INTERACTIVE | DEFAULT;
+    endoneof;
+endif;
+
+
+
+#if FBO_DUAL_MODE
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device1],
+    questionid = 4608,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_1),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device2],
+    questionid = 4609,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_2),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device3],
+    questionid = 4610,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_3),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device4],
+    questionid = 4611,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_4),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device5],
+    questionid = 4612,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_5),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device6],
+    questionid = 4613,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_6),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device7],
+    questionid = 4614,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_7),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device8],
+    questionid = 4615,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_8),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device9],
+    questionid = 4616,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_9),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device10],
+    questionid = 4617,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_10),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | DEFAULT;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | 0;
+    endoneof;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0 1 3 4 5;
+    oneof varid = SETUP_DATA.DualPriorities[Device11],
+    questionid = 4618,
+    prompt = STRING_TOKEN(STR_BOOT_ORDER_11),
+    help = STRING_TOKEN(STR_BOOT_OPTION_HELP),
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_HDD), value = DUAL_UEFI_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_ODD), value = DUAL_UEFI_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBODD), value = DUAL_UEFI_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_USBHDD), value = DUAL_UEFI_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_NETWORK), value = DUAL_UEFI_NETWORK_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_UEFI_APPLICATION), value = DUAL_UEFI_APPLICATION_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_HDD), value = DUAL_HDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_ODD), value = DUAL_ODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBHDD), value = DUAL_USBHDD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_USBODD), value = DUAL_USBODD_VALUE, flags = INTERACTIVE | 0;
+        option text = STRING_TOKEN(STR_BOOT_DUAL_NETWORK), value = DUAL_NETWORK_VALUE, flags = INTERACTIVE | DEFAULT;
+    endoneof;
+endif;
+
+
+#endif
+endif;//LLY011008+
+							//<(EIP107268+)
+  	#endif  //FORM_SET_ITEM
+
+						
+	#ifdef FORM_SET_GOTO
+	//
+	// Define goto commands for the forms defined in this file
+	//
+        	SEPARATOR
+        //--------------------------------------------------
+        //  UEFI GROUP FORM GOTO ITEM
+        //--------------------------------------------------
+grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER; //LLY011008+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0;
+    suppressif ideqvallist FIXED_BOOT_GROUP.UefiHDD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(UEFI_HDD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_UEFI_HDD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_UEFI_HDD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0;
+    suppressif ideqvallist FIXED_BOOT_GROUP.UefiNETWORK == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(UEFI_NETWORK_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_UEFI_NETWORK_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_UEFI_NETWORK_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0;
+    suppressif ideqvallist FIXED_BOOT_GROUP.UefiUSBODD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(UEFI_USBODD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_UEFI_USBODD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_UEFI_USBODD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0;
+    suppressif ideqvallist FIXED_BOOT_GROUP.UefiUSBHDD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(UEFI_USBHDD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_UEFI_USBHDD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_UEFI_USBHDD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0;
+    suppressif ideqvallist FIXED_BOOT_GROUP.UefiODD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(UEFI_ODD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_UEFI_ODD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_UEFI_ODD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 0;
+    suppressif ideqvallist FIXED_BOOT_GROUP.UefiAPPLICATION == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(UEFI_APPLICATION_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_UEFI_APPLICATION_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_UEFI_APPLICATION_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+
+#if CSM_SUPPORT
+		//--------------------------------------------------
+		//	LEGACY GROUP FORM GOTO ITEM
+		//--------------------------------------------------
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1;
+    suppressif ideqvallist FIXED_BOOT_GROUP.LegacyHDD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(HDD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_HDD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_HDD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1;
+    suppressif ideqvallist FIXED_BOOT_GROUP.LegacyNETWORK == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(NETWORK_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_NETWORK_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_NETWORK_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1;
+    suppressif ideqvallist FIXED_BOOT_GROUP.LegacyUSBODD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(USBODD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_USBODD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_USBODD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1;
+    suppressif ideqvallist FIXED_BOOT_GROUP.LegacyUSBHDD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(USBHDD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_USBHDD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_USBHDD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+suppressif ideqvallist SETUP_DATA.BootMode == 1;
+    suppressif ideqvallist FIXED_BOOT_GROUP.LegacyODD == 0;
+        goto 
+            formsetguid = FBO_GROUP_FORM_FORM_SET_GUID, 
+            formid = AUTO_ID(ODD_BOOT_FORM_ID),
+            question = 0, 
+            prompt = STRING_TOKEN(STR_ODD_BOOT_ORDER_SUBTITLE),
+            help = STRING_TOKEN(STR_ODD_BOOT_ORDER_HELP);
+    endif;
+endif;
+
+
+
+#endif
+endif;//LLY011008+
+	#endif	//#ifdef FORM_SET_GOTO				
+#endif	//#ifdef BOOT_FORM_SET

@@ -1,0 +1,15 @@
+<component>
+	name = "SmbiosDMIEdit"
+	category = ModulePart
+	LocalRoot = "AmiCompatibilityPkg\Smbios\SmbiosDmiEdit"
+	RefName = "SmbiosDmiEdit"
+[INF]
+"SmbiosDmiEdit.inf"
+"SmbiosDmiEditSsi.inf"
+"SmbiosDmiEditProtocol.inf"
+"SmbiosRecoveryDmiEdit.inf"
+[files]
+"SmbiosDmiEdit.sdl"
+"SmbiosDmiEditSsi.sdl"
+"SmbiosRecoveryDmiEdit.sdl"
+<endComponent>

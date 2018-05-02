@@ -1,0 +1,15 @@
+<component>
+    name = "HddSmart"
+    category = eModule
+    LocalRoot = "AmiModulePkg\HddSmart\"
+    RefName = "HddSMART"
+[INF]
+"HddSMART.inf"
+[files]
+"HddSMART.sdl"
+"HddSMART.chm"
+"HddSMART.sd"
+"HddSmartTemplate.txt"
+[parts]
+"HddSmartIncludes"
+<endComponent>

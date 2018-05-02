@@ -1,0 +1,60 @@
+TOKEN
+	Name  = "AmiChipsetModulePkg_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable AmiChipsetModulePkg support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+PATH
+    Name  = "AmiChipsetModulePkg_DIR"
+End
+
+PATH
+    Name  = "AmiChipsetModulePkg_Library_DIR"
+    Path  = "AmiChipsetModulePkg/Library"
+End
+
+INFComponent
+	Name  = "AmiChipsetIoLib"
+	File  = "Library/AmiChipsetIoLib/AmiChipsetIoLib.inf"
+	Package  = "AmiChipsetModulePkg"
+End
+
+LibraryMapping
+	Class  = "AmiChipsetIoLib"
+	Instance  = "AmiChipsetModulePkg.AmiChipsetIoLib"
+End
+
+INFComponent
+	Name  = "ChipsetSmmCorePlatformHookLib"
+	File  = "Library/ChipsetSmmCorePlatformHookLib/ChipsetSmmCorePlatformHookLib.inf"
+	Package  = "AmiChipsetModulePkg"
+	Token = "SMM_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "AmiChipsetModulePkg.ChipsetSmmCorePlatformHookLib"
+	Override  = "MdeModulePkg.PiSmmCore"
+End
+
+
+ELINK
+	Name  = "ChipsetPlatformHookBeforeAfterSmmDispatch,"
+	Parent  = "PLATFORMHOOK_BEFORE_AFTER_SMMDISPATCH"
+	InvokeOrder = AfterParent
+End	
+
+INFComponent
+	Name  = "SbBeepLibPcAt"
+	File  = "Library/SbBeepLibPcAt/SbBeepLibPcAt.inf"
+	Package  = "AmiChipsetModulePkg"	
+End
+
+LibraryMapping
+	Class  = "AmiBeepLib"
+	Instance  = "AmiChipsetModulePkg.SbBeepLibPcAt"
+End

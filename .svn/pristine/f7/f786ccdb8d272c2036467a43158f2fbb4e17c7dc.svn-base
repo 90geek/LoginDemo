@@ -1,0 +1,57 @@
+TOKEN
+    Name  = "SERVWORK_406FX"
+    Value = "0"
+    Help  = "Intel(R) Broadwell Server"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "SERVWORK_MEF406F0"
+    Value  = "1"
+    Help  = "Intel(R) Broadwell -EP -EX Processor A-0, A-1, L-0 Stepping"
+    TokenType = Boolean
+    Token = "NON_PRODUCTION_MICROCODE" "=" "1"
+End
+
+TOKEN
+    Name  = "SERVWORK_MEF406F1"
+    Value  = "1"
+    Help  = "Intel(R) Broadwell -EX Processor B-0 Stepping"
+    TokenType = Boolean
+End
+
+TOKEN
+    Name  = "SERVWORK_MEB406F1"
+    Value  = "1"
+    Help  = "Intel(R) Broadwell -EP, Processor B-0, M-0, R-0 Stepping"
+    TokenType = Boolean
+End
+
+ELINK
+    Name  = "$(MICROCODE_SERVWORK_DIR)\MEF406F0_00000014.mcb"
+    Parent  = "MICROCODE_FILES"
+    Help  = "Intel(R) Broadwell -EP -EX Processor A-0, A-1, L-0 Stepping"
+    Token = "SERVWORK_MEF406F0" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+#STS001004-    Name  = "$(MICROCODE_SERVWORK_DIR)\MEF406F1_0B00001B.mcb"
+#ZYY006020-    Name  = "$(MICROCODE_SERVWORK_DIR)\MEF406F1_0B00001F.mcb"  #STS001004+
+    Name  = "$(MICROCODE_SERVWORK_DIR)\MEF406F1_0B00002A.mcb"  #ZYY006020+
+    Parent  = "MICROCODE_FILES"
+    Help  = "Intel(R) Broadwell -EX Processor B-0 Stepping"
+    Token = "SERVWORK_MEF406F1" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(MICROCODE_SERVWORK_DIR)\MEB406F1_0B000017.mcb"
+    Parent  = "MICROCODE_FILES"
+    Help  = "Intel(R) Broadwell -EP, Processor B-0, M-0, R-0 Stepping"
+    Token = "SERVWORK_MEB406F1" "=" "1"
+    InvokeOrder = AfterParent
+End
+
+

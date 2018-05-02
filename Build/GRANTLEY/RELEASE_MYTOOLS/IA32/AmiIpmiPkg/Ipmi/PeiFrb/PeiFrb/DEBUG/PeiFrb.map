@@ -1,0 +1,27 @@
+ PeiFrb
+
+ Timestamp is 5ae04ad8 (Wed Apr 25 17:31:04 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 0000004cH .data                   CODE
+ 0001:0000004c 00000018H .rdata                  CODE
+ 0001:00000064 000001f8H .text                   CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiServerMgmtSetupVariableGuid 00000220     PeiFrb:AutoGen.obj
+ 0001:00000010       _gEfiPeiReadOnlyVariable2PpiGuid 00000230     PeiFrb:AutoGen.obj
+ 0001:00000020       _gEfiPeiIpmiTransportPpiGuid 00000240     PeiFrb:AutoGen.obj
+ 0001:00000030       _gEfiPeiMasterBootModePpiGuid 00000250     PeiFrb:AutoGen.obj
+ 0001:0000004c       ??_C@_1BI@LKCPJJPH@?$AAS?$AAe?$AAr?$AAv?$AAe?$AAr?$AAS?$AAe?$AAt?$AAu?$AAp?$AA?$AA@ 0000026c     PeiFrb:PeiFrb.obj
+ 0001:00000064       __ModuleEntryPoint         00000284 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000006f       _StopFrb2Timer             0000028f f   PeiFrb:PeiFrb.obj
+ 0001:00000127       _InitializePeiFrb          00000347 f   PeiFrb:PeiFrb.obj
+ 0001:000001db       _GetFrbSetupOptions        000003fb f   PeiFrb:PeiFrb.obj
+
+ entry point at        0001:00000064
+
+ Static symbols
+

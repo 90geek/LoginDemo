@@ -1,0 +1,8 @@
+<component>
+	name = "CFG-Ali-1218"
+	category = ModulePart
+	LocalRoot = "FoxconnPkg\CFG_Ali_1218\"
+	RefName = "CFG-Ali-1218"
+[files]
+"CFG_Ali_1218.sdl"
+<endComponent>

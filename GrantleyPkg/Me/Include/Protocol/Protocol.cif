@@ -1,0 +1,14 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "GrantleyPkg\Me\Include\Protocol\"
+	RefName = "GrantleyPkg.Me.Include.Protocol.Protocol"
+[files]
+"HeciProtocol.h"
+"MePlatformPolicyPei.h"	
+"HeciSmm.h"	
+"SpsDcmi.h"	
+"SpsNm.h"	
+"SpsSien.h"	
+"SpsSmmHmrfpoProtocol.h"
+<endComponent>

@@ -1,0 +1,72 @@
+; 
+
+
+
+
+
+
+
+
+
+
+.586P
+.XMM
+.MODEL  SMALL, c
+
+; Externs
+EXTERN  _gPcd_FixedAtBuild_PcdFlashFvSecPeiBase:DWORD   
+;EXTERN  _PCD_GET_MODE_32_PcdFlashFvBackSecPeiBase:DWORD   
+;----------------------------------------------------------------------------
+;  STARTUP_SEG  S E G M E N T  STARTS
+;----------------------------------------------------------------------------
+STARTUP_SEG    SEGMENT    PARA PUBLIC 'CODE' USE32
+
+;----------------------------------------------------------------------------
+;
+; Procedure:  EarlyChpsetInit_OemHook
+;
+; Description:  This routine provide oem hook after EarlyChipsetInit
+;
+; Input:  Stack NOT available
+;        MMX3 = routine return address
+;
+; Output:  None
+;
+; Modified:  All,
+;
+;----------------------------------------------------------------------------
+EarlyChpsetInit_OemHook    PROC PUBLIC
+ ;platform OEM code
+
+ ;the following code is RET_ESI_MMX3
+  movd    esi, mm3                      ; restore return address from MM3
+  jmp     esi                           ; Absolute jump
+EarlyChpsetInit_OemHook    ENDP
+
+;----------------------------------------------------------------------------
+;
+; Procedure:  LateChipsetInit_OemHook
+;
+; Description:  This routine provide oem hook after LateChipsetInit
+;
+; Input:  none
+;
+; Output:  None
+;
+; Modified:  All, except EBP and ESP
+;
+;----------------------------------------------------------------------------
+LateChipsetInit_OemHook    PROC PUBLIC
+ ;platform OEM code
+  ret
+LateChipsetInit_OemHook    ENDP
+
+
+
+;----------------------------------------------------------------------------
+;  STARTUP_SEG  S E G M E N T  ENDS
+;----------------------------------------------------------------------------
+STARTUP_SEG    ENDS
+
+END
+

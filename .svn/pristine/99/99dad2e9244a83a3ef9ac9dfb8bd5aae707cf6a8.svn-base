@@ -1,0 +1,18 @@
+<component>
+	name = "Setup"
+	category = ModulePart
+	LocalRoot = "GrantleySocketPkg\Include\Setup\"
+	RefName = "GrantleySocketPkg.Setup"
+[files]
+"IioCommonRcConfigData.h"	
+"IioConfigData.h"	
+"IioCsiConfigData.h"		
+"IioMemoryConfigData.h"	
+"IioMiscConfigData.h"	
+"IioSetupInfoData.h"	
+"IioUdsDefaults.h"	
+"IioUniversalData.h"	
+"IioConfig.h"
+"IioSetupInfoDataBdx.h"
+"IioSetupDefaults.h"
+<endComponent>

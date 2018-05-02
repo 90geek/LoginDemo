@@ -1,0 +1,128 @@
+TOKEN
+    Name  = FruSetupScreen_SUPPORT
+    Value  = 1
+    Help  = "Main switch to enable FruSetupScreen support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "FruSetupScreen_DIR"
+    Path  = "AmiIpmiPkg/Ipmi/FruSetupScreen"
+End
+
+ELINK
+    Name  = "$(FruSetupScreen_DIR)/FruSetupScreen.c"
+    Parent  = "ServerMgmtSetupCallbackFiles"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "InitFruStrings,"
+    Parent  = "ServerMgmtStringInit"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(FruSetupScreen_DIR)/FruSetupScreen.sd"
+    Parent  = "SERVER_MGMT_SETUP_DEFINITIONS"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(FruSetupScreen_DIR)/FruSetupScreen.uni"
+    Parent  = "ServerMgmtSetupStringFiles"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdStrMfg"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdStrProduct"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdSystemManufacturer"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdSystemProductName"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdSystemVersion"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdSystemSerialNumber"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardManufacturer"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardProductName"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardVersion"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardSerialNumber"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdChassisManufacturer"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdChassisVersion"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdChassisSerialNumber"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdSdrVersionNo"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiIpmiPkgTokenSpaceGuid.PcdSystemUuid"
+    Parent  = "AdditionalServerMgmtSetupPcds"
+    InvokeOrder = AfterParent
+End

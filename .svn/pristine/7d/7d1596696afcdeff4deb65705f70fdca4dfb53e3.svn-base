@@ -1,0 +1,11 @@
+<component>
+	name = "Runtime Memory Hole"
+	category = eModule
+	LocalRoot = "AmiModulePkg\RuntimeMemoryHole\"
+	RefName = "AmiModulePkg.RuntimeMemoryHole"
+[INF]
+"RuntimeMemoryHole.inf"
+[files]
+"RuntimeMemoryHole.sdl"	
+"RuntimeMemoryHole.chm"	
+<endComponent>

@@ -1,0 +1,12 @@
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/DxePcdLib/DxePcdLib/OUTPUT/DxePcdLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/AmiModulePkg/Library/DxeAmiDebugLib/DxeAmiDebugLib/OUTPUT/DxeAmiDebugLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr/OUTPUT/BaseMemoryLibRepStr.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic/OUTPUT/BaseIoLibIntrinsic.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BasePostCodeLibPort80/BasePostCodeLibPort80/OUTPUT/BasePostCodeLibPort80.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdeModulePkg/Library/DxePerformanceLib/DxePerformanceLib/OUTPUT/DxePerformanceLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/AmiCompatibilityPkg/Library/AmiDxeLib/OUTPUT/AmiDxeLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint/OUTPUT/UefiDriverEntryPoint.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/Build/ErrorDisplayFramework/OUTPUT/ErrorDisplayFramework.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/Build/ErrorDisplayFramework/OUTPUT/ErrorDisplayFrameworkhii.lib

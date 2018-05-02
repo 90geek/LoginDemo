@@ -1,0 +1,53 @@
+## @file
+ #   The [Sources] section for this file is auto-generated from ELINKs:
+ 
+ [Defines]
+ INF_VERSION                    = 0x00010005
+ BASE_NAME                      = ErrorDisplayFramework
+ FILE_GUID                      = 2CE70F66-AC57-4346-A91F-89281A07FAD6
+ MODULE_TYPE                    = DXE_DRIVER
+ VERSION_STRING                 = 1.0
+ ENTRY_POINT                    = ErrorDisplayEntryPoint
+ UEFI_HII_RESOURCE_SECTION      = TRUE
+ 
+ # The following information is for reference only and not required by the build tools.
+ #
+ #  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+ 
+ [Sources]
+ ErrorDisplayFramework.c
+ $(ERROR_DISPLAY_FRAMEWORK_UNI_LIST)
+ $(ERROR_DISPLAY_STRING_CONSUMERS)
+
+ 
+ [Packages]
+ AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+ AmiModulePkg/AmiModulePkg.dec
+ MdePkg/MdePkg.dec
+ IntelFrameworkPkg/IntelFrameworkPkg.dec
+ AmiTsePkg/AmiTsePkg.dec
+ IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec
+ 
+ [LibraryClasses]
+ BaseMemoryLib
+ AmiDxeLib
+ UefiDriverEntryPoint
+ 
+ [Protocols]
+ gAmiErrorDisplayFrameworkProtocolGuid  ## PRODUCES
+ gAmiPostManagerProtocolGuid   ## CONSUMES
+ gEfiDataHubProtocolGuid   ## CONSUMES
+ gEfiDevicePathProtocolGuid  ## CONSUMES
+ gEfiSimpleTextInProtocolGuid ## CONSUMES
+ 
+ [Guids]
+ gEfiDataHubStatusCodeRecordGuid  ## CONSUMES
+ 
+ [Depex]
+ gAmiPostManagerProtocolGuid AND
+ gEfiDataHubProtocolGuid
+ 
+ [BuildOptions]
+ *_*_*_BUILD_FLAGS=-s
+#  $(*_*_*_BUILD_FLAGS)
+ 

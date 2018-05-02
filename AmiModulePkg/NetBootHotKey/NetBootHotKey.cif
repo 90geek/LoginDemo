@@ -1,0 +1,11 @@
+<component>
+	name = "NetBootHotKey"
+	category = eModule
+	LocalRoot = "AmiModulePkg\NetBootHotKey\"
+	RefName = "AmiModulePkg.NetBootHotKey"
+[INF]
+"NetBootHotKey.inf"
+[files]
+"NetBootHotKey.sdl"	
+"NetBootHotKey.chm"
+<endComponent>

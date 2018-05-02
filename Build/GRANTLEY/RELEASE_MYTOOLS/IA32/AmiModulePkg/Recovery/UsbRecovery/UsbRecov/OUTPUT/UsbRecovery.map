@@ -1,0 +1,105 @@
+ UsbRecovery
+
+ Timestamp is 5ae04b06 (Wed Apr 25 17:31:50 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000180H .data                   CODE
+ 0001:00000180 00000000H .rdata                  CODE
+ 0001:00000180 00002a0eH .text                   CODE
+ 0001:00002b8e 00000001H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gPeiUsbIoPpiGuid          00000220     UsbRecovery:AutoGen.obj
+ 0001:00000010       _gPeiUsbHostControllerPpiGuid 00000230     UsbRecovery:AutoGen.obj
+ 0001:00000020       _gEfiPeiStallPpiGuid       00000240     UsbRecovery:AutoGen.obj
+ 0001:00000030       _HubPortStatusMap          00000250     UsbRecovery:HubPeim.obj
+ 0001:00000098       _SsHubPortStatusMap        000002b8     UsbRecovery:HubPeim.obj
+ 0001:000000e8       _gEhciControllerPciTable   00000308     UsbRecovery:EhciPei.obj
+ 0001:000000f0       _gEhciControllerCount      00000310     UsbRecovery:EhciPei.obj
+ 0001:000000f4       _gEhciControllerBaseAddress 00000314     UsbRecovery:EhciPei.obj
+ 0001:00000180       __ModuleEntryPoint         000003a0 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000191       _UsbRecoveryEntryPoint     000003b1 f   UsbRecovery:UsbBotPeim.obj
+ 0001:0000028d       _GetMaxLun                 000004ad f   UsbRecovery:UsbBotPeim.obj
+ 0001:000002db       _InitUsbBot                000004fb f   UsbRecovery:UsbBotPeim.obj
+ 0001:00000415       _BotGetNumberOfBlockDevices 00000635 f   UsbRecovery:UsbBotPeim.obj
+ 0001:00000422       _BotGetMediaInfo           00000642 f   UsbRecovery:UsbBotPeim.obj
+ 0001:00000546       _BotReadBlocks             00000766 f   UsbRecovery:UsbBotPeim.obj
+ 0001:00000680       _BotCheckDeviceReady       000008a0 f   UsbRecovery:UsbBotPeim.obj
+ 0001:0000076d       _NotifyOnRecoveryCapsuleLoaded 0000098d f   UsbRecovery:UsbBotPeim.obj
+ 0001:000007fb       _PeimInitializeUsb         00000a1b f   UsbRecovery:UsbPeim.obj
+ 0001:0000084b       _PeiHubEnumeration         00000a6b f   UsbRecovery:UsbPeim.obj
+ 0001:0000115e       _ResetRootPort             0000137e f   UsbRecovery:UsbPeim.obj
+ 0001:00001249       _PeiUsbInquiry             00001469 f   UsbRecovery:PeiAtapi.obj
+ 0001:000012ce       _PeiUsbRequestSense        000014ee f   UsbRecovery:PeiAtapi.obj
+ 0001:0000131b       _PeiUsbReadCapacity        0000153b f   UsbRecovery:PeiAtapi.obj
+ 0001:00001407       _PeiUsbValidatePartitionTable 00001627 f   UsbRecovery:PeiAtapi.obj
+ 0001:0000147e       _PeiUsbRead10              0000169e f   UsbRecovery:PeiAtapi.obj
+ 0001:0000156f       _EhciGetOperationalRegisterBase 0000178f f   UsbRecovery:EhciPei.obj
+ 0001:0000159a       _Update_EHCIDbg_PortUsed   000017ba f   UsbRecovery:EhciPei.obj
+ 0001:00001620       _EhciPeiUsbEntryPoint      00001840 f   UsbRecovery:EhciPei.obj
+ 0001:000017ba       _EhciInitHC                000019da f   UsbRecovery:EhciPei.obj
+ 0001:0000186b       _EhciReset                 00001a8b f   UsbRecovery:EhciPei.obj
+ 0001:0000189e       _EhciReleasePortOwner      00001abe f   UsbRecovery:EhciPei.obj
+ 0001:000018d6       _EhciHcGetRootHubPortStatus 00001af6 f   UsbRecovery:EhciPei.obj
+ 0001:000019b8       _EhciHcGetRootHubPortNumber 00001bd8 f   UsbRecovery:EhciPei.obj
+ 0001:000019d2       _EhciHcSetRootHubPortFeature 00001bf2 f   UsbRecovery:EhciPei.obj
+ 0001:00001a97       _EhciHcClearRootHubPortFeature 00001cb7 f   UsbRecovery:EhciPei.obj
+ 0001:00001b3a       _EhciHcReset               00001d5a f   UsbRecovery:EhciPei.obj
+ 0001:00001bdf       _EHCIInitializeQueueHead   00001dff f   UsbRecovery:EhciPei.obj
+ 0001:00001c0d       _EHCISetQTDBufferPointers  00001e2d f   UsbRecovery:EhciPei.obj
+ 0001:00001c69       _EHCIWaitForAsyncTransferComplete 00001e89 f   UsbRecovery:EhciPei.obj
+ 0001:00001cba       _EhciHcControlTransfer     00001eda f   UsbRecovery:EhciPei.obj
+ 0001:00001e6c       _EhciHcBulkTransfer        0000208c f   UsbRecovery:EhciPei.obj
+ 0001:00001fcc       _PeiUsbControlTransfer     000021ec f   UsbRecovery:UsbIoPeim.obj
+ 0001:00002007       _PeiUsbBulkTransfer        00002227 f   UsbRecovery:UsbIoPeim.obj
+ 0001:000020b2       _PeiUsbGetInterfaceDescriptor 000022d2 f   UsbRecovery:UsbIoPeim.obj
+ 0001:000020c2       _PeiUsbGetEndpointDescriptor 000022e2 f   UsbRecovery:UsbIoPeim.obj
+ 0001:000020e8       _PeiUsbPortReset           00002308 f   UsbRecovery:UsbIoPeim.obj
+ 0001:0000212c       _PeiHubGetPortStatus       0000234c f   UsbRecovery:HubPeim.obj
+ 0001:000021bc       _PeiHubSetPortFeature      000023dc f   UsbRecovery:HubPeim.obj
+ 0001:0000220b       _PeiHubClearPortFeature    0000242b f   UsbRecovery:HubPeim.obj
+ 0001:0000225a       _PeiHubGetHubStatus        0000247a f   UsbRecovery:HubPeim.obj
+ 0001:000022a3       _PeiHubClearHubFeature     000024c3 f   UsbRecovery:HubPeim.obj
+ 0001:000022ed       _PeiGetHubDescriptor       0000250d f   UsbRecovery:HubPeim.obj
+ 0001:0000234d       _PeiDoHubConfig            0000256d f   UsbRecovery:HubPeim.obj
+ 0001:000024b1       _PeiResetHubPort           000026d1 f   UsbRecovery:HubPeim.obj
+ 0001:0000252c       _PeiUsbGetDescriptor       0000274c f   UsbRecovery:PeiUsbLib.obj
+ 0001:00002576       _PeiUsbSetDeviceAddress    00002796 f   UsbRecovery:PeiUsbLib.obj
+ 0001:000025ba       _PeiUsbClearDeviceFeature  000027da f   UsbRecovery:PeiUsbLib.obj
+ 0001:00002605       _PeiUsbSetConfiguration    00002825 f   UsbRecovery:PeiUsbLib.obj
+ 0001:0000264c       _PeiUsbClearEndpointHalt   0000286c f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026bf       _IsPortConnectChange       000028df f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026bf       _IsPortConnect             000028df f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026c6       _IsPortEnable              000028e6 f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026cf       _IsPortLowSpeedDeviceAttached 000028ef f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026db       _IsPortHighSpeedDeviceAttached 000028fb f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026e7       _IsPortSuperSpeedDeviceAttached 00002907 f   UsbRecovery:PeiUsbLib.obj
+ 0001:000026f3       _IsPortSuperSpeedPlusDeviceAttached 00002913 f   UsbRecovery:PeiUsbLib.obj
+ 0001:00002923       _PeiAtapiCommand           00002b43 f   UsbRecovery:BotPeim.obj
+ 0001:000029aa       _ZeroMem                   00002bca f   BaseMemoryLibRepStr:ZeroMemWrapper.obj
+ 0001:000029af       _MemSet                    00002bcf f   AmiPeiLib:Memory.obj
+ 0001:000029c4       _InternalMemZeroMem        00002be4 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:000029e4       _InternalMemCopyMem        00002c04 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00002a20       _memset                    00002c40     AmiPeiLib:MemSet.obj
+ 0001:00002a2a       _MemSetAsm                 00002c4a f   AmiPeiLib:MemSet.obj
+ 0001:00002a80       _MemCpyAsm                 00002ca0 f   AmiPeiLib:MemCpy.obj
+ 0001:00002a80       _MemCpy32                  00002ca0     AmiPeiLib:MemCpy.obj
+ 0001:00002a80       _memcpy                    00002ca0     AmiPeiLib:MemCpy.obj
+ 0001:00002b20       _EnableLongMode            00002d40 f   AmiPeiLib:EnableLongMode.obj
+ 0001:00002b8e       _EHCIDbg_PortUsed          00002dae     UsbRecovery:EhciPei.obj
+
+ entry point at        0001:00000180
+
+ Static symbols
+
+ 0001:0000044a       _PeiBotDetectMedia         0000066a f    CIL library: CIL module
+ 0001:00000afb       _PeiUsbEnumeration         00000d1b f    CIL library: CIL module
+ 0001:00000dc5       _PeiConfigureUsbDevice     00000fe5 f    CIL library: CIL module
+ 0001:00000fb4       _PeiUsbGetAllConfiguration 000011d4 f    CIL library: CIL module
+ 0001:000026ff       _BotRecoveryReset          0000291f f    CIL library: CIL module
+ 0001:00002776       _BotCommandPhase           00002996 f    CIL library: CIL module
+ 0001:00002816       _BotDataPhase              00002a36 f    CIL library: CIL module
+ 0001:000028bf       _BotStatusPhase            00002adf f    CIL library: CIL module

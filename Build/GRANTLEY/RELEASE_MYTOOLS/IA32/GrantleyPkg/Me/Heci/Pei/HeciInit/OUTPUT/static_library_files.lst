@@ -1,0 +1,15 @@
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/PeiHobLib/PeiHobLib/OUTPUT/PeiHobLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/PeiMemoryAllocationLib/PeiMemoryAllocationLib/OUTPUT/PeiMemoryAllocationLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/PeiServicesTablePointerLibIdt/PeiServicesTablePointerLibIdt/OUTPUT/PeiServicesTablePointerLibIdt.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/PeiServicesLib/PeiServicesLib/OUTPUT/PeiServicesLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr/OUTPUT/BaseMemoryLibRepStr.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/PeiPcdLib/PeiPcdLib/OUTPUT/PeiPcdLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/AmiModulePkg/Library/PeiAmiDebugLib/PeiAmiDebugLib/OUTPUT/PeiAmiDebugLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic/OUTPUT/BaseIoLibIntrinsic.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/BasePciExpressLib/BasePciExpressLib/OUTPUT/BasePciExpressLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress/OUTPUT/BasePciLibPciExpress.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/GrantleyPkg/Library/IntelIchAcpiTimerLib/IntelIchAcpiTimerLib/OUTPUT/IntelIchAcpiTimerLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/MdePkg/Library/PeimEntryPoint/PeimEntryPoint/OUTPUT/PeimEntryPoint.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/GrantleyPkg/Me/Heci/Library/HeciCoreLib/HeciCoreLib/OUTPUT/HeciCoreLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/IA32/GrantleyPkg/Me/Heci/Pei/HeciInit/OUTPUT/HeciInit.lib

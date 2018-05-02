@@ -1,0 +1,75 @@
+ CpuMpPei
+
+ Timestamp is 5ae04a6b (Wed Apr 25 17:29:15 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000090H .data                   CODE
+ 0001:00000090 00000006H .rdata                  CODE
+ 0001:000000a0 00000c7dH .text                   CODE
+ 0001:00000d20 00000008H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gPeiMpServicePpiGuid      00000220     CpuMpPei:AutoGen.obj
+ 0001:00000010       _mGdtEntries               00000230     CpuMpPei:CpuMpPeim.obj
+ 0001:00000058       _mPeiMpHobGuid             00000278     CpuMpPei:CpuMpPeim.obj
+ 0001:00000068       _mMpServicesPpi            00000288     CpuMpPei:CpuMpPeim.obj
+ 0001:00000084       _mPpiList                  000002a4     CpuMpPei:CpuMpPeim.obj
+ 0001:00000090       _mGdt                      000002b0     CpuMpPei:CpuMpPeim.obj
+ 0001:000000a0       __ModuleEntryPoint         000002c0 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000f3       _ApCFunction               00000313 f   CpuMpPei:CpuMpPeim.obj
+ 0001:0000012a       _BackupWakeUpBuffer        0000034a f   CpuMpPei:CpuMpPeim.obj
+ 0001:00000148       _RestoreWakeUpBuffer       00000368 f   CpuMpPei:CpuMpPeim.obj
+ 0001:00000166       _WakeUpAP                  00000386 f   CpuMpPei:CpuMpPeim.obj
+ 0001:00000254       _CountCpuNumberApFunc      00000474 f   CpuMpPei:CpuMpPeim.obj
+ 0001:0000028b       _CountCpuNumber            000004ab f   CpuMpPei:CpuMpPeim.obj
+ 0001:00000378       _PeiGetNumberOfProcessors  00000598 f   CpuMpPei:CpuMpPeim.obj
+ 0001:000003c6       _PeiGetProcessorInfo       000005e6 f   CpuMpPei:CpuMpPeim.obj
+ 0001:0000043f       _PeiStartupAllAPs          0000065f f   CpuMpPei:CpuMpPeim.obj
+ 0001:000005d3       _PeiStartupThisAP          000007f3 f   CpuMpPei:CpuMpPeim.obj
+ 0001:000006b6       _PeiSwitchBSP              000008d6 f   CpuMpPei:CpuMpPeim.obj
+ 0001:000006b6       _PeiEnableDisableAP        000008d6 f   CpuMpPei:CpuMpPeim.obj
+ 0001:000006bc       _PeiWhoAmI                 000008dc f   CpuMpPei:CpuMpPeim.obj
+ 0001:0000070d       _ZeroMem                   0000092d f   BaseMemoryLibRepStr:ZeroMemWrapper.obj
+ 0001:0000071e       _CopyGuid                  0000093e f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:00000742       _CompareGuid               00000962 f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:00000773       _GetHobList                00000993 f   PeiHobLib:HobLib.obj
+ 0001:0000078d       _GetNextHob                000009ad f   PeiHobLib:HobLib.obj
+ 0001:000007ba       _GetFirstGuidHob           000009da f   PeiHobLib:HobLib.obj
+ 0001:000007ea       _InternalPeiCreateHob      00000a0a f   PeiHobLib:HobLib.obj
+ 0001:00000812       _GetPciExpressBaseAddress  00000a32 f   BasePciExpressLib:PciExpressLib.obj
+ 0001:00000862       _MicroSecondDelay          00000a82 f   IntelIchAcpiTimerLib:IntelIchAcpiTimerLib.obj
+ 0001:00000890       _GetLocalApicBaseAddress   00000ab0 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:000008ae       _ReadLocalApicReg          00000ace f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:000008da       _SendIpi                   00000afa f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000953       _GetApicMode               00000b73 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:0000096f       _GetInitialApicId          00000b8f f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:000009c3       _GetApicId                 00000be3 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:000009ec       _SendInitSipiSipi          00000c0c f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000a26       _SendInitSipiSipiAllExcludingSelf 00000c46 f   BaseXApicX2ApicLib:BaseXApicX2ApicLib.obj
+ 0001:00000a60       _AcquireSpinLock           00000c80 f   BaseSynchronizationLib:SynchronizationMsc.obj
+ 0001:00000abb       _AcquireSpinLockOrFail     00000cdb f   BaseSynchronizationLib:SynchronizationMsc.obj
+ 0001:00000ae0       _GetPeiServicesTablePointer 00000d00 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00000afa       _DivU64x32                 00000d1a f   BaseLib:DivU64x32.obj
+ 0001:00000b17       _AsmCpuidEx                00000d37 f   BaseLib:CpuIdEx.obj
+ 0001:00000b5f       _AsmWriteMsr64             00000d7f f   BaseLib:WriteMsr64.obj
+ 0001:00000b76       _AsmCpuid                  00000d96 f   BaseLib:CpuId.obj
+ 0001:00000bad       _LShiftU64                 00000dcd f   BaseLib:LShiftU64.obj
+ 0001:00000bd0       RendezvousFunnelProc       00000df0 f   CpuMpPei:MpFuncs.obj
+ 0001:00000c9b       _SemaphoreStartAddress     00000ebb f   CpuMpPei:MpFuncs.obj
+ 0001:00000cac       _AsmGetAddressMap          00000ecc f   CpuMpPei:MpFuncs.obj
+ 0001:00000cb2       _AsmGetPmodeOffset         00000ed2 f   CpuMpPei:MpFuncs.obj
+ 0001:00000cb8       _AsmGetSemaphoreCheckOffset 00000ed8 f   CpuMpPei:MpFuncs.obj
+ 0001:00000cbe       _AsmCliHltLoop             00000ede f   CpuMpPei:MpFuncs.obj
+ 0001:00000cc4       _InternalMemCopyMem        00000ee4 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000d00       _InternalMemZeroMem        00000f20 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000d20       _LocalPcdPciExpressBaseAddress 00000f40     BasePciExpressLib:PciExpressLib.obj
+ 0001:00000d24       _CpusExecutingCount        00000f44     <common>
+
+ entry point at        0001:000000a0
+
+ Static symbols
+
+ 0001:00000821       _InternalAcpiDelay         00000a41 f    CIL library: CIL module

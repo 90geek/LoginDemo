@@ -1,0 +1,4 @@
+ #define PROGRAM_IIO_OEM_SVID_SID_LIST OEMProgramIioSvidSid,
+
+#define PROGRAM_PCH_OEM_SVID_SID_LIST OEMProgramPchSvidSid,
+

@@ -1,0 +1,358 @@
+TOKEN
+	Name  = "Baidu_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	TOKEN = "SKU_NUM" "=" "1"
+	Help  = "Main switch to enable CFG-Baidu A support in Project"
+End
+
+#TH0156A>>>
+TOKEN
+	Name  = "FITC_NM_FILE_NAME"
+	Value  = "Thor_SPS_NM_20160106A_for_Baidu" #LLY011001
+	Help  = "This token describes the input filename for Node Manager to SPSfitc.exe. Do not fill any value if Node Manager support is not Present"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0156A<<<
+
+#TH0116>>>>
+TOKEN
+	Name  = "LOGO_FILE_NAME"
+	Value  = "FoxconnPkg/Baidu.bmp"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetFDF = Yes
+End
+#TH0116<<<<
+
+#TH0097A>>>>
+TOKEN   
+    Name  = "SERIAL_DBG_MSG"
+    Value  = "1"   
+    Help  = "Main switch to print QPI/MRC debug message when debug mode is disabled"   
+    TokenType = Boolean   
+    TargetH = Yes
+    TargetMAK = Yes
+End
+#TH0097A<<<<
+
+#TH0117>>>>
+TOKEN
+	Name  = "DEFAULT_QUIET_BOOT"
+	Value  = "1"
+	Help  = "Enable or disable the QuietBoot function"
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0117<<<<
+
+#TH0135>>>
+#TH0135A TOKEN
+#TH0135A    Name  = "MODIFY_SATA_PORT_NAME_FOR_SKU1"
+#TH0135A    Value  = "1"
+#TH0135A    Help  = "Modify setup string 'SATA Port #' for SKU 1."
+#TH0135A    TokenType = Boolean
+#TH0135A    TargetH = Yes
+#TH0135A    Token = "SKU_NUM" "=" "1"
+#TH0135A End
+#TH0135A TOKEN
+#TH0135A    Name  = "MODIFY_SATA_PORT_NAME_FOR_SKU3"
+#TH0135A    Value  = "1"
+#TH0135A    Help  = "Modify setup string 'SATA Port #' for SKU 3."
+#TH0135A    TokenType = Boolean
+#TH0135A    TargetH = Yes
+#TH0135A    Token = "SKU_NUM" "=" "3"
+#TH0135A End
+#TH0135A>>>
+TOKEN
+    Name  = "DYNAMIC_UPDATE_SATA_PORT_STRING"
+    Value = "1"
+    Help  = "Dynamic update SATA & sSATA port name for SKU 1."
+    TokenType = Integer
+    TargetH = Yes
+End
+#TH0135A<<<
+#TH0135<<<
+
+#TH0157>>>
+TOKEN   
+    Name  = "DEFAULT_HYPER_THREADING_ENABLED"
+    Value  = "0"   
+    Help  = "Hyper-Threading is enabled by Setup default"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0157<<<
+
+#TH0156A>>>
+TOKEN   
+    Name  = "TIME_SYNCH_SEL_ENABLE"
+    Value  = "0"   
+    Help  = "Log time stamp clock sync SEL"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0156A<<<
+
+#TH0165>>>
+TOKEN   
+    Name  = "DEFAULT_CPU_EIST_ENABLED"
+    Value  = "1"   
+    Help  = "Main switch to enable CPU EIST: 0.Disabled; 1.Enabled"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_UNCORE_FREQ_SCALING"
+    Value  = "0"   
+    Help  = "Main switch to show UFS: 0.Hide; 1.Show. (Default is Enable)"    
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CLUSTER_ON_DIE_EN"
+    Value  = "0"   
+    Help  = "Main switch to show Cluster on Die(COD): 0.Hide(Default is Auto); 1.Show(Default is Disabled)"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_EARLY_SNOOP_EN"
+    Value  = "0"   
+    Help  = "Main switch to show Early Snoop Enable: 0.Hide(Default is Auto); 1.Show(Default is Enabled)"     
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_AFTER_G3"
+    Value  = "0"   
+    Help  = "Main switch to config Restore AC Power Loss(After G3): 0.Power On; 1.Power Off"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_MWAIT_MONITOR_ITEM"
+    Value  = "1"   
+    Help  = "Main switch to enable Monitor/Mwait: 0.Disabled; 1.Enabled"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0165<<<
+
+#TH0169>>>
+TOKEN   
+    Name  = "OEM_SENSOR_NUM_DEFINITION_FOR_BAIDU_1218"
+#JPG002006-    Value  = "1"
+    Value  = "0"   #JPG002006+
+    Help  = "Define sensor number according to Baidu IBMC FW Specification."
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0169<<<
+
+#JPG002006+START 
+TOKEN   
+    Name  = "OEM_SENSOR_NUM_DEFINITION_FOR_BAIDU_806"
+    Value  = "1"   
+    Help  = "Define sensor number according to Baidu IBMC FW Specification."
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#JPG002006+END
+
+#TH0173>>>
+TOKEN   
+    Name  = "DEFAULT_DIRECT_CACHE_ACCESS"
+    Value  = "1"   
+    Help  = "Main switch to config Direct Cache Access(DCA): 0.Enable; 1.Auto"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_BOOT_PERFORMANCE_STATE"
+    Value  = "0"   
+    Help  = "Main switch to show Boot performance mode: 0.Hide; 1.Show.  (Default is 'Max Performance')"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_PACKAGE_CSTATE"
+#TH0178    Value  = "1"   
+	Value  = "0" #TH0178
+    Help  = "Main switch to config 'Package C State Limit': 0.C0/C1 State.(Also change the options); 1.C6(Retention) State."      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_ACPI_T_STATE"
+    Value  = "1"   
+    Help  = "Main switch to enable 'ACPI T-States': 0.Disable; 1.Enable"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_SET_THORTTLING_MODE"
+    Value  = "1"   
+    Help  = "Main switch to config 'Set Throttling Mode': 0.Disable; 1.CLTT"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_SOCKET_INTERLEAVE_BELOW4GB"
+    Value  = "0"   
+    Help  = "Main switch to show 'Socket Interleave Below 4GB': 0.Hide; 1.Show.  (Default is Disable)"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_PATROL_SCRUB_INTERVAL"
+    Value  = "1"   
+    Help  = "Main switch to config 'Patrol Scrub Interval': 0.default = maximum = 18; 1.default = maximum = 24"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_DEMAND_SCRUB"
+    Value  = "1"   
+    Help  = "Main switch to enable 'Demand Scrub': 0.Disable; 1.Enable"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0173<<<
+
+#TH0178>>>
+TOKEN   
+    Name  = "SETUP_COMPORT_CONFIG_SELECT"
+    Value  = "1"   
+    Help  = "Main switch to set the COM port: 0.Physical-3F8, SOL-2F8; 1.Physical-2F8, SOL-3F8"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0178<<<
+
+#TH0180>>>
+TOKEN   
+    Name  = "DEFAULT_NUMA_ENABLED"
+    Value  = "1"
+    Help  = "NUMA is enabled by Setup default"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0180<<<
+
+#TH0185>>>
+TOKEN   
+    Name  = "CHANGE_ONBOARD_HDD_FIRST"
+    Value  = "0"   
+    Help  = "Change the HDD priority for AHCI mode: 0.Off board HDD first; 1.Onboard HDD first"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0185<<<
+
+#TH0113B>>>
+TOKEN   
+    Name  = "INFORM_BMC_CATCH_QPI_MRC_DEBUG_MESSAGE"
+    Value  = "1"   
+    Help  = "Inform BMC to catch QPI/MRC debug message from com port."   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0113B<<<
+
+
+#TH0196>>>
+TOKEN   
+    Name  = "DEFAULT_ENERGY_PERF_BIAS_SETTING"
+    Value  = "1"   
+    Help  = "Energy Performance BIAS setting by Setup default"
+	TokenType = Integer 
+    TargetH = Yes
+End
+#TH0196<<<
+
+#JPG002001+START
+TOKEN
+    Name  = "OEM_SENSOR_NUMBER_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to DIMM sensor number in Project."
+    TokenType = Integer
+    TargetH = Yes
+End
+#JPG002001+END
+
+TOKEN
+#DJH002001++>> 
+    Name  = "POST_ERROR_DELAY_MULIPLE"
+    Value  = "0x78"   
+    Help  = "Pause for 1/2 a second each time,0x78=120:1 minute" 
+    TokenType = Integer
+    TargetMAK = Yes
+    TargetH = Yes
+    Lock = Yes
+#DJH002001++<<
+End
+
+#DJH002028+START
+TOKEN
+    Name  = "NVME_SKU_C_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to show NVME."
+    TokenType = Integer
+    TargetH = Yes
+End
+#DJH002028+END
+
+#DJH002037++>> for 4 NVMe port
+TOKEN
+	Name  = "CPU1_Port2A_PCIE_CTLE"
+	Value  = "0x10"
+	Help  = "Modify CTLE of PCIE port 2A"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU1_Port2B_PCIE_CTLE"
+	Value  = "0x10"
+	Help  = "Modify CTLE of PCIE port 2B"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU1_Port2C_PCIE_CTLE"
+	Value  = "0x0"
+	Help  = "Modify CTLE of PCIE port 2C"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU1_Port2D_PCIE_CTLE"
+	Value  = "0x1E"
+	Help  = "Modify CTLE of PCIE port 2D"
+	TokenType = Integer
+	TargetH = Yes
+End
+#DJH002037++<<
+

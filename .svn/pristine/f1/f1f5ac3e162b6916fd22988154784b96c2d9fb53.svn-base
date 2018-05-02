@@ -1,0 +1,10 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\Library\"
+	RefName = "TbtLibrary"
+[INF]
+"TbtDxeLib\TbtDxeLib.inf"
+"AmiTbtPlatformPolicyLib\AmiTbtPlatformPolicyLib.inf"
+"TbtOemLib\TbtOemLib.inf"
+<endComponent>

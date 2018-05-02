@@ -1,0 +1,8 @@
+<component>
+	name = "CFG-Baidu"
+	category = ModulePart
+	LocalRoot = "FoxconnPkg\CFG_Baidu\"
+	RefName = "CFG-Baidu"
+[files]
+"CFG_Baidu.sdl"
+<endComponent>

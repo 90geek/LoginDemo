@@ -1,0 +1,1 @@
+#define HOTCLICK_LIST { 1, 3, 1 + 64, 3 + 26, MainFrameHandlewithMouse, 0 },{ 67, 3, 67 + 32, 3 + 11, HelpFrameHandlewithMouse, 1 },{ 67, 16, 67 + 32, 16 + 13, NavFrameHandlewithMouse, 1 },{ 1, 3, 1 + 51, 3 + 18, MainFrameHandlewithMouse, 0 },{ 54, 3, 54 + 24, 3 + 8, HelpFrameHandlewithMouse, 1 },{ 54, 13, 54 + 24, 13 + 8, NavFrameHandlewithMouse, 1 },

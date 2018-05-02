@@ -1,0 +1,59 @@
+ RomLayoutPei
+
+ Timestamp is 5ae04a02 (Wed Apr 25 17:27:30 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000000b4H .data                   CODE
+ 0001:000000b8 00000000H .rdata                  CODE
+ 0001:000000b8 00000ad9H .text                   CODE
+ 0001:00000b94 0000000cH .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gAmiRecoveryImageHobGuid  00000220     RomLayoutPei:AutoGen.obj
+ 0001:00000010       _gAmiRomLayoutFfsFileGuid  00000230     RomLayoutPei:AutoGen.obj
+ 0001:00000020       _gAmiRomLayoutGuid         00000240     RomLayoutPei:AutoGen.obj
+ 0001:00000030       _gEfiFirmwareFileSystem2Guid 00000250     RomLayoutPei:AutoGen.obj
+ 0001:00000040       _gEfiPeiFirmwareVolumeInfoPpiGuid 00000260     RomLayoutPei:AutoGen.obj
+ 0001:00000050       _gEfiPeiBootInRecoveryModePpiGuid 00000270     RomLayoutPei:AutoGen.obj
+ 0001:00000060       _gEfiPeiMemoryDiscoveredPpiGuid 00000280     RomLayoutPei:AutoGen.obj
+ 0001:00000070       _gAmiReadyToLoadDxeCorePpiGuid 00000290     RomLayoutPei:AutoGen.obj
+ 0001:000000b8       __ModuleEntryPoint         000002d8 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000fc       _PeiProcessFvBeforePublishingHook 0000031c f   RomLayoutPei:RomLayoutPei.obj
+ 0001:000001cd       _RemoveFvHob               000003ed f   RomLayoutPei:RomLayoutPei.obj
+ 0001:00000214       _PublishFv                 00000434 f   RomLayoutPei:RomLayoutPei.obj
+ 0001:00000239       _InitRecovery              00000459 f   RomLayoutPei:RomLayoutPei.obj
+ 0001:0000027d       _ReportFV2PeiAfterMem      0000049d f   RomLayoutPei:RomLayoutPei.obj
+ 0001:0000036e       _ReportFV2Dxe              0000058e f   RomLayoutPei:RomLayoutPei.obj
+ 0001:000004e1       _BuildLegacyRomLayoutHob   00000701 f   RomLayoutPei:RomLayoutPei.obj
+ 0001:0000058d       _ReportFv2DxeWrapper       000007ad f   RomLayoutPei:RomLayoutPei.obj
+ 0001:0000063c       _RomLayoutPeiEntryPoint    0000085c f   RomLayoutPei:RomLayoutPei.obj
+ 0001:000006b9       _MultU64x32                000008d9 f   BaseLib:MultU64x32.obj
+ 0001:000006d9       _CopyMem                   000008f9 f   BaseMemoryLibRepStr:CopyMemWrapper.obj
+ 0001:000006f1       _GetHobList                00000911 f   PeiHobLib:HobLib.obj
+ 0001:0000070b       _GetNextHob                0000092b f   PeiHobLib:HobLib.obj
+ 0001:00000739       _GetNextGuidHob            00000959 f   PeiHobLib:HobLib.obj
+ 0001:00000766       _InternalPeiCreateHob      00000986 f   PeiHobLib:HobLib.obj
+ 0001:0000078f       _BuildGuidHob              000009af f   PeiHobLib:HobLib.obj
+ 0001:000007bf       _GetPciExpressBaseAddress  000009df f   BasePciExpressLib:PciExpressLib.obj
+ 0001:000008b8       _AmiGetFirstRomArea        00000ad8 f   PeiAmiRomLayoutLib:PeiAmiRomLayoutLib.obj
+ 0001:000008f0       _AmiGetNextRomArea         00000b10 f   PeiAmiRomLayoutLib:PeiAmiRomLayoutLib.obj
+ 0001:00000930       _AmiGetImageRomLayout      00000b50 f   PeiAmiRomLayoutLib:PeiAmiRomLayoutLib.obj
+ 0001:000009ca       _AmiPublishFvArea          00000bea f   PeiAmiRomLayoutLib:PeiAmiRomLayoutLib.obj
+ 0001:00000a47       _InternalPeiServicesInstallFvInfoPpi 00000c67 f   PeiServicesLib:PeiServicesLib.obj
+ 0001:00000ad2       _CompareGuid               00000cf2 f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:00000af6       _AllocatePool              00000d16 f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:00000b1c       _GetPeiServicesTablePointer 00000d3c f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00000b38       _InternalMemCopyMem        00000d58 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000b74       _InternalMemZeroMem        00000d94 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000b94       _PeiProcessFvBeforePublishingList 00000db4     RomLayoutPei:RomLayoutPei.obj
+ 0001:00000b98       _LegacyProcessFvBeforePublishingList 00000db8     RomLayoutPei:RomLayoutPei.obj
+ 0001:00000b9c       _LocalPcdPciExpressBaseAddress 00000dbc     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:000000b8
+
+ Static symbols
+
+ 0001:000007ce       _GetAmiRomLayoutHeader     000009ee f    CIL library: CIL module

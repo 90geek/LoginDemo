@@ -1,0 +1,99 @@
+## @file
+#   The [Sources] section for this file is auto-generated from ELINKs:
+#   SETUP_DEFINITIONS, SETUP_FORMSETS, SetupStringFiles, and SetupCallbackFiles
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SetupDefaults
+  FILE_GUID                      = C8300EA9-869E-42df-AEF2-5D939452A353
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SetupDefaultsEntry
+#
+#  This flag specifies whether HII resource section is generated into PE image.
+#
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+[Sources]
+ ../AmiCompatibilityPkg/Setup/SetupDefaults.c
+ ../AmiCompatibilityPkg/Setup/Setup.uni
+ ../AmiCompatibilityPkg/Setup/SetupDefaults.vfr
+ 
+  ../AmiModulePkg\IO\AST2400\AST2400Setup.uni
+ ../AmiTsePkg\EDK\MiniSetup\TseAdvanced/AddDelBootDrvOpts.uni
+ ../AmiModulePkg\ACPI/ACPI.uni
+ ../AmiModulePkg\EfiOsBootOptionNames/EfiOsBootOptionNames.uni
+ ../AmiModulePkg\GenericSio\SioStaticSetup.uni
+ ../AmiModulePkg\PCI\PciStaticSetup.uni
+ ../AmiModulePkg\Terminal/Terminal.uni
+ ../AmiNetworkPkg\UefiNetworkStack\Common\NetworkStackSetupScreen/NetworkStackSetupScreen.uni
+ ../AmiModulePkg\CSM\CsmPolicy\Csm.uni
+ ../AmiModulePkg\HddSmart/HddSMART.uni
+ ../AmiModulePkg\HddSecurity/HddSecurity.uni
+ ../AmiModulePkg\Nvme/Nvme.uni
+ ../AmiModulePkg\Ofbd\Meud/Setup/Meud.uni
+ ../AmiModulePkg\TCG2\Common\Setup\TcgSetup.uni
+ ../AmiModulePkg\Usb\Setup/Usb.uni
+ ../FoxconnPkg\FxnChangeSKUType\FxnChangeSKUType.uni
+ ../FoxconnPkg\HomeWork/HomeWork.uni
+ ../AmiModulePkg\FixedBootOrder\DefaultFixedBootOrder\DefaultFixedBootOrder.uni
+ ../AmiCRBPkg\Board\NB/Nb.uni
+
+  ../AmiModulePkg/TCG2/Common/Setup/TcgSetup.sd
+ ../AmiModulePkg/ACPI/ACPI.sd
+ ../FoxconnPkg/HomeWork/HomeWork.sd
+ ../AmiModulePkg/HddSmart/HddSMART.sd
+ ../AmiModulePkg/IO/AST2400/AST2400Setup.sd
+ ../AmiModulePkg/GenericSio/SioStaticSetup.sd
+ ../AmiGpnvErrorLoggingPkg/Gpnv/SmbiosElog/SmbiosElogSetup.sd
+ ../AmiModulePkg/Terminal/Terminal.sd
+ ../AmiTsePkg/EDK/MiniSetup/TseAdvanced/AddDelBootDrvOpts.sd
+ ../AmiCompatibilityPkg/Setup/AmiBiosInfo.sd
+ ../AmiCompatibilityPkg/Setup/AmiTse.sd
+ ../AmiCompatibilityPkg/Setup/AmiBootOrder.sd
+ ../AmiModulePkg/EfiOsBootOptionNames/EfiOsBootOptionNames.sd
+ ../AmiModulePkg/PCI/PciStaticSetup.sd
+ ../AmiNetworkPkg/UefiNetworkStack/Common/NetworkStackSetupScreen/NetworkStackSetupScreen.sd
+ ../AmiModulePkg/CSM/CsmPolicy/Csm.sd
+ ../AmiModulePkg/HddSecurity/HddSecurityCommon.sd
+ ../AmiModulePkg/Nvme/Nvme.sd
+ ../AmiModulePkg/Usb/Setup/Usb.sd
+ ../FoxconnPkg/FxnChangeSKUType/FxnChangeSKUType.sd
+ ../Build/DefaultFixedBootOrder.sd
+ ../AmiCRBPkg/Board/NB/Nb.sd
+
+
+[Packages]
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+
+  AmiNetworkPkg/AmiNetworkPkg.dec
+ AmiCRBPkg/AmiCRBPkg.dec
+ GrantleySocketPkg/SocketPkg.dec
+ AmiIpmiPkg\AmiIpmiPkg.dec
+
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+
+[Protocols]
+
+[Guids]
+
+[Pcd]
+
+[Depex]
+  TRUE
+
+[BuildOptions]
+  *_*_*_BUILD_FLAGS=-s
+

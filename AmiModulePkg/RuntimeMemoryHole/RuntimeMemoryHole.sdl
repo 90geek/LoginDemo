@@ -1,0 +1,36 @@
+TOKEN
+	Name  = "Runtime_Memory_Hole_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable SmmTemplate in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+End
+
+TOKEN
+	Name  = "SW_SMI_GET_MEMORY_HOLE_LOCATION"
+	Value  = "0x7F"
+	Help  = "Software SMI to get Memory Hole location at runtime."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RUNTIME_MEMORY_HOLE_SIZE"
+	Value  = "0x20000"
+	Help  = "The size of reserved memory hole.\(Default : 128KB)"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+PATH
+	Name  = "Runtime_Memory_Hole_DIR"
+End
+
+INFComponent
+	Name  = "RuntimeMemoryHole"
+	File  = "RuntimeMemoryHole.inf"
+	Package  = "AmiModulePkg"
+	ModuleTypes = "DXE_SMM_DRIVER"
+End

@@ -1,0 +1,11 @@
+<component>
+	name = "OemDxeDrivers"
+	category = ModulePart
+	LocalRoot = "FoxconnPkg\OemDxeDrivers\"
+	RefName = "OemDxeDrivers"
+[INF]
+"ModifyBiosConfigOverBmc\ModifyBiosConfigOverBmc.inf"
+"OemFunctions\OemFunctions.inf"
+[files]
+"OemDxeDrivers.sdl"	
+<endComponent>

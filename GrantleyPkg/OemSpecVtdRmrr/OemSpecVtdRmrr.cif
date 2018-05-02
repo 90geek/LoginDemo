@@ -1,0 +1,10 @@
+<component>
+	name = "OemSpecVtdRmrr"
+	category = ModulePart
+	LocalRoot = "GrantleyPkg\OemSpecVtdRmrr\"
+	RefName = "GrantleyPkg.OemSpecVtdRmrr"
+[INF]
+"OemSpecVtdRmrr.inf"
+[files]
+"OemSpecVtdRmrr.sdl"	
+<endComponent>

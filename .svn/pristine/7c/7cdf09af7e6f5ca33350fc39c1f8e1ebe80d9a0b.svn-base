@@ -1,0 +1,74 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2015, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+## @file
+#   
+##
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmbiosBoard
+  FILE_GUID                      = CEF68C66-06AB-4fb3-A3ED-5FFA885B5725
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SMIBiosBoardDriverEntryPoint
+
+[Sources]
+  SmbiosBoard.c
+
+[Packages]
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+ GrantleySocketPkg/SocketPkg.dec# AptioV server override: for avoiding include error from IioUDS.h
+
+[LibraryClasses]
+  AmiDxeLib
+  PciLib #AptioV server overrride: Dynamic mmcfg base address change  
+  PcdLib #AptioV server overrride: Dynamic mmcfg base address change
+  UefiDriverEntryPoint
+
+[Guids]
+  gAmiSmbiosDynamicDataGuid
+  
+[Protocols]
+  gEfiDriverBindingProtocolGuid
+  gEfiSmbiosProtocolGuid
+  gEfiPciRootBridgeIoProtocolGuid
+  gAmiSmbiosProtocolGuid
+  gAmiSmbiosBoardProtocolGuid
+# Aptio V Server override start: Type9 porting  
+  gEfiIioUdsProtocolGuid  
+  gAmiExtPciBusProtocolGuid 
+  
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress  
+# Aptio V Server override end: Type9 porting    
+
+[Depex]
+  gEfiCpuArchProtocolGuid AND #AptioV Server Overrride: NM PTU UEFI OPROM fail
+  gEfiPciRootBridgeIoProtocolGuid #AptioV Server Override: NM PTU UEFI OPROM fail
+
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2015, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************

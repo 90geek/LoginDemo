@@ -1,0 +1,384 @@
+#TH0047B>>>
+TOKEN
+	Name  = "USBFDD_GROUP_SUPPORT"
+	Value  = "0"
+	Help  = "1 = USBFDD Group Support 0 = USBFDD Group Not Support."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "USBKEY_GROUP_SUPPORT"
+	Value  = "0"
+	Help  = "1 = USBKEY Group Support 0 = USBKEY Group Not Support."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "Thor_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "USBLAN_GROUP_SUPPORT"
+	Value  = "0"
+	Help  = "1 = USBLAN Group Support 0 = USBLAN Group Not Support."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "Thor_SUPPORT" "=" "1"
+End
+#TH0047B<<<
+
+#***********************UEFI DEFAULT FIXED BOOT ORDER START********************************
+#*				HDD, NETWORK, USBODD, USBHDD, USBLAN, ODD,APPLICATION				   	  *
+#******************************************************************************************
+ELINK
+    Name = "UEFI_DEVICE"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_HDD,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_HDD1, UEFI_HDD2, UEFI_HDD3, UEFI_HDD4, UEFI_HDD5,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "FBO_MULTI_HARD_DISK_GROUPS" "=" "1"
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_NETWORK,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USB,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "1"
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBODD, UEFI_USBHDD,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBKEY,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBKEY_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBFDD,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBFDD_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBLAN,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBLAN_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_ODD,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_APPLICATION,"
+    Parent = "FBO_UEFI_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "SHELL_GROUP_SUPPORT" "=" "1"
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#***********************UEFI DEFAULT FIXED BOOT ORDER END*********************************
+
+
+#***********************LEGACY DEFAULT FIXED BOOT ORDER START******************************
+#*					HDD, NETWORK, USBODD, USBHDD, USBLAN, ODD,APPLICATION				  *
+#******************************************************************************************
+ELINK
+    Name = "HDD,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "HDD1, HDD2, HDD3, HDD4, HDD5,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "FBO_MULTI_HARD_DISK_GROUPS" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "NETWORK,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USB,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+     Name = "USBODD, USBHDD,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USBKEY,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBKEY_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USBFDD,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBFDD_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USBLAN,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBLAN_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+
+ELINK
+    Name = "ODD,"
+    Parent = "FBO_LEGACY_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#***********************LEGACY DEFAULT FIXED BOOT ORDER END********************************
+
+
+#***********************DUAL DEFAULT FIXED BOOT ORDER START********************************
+#*																						  *
+#******************************************************************************************
+ELINK
+    Name = "UEFI_DEVICE,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_HDD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_HDD1, UEFI_HDD2, UEFI_HDD3, UEFI_HDD4, UEFI_HDD5,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "FBO_MULTI_HARD_DISK_GROUPS" "=" "1"
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_ODD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBODD, UEFI_USBHDD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBKEY,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBKEY_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBFDD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBFDD_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_USBLAN,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBLAN_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+
+ELINK
+    Name = "UEFI_USB,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "1"
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_NETWORK,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "UEFI_APPLICATION,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "SHELL_GROUP_SUPPORT" "=" "1"
+    Token = "EFI_DEVICE_IN_ONE_GROUP" "=" "0"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "HDD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "HDD1, HDD2, HDD3, HDD4, HDD5,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "FBO_MULTI_HARD_DISK_GROUPS" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "ODD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+     Name = "USBHDD, USBODD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USBKEY,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBKEY_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USBFDD,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBFDD_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USBLAN,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "2"
+    Token = "USBLAN_GROUP_SUPPORT" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "USB,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "USB_GROUP" "=" "1"
+    Token = "Thor_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "NETWORK,"
+    Parent = "FBO_DUAL_DEVICE"
+    InvokeOrder = AfterParent
+    Token = "Thor_SUPPORT" "=" "1"
+End
+#***********************DUAL DEFAULT FIXED BOOT ORDER END********************************

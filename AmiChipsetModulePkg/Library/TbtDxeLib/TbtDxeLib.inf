@@ -1,0 +1,37 @@
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TbtDxeLib
+  FILE_GUID                      = 7E53D153-A03C-4919-8317-540D17AB1654
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = TbtDxeLib|DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+#  
+#
+
+[Sources]
+  TbtDxeLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+#  AmiChipsetPkg/AmiChipsetPkg.dec             #AptioV Server Override
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiChipsetModulePkg/AmiChipsetModulePkg.dec
+  
+[LibraryClasses]
+  IoLib
+  PcdLib
+  AmiCspLib
+  AmiChipsetIoLib
+
+[Protocols]
+  gAmiTbtPlatformPolicyProtocolGuid
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress

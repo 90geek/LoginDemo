@@ -1,0 +1,53 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DefinitionBlock("SpsNvs.aml", "SSDT", 2, "INTEL", "SpsNvs  ", 2)
+{
+  Scope(\)
+  {
+    Name(PURA, 0)
+    Name(PURB, 0)
+    Name(PURE, 0)
+    
+    
+    
+    
+    OperationRegion(MEVS, SystemMemory, 0x80000000, 0x4)
+    Field(MEVS, AnyAcc, Lock, Preserve)
+    {
+      THNU, 8,
+      H1UI, 8,
+      H2UI, 8, 
+      OSLD, 8,
+    }
+  } 
+}
+

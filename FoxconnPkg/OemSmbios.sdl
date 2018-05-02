@@ -1,0 +1,519 @@
+#ZA0008 >>>
+TOKEN
+	Name  = "OEMSMBIOS_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable OEMSMBIOS support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Token = "Foxconn_SUPPORT" "=" "1"
+End
+
+##############################  type 0  ##################################
+TOKEN
+	Name  = "BIOS_SIZE"
+	Value  = "1000000h"
+	TokenType = Integer
+	TargetEQU = Yes
+End
+
+##############################  type 1  ##################################
+TOKEN
+	Name  = "SYSTEM_MANUFACTURER"
+	Value  = "FOXCONN"
+	Help  = "Specifies the System Manufacturer Name."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYSTEM_PRODUCT_NAME"
+	#TH0071	Value  = "APOLLO"
+	Value  = "NULL"		#TH0071
+	Help  = "Specifies the System Product Name"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYSTEM_VERSION"
+	Value  = "NULL"
+	Help  = "Specifies the System Product Version."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYSTEM_SERIAL_NUMBER"
+	Value  = "NULL"
+	Help  = "Specifies the System Serial Number."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYSTEM_SKU_NUMBER"
+	Value  = "NULL"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYSTEM_FAMILY"
+	Value  = "Intel Grantley EP"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+##############################  type 2  ##################################
+TOKEN
+	Name  = "BASE_BOARD_MANUFACTURER"
+	Value  = "FOXCONN"
+	Help  = "Specifies the Board Manufacturer."
+	TokenType = Expression
+	TargetEQU = Yes
+	Token = "BASE_BOARD_INFO" "=" "1"
+	Token = "NUMBER_OF_BASEBOARDS" "=" "1"
+End
+
+TOKEN
+	Name  = "BASE_BOARD_PRODUCT_NAME"
+#TH0071>>>>	Value  = "APOLLO"
+        Value  = "THOR"	#TH0071<<<<
+	Help  = "Specifies the Product Name"
+	TokenType = Expression
+	TargetEQU = Yes
+	Token = "BASE_BOARD_INFO" "=" "1"
+	Token = "NUMBER_OF_BASEBOARDS" "=" "1"
+End
+
+TOKEN
+	Name  = "BASE_BOARD_VERSION"
+	Value  = "NULL"
+	Help  = "Specifies the Product Version."
+	TokenType = Expression
+	TargetEQU = Yes
+	Token = "BASE_BOARD_INFO" "=" "1"
+	Token = "NUMBER_OF_BASEBOARDS" "=" "1"
+End
+
+TOKEN
+	Name  = "BASE_BOARD_SERIAL_NUMBER"
+	Value  = "NULL"
+	Help  = "Specifies the Product Serial Number."
+	TokenType = Expression
+	TargetEQU = Yes
+	Token = "BASE_BOARD_INFO" "=" "1"
+	Token = "NUMBER_OF_BASEBOARDS" "=" "1"
+End
+
+TOKEN
+	Name  = "BB_ASSET_TAG"
+	Value  = "NULL"
+	Help  = "Specifies the Asset Tag Number of the Base Board."
+	TokenType = Expression
+	TargetEQU = Yes
+	Token = "BASE_BOARD_INFO" "=" "1"
+	Token = "NUMBER_OF_BASEBOARDS" "=" "1"
+End
+
+TOKEN
+	Name  = "BB_LOC_IN_CHASSIS"
+	Value  = "NULL"
+	Help  = "Specifies the Location of Base Board in the Chassis."
+	TokenType = Expression
+	TargetEQU = Yes
+	Token = "BASE_BOARD_INFO" "=" "1"
+	Token = "NUMBER_OF_BASEBOARDS" "=" "1"
+End
+
+##############################  type 3  ##################################
+TOKEN
+	Name  = "SYS_CHASSIS_MANUFACTURER_1"
+	Value  = "FOXCONN"
+	Help  = "Specifies the System Chassis Manufacturer."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_MANUFACTURER_2"
+	Value  = "FOXCONN"
+	Help  = "Specifies the System Chassis Manufacturer."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_MANUFACTURER_3"
+	Value  = "FOXCONN"
+	Help  = "Specifies the System Chassis Manufacturer."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_MANUFACTURER_4"
+	Value  = "FOXCONN"
+	Help  = "Specifies the System Chassis Manufacturer."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_MANUFACTURER_5"
+	Value  = "FOXCONN"
+	Help  = "Specifies the System Chassis Manufacturer."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_TYPE_1"
+	Value  = "01"
+	Help  = "Bits 6:0  -     Enumeration Value See Below.\01h     -     Other\02h     -     Unknown\03h     -     Desktop\04h     -     Low Profile Desktop\05h     -     Pizza Box\06h     -     Mini Tower\07h     -     Tower\08h     -     Portable\09h     -     Lap Top\0Ah     -     Notebook\0Bh     -     Hand Held\0Ch     -     Docking Station\0Dh     -     All in One\0Eh     -     Sub Notebook\0Fh     -     Space-saving\10h     -     Lunch Box\11h     -     Main Server Chassis\12h     -     Expansion Chassis\13h     -     Sub Chassis\14h     -     Bus Expansion Chassis\15h     -     Peripheral Chassis\16h     -     RAID Chassis\17h     -     Rack Mount Chassis\18h     -     Sealed-Case PC\19h     -     Multi-System Chassis. When this value is specified by an SMBIOS implementation, the physical chassis associated with this structure supports multiple, independently reporting physical systems\                 - regardless of the chassis' current configuration. Systems in the same physical chassis are required to report the same value in this structure's Serial Number field.\                 For a Chassis that may also be configured as either a single system or multiple physical systems, the Multi-System Chassis value is reported even if the chassis is currently configured as a \                 Single System. This allows management applications to recognize the multi-system potential of the chassis.\1Ah     -     CompactPCI\1Bh     -     AdvancedTCA\1Ch     -     Blade\1Dh     -     Blade Enclosure"
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "01h - 19h"
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_TYPE_2"
+	Value  = "01"
+	Help  = "Bits 6:0  -     Enumeration Value See Below.\01h     -     Other\02h     -     Unknown\03h     -     Desktop\04h     -     Low Profile Desktop\05h     -     Pizza Box\06h     -     Mini Tower\07h     -     Tower\08h     -     Portable\09h     -     Lap Top\0Ah     -     Notebook\0Bh     -     Hand Held\0Ch     -     Docking Station\0Dh     -     All in One\0Eh     -     Sub Notebook\0Fh     -     Space-saving\10h     -     Lunch Box\11h     -     Main Server Chassis\12h     -     Expansion Chassis\13h     -     Sub Chassis\14h     -     Bus Expansion Chassis\15h     -     Peripheral Chassis\16h     -     RAID Chassis\17h     -     Rack Mount Chassis\18h     -     Sealed-Case PC\19h     -     Multi-System Chassis. When this value is specified by an SMBIOS implementation, the physical chassis associated with this structure supports multiple, independently reporting physical systems\                 - regardless of the chassis' current configuration. Systems in the same physical chassis are required to report the same value in this structure's Serial Number field.\                 For a Chassis that may also be configured as either a single system or multiple physical systems, the Multi-System Chassis value is reported even if the chassis is currently configured as a \                 Single System. This allows management applications to recognize the multi-system potential of the chassis.\1Ah     -     CompactPCI\1Bh     -     AdvancedTCA\1Ch     -     Blade\1Dh     -     Blade Enclosure"
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "01h - 19h"
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_TYPE_3"
+	Value  = "01"
+	Help  = "Bits 6:0  -     Enumeration Value See Below.\01h     -     Other\02h     -     Unknown\03h     -     Desktop\04h     -     Low Profile Desktop\05h     -     Pizza Box\06h     -     Mini Tower\07h     -     Tower\08h     -     Portable\09h     -     Lap Top\0Ah     -     Notebook\0Bh     -     Hand Held\0Ch     -     Docking Station\0Dh     -     All in One\0Eh     -     Sub Notebook\0Fh     -     Space-saving\10h     -     Lunch Box\11h     -     Main Server Chassis\12h     -     Expansion Chassis\13h     -     Sub Chassis\14h     -     Bus Expansion Chassis\15h     -     Peripheral Chassis\16h     -     RAID Chassis\17h     -     Rack Mount Chassis\18h     -     Sealed-Case PC\19h     -     Multi-System Chassis. When this value is specified by an SMBIOS implementation, the physical chassis associated with this structure supports multiple, independently reporting physical systems\                 - regardless of the chassis' current configuration. Systems in the same physical chassis are required to report the same value in this structure's Serial Number field.\                 For a Chassis that may also be configured as either a single system or multiple physical systems, the Multi-System Chassis value is reported even if the chassis is currently configured as a \                 Single System. This allows management applications to recognize the multi-system potential of the chassis.\1Ah     -     CompactPCI\1Bh     -     AdvancedTCA\1Ch     -     Blade\1Dh     -     Blade Enclosure"
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "01h - 19h"
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_TYPE_4"
+	Value  = "01"
+	Help  = "Bits 6:0  -     Enumeration Value See Below.\01h     -     Other\02h     -     Unknown\03h     -     Desktop\04h     -     Low Profile Desktop\05h     -     Pizza Box\06h     -     Mini Tower\07h     -     Tower\08h     -     Portable\09h     -     Lap Top\0Ah     -     Notebook\0Bh     -     Hand Held\0Ch     -     Docking Station\0Dh     -     All in One\0Eh     -     Sub Notebook\0Fh     -     Space-saving\10h     -     Lunch Box\11h     -     Main Server Chassis\12h     -     Expansion Chassis\13h     -     Sub Chassis\14h     -     Bus Expansion Chassis\15h     -     Peripheral Chassis\16h     -     RAID Chassis\17h     -     Rack Mount Chassis\18h     -     Sealed-Case PC\19h     -     Multi-System Chassis. When this value is specified by an SMBIOS implementation, the physical chassis associated with this structure supports multiple, independently reporting physical systems\                 - regardless of the chassis' current configuration. Systems in the same physical chassis are required to report the same value in this structure's Serial Number field.\                 For a Chassis that may also be configured as either a single system or multiple physical systems, the Multi-System Chassis value is reported even if the chassis is currently configured as a \                 Single System. This allows management applications to recognize the multi-system potential of the chassis.\1Ah     -     CompactPCI\1Bh     -     AdvancedTCA\1Ch     -     Blade\1Dh     -     Blade Enclosure"
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "01h - 19h"
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_TYPE_5"
+	Value  = "01"
+	Help  = "Bits 6:0  -     Enumeration Value See Below.\01h     -     Other\02h     -     Unknown\03h     -     Desktop\04h     -     Low Profile Desktop\05h     -     Pizza Box\06h     -     Mini Tower\07h     -     Tower\08h     -     Portable\09h     -     Lap Top\0Ah     -     Notebook\0Bh     -     Hand Held\0Ch     -     Docking Station\0Dh     -     All in One\0Eh     -     Sub Notebook\0Fh     -     Space-saving\10h     -     Lunch Box\11h     -     Main Server Chassis\12h     -     Expansion Chassis\13h     -     Sub Chassis\14h     -     Bus Expansion Chassis\15h     -     Peripheral Chassis\16h     -     RAID Chassis\17h     -     Rack Mount Chassis\18h     -     Sealed-Case PC\19h     -     Multi-System Chassis. When this value is specified by an SMBIOS implementation, the physical chassis associated with this structure supports multiple, independently reporting physical systems\                 - regardless of the chassis' current configuration. Systems in the same physical chassis are required to report the same value in this structure's Serial Number field.\                 For a Chassis that may also be configured as either a single system or multiple physical systems, the Multi-System Chassis value is reported even if the chassis is currently configured as a \                 Single System. This allows management applications to recognize the multi-system potential of the chassis.\1Ah     -     CompactPCI\1Bh     -     AdvancedTCA\1Ch     -     Blade\1Dh     -     Blade Enclosure"
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "01h - 19h"
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_VERSION_1"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Version"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_VERSION_2"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Version"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_VERSION_3"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Version"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_VERSION_4"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Version"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_VERSION_5"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Version"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SERIAL_NUM_1"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Serial number"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SERIAL_NUM_2"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Serial number"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SERIAL_NUM_3"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Serial number"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SERIAL_NUM_4"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Serial number"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SERIAL_NUM_5"
+	Value  = "NULL"
+	Help  = "Specifies the Chassis Serial number"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_ASSET_TAG_NUM_1"
+	Value  = "NULL"
+	Help  = "Specifies the Asset Tag Number."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_ASSET_TAG_NUM_2"
+	Value  = "NULL"
+	Help  = "Specifies the Asset Tag Number."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_ASSET_TAG_NUM_3"
+	Value  = "NULL"
+	Help  = "Specifies the Asset Tag Number."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_ASSET_TAG_NUM_4"
+	Value  = "NULL"
+	Help  = "Specifies the Asset Tag Number."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_ASSET_TAG_NUM_5"
+	Value  = "NULL"
+	Help  = "Specifies the Asset Tag Number."
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SKU_NUMBER_1"
+	Value  = "NULL"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SKU_NUMBER_2"
+	Value  = "NULL"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SKU_NUMBER_3"
+	Value  = "NULL"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SKU_NUMBER_4"
+	Value  = "NULL"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "SYS_CHASSIS_SKU_NUMBER_5"
+	Value  = "NULL"
+	TokenType = Expression
+	TargetEQU = Yes
+End
+#ZA0008 <<<
+#TH0088>>>>
+##############################  type 4  ##################################
+TOKEN
+	Name  = "SMBIOS_TYPE_4_MAX_SPEED"	
+    Value  = "0xE74"	#3700MHz
+	Help  = "Value in MHz."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-ffff"
+End
+#TH0088<<<<
+##############################  type 8  ##################################
+TOKEN
+	Name  = "NUMBER_OF_EXT_PORT_CONNECTORS"
+#TH0137	Value  = "14"#TH0088
+	Value  = "10" #TH0137
+	Help  = "Number of External Port Connectors in the Sytem."
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "0 - 20"
+End
+
+TOKEN
+	Name  = "NUMBER_OF_INT_PORT_CONNECTORS"
+#TH0137	Value  = "5"#TH0088
+	Value = "7" #TH0137
+	Help  = "Number of Internal Port Connectors in the System."
+	TokenType = Integer
+	TargetEQU = Yes
+	Range  = "0 - 20"
+End
+
+##############################  type 9  ##################################
+TOKEN
+	Name  = "NUMBER_OF_SYSTEM_SLOTS"
+#TH0137	Value  = "5"#TH0088
+#TH0174	Value = "2" #TH0137
+#ZYY006001-	Value = "14" #TH0174
+        Value = "10" #ZYY006001+
+	Help  = "Identifies the number of system slots available on platform including the AGP slot.\"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+##############################  type 10  ##################################
+#TH0088>>>>
+TOKEN
+	Name  = "ONBOARD_DEVICE_INFO"
+	Value  = "0"
+	Help  = "ON  -> Onboard Device Information structure will be present\OFF -> OnBoard Device Information structure will not be present\The following information is needed only if ONBOARD_DEVICE_INFO = Present\Syntax:          ONBOARD_DEVICE_X    DEFINE  <Enabled or Disabled, Onboard Device Type, Descrition String>\                              Onboard device status  -> Describes the status(enabled/disabled) of on board device\                              On board device Type  -> Video, Audio, SCSI etc... for more detail search for On-board device Type equates in structure Type 10, refer SMB.EQU\                              Description String          -> Describes the on board device e.g.'Video', 'Audio' etc.."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+#TH0088<<<<
+##############################  type 12  ##################################
+TOKEN
+	Name  = "NUMBER_OF_SYSTEM_CONFIG_STRINGS"
+#TH0137	Value  = "9"#TH0088
+	Value = "6" #TH0137
+	Help  = "NUMBER OF SYSTEM CONFIGURATION STRINGS\identifies the total number of strings defined for this structure."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Range  = "0-10"
+End
+
+##############################  type 26  ##################################
+TOKEN
+	Name  = "VOLTAGE_PROBE_INFO"
+	Value  = "0"
+	Help  = "ON  -> Voltage Probe Information (Type 26) structure will be present\OFF -> Voltage Probe Information (Type 26) structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+##############################  type 27  ##################################
+TOKEN
+	Name  = "COOLING_DEVICE_INFO"
+	Value  = "0"
+	Help  = "ON  -> Cooling Device Information (Type 27) structure will be present\OFF -> Cooling Device Information (Type 27) structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+##############################  type 28  ##################################
+TOKEN
+	Name  = "TEMPERATURE_PROBE_INFO"
+	Value  = "0"
+	Help  = "ON  -> Temperature Probe Information (Type 28) structure will be present\OFF -> Temprature Probe Information (Type 28) structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+##############################  type 29  ##################################
+TOKEN
+	Name  = "ELECTRICAL_PROBE_INFO"
+	Value  = "0"
+	Help  = "ON  -> Electrical Probe Information (Type 29) structure will be present\OFF -> Electrical Probe Information (Type 29) structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+##############################  type 34  ##################################
+TOKEN
+	Name  = "MANAGEMENT_DEVICE_INFO"
+	Value  = "0"
+	Help  = "ON  -> Management Device Information (Type 34) structure will be present\OFF -> Management Device Information (Type 34) structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+################################### TYPE 39 ####################################
+TOKEN
+	Name  = "SYSTEM_POWER_SUPPLY_INFO"
+	Value  = "0"
+	Help  = "Type 39 - System Power Supply\OFF -> System Power Supply will not be Present\ON  -> System Power Supply will be Present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+#TH0088>>>
+################################### TYPE 41 ####################################
+TOKEN
+	Name  = "ONBOARD_DEVICE_EXTENDED_INFO"
+	Value  = "1"
+	Help  = "ON  -> Onboard Devices Extended Information (Type 41) will be Present.\OFF -> Onboard Devices Extended Information (Type 41) will not be Present."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ONBOARD_DEVICE_EXT_COUNT"
+	Value  = "8"
+	Help  = "Number of Onboard Devices"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+#TH0088<<<

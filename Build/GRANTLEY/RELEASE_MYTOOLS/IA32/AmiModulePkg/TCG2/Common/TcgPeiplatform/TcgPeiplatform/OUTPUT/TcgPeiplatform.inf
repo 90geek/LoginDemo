@@ -1,0 +1,161 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2012, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+## @file
+#
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+[Defines]
+  INF_VERSION                = 0x00010017
+  BASE_NAME                  = TcgPeiplatform
+  FILE_GUID                  = 6B844C5B-6B75-42ca-8E8E-1CB94412B59B
+  MODULE_TYPE                = PEIM
+  VERSION_STRING             = 1.0
+  ENTRY_POINT                = TcgPeiplatformEntry
+
+[Packages.IA32]
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+
+[Binaries.IA32]
+  PE32|TcgPeiplatform.efi
+  PEI_DEPEX|TcgPeiplatform.depex
+
+[PatchPcd.IA32]
+
+[Protocols.IA32]
+
+[Ppis.IA32]
+  gAmiTcgPlatformPpiAfterMem
+
+  gAmiTcgPlatformPpiBeforeMem
+
+  gEfiPeiMemoryDiscoveredPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gPcdPpiGuid
+
+  ## CONSUMES
+  gEfiPeiPcdPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gGetPcdInfoPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiGetPcdInfoPpiGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiPeiFirmwareVolumeInfoPpiGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiPeiFirmwareVolumeInfo2PpiGuid
+
+  ## CONSUMES
+  gAmiDebugServicePpiGuid
+
+  gPeiTcgPpiGuid
+
+  gPeiTpmPpiGuid
+
+  gEfiPeiReadOnlyVariable2PpiGuid
+
+
+[Guids.IA32]
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation StackHob
+  gEfiHobMemoryAllocStackGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation BspStoreHob
+  gEfiHobMemoryAllocBspStoreGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation ModuleHob
+  gEfiHobMemoryAllocModuleGuid
+
+  ## SOMETIMES_PRODUCES ## GUID # FV File System Guid.
+  gEfiFirmwareFileSystem2Guid
+
+  gAmiGlobalVariableGuid
+
+
+[PcdEx.IA32]
+
+[LibraryClasses.IA32]
+## @LIB_INSTANCES
+#  MdePkg/Library/PeiPcdLib/PeiPcdLib.inf
+#  MdePkg/Library/BaseLib/BaseLib.inf
+#  MdePkg/Library/PeiHobLib/PeiHobLib.inf
+#  MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr.inf
+#  MdePkg/Library/PeiMemoryAllocationLib/PeiMemoryAllocationLib.inf
+#  MdePkg/Library/PeiServicesTablePointerLibIdt/PeiServicesTablePointerLibIdt.inf
+#  MdePkg/Library/PeiServicesLib/PeiServicesLib.inf
+#  AmiModulePkg/Library/PeiAmiDebugLib/PeiAmiDebugLib.inf
+#  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
+#  MdePkg/Library/BasePciExpressLib/BasePciExpressLib.inf
+#  MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress.inf
+#  AmiModulePkg/TCG2/ShaLib/TcgHashIntrinsicLib.inf
+#  MdePkg/Library/BasePostCodeLibPort80/BasePostCodeLibPort80.inf
+#  GrantleyPkg/Library/IntelIchAcpiTimerLib/IntelIchAcpiTimerLib.inf
+#  AmiModulePkg/TCG2/ShaLib/ShaLib.inf
+#  AmiCompatibilityPkg/Library/AmiPeiLib.inf
+#  AmiModulePkg/TCG2/TisLib/TisLib32.inf
+#  MdePkg/Library/PeimEntryPoint/PeimEntryPoint.inf
+#  AmiModulePkg/TCG2/Common/AmiTcgPlatformPei/AmiTcgLibPei.inf
+
+[Depex.IA32]
+#  (gAmiTcgPlatformPpiBeforeMem #************************************************************************* #************************************************************************* #**                                                                     ** #**        (C)Copyright 1985-2012, American Megatrends, Inc.            ** #**                                                                     ** #**                       All Rights Reserved.                          ** #**                                                                     ** #**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           ** #**                                                                     ** #**                       Phone: (770)-246-8600                         ** #**                                                                     ** #************************************************************************* #*************************************************************************) AND (gEfiPeiPcdPpiGuid)
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2012, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+
+[BuildOptions.IA32]
+## @AsBuilt
+##   MSFT:RELEASE_MYTOOLS_IA32_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   MSFT:RELEASE_MYTOOLS_IA32_CBINDLINK_FLAGS = /nologo /NODEFAULTLIB /NOENTRY /DLL /ALIGN:16
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLDLINK_FLAGS = /nologo /NODEFAULTLIB /ENTRY:ReferenceAcpiTable /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER
+##   MSFT:RELEASE_MYTOOLS_IA32_VFR_FLAGS = -n
+##   MSFT:RELEASE_MYTOOLS_IA32_PP_FLAGS = /nologo /E /TC /FIAutoGen.h
+##   MSFT:RELEASE_MYTOOLS_IA32_GENFW_FLAGS = 
+##   MSFT:RELEASE_MYTOOLS_IA32_DLINK_FLAGS = /MACHINE:I386 /NOLOGO /NODEFAULTLIB /IGNORE:4001 /OPT:REF /OPT:ICF=10 /MAP /ALIGN:32 /SECTION:.xdata,D /SECTION:.pdata,D /LTCG /DLL /ENTRY:$(IMAGE_ENTRY_POINT) /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER /SAFESEH:NO /BASE:0 /DRIVER /MERGE:.data=.text /MERGE:.rdata=.text /IGNORE:4254 /PDB:$(DEBUG_DIR)/$(BASE_NAME).pdb
+##   MSFT:RELEASE_MYTOOLS_IA32_SLINK_FLAGS = /nologo /LTCG
+##   MSFT:RELEASE_MYTOOLS_IA32_ASM_FLAGS = /nologo /c /WX /W3 /Cx /Zd /coff
+##   MSFT:RELEASE_MYTOOLS_IA32_ASL_FLAGS = 
+##   MSFT:RELEASE_MYTOOLS_IA32_CC_FLAGS = /nologo /c /WX /GS- /W3 /Gs32768 /Gy /D UNICODE /GL /FIAutoGen.h /EHs-c- /GR- /GF -D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819 /O1ib2  -DMDEPKG_NDEBUG  /D CRB_FLAG /D VFR_CRB_FLAG /D EXTERNAL_PACKAGE /D SSA_FLAG /D SSA_LOADER_FLAG /D HSX_HOST  /D BDX_HOST /D LT_FLAG /DTRAD_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DME_SUPPORT_FLAG=1 /DSPS_SUPPORT=1 /DPFAT_FLAG=1 /D AMI_PAM_SAVE_RESTORE_SWSMI_VALUE=0xBE /D AMI_PAM_SAVE_CMD=0xE0 /D AMI_PAM_RESTORE_CMD=0xE1 /DUSB_PRECONDITION_ENABLE_FLAG=1 /DWDT_SUPPORT_ENABLED=1
+##   MSFT:RELEASE_MYTOOLS_IA32_VFRPP_FLAGS = /nologo /E /TC /DVFRCOMPILE /FI$(MODULE_NAME)StrDefs.h -D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819 /O1ib2  -DMDEPKG_NDEBUG  /D CRB_FLAG /D VFR_CRB_FLAG /D EXTERNAL_PACKAGE /D SSA_FLAG /D SSA_LOADER_FLAG /D HSX_HOST  /D BDX_HOST /D LT_FLAG /DTRAD_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DME_SUPPORT_FLAG=1 /DSPS_SUPPORT=1 /DPFAT_FLAG=1 /D AMI_PAM_SAVE_RESTORE_SWSMI_VALUE=0xBE /D AMI_PAM_SAVE_CMD=0xE0 /D AMI_PAM_RESTORE_CMD=0xE1 /DUSB_PRECONDITION_ENABLE_FLAG=1 /DWDT_SUPPORT_ENABLED=1
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLCC_FLAGS = /nologo /c /TC /FIAutoGen.h /Dmain=ReferenceAcpiTable
+##   MSFT:RELEASE_MYTOOLS_IA32_CBINCC_FLAGS = /nologo /c /TC /Os /FIAutoGen.h
+##   MSFT:RELEASE_MYTOOLS_IA32_APP_FLAGS = /nologo /E /TC
+##   MSFT:RELEASE_MYTOOLS_IA32_OPTROM_FLAGS = -e
+##   MSFT:RELEASE_MYTOOLS_IA32_NASMB_FLAGS = -f bin
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLPP_FLAGS = /nologo /EP /TC
+##   MSFT:RELEASE_MYTOOLS_IA32_OBJCOPY_FLAGS = objcopy not needed for
+##   MSFT:RELEASE_MYTOOLS_IA32_MAKE_FLAGS = /nologo -s
+##   MSFT:RELEASE_MYTOOLS_IA32_ASMLINK_FLAGS = /nologo /tiny
+##   MSFT:RELEASE_MYTOOLS_IA32_NASM_FLAGS = -Ox -f win32

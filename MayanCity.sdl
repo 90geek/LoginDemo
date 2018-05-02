@@ -1,0 +1,2399 @@
+#*************************************************************************
+#*************************************************************************
+#**                                                                     **
+#**        (C)Copyright 1985-2016, American Megatrends, Inc.            **
+#**                                                                     **
+#**                       All Rights Reserved.                          **
+#**                                                                     **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093           **
+#**                                                                     **
+#**                       Phone: (770)-246-8600                         **
+#**                                                                     **
+#*************************************************************************
+#*************************************************************************
+
+TOKEN
+	Name  = "TARGET_ARCH"
+	Value  = "X64"
+	Help  = "Project CPU Architecture"
+	TokenType = Expression
+	TargetMAK = Yes
+	Range  = "IA32 or X64"
+End
+
+TOKEN
+	Name  = "PROJECT_MAJOR_VERSION"
+	Value  = "0"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PROJECT_MINOR_VERSION"
+	Value  = "24"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "0ACFL"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PROJECT_TAG"
+	Value  = "0ACHC"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PLATFORM_TYPE" "=" "1"
+End
+
+TOKEN
+	Name  = "BIOS_TAG"
+	Value  = "$(PROJECT_TAG)$(PROJECT_MAJOR_VERSION)$(PROJECT_MINOR_VERSION)"
+	Help  = "BIOS Tag inserted into Firmware ID structure.\9 characters. \5 characters of project tag followed by 3 characters of project version and terminating zero"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+
+#Do not change the order of Platform configurations.
+TOKEN
+	Name  = "TRAD_BIOS_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ULT_BIOS_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SUS_WELL_RESTORE_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RSTE_TESTING"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERVER_BIOS_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SPARING_SCRATCHPAD_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVDIMM_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVMEM_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "STORAGE_FEATURE_EN"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVDIMM_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "STORAGE_FEATURE_EN" "=" "1"
+End
+
+TOKEN
+	Name  = "NVMEM_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "STORAGE_FEATURE_EN" "=" "1"
+End
+
+TOKEN
+	Name  = "C2FDxe_SUPPORT"
+	Value  = "0"
+	Help  = "Switch for Enabling C2FDxe support in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "STORAGE_FEATURE_EN" "=" "0"
+End
+
+TOKEN
+	Name  = "CRB_FLAG_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SV_BIOS_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SOFTSDV_BIOS_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEBUG_FLAGS_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+	Name  = "DEBUG_FLAGS_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "DEBUG_MODE" "=" "0"
+End
+
+TOKEN
+	Name  = "PERFORMANCE_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SPLIT_RECOVERY_FV"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPV_PLATFORM"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GRT_RF_PO_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ADSP_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SERIAL_IO_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "USB_PRECONDITION_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "WDT_SUPPORT_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SECURE_BOOT_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "STORAGE_FEATURE_EN"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+
+# To enable all Wellsburg Features
+TOKEN
+	Name  = "PCH_SERVER_BIOS_ENABLE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PFAT_EC_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SPS_ENABLE"
+	Value  = "1"
+	Help  = "Switch for Enabling Sps support in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "AMT_ENABLE"
+	Value  = "0"
+	Help  = "Switch for Enabling AMT support in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ICC_ENABLE"
+	Value  = "1"
+	Help  = "Switch for Enabling AMT support in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "AMT_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "BiosExtensionLoader_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling BiosExtensionLoader support in the project"
+	TokenType = Boolean
+	Token = "AMT_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "AT_ENABLE"
+	Value  = "1"
+	Help  = "Switch for Enabling AtAmt support in the project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	Token = "AMT_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "TOTAL_PCI_SERIAL_PORTS"
+	Value  = "1"
+	Help  = "**PORTING NEEDED** Total number of PCI serial ports present."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "0-4"
+	Token = "AMT_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "SDP_PLATFORM"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PPV_PLATFORM"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "BTG_ENABLE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+
+#Do not change the order of Platform configurations.
+TOKEN
+	Name  = "DEBUG_MODE"
+	Value  = "0"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DEBUG_MODE"
+	Value  = "1"
+	TokenType = Boolean
+	TargetMAK = Yes
+	Token = "SOFTSDV_BIOS_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "OPTIMIZATION"
+	Value  = "0"
+	Help  = "Enables/disables C compiler optimization."
+	TokenType = Boolean
+	TargetMAK = Yes
+	Token = "DEBUG_MODE" "=" "1"
+End
+
+TOKEN
+	Name  = "OPTIMIZATION"
+	Value  = "1"
+	Help  = "Enables/disables C compiler optimization."
+	TokenType = Boolean
+	TargetMAK = Yes
+	Token = "SOFTSDV_BIOS_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "INTEL_TXT_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling TXT support in the project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FORCE_COMMON_MODE_FOR_DEVICES"
+	Value  = "1"
+	Help  = "As the console splitter binds on top of additional devices this token will force all devices to operate in a common mode."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "AGGRESSIVELY_JOINED_E820_ENTRIES"
+	Value  = "1"
+	Help  = "Turning on this flag would allow only one Type2 memory region above 1MB.\This reduces the total number of E820 entries and could be critical for some OSes that do not tolerate too many E820 entries (FreeBSD 6.0).\Note: when flag is turned on, some memory regions that are available will be declared reserved so OS gets less memory."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "INTEL_TXT_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FLASH_BLOCK_SIZE"
+	Value  = "0x1000"
+	Help  = "Size of the Flash Device Block"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVRAM_SIZE"
+	Value  = "0x40000"
+	Help  = "Size of NVRAM area"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 1 To: FLASH_SIZE - FV_MAIN_BLOCKS*FLASH_BLOCK_SIZE"
+End
+
+TOKEN
+	Name  = "PLATFORM_NAME"
+	Value  = "GRANTLEY"
+	TokenType = Expression
+	TargetMAK = Yes
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = "PLATFORM_GUID"
+	Value  = "A361BEE1-AEB7-4921-8505-A323899516E6"
+	Help  = "The unique platform GUID that does into the description file.\MUST BE CLONED IN EVERY PROJECT!"
+	TokenType = Expression
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = "PLATFORM_GUID"
+	Value  = "BBCB0538-2E12-4ace-9A15-D4CC44816DD8"
+	Help  = "The unique platform GUID that does into the description file.\MUST BE CLONED IN EVERY PROJECT!"
+	TokenType = Expression
+	TargetDSC = Yes
+	Token = "PLATFORM_TYPE" "=" "1"
+End
+
+TOKEN
+	Name  = "FW_VERSION_GUID"
+	Value  = "{0xb908c899, 0x76fd, 0x4bb9, {0x98, 0x08, 0x0c, 0x9d, 0xf4, 0x0e, 0x43, 0x1f}}"
+	Help  = "FW Version GUID inserted into Firmware ID structure.\FW version has to be overridden for every project."
+	TokenType = Expression
+	TargetH = Yes
+	Range  = "GUID"
+End
+
+TOKEN
+	Name  = "HOTPLUG_SUPPORT"
+	Value  = "0"
+	Help  = "Enables / Disables Pci Bus Driver Native PCI Hotplug support"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "KBC_SUPPORT"
+	Value  = "1"
+	Help  = "Enable/Disable KBC support"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "UHCI_EMUL_PCI_DEVICES"
+	Value  = "{0xF8, 0, 0x01, 0x06, 0x94}"
+	Help  = "List of supported UHCI controllers in the following format: {dev1, ITF, SCC, BCC, offset}, {dev2, ITF, SCC, BCC, offset},...,{devN, ITF, SCC, BCC, offset}\dev represents the location of UHCI controller on PCI bus: dev = Bus << 8 + Dev << 3 + Func.\ITF represents the interface type of PCI device, for UHCI it must be 0.\SCC represents the sub class code of PCI device, for UHCI it must be 0x03.\BCC represents the base class code of PCI device, for UHCI it must be 0x0C.\offset represents the offset of legacy support register, for UHCI it must be 0xC0."
+	TokenType = Expression
+	TargetH = Yes
+	Token = "UHCI_EMUL_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "SMBIOS_DMIEDIT_DATA_LOC"
+	Value  = "2"
+	Help  = "SMBIOS DMIEdit data location: \0 = Boot Block \2 = NVRAM"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "ISA_IRQ_MASK"
+	Value  = "0xE305"
+	Help  = "This is an IRQ mask which may be used by ISA devices\ If BIT == 0 IRQ Available BIT == 1 IRQ Used.\DEFAULT VALUE == 0xE305."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0...0FFFFh"
+End
+
+TOKEN
+	Name  = "ISA_DMA_MASK"
+	Value  = "0x10"
+	Help  = "This is DEFAULT mask of ISA DMA channels which may be used by ISA devices.\Set BIT=1 means Channel CAN NOT be used, Reset BIT=0 means Channel is AVAILABLE.\Channel 4 of ISA DMA controller is tacken for CASCADE DMA channel. \All the rest are available."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0...0EFh"
+End
+
+TOKEN
+	Name  = "PS2Ctl_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PS2 Controller support in the project."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Token = "KBC_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_WHEA_BASE"
+	Value  = "$(FLASH_BASE)+$(NVRAM_SIZE)"
+	Help  = "WHEA Base address"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "WHEA_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FV_WHEA_BASE"
+	Value  = "$(FLASH_BASE)+$(NVRAM_SIZE)*2"
+	Help  = "WHEA Base address"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "FAULT_TOLERANT_NVRAM_UPDATE" "=" "1"
+	Token = "WHEA_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "FORCE_RECOVERY"
+	Value  = "0"
+	Help  = "Force recovery execution by forcing BootMode = BOOT_IN_RECOVERY_MODE in SbPei.c"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NON_PRODUCTION_MICROCODE"
+	Value  = "1"
+	Help  = "Enable Non-production Microcode"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "SERVWORK_MICROCODE"
+	Value  = "1"
+	Help  = "Master Server/Workstation CPU uCode Enable"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Range  = "On-Off"
+End
+
+TOKEN
+	Name  = "SERVWORK_406FX"
+	Value  = "1"
+	Help  = "Intel(R) Broadwell Server"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "SERVWORK_306FX"
+	Value  = "1"
+	Help  = "Intel(R) Haswell-EP Server"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "SERVWORK_MEF406F1"
+	Value  = "0"
+	Help  = "Intel(R) Broadwell -EX Processor B-0 Stepping"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "FLASH_BASE"
+	Value  = "0xFFFFFFFF - $(FLASH_SIZE) + 1"
+	Help  = "Flash part base address"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+
+#Changes done for the RomLayout start
+TOKEN
+	Name  = "FLASH_SIZE"
+	Value  = "0x8B0000"
+	Help  = "Size of the Flash Device in bytes"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "NESTED_FV_MAIN" "=" "0"
+End
+
+TOKEN
+	Name  = "FV_BB_SIZE"
+	Value  = "0x260000"
+	Help  = "Size of the FV_BB area"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Range  = "From: 0 To: FLASH_SIZE - NVRAM_SIZE - FV_MAIN_SIZE"
+End
+
+TOKEN
+	Name  = "FV_BB_BASE"
+	Value  = "0xffffffff - $(FV_BB_SIZE) + 1"
+	Help  = "Code Cache Base Address."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FLASH_SIZE"
+	Value  = "0x800000"
+	Help  = "Size of the Flash Device in bytes"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+
+#Changes done for the RomLayout end
+#==============================================================================
+#Tokens for using auto-generated ASLs and Intel ACPITABLEs
+#Below tokens should be provided CPU.SDL(But the AMI CPU module is not ready yet)
+TOKEN
+	Name  = "SW_SMI_PSTATE_CNT"
+	Value  = "0"
+	Help  = "VALUE to write into SMI CMD register to enter\CPU performance state control mode (if any)"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff 0 = not supported"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "SW_SMI_CST_CNT"
+	Value  = "0"
+	Help  = "Value to write in SMI_CMD reg to support _CST object and change state notification"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0-0xff"
+	Token = "ACPI_BUILD_TABLES_2_0" "=" "1"
+End
+
+TOKEN
+	Name  = "LOCAL_APIC_BASE"
+	Value  = "0xfee00000"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "A2_MEMORY_SOCKETS"
+	Value  = "$(CPU1_CHANNELS_PER_SOCKET) * $(CPU1_DIMMS_PER_CHANNEL)"
+	Help  = "Number of Memory Modules/Slots in the second physical Memory Array"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Token = "NO_OF_PHYSICAL_MEMORY_ARRAY" ">" "1"
+End
+
+
+#==============================================================================
+TOKEN
+	Name  = "NUMBER_CPU_SOCKETS"
+	Value  = "2"
+	Help  = "Number CPU Sockets on the board."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NUMBER_CPU_SOCKETS"
+	Value  = "4"
+	Help  = "Number CPU Sockets on the board."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PLATFORM_TYPE" "=" "1"
+End
+
+TOKEN
+	Name  = "IpmiSdrReader_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable IpmiSdrReader support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "IpmiRedirFru_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable IpmiRedirFru support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "FruSetupScreen_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable FruSetupScreen support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "SHOW_CHIPSET_FORMSET"
+	Value  = "0"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NV_SIMULATION"
+	Value  = "1"
+	Help  = "Debug Switch. When the switch is on, NVRAM\variables are not stored in NVRAM"
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "SOFTSDV_BIOS_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "BIOS_SIZE"
+	Value  = "800000h"
+	TokenType = Integer
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "NO_OF_PROCESSOR_SOCKETS"
+	Value  = "$(NUMBER_CPU_SOCKETS)"
+	Help  = "Specifies the Number of Physical Processors (Number of Processor Sockets) in the System."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Range  = "1, 2, 3.........."
+End
+
+TOKEN
+	Name  = "NUMBER_OF_MANAGEMENT_DEVICES"
+	Value  = "2"
+	Help  = "Number of Management Devices in the System."
+	TokenType = Integer
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "NO_OF_PHYSICAL_MEMORY_ARRAY"
+	Value  = "$(NUMBER_CPU_SOCKETS)"
+	Help  = "Specifies the Total number of Physical Arrays in the System."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+	Range  = "1 - 5"
+End
+
+TOKEN
+	Name  = "BIOS_LANGUAGE_INFO"
+	Value  = "1"
+	Help  = "ON  -> Bios Language Information structure will be present\OFF -> Bios Language Information structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "TYPE16_STRUCTURE"
+	Value  = "0"
+	Help  = "ON  -> Physical Memory Array Information structure will be present\OFF -> Physical Memory Array Information structure will not be present"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+
+#Nb.sdl Start
+TOKEN
+	Name  = "CPU0_CHANNELS_PER_SOCKET"
+	Value  = "4"
+	Help  = " Number of memory channels present on board in CPU0"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU0_DIMMS_PER_CHANNEL"
+	Value  = "2"
+	Help  = " Number of DIMM's per channel available"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU0_TYPE17_INFO"
+	Value  = "1, 1, 1, 1, $(CPU0_DIMMS_PER_CHANNEL)"
+	Help  = " <arg1, arg2, arg3, arg4, arg5> \ arg1 : Channel0 Enabled = 1 : Channel0 Disabled = 0 \ arg2 : Channel1 Enabled = 1 : Channel1 Disabled = 0 \ arg3 : Channel2 Enabled = 1 : Channel2 Disabled = 0 \ arg4 : Channel3 Present = 1 : Channel3 Disabled = 0 \ arg5 : Number of DIMM's per channel."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU1_CHANNELS_PER_SOCKET"
+	Value  = "4"
+	Help  = " Number of memory channels present on board in CPU1"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU1_DIMMS_PER_CHANNEL"
+	Value  = "2"
+	Help  = " Number of DIMM's per channel available"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU1_TYPE17_INFO"
+	Value  = "1, 1, 1, 1, $(CPU1_DIMMS_PER_CHANNEL)"
+	Help  = " <arg1, arg2, arg3, arg4, arg5> \ arg1 : Channel0 Enabled = 1 : Channel0 Disabled = 0 \ arg2 : Channel1 Enabled = 1 : Channel1 Disabled = 0 \ arg3 : Channel2 Enabled = 1 : Channel2 Disabled = 0 \ arg4 : Channel3 Present = 1 : Channel3 Disabled = 0 \ arg5 : Number of DIMM's per channel."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU2_CHANNELS_PER_SOCKET"
+	Value  = "0"
+	Help  = " Number of memory channels present on board in CPU2. Should be ported only for 4 socket configuration."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU2_DIMMS_PER_CHANNEL"
+	Value  = "0"
+	Help  = " Number of DIMM's per channel available.Should be ported only for 4 socket configuration."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU2_TYPE17_INFO"
+	Value  = "0, 0, 0, 0, $(CPU2_DIMMS_PER_CHANNEL)"
+	Help  = " <arg1, arg2, arg3, arg4, arg5> \ arg1 : Channel0 Enabled = 1 : Channel0 Disabled = 0 \ arg2 : Channel1 Enabled = 1 : Channel1 Disabled = 0 \ arg3 : Channel2 Enabled = 1 : Channel2 Disabled = 0 \ arg4 : Channel3 Present = 1 : Channel3 Disabled = 0 \ arg5 : Number of DIMM's per channel."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU3_CHANNELS_PER_SOCKET"
+	Value  = "0"
+	Help  = " Number of memory channels present on board in CPU1.Should be ported only for 4 socket configuration."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU3_DIMMS_PER_CHANNEL"
+	Value  = "0"
+	Help  = " Number of DIMM's per channel available.Should be ported only for 4 socket configuration."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU3_TYPE17_INFO"
+	Value  = "0, 0, 0, 0, $(CPU3_DIMMS_PER_CHANNEL)"
+	Help  = " <arg1, arg2, arg3, arg4, arg5> \ arg1 : Channel0 Enabled = 1 : Channel0 Disabled = 0 \ arg2 : Channel1 Enabled = 1 : Channel1 Disabled = 0 \ arg3 : Channel2 Enabled = 1 : Channel2 Disabled = 0 \ arg4 : Channel3 Present = 1 : Channel3 Disabled = 0 \ arg5 : Number of DIMM's per channel."
+	TokenType = Expression
+	TargetH = Yes
+End
+
+
+#Nb.sdl end
+TOKEN
+	Name  = "A1_MEMORY_SOCKETS"
+	Value  = "$(CPU0_CHANNELS_PER_SOCKET) * $(CPU0_DIMMS_PER_CHANNEL)"
+	Help  = "Number of Memory Modules/Slots in the first physical Memory Array"
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+
+#Placed the token before first occurrence of NUMBER_CPU_SOCKETS to resolve VEB issue.
+#TOKEN
+#	Name  = "A2_MEMORY_SOCKETS"
+#	Value  = "$(CPU1_CHANNELS_PER_SOCKET) * $(CPU1_DIMMS_PER_CHANNEL)"
+#	Help  = "Number of Memory Modules/Slots in the second physical Memory Array"
+#	TokenType = Integer
+#	TargetEQU = Yes
+#	TargetH = Yes
+#	Token = "NO_OF_PHYSICAL_MEMORY_ARRAY" ">" "1"
+#End
+TOKEN
+	Name  = "AMITSE_ROOT_PAGE_ORDER_SUPPORT"
+	Value  = "1"
+	Help  = "Project level control to enable or disable setup page ordering.  If enabled all top level pages must be reported through child elinks of AMITSE_ROOT_PAGE_ORDER, otherwise they will not appear in AMITSE"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "RECOVERY_MAIN"
+	Value  = "1"
+	Help  = "Recovery main page ID. Value available from ReFlash.h. "
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "AMITSE_ROOT_PAGE_ORDER_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "VFR_FORMID_INTELRCSETUP"
+	Value  = "1"
+	Help  = "Intel RC setup main page ID. Value available from GrantleyPkg\Platform\Dxe\Setup\Configuration.h. "
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "AMITSE_ROOT_PAGE_ORDER_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "USBDebugPort_BaseAddresDecodedBeforeQPI"
+	Value  = "0xFEDD0000"
+	Help  = "Hard coding values for USB device for debugger (SBPEIDBG_InitUsbEhci ()) to work in Grantley platforms.."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "EXTERNAL_CC_FLAGS"
+	Value  = "-D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819"
+	Help  = "C compiler flags that will be appended to the standard C flags in tools_def.txt"
+	TokenType = Expression
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "LZMA_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetFDF = Yes
+End
+
+TOKEN
+	Name  = "GPI"
+	Value  = "0300h"
+	Help  = "BIT8 = Use GPIO function.\BIT9 = Input configuration."
+	TokenType = Integer
+End
+
+TOKEN
+	Name  = "GPI_INV"
+	Value  = "0B00h"
+	Help  = "BIT8 = Use GPIO function.\BIT9 = Input configuration.\BIT11 = GPI invert."
+	TokenType = Integer
+End
+
+TOKEN
+	Name  = "GPO_LOW"
+	Value  = "0100h"
+	Help  = "BIT8 = Use GPIO function.\BIT10 = GPO output level."
+	TokenType = Integer
+End
+
+TOKEN
+	Name  = "GPO_HIGH"
+	Value  = "0500h"
+	Help  = "BIT8 = Use GPIO function.\BIT10 = GPO output level."
+	TokenType = Integer
+End
+
+TOKEN
+	Name  = "GPIO0_CONFIG"
+	Value  = "$(GPI)+00"
+	Help  = "Native Signal is BMBUSY#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO1_CONFIG"
+	Value  = "01"
+	Help  = "Native Signal is TACH1.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO2_CONFIG"
+	Value  = "$(GPI)+02"
+	Help  = "Native Signal config. for PIRQE#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO3_CONFIG"
+	Value  = "$(GPI)+03"
+	Help  = "Native Signal config. for PIRQF#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO4_CONFIG"
+	Value  = "$(GPI)+04"
+	Help  = "Native Signal config. for PIRQG#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO5_CONFIG"
+	Value  = "$(GPI)+05"
+	Help  = "Native Signal config. for PIRQH#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO6_CONFIG"
+	Value  = "06"
+	Help  = "Native Signal is TACH2.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO7_CONFIG"
+	Value  = "07"
+	Help  = "Native Signal is TACH3.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO8_CONFIG"
+	Value  = "$(GPI)+08"
+	Help  = "Native Signal is GPIO8.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO9_CONFIG"
+	Value  = "09"
+	Help  = "Native Signal is USB_OC#5.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO10_CONFIG"
+	Value  = "10"
+	Help  = "Native Signal for USB_OC#6.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO11_CONFIG"
+	Value  = "$(GPO_HIGH)+11"
+	Help  = "Native Signal for SMBALERT#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO12_CONFIG"
+	Value  = "$(GPI)+12"
+	Help  = "Native Signal is LANPHYPC.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO13_CONFIG"
+	Value  = "$(GPI)+13"
+	Help  = "Native Signal is DOCK_AZ_RST#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO14_CONFIG"
+	Value  = "$(GPI_INV)+14"
+	Help  = "Native Signal for TBT_hot_plug.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO15_CONFIG"
+	Value  = "$(GPI)+15"
+	Help  = "Native Signal is GPIO15.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO16_CONFIG"
+	Value  = "$(GPO_HIGH)+16"
+	Help  = "Native Signal is SATA4GP.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO17_CONFIG"
+	Value  = "17"
+	Help  = "Native Signal is TACH0.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO18_CONFIG"
+	Value  = "$(GPI)+18"
+	Help  = "Native Signal is SRC1CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO19_CONFIG"
+	Value  = "$(GPO_HIGH)+19"
+	Help  = "Native Signal is SATA1GP.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO20_CONFIG"
+	Value  = "$(GPO_HIGH)+20"
+	Help  = "Native Signal is SRC2CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config.."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO21_CONFIG"
+	Value  = "$(GPI)+21"
+	Help  = "Native Signal is SATA0GP.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO22_CONFIG"
+	Value  = "22"
+	Help  = "Native Signal is SCLOCK.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO23_CONFIG"
+	Value  = "23"
+	Help  = "Native Signal is LDRQ1#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO24_CONFIG"
+	Value  = "$(GPI)+24"
+	Help  = "Native Signal is GP24.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO25_CONFIG"
+	Value  = "$(GPO_LOW)+25"
+	Help  = "Native Signal is SRC3CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO26_CONFIG"
+	Value  = "$(GPO_HIGH)+26"
+	Help  = "Native Signal is S4_STATE#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO27_CONFIG"
+	Value  = "$(GPI)+27"
+	Help  = "Native Signal is GPIO27.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO28_CONFIG"
+	Value  = "$(GPO_HIGH)+28"
+	Help  = "Native Signal is GPIO28.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO29_CONFIG"
+	Value  = "$(GPI)+29"
+	Help  = "Native Signal is SLP_LAN#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO30_CONFIG"
+	Value  = "$(GPI)+30"
+	Help  = "Native Signal is GPIO30#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO31_CONFIG"
+	Value  = "$(GPI)+31"
+	Help  = "Native Signal is MGPIO2.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO32_CONFIG"
+	Value  = "$(GPO_HIGH)+32"
+	Help  = "Native Signal is CLKRUN#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO33_CONFIG"
+	Value  = "$(GPI)+33"
+	Help  = "Native Signal is HDA_DOCK_EN#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO34_CONFIG"
+	Value  = "$(GPI)+34"
+	Help  = "Native Signal is STPPCI#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO35_CONFIG"
+	Value  = "$(GPO_HIGH)+35"
+	Help  = "Native Signal is SATACLKREQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO36_CONFIG"
+	Value  = "$(GPI)+36"
+	Help  = "Native Signal is SATA2GP.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO37_CONFIG"
+	Value  = "$(GPI)+37"
+	Help  = "Native Signal is SATA3GP.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO38_CONFIG"
+	Value  = "38"
+	Help  = "Native Signal is SLOAD.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO39_CONFIG"
+	Value  = "39"
+	Help  = "Native Signal for SDATAOUT0.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO40_CONFIG"
+	Value  = "40"
+	Help  = "Native Signal is OC1#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO41_CONFIG"
+	Value  = "41"
+	Help  = "Native Signal is OC2#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO42_CONFIG"
+	Value  = "42"
+	Help  = "Native Signal is OC3#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO43_CONFIG"
+	Value  = "43"
+	Help  = "Native Signal is OC4#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO44_CONFIG"
+	Value  = "$(GPO_HIGH)+44"
+	Help  = "Native Signal is SRC5CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO45_CONFIG"
+	Value  = "$(GPO_HIGH)+45"
+	Help  = "Native Signal is SRC6CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO46_CONFIG"
+	Value  = "$(GPI)+46"
+	Help  = "Native Signal is SRC7CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO47_CONFIG"
+	Value  = "$(GPI)+47"
+	Help  = "Native Signal is PEGA_CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO48_CONFIG"
+	Value  = "48"
+	Help  = "Native Signal is SDATAOUT1.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO49_CONFIG"
+	Value  = "$(GPI)+49"
+	Help  = "Native Signal is SATA5GP.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO50_CONFIG"
+	Value  = "50"
+	Help  = "Native Signal is REQ1#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO51_CONFIG"
+	Value  = "51"
+	Help  = "Native Signal is GNT1#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO52_CONFIG"
+	Value  = "52"
+	Help  = "Native Signal is REQ2#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO53_CONFIG"
+	Value  = "53"
+	Help  = "Native Signal is GNT2#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO54_CONFIG"
+	Value  = "54"
+	Help  = "Native Signal is REQ3#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO55_CONFIG"
+	Value  = "$(GPI)+55"
+	Help  = "Native Signal is GNT3#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO56_CONFIG"
+	Value  = "$(GPI)+56"
+	Help  = "Native Signal is PEGB_CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO57_CONFIG"
+	Value  = "$(GPI)+57"
+	Help  = "Native Signal is MGPIO5.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO58_CONFIG"
+	Value  = "58"
+	Help  = "Native Signal is ML1CLK.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO59_CONFIG"
+	Value  = "59"
+	Help  = "Native Signal is OC0#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO60_CONFIG"
+	Value  = "60"
+	Help  = "Native Signal is SML0ALERT#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO61_CONFIG"
+	Value  = "$(GPO_LOW)+61"
+	Help  = "Native Signal is SUS_STAT#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO62_CONFIG"
+	Value  = "62"
+	Help  = "Native Signal is SUSCLK.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO63_CONFIG"
+	Value  = "63"
+	Help  = "Native Signal is SLP_S5#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO64_CONFIG"
+	Value  = "$(GPI)+64"
+	Help  = "Native Signal is CLKOUTFLEX0.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO65_CONFIG"
+	Value  = "$(GPI)+65"
+	Help  = "Native Signal is CLKOUTFLEX1.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO66_CONFIG"
+	Value  = "$(GPI)+66"
+	Help  = "Native Signal is CLKOUTFLEX2.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO67_CONFIG"
+	Value  = "67"
+	Help  = "Native Signal is CLKOUTFLEX3.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO68_CONFIG"
+	Value  = "68"
+	Help  = "Native Signal is TACH4.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO69_CONFIG"
+	Value  = "69"
+	Help  = "Native Signal is TACH5.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO70_CONFIG"
+	Value  = "70"
+	Help  = "Native Signal is TACH6.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO71_CONFIG"
+	Value  = "71"
+	Help  = "Native Signal is TACH7.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO72_CONFIG"
+	Value  = "$(GPI)+72"
+	Help  = "Native Signal is BATLOW#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO73_CONFIG"
+	Value  = "$(GPI)+73"
+	Help  = "Native Signal is SRC0CLKRQ#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO74_CONFIG"
+	Value  = "74"
+	Help  = "Native Signal is PCHHOT/SML1ALERT#.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "GPIO75_CONFIG"
+	Value  = "75"
+	Help  = "Native Signal is SML1DATA.\Low byte = GPIO Number.\BIT8 = Use Config.\BIT9 = Input or Output Config.\BIT10 = GPO level Config.\BIT11 = GPI invert Config."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "USE_TE_SECTION_FOR_UNCOMPRESSED_PEI_EXECUTABLES"
+	Value  = "0"
+	Help  = "When this token is enabled, uncompressed PEI executables with default packaging are packaged into a TE FFS section.\When the token is disabled, the executables are packaged into a PE section.\\"
+	TokenType = Boolean
+End
+
+
+#This token is cloned to add TargetH flag. Value is not changed.
+#Aptio V server override: Adding to resolve build error in PeiLib.c
+TOKEN
+	Name  = "MAX_PEI_PERF_LOG_ENTRIES"
+	Value  = "28"
+	Help  = "Maximum allowed number of PEI performance management entries in log database"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PCI_BUS_DEBUG_MESSAGES"
+	Value  = "1"
+	Help  = "A switch to enable PciBus Driver Debug messages over Serial Port."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "DEBUG_CODE" "=" "1"
+End
+
+TOKEN
+	Name  = "USB_DEBUG_MESSAGES"
+	Value  = "1"
+	Help  = "A switch to enable PciBus Driver Debug messages over Serial Port."
+	TokenType = Boolean
+	TargetH = Yes
+	Token = "DEBUG_CODE" "=" "1"
+End
+
+
+#intel S3 PEI support. Check it later.
+TOKEN
+	Name  = "PchS3Peim_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable PchS3Peim support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "PchS3Peim_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PchS3Peim support in Project"
+	TokenType = Boolean
+	Token = "A_S3" "=" "1"
+End
+
+TOKEN
+	Name  = "SHPC"
+	Value  = "0"
+	Help  = "_OSC: Standard Hot Plug Controller (SHPC) Native Hot Plug control. Platform does not have SHPC."
+	TokenType = Integer
+	TargetASL = Yes
+End
+
+TOKEN
+	Name  = "LOAD_DEFAULTS_ON_CMOS_CLEAR"
+	Value  = "0"
+	Help  = "Project level control to enable or disable loading setup defaults when CMOS is cleared."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "INTELRCSETUP_HiiValidateSettings"
+	Value  = "0"
+	Help  = "Project level control to enable or disable platform setup driver validating IntelRcSetup IFR controls."
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "OnBoardVideoEfi_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable OnBoardVideoEfi support in Project"
+	TokenType = Boolean
+End
+
+
+# MayanCity CRB does not support S1 and S3. They are not POR for MayanCity.
+TOKEN
+	Name  = "A_S1"
+	Value  = "0"
+	Help  = "S1 Sleep state enabled in BIOS"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "A_S3"
+	Value  = "0"
+	Help  = "S3 supported"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "KbcSouthBridge - Template_SUPPORT"
+	Value  = "0"
+	Help  = "Switch for Enabling KbcSouthBridge - Template support in the project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "PCI_SETUP_USE_APTIO_4_STYLE"
+	Value  = "1"
+	Help  = "Main switch to enable Aptio 4.x Static Setup Screen Instead of Auto generated Setup in Aptio V."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "SIO_SETUP_USE_APTIO_4_STYLE"
+	Value  = "1"
+	Help  = "Main switch to enable Aptio 4.x Static Setup Screen Instead of Auto generated Setup in Aptio V."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVRAM_START_SMI_SERVICES_GUID"
+	Value  = "{ 0x49D34AE7, 0x9454, 0x4551, 0x8F, 0x71, 0x46, 0x7D, 0x8C, 0x0E, 0x4E, 0xF5 }"
+	Help  = "This guid is used to register callback on which NVRAM services will transfered to SMI. (By default it is BDS_CONNECT_DRIVERS_PROTOCOL_GUID"
+	TokenType = Expression
+	TargetH = Yes
+	Token = "SecFlashUpd_SUPPORT" "=" "1"
+End
+
+
+# enabled for Fault Tolerant NVRAM update support.
+TOKEN
+	Name  = "MICROCODE_SPLIT_BB_UPDATE"
+	Value  = "1"
+	Help  = "If enabled, \ a) Microcode added at build time is stored in boot block.\ b) Microcode updates by INT15h are stored in the main firmware volume.\If disabled, all microcode is in the main firmware volume.\\If enabled, microcode is more fault tolerant, but requires more flash space.\"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "NVRAM_SMI_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable NVRAM SMI support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "S3_BASE_MEMORY_SIZE"
+	Value  = "0x400000"
+	Help  = "Number of bytes for S3 resume base memory."
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "0x40000 = 256K, increase/decrease it in units of 0x1000 = 4K"
+	Token = "A_S3" "=" "1"
+End
+
+TOKEN
+	Name  = "RFC_LANGUAGES"
+	Value  = '"$(SUPPORTED_LANGUAGES);x-AMI"'
+	Help  = "This goes to .dsc file.\Should be set to '$(SUPPORTED_LANGUAGES)'."
+	TokenType = Expression
+	TargetDSC = Yes
+End
+
+TOKEN
+	Name  = "CHECK_FOR_LOOPBACK_DEVICE"
+	Value  = "1"
+	Help  = "0- hardware Loop back checking disabled 1- Hardware loopback checking enabled and if present redirection skipped for the port"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "DYNAMIC_MMCFG_BASE_SUPPORT"
+	Value  = "0"
+	Help  = "0- Support for dynamic mmcfg base address change disabled 1- Support for dynamic mmcfg base address change enabled"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FWCAPSULE_MAX_HDR_SIZE"
+	Value  = "2048"
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "FWCAPSULE_IMAGE_SIZE"
+	Value  = "$(FLASH_SIZE)+4096"
+	Help  = "This is the min size of the Aptio Signed Recovery capsule file"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "IGNORE_IMAGE_ROLLBACK"
+	Value  = "1"
+	Help  = "When set, FW Capsule Validate logic will skip image Revision check"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PLATFORM_TYPE"
+	Value  = "0"
+	Help  = "Select Grantley platform type. EP 2S:0 (MayanCity) EP 4S:1(Incacity)"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "MEUD_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable ME Firmware Update support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Token = "SOFTSDV_BIOS_ENABLE" "=" "1"
+End
+
+TOKEN
+	Name  = "BIOS_VERSION_BACKWARD_COMPATIBILITY"
+	Value  = "0"
+	Help  = "Backward compatibility control token for Type 0 BIOS Version/System BIOS Major Release/System BIOS Minor Release\ON = Backward compatible\           BIOS Version = CORE_MAJOR_VERSION.CORE_MINOR_VERSION.CORE_REVISION\           System BIOS Major Release = CORE_MAJOR_VERSION\           System BIOS Minor Release = CORE_MINOR_VERSION\OFF = Not backward compatible\            BIOS Version = CORE_MAJOR_VERSION.CORE_BUILD_NUMBER\            System BIOS Major Release = CORE_MAJOR_VERSION\            System BIOS Minor Release = CORE_BUILD_NUMBER\            or OEM customized strings)"
+	TokenType = Boolean
+	TargetEQU = Yes
+End
+
+TOKEN
+	Name  = "Certificates_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable Certificates support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+PATH
+	Name  = "DxeCrc32GuidedSectionExtractLib_DIR"
+	Path  = "MdeModulePkg\Library\DxeCrc32GuidedSectionExtractLib"
+End
+
+PATH
+	Name  = "BaseDebugLibSerialPort_DIR"
+	Path  = "MdePkg\Library\BaseDebugLibSerialPort"
+End
+
+PATH
+	Name  = "BasePcdLibNull_DIR"
+	Path  = "MdePkg\Library\BasePcdLibNull"
+End
+
+MODULE
+	File  = "MayanCity.mak"
+End
+
+
+#Page Order parent for Boot Flow NORMAL
+ELINK
+	Name  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Parent  = "AMITSE_ROOT_PAGE_ORDER"
+	Priority  = 1
+	Token = "AMITSE_ROOT_PAGE_ORDER_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+
+#Childs for Boot Flow NORMAL
+ELINK
+	Name  = "{ { 0x7B59104A, 0xC00D, 0x4158, 0x87, 0xFF, 0xF0, 0x4D, 0x63, 0x96, 0xA9, 0x15 }, MAIN_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 8
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ { 0x7B59104A, 0xC00D, 0x4158, 0x87, 0xFF, 0xF0, 0x4D, 0x63, 0x96, 0xA9, 0x15 }, ADVANCED_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 10
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{  { 0xec87d643, 0xeba4, 0x4bb5, 0xa1, 0xe5, 0x3f, 0x3e, 0x36, 0xb2, 0xd, 0xa9 }, VFR_FORMID_INTELRCSETUP, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 12
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{  { 0x1239999, 0xfc0e, 0x4b6e, 0x9e, 0x79, 0xd5, 0x4d, 0x5d, 0xb6, 0xcd, 0x20 }, SERVER_MGMT_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 15
+	Token = "ServerMgmtSetup_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+
+#TH0015>>>
+ELINK
+	Name  = "{ { 0x8BEB8C19, 0x3FEC, 0x4fab, 0xA3, 0x78, 0xC9, 0x03, 0xE8, 0x90, 0xFC, 0xAE }, EVENT_LOGS_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 15
+	Token = "EventLogsSetupPage_SUPPORT" "=" "1"
+	InvokeOrder = AfterParent
+End
+
+
+#TH0015<<<
+ELINK
+	Name  = "{ { 0x80e1202e, 0x2697, 0x4264, 0x9c, 0xc9, 0x80, 0x76, 0x2c, 0x3e, 0x58, 0x63 }, RECOVERY_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 15
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ { 0x7B59104A, 0xC00D, 0x4158, 0x87, 0xFF, 0xF0, 0x4D, 0x63, 0x96, 0xA9, 0x15 }, SECURITY_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 15
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ { 0x7B59104A, 0xC00D, 0x4158, 0x87, 0xFF, 0xF0, 0x4D, 0x63, 0x96, 0xA9, 0x15 }, BOOT_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 15
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "{ { 0x7B59104A, 0xC00D, 0x4158, 0x87, 0xFF, 0xF0, 0x4D, 0x63, 0x96, 0xA9, 0x15 }, EXIT_MAIN, NULL},"
+	Parent  = "{ SETUP_ROOT_PAGE_ORDER_GUID, BOOT_FLOW_CONDITION_NORMAL, NULL},"
+	Priority  = 20
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SignalExitPmAuthProtocolEvent,"
+	Parent  = "SignalAllDriversConnectedEvent,"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "SignalCompletePowerManagementProtocolEvent,"
+	Parent  = "SignalConnectDriversEvent,"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "/Od"
+	Parent  = "*_*_X64_CC_FLAGS"
+	Type  = "BuildOptions"
+	InvokeOrder = AfterParent
+	Override  = "CpuArchDxe"
+End
+
+ELINK
+	Name  = "$(OemCert_DIR)\Grantley_SpsNMPTU_root.cer"
+	Parent  = "CertList_db"
+	InvokeOrder = AfterParent
+End
+
+
+#Block Comment - Start: Do not change the order of elinks and also the invokeorder. If anything is changed, flags are not properly overridden in Platform dsc file.
+ELINK
+	Name  = "*_*_X64_CC_FLAGS"
+	Type  = "BuildOptions"
+	InvokeOrder = AfterParent
+	OutDSC = Yes
+	Override  = "CpuArchDxe"
+End
+
+
+#Block Comment - End: Do not change the order of elinks and also the invokeorder. If we anything is changed, flags are not properly overridden in Platform dsc file.
+INFComponent
+	Name  = "BaseUefiTianoDecompressLib"
+	File  = "IntelFrameworkModulePkg\Library\BaseUefiTianoCustomDecompressLib\BaseUefiTianoCustomDecompressLib.inf"
+	Package  = "IntelFrameworkModulePkg"
+End
+
+INFComponent
+	Name  = "DxeCrc32GuidedSectionExtractLib"
+	File  = "DxeCrc32GuidedSectionExtractLib.inf"
+	Package  = "MdeModulePkg"
+	Path  = "DxeCrc32GuidedSectionExtractLib_DIR"
+End
+
+INFComponent
+	Name  = "BaseDebugLibSerialPort"
+	File  = "BaseDebugLibSerialPort.inf"
+	Package  = "MdePkg"
+	Path  = "BaseDebugLibSerialPort_DIR"
+End
+
+
+#Aptio V Grantley Override: Adding MdeModulePkg.PcatSingleSegmentPciCfg2Pei to apriori list.
+#FFS_FILE
+#	Name  = "PcatSingleSegmentPciCfg2Pei"
+#	FD_AREA  = "FV_BB"
+#	INFComponent  = "MdeModulePkg.PcatSingleSegmentPciCfg2Pei"
+#	Apriori_Index  = "2"
+#End
+INFComponent
+	Name  = "DxeSmmDriverEntryPoint"
+	File  = "IntelFrameworkPkg\Library\DxeSmmDriverEntryPoint\DxeSmmDriverEntryPoint.inf"
+	Package  = "IntelFrameworkPkg"
+End
+
+INFComponent
+	Name  = "BasePerformanceLibNull"
+	File  = "MdePkg\Library\BasePerformanceLibNull\BasePerformanceLibNull.inf"
+	Package  = "MdePkg"
+End
+
+INFComponent
+	Name  = "BasePcdLibNull"
+	File  = "BasePcdLibNull.inf"
+	Package  = "MdePkg"
+	Path  = "BasePcdLibNull_DIR"
+End
+
+INFComponent
+	Name  = "BaseDebugLibNull"
+	File  = "MdePkg\Library\BaseDebugLibNull\BaseDebugLibNull.inf"
+	Package  = "MdePkg"
+End
+
+INFComponent
+	Name  = "DxeS3BootScriptLib"
+	File  = "MdeModulePkg\Library\PiDxeS3BootScriptLib\DxeS3BootScriptLib.inf"
+	Package  = "MdeModulePkg"
+End
+
+INFComponent
+	Name  = "BaseSerialPortLib16550"
+	File  = "MdeModulePkg\Library\BaseSerialPortLib16550\BaseSerialPortLib16550.inf"
+	Package  = "MdeModulePkg"
+End
+
+LibraryMapping
+	Class  = "UefiDecompressLib"
+	Instance  = "IntelFrameworkModulePkg.BaseUefiTianoDecompressLib"
+End
+
+LibraryMapping
+	Class  = "NULL"
+	Instance  = "MdeModulePkg.DxeCrc32GuidedSectionExtractLib"
+	Override  = "MdeModulePkg.DxeMain"
+End
+
+LibraryMapping
+	Class  = "DebugLib"
+	Instance  = "MdePkg.BaseDebugLibSerialPort"
+	Override  = "MdeModulePkg.DxeMain"
+End
+
+LibraryMapping
+	Class  = "DxeSmmDriverEntryPoint"
+	Instance  = "IntelFrameworkPkg.DxeSmmDriverEntryPoint"
+End
+
+LibraryMapping
+	Class  = "PerformanceLib"
+	Instance  = "MdePkg.BasePerformanceLibNull"
+End
+
+LibraryMapping
+	Class  = "PcdLib"
+	Instance  = "MdePkg.BasePcdLibNull"
+End
+
+LibraryMapping
+	Class  = "PcdLib"
+	Instance  = "MdePkg.BasePcdLibNull"
+	Arch  = "X64"
+	ModuleTypes  = "DXE_CORE"
+End
+
+
+#Grantley Override: MdePkg.BaseDebugLibSerialPort override is added for MdeModulePkg.PiSmmCore
+LibraryMapping
+	Class  = "DebugLib"
+	Instance  = "MdePkg.BaseDebugLibSerialPort"
+	Override  = "MdeModulePkg.PiSmmCore"
+End
+
+LibraryMapping
+	Class  = "PcdLib"
+	Instance  = "MdePkg.BasePcdLibNull"
+	Override  = "MdeModulePkg.PcdDxe"
+End
+
+LibraryMapping
+	Class  = "PciLib"
+	Instance  = "MdePkg.BasePciLibCf8"
+	Override  = "MdeModulePkg.PeiMain"
+End
+
+LibraryMapping
+	Class  = "PciLib"
+	Instance  = "MdePkg.BasePciLibCf8"
+	Override  = "MdeModulePkg.DxeMain"
+End
+
+
+#Grantley Override: MdePkg.DxePcdLib override is added for IA32FamilyCpuPkg.CpuArchDxe
+LibraryMapping
+	Class  = "PcdLib"
+	Instance  = "MdePkg.DxePcdLib"
+	Override  = "IA32FamilyCpuPkg.CpuArchDxe"
+End
+
+LibraryMapping
+	Class  = "DebugLib"
+	Instance  = "MdePkg.BaseDebugLibNull"
+	Override  = "MdeModulePkg.DxeIpl"
+End
+
+LibraryMapping
+	Class  = "DebugAgentLib"
+	Instance  = "MdeModulePkg.DebugAgentLibNull"
+	Override  = "MdeModulePkg.CapsulePei"
+End
+
+LibraryMapping
+	Class  = "DebugAgentLib"
+	Instance  = "MdeModulePkg.DebugAgentLibNull"
+	Override  = "UefiCpuPkg.S3Resume2Pei"
+	Token = "A_S3" "=" "1"
+End
+
+LibraryMapping
+	Class  = "S3BootScriptLib"
+	Instance  = "MdePkg.BaseS3BootScriptLibNull"
+	Override  = "ServerCommonPkg.SoftStrapsPeim"
+End
+
+LibraryMapping
+	Class  = "S3BootScriptLib"
+	Instance  = "MdeModulePkg.DxeS3BootScriptLib"
+End
+
+LibraryMapping
+	Class  = "SerialPortLib"
+	Instance  = "MdeModulePkg.BaseSerialPortLib16550"
+	Override  = "AmiModulePkg.StatusCodePei"
+End
+
+LibraryMapping
+	Class  = "SerialPortLib"
+	Instance  = "MdeModulePkg.BaseSerialPortLib16550"
+	Override  = "AmiModulePkg.SerialRecovery"
+	Token = "SerialRecovery_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "SerialPortLib"
+	Instance  = "MdeModulePkg.BaseSerialPortLib16550"
+	Override  = "AmiModulePkg.IsRecoveryOverSerial"
+	Token = "IsRecoveryOverSerial_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+	Class  = "PciLib"
+	Instance  = "MdePkg.BasePciLibCf8"
+	Override  = "AmiModulePkg.StatusCodePei"
+End
+
+LibraryMapping
+	Class  = "PciLib"
+	Instance  = "MdePkg.BasePciLibCf8"
+	Override  = "AmiModulePkg.StatusCodeDxe"
+End
+
+PcdMapping
+	Name  = "PcdPeiCoreMaxPeimPerFv"
+	GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint32"
+	Value  = "64"
+	Override  = "MdeModulePkg.PeiMain"
+	Offset  = 00h
+	Length  = 04h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdPeiCoreMaxPeimPerFv"
+	GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	DataType  = "Uint32"
+	Value  = "100"
+	Override  = "MdeModulePkg.PeiMain"
+	Offset  = 00h
+	Length  = 04h
+	TargetDSC = Yes
+	Token = "A_S3" "=" "1"
+End
+
+PcdMapping
+	Name  = "PcdMaximumLinkedListLength"
+	GuidSpace  = "gEfiMdePkgTokenSpaceGuid"
+	PcdType  = "PcdsFixedAtBuild"
+	Value  = "0"
+	Override  = "IntelFrameworkModulePkg.DataHubDxe"
+	Offset  = 00h
+	Length  = 00h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdCpuSmmBlockStartupThisAp"
+	GuidSpace  = "gEfiCpuTokenSpaceGuid"
+	PcdType  = "PcdsFeatureFlag"
+	Value  = "TRUE"
+	Offset  = 00h
+	Length  = 00h
+	TargetDSC = Yes
+End
+
+PcdMapping
+	Name  = "PcdSerialRegisterBase"
+	GuidSpace  = "gEfiMdeModulePkgTokenSpaceGuid"
+	PcdType  = "PcdsPatchableInModule"
+	Value  = "0x3f8"
+	Offset  = 00h
+	Length  = 00h
+	TargetDSC = Yes
+End
+
+FFS_FILE
+	Name  = "UsbRecovery"
+	FD_AREA  = "FV_BB"
+	INFComponent  = "AmiModulePkg.UsbRecovery"
+	Rule_Override  = "Compressed"
+	Token = "UsbRecov_SUPPORT" "=" "1"
+End
+
+FD_AREA
+	Name  = "FV_LOGOROMHOLE"
+	TYPE  = "StandAlone"
+	FD_INFO  = "AMIROM"
+	Size  = "$(ROMHOLE_BLOCK_SIZE) * $(ROMHOLE_NUMBER_OF_BLOCK)"
+	Attributes  = "0x7ffe"
+	Guid  = "E54D9684-2735-43ef-A379-30F2F592BA10"
+	Token = "TSE_ROMHOLE_SUPPORT" "=" "1"
+End
+

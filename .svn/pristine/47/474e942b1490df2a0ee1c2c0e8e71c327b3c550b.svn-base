@@ -1,0 +1,30 @@
+<component>
+	name = "Foxconn"
+	category = Flavor
+	Rank = 8388608
+	LocalRoot = "FoxconnPkg\"
+	RefName = "Foxconn"
+[INF]
+"Foxconn.inf"
+[files]
+"history.txt"	
+"Foxconn.sdl"	
+"OemPcieCfg.sdl"	
+"OemGpioCfg.sdl"	
+"E5907X3.EFI"	
+"ASTVBIOS.396"	
+"BA1543L2.LOM"	
+"ThorOnBoardLanEfiFdfFileStatement.txt"	
+"OemSmbios.sdl"	
+"OemSmbdesc.def"	
+"OemDefaultFixedBootOrder.sdl"
+"FXUpdateInfoToBMC.c"#GCH001002+	
+[parts]
+"OemPsuPolicy"
+"OemDxeDrivers"
+"CFG-Ali-806"
+"CFG-Ali-1218"
+"CFG-Baidu"
+"CFG-Generic"
+"FxnChangeSKUType"
+<endComponent>

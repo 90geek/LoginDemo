@@ -1,0 +1,73 @@
+ CapsulePei
+
+ Timestamp is 5ae04a06 (Wed Apr 25 17:27:34 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000000d4H .data                   CODE
+ 0001:000000d4 00000090H .rdata                  CODE
+ 0001:00000170 00001413H .text                   CODE
+ 0001:00001584 00000000H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiCallerIdGuid          00000220     CapsulePei:AutoGen.obj
+ 0001:00000010       _gEfiCapsuleVendorGuid     00000230     CapsulePei:AutoGen.obj
+ 0001:00000020       _gEfiPeiReadOnlyVariable2PpiGuid 00000240     CapsulePei:AutoGen.obj
+ 0001:00000030       _gPeiCapsulePpiGuid        00000250     CapsulePei:AutoGen.obj
+ 0001:00000040       _gEfiPeiLoadFilePpiGuid    00000260     CapsulePei:AutoGen.obj
+ 0001:00000050       _mGdtEntries               00000270     CapsulePei:UefiCapsule.obj
+ 0001:000000d4       __gPcd_FixedAtBuild_PcdCapsuleCoalesceFile 000002f4     CapsulePei:AutoGen.obj
+ 0001:000000e4       _mGdt                      00000304     CapsulePei:UefiCapsule.obj
+ 0001:000000ec       ??_C@_1CE@KAHHLODK@?$AAC?$AAa?$AAp?$AAs?$AAu?$AAl?$AAe?$AAU?$AAp?$AAd?$AAa?$AAt?$AAe?$AAD?$AAa?$AAt?$AAa?$AA?$AA@ 0000030c     CapsulePei:UefiCapsule.obj
+ 0001:00000110       ??_C@_1CM@MKADNKPL@?$AAC?$AAa?$AAp?$AAs?$AAu?$AAl?$AAe?$AAL?$AAo?$AAn?$AAg?$AAM?$AAo?$AAd?$AAe?$AAB?$AAu?$AAf?$AAf?$AAe?$AAr?$AA?$AA@ 00000330     CapsulePei:UefiCapsule.obj
+ 0001:0000013c       _mCapsulePpi               0000035c     CapsulePei:UefiCapsule.obj
+ 0001:00000148       _mUefiPpiListCapsule       00000368     CapsulePei:UefiCapsule.obj
+ 0001:00000154       _mHexStr                   00000374     BasePrintLib:PrintLibInternal.obj
+ 0001:00000170       __ModuleEntryPoint         00000390 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000183       _CalculatePageTableSize    000003a3 f   CapsulePei:UefiCapsule.obj
+ 0001:00000248       _CreateIdentityMappingPageTables 00000468 f   CapsulePei:UefiCapsule.obj
+ 0001:0000042b       _ReturnFunction            0000064b f   CapsulePei:UefiCapsule.obj
+ 0001:0000044e       _Thunk32To64               0000066e f   CapsulePei:UefiCapsule.obj
+ 0001:000004b6       _ModeSwitch                000006d6 f   CapsulePei:UefiCapsule.obj
+ 0001:00000651       _FindCapsuleCoalesceImage  00000871 f   CapsulePei:UefiCapsule.obj
+ 0001:0000071a       _GetCapsuleDescriptors     0000093a f   CapsulePei:UefiCapsule.obj
+ 0001:00000824       _CapsuleCoalesce           00000a44 f   CapsulePei:UefiCapsule.obj
+ 0001:000009b1       _CheckCapsuleUpdate        00000bd1 f   CapsulePei:UefiCapsule.obj
+ 0001:000009bb       _CreateState               00000bdb f   CapsulePei:UefiCapsule.obj
+ 0001:00000ad2       _FindFreeMem               00000cf2 f   CapsulePei:CapsuleCoalesce.obj
+ 0001:00000b65       _ValidateCapsuleIntegrity  00000d85 f   CapsulePei:CapsuleCoalesce.obj
+ 0001:00000c52       _RelocateBlockDescriptors  00000e72 f   CapsulePei:CapsuleCoalesce.obj
+ 0001:00000da3       _GetCapsuleInfo            00000fc3 f   CapsulePei:CapsuleCoalesce.obj
+ 0001:00000e62       _BuildCapsuleDescriptors   00001082 f   CapsulePei:CapsuleCoalesce.obj
+ 0001:00000ed6       _CapsuleDataCoalesce       000010f6 f   CapsulePei:CapsuleCoalesce.obj
+ 0001:00001175       _SetJump                   00001395 f   BaseLib:SetJump.obj
+ 0001:00001198       _StrCpy                    000013b8 f   BaseLib:String.obj
+ 0001:000011b9       _AsmCpuid                  000013d9 f   BaseLib:CpuId.obj
+ 0001:000011f0       _LShiftU64                 00001410 f   BaseLib:LShiftU64.obj
+ 0001:00001219       _InternalAssertJumpBuffer  00001439 f   BaseLib:SetJump.obj
+ 0001:0000121a       _InternalLongJump          0000143a f   BaseLib:LongJump.obj
+ 0001:0000122e       _PeiServicesLocatePpi      0000144e f   PeiServicesLib:PeiServicesLib.obj
+ 0001:00001249       _CopyMem                   00001469 f   BaseMemoryLibRepStr:CopyMemWrapper.obj
+ 0001:00001268       _CompareGuid               00001488 f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:0000128c       _GetHobList                000014ac f   PeiHobLib:HobLib.obj
+ 0001:000012a6       _GetNextHob                000014c6 f   PeiHobLib:HobLib.obj
+ 0001:000012d3       _InternalPeiCreateHob      000014f3 f   PeiHobLib:HobLib.obj
+ 0001:000012fa       _BasePrintLibFillBuffer    0000151a f   BasePrintLib:PrintLibInternal.obj
+ 0001:0000131e       _BasePrintLibValueToString 0000153e f   BasePrintLib:PrintLibInternal.obj
+ 0001:00001362       _BasePrintLibConvertValueToString 00001582 f   BasePrintLib:PrintLibInternal.obj
+ 0001:000013f4       _InternalReportStatusCode  00001614 f   PeiReportStatusCodeLib:ReportStatusCodeLib.obj
+ 0001:00001423       _ProcessCapsuleImage       00001643 f   PeiCapsuleLib:PeiProcessCapsuleImage.obj
+ 0001:00001470       _GetPeiServicesTablePointer 00001690 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00001490       _InternalX86EnablePaging64 000016b0 f   BaseLib:EnablePaging64.obj
+ 0001:000014d8       _InternalMemCopyMem        000016f8 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00001514       _InternalMemZeroMem        00001734 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00001534       _InternalMemSetMem         00001754 f   BaseMemoryLibRepStr:SetMem.obj
+ 0001:0000154c       _InternalMemSetMem32       0000176c f   BaseMemoryLibRepStr:SetMem32.obj
+ 0001:00001564       _InternalMemSetMem64       00001784 f   BaseMemoryLibRepStr:SetMem64.obj
+
+ entry point at        0001:00000170
+
+ Static symbols
+

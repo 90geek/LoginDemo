@@ -1,0 +1,43 @@
+
+## @file
+#  S3Save SMM implementation
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  PI_SPECIFICATION_VERSION 		 = 0x0001000A
+  BASE_NAME                      = S3SaveSmm
+  FILE_GUID                      = 413B1952-D564-4aeb-8CDA-8353161500BC
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitBootScript
+
+  
+[Sources]
+  AcpiS3Save.c
+  BootScriptPrivate.h	
+  BootScriptSave.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiRuntimeServicesTableLib
+  
+  AmiDxeLib
+
+[Protocols]
+  gEfiS3SaveStateProtocolGuid		#PRODUCED
+  gEfiSmmBase2ProtocolGuid			#CONSUMED
+  gEfiS3SmmSaveStateProtocolGuid	#PRODUCED
+  gEfiBootScriptSaveProtocolGuid	#PRODUCED
+  
+[Depex] 
+  gEfiSmmBase2ProtocolGuid
+

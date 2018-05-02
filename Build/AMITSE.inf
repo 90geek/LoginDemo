@@ -1,0 +1,188 @@
+
+## @file
+#   The [Sources] section for this file is auto-generated from ELINKs:
+#   SETUP_DEFINITIONS, SETUP_FORMSETS, SetupStringFiles, and SetupCallbackFiles
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AMITSE
+  FILE_GUID                      = B1DA0ADF-4F77-4070-A88E-BFFE1C60529A
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = MiniSetupApplication
+#
+#  This flag specifies whether HII resource section is generated into PE image.
+#
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+  
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+
+
+[Sources]
+../AmiTsePkg\Core\em\AMITSE/bootflow.c
+../AmiTsePkg\Core\em\AMITSE/bootflow.h
+#../AmiTsePkg\Core\em\AMITSE/commonoem.c
+../AmiTsePkg\Core\em\AMITSE/commonoem.h
+../AmiTsePkg\Core\em\AMITSE/FakeTokens.c
+../AmiTsePkg\Core\em\AMITSE/Inc/boot.h
+../AmiTsePkg\Core\em\AMITSE/Inc/HiiLib.h
+../AmiTsePkg\Core\em\AMITSE/Inc/LogoLib.h
+../AmiTsePkg\Core\em\AMITSE/Inc/mem.h
+../AmiTsePkg\Core\em\AMITSE/Inc/PwdLib.h
+../AmiTsePkg\Core\em\AMITSE/Inc/variable.h
+../AmiTsePkg\Core\em\AMITSE/Inc/HookAnchor.h
+../AmiTsePkg\Core\em\AMITSE/HookList.c
+#../AmiTsePkg\Core\em\AMITSE/CommonHelper.c
+../AmiTsePkg\Core\em\AMITSE/Keymon.c
+../AmiTsePkg\Core\em\AMITSE/Keymon.h
+../AmiTsePkg\Core\em\AMITSE/Inc/TseElinks.h
+../FoxconnPkg/FXUpdateInfoToBMC.c #GCH001002+
+../AmiTsePkg\Core\em\AMITSE/Inc/TseCommon.h
+../AmiTsePkg\Core\em\AMITSE/Inc/setupdata.h
+../AmiTsePkg\Core\em\AMITSE/TseDrvHealth.h
+../AmiTsePkg\Core\em\AMITSE/setupdbg.h
+
+  ../AmiTsePkg\Core\em\AMITSE/commonoem.c
+ ../AmiTsePkg\Core\em\AMITSE/CommonHelper.c
+ ../AmiModulePkg\NVRAM/NvramRead.c
+ ../AmiTsePkg\EDK\MiniSetup\TseAdvanced/Mouse.c
+ ../AmiTsePkg\EDK\MiniSetup\BootOnly/hiistring21.c
+ ../AmiTsePkg\EDK\MiniSetup\Ezport/HotkeyBin.h
+ ../AmiTsePkg\EDK\MiniSetup\Ezport/HotkeyBin.c
+ ../AmiTsePkg\EDK\MiniSetup\Ezport/HotclickBin.c
+ ../AmiTsePkg\EDK\MiniSetup\Ezport/HotclickBin.h
+ ../AmiIpmiPkg\Ipmi\DxeFrb/DxeFrb.c
+ ../AmiIpmiPkg\Ipmi\DxeFrb/DxeFrb.h
+ ../AmiIpmiPkg\Ipmi\IpmiBoot/ByPassUserPassWord.c
+ ../AmiIpmiPkg\Ipmi\BmcLanConfig/BmcLanDefaults.c
+ ../AmiModulePkg\EfiOsBootOptionNames/EfiOsBootOptionNames.c
+ ../AmiModulePkg\HardwareSignature\SignalSetupConfig.c
+ ../AmiModulePkg\TCG2\Common\Setup\HandleLoadDefaultsSetup.c
+ ../AmiModulePkg\TCG2\Common\Setup\AmiTcgPpiHandshake.c
+ ../AmiModulePkg\FixedBootOrder\FixedBootOrderTse.c
+ ../AmiModulePkg\FixedBootOrder\FboSce\FboSceTse.c
+
+  ../AmiTsePkg\Core\em\AMITSE/AmiTSEStr.uni
+ ../AmiTsePkg\Board\Em\AMITSEBoard/TseOem.uni
+ ../AmiTsePkg\EDK\MiniSetup\Ezport/StyleStr.uni
+ ../AmiModulePkg\HddSecurity\AmiTseHddSecurity/AmiTSEHDDSecurity.uni
+
+  ../AmiTsePkg\Core\em\AMITSE/FakeTokens.c
+ ../AmiTsePkg\Board\Em\AMITSEBoard/OemTokens.c
+ ../AmiTsePkg\EDK\MiniSetup\Ezport/StyleTokens.c
+ ../AmiModulePkg\HddSecurity\AmiTseHddSecurity/AmiTSEHDDSecurityFakeTokens.c
+
+
+[Packages]
+  AmiTsePkg/AmiTsePkg.dec
+  AmiTsePkg\AmiTsePrivatePkg.dec   #TH0120
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  MdePkg/MdePkg.dec
+#  AmiModulePkg/AmiModulePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+ MdePkg/MdePkg.dec
+ AmiIpmiPkg/AmiIpmiPkg.dec
+
+
+[LibraryClasses]
+  AMITSEBoard
+ TseAdvanced
+ TseAdvancedImages
+ Minisetup
+ PasswordEncode
+ TsePasswordEncode
+ TseLite
+ TseOEM
+ Uefi21
+ Ezport
+ NetBootHotKey
+ AmiTseHddPasswordLib
+ TcgPwdTseHookLib
+ StyleHook
+  AmiDxeLib
+  MemoryAllocationLib
+  BaseLib
+  BaseMemoryLib
+  PerformanceLib
+  DevicePathLib
+  DebugLib
+  UefiLib
+  PrintLib
+  UefiDriverEntryPoint
+  ReportStatusCodeLib
+
+
+[Protocols]
+  gEfiConsoleControlProtocolGuid
+  gEfiFirmwareVolume2ProtocolGuid
+  gEfiUnicodeCollation2ProtocolGuid
+  gEfiUnicodeCollationProtocolGuid
+  gEfiOEMBadgingProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiUnicodeCollation2ProtocolGuid
+  gEfiUnicodeCollationProtocolGuid
+  gEfiBlockIoProtocolGuid
+  gEfiLegacyBiosProtocolGuid
+  gEfiFirmwareVolumeProtocolGuid
+  gEfiSimpleTextInProtocolGuid
+  gEfiLoadedImageProtocolGuid
+  gEfiFirmwareVolume2ProtocolGuid
+  gAmiPostManagerProtocolGuid
+  gTSEInvalidateBgrtStatusProtocolGuid
+  gEsaInterfacesForTseProtocolGuid
+  gEfiHiiDatabaseProtocolGuid
+ gEfiHiiStringProtocolGuid
+ gEfiHiiConfigRoutingProtocolGuid
+ gEfiFormBrowser2ProtocolGuid
+ gOpromStartEndProtocolGuid
+ gAmiLegacyBootProtocolGuid
+ gEfiSmFrbProtocolGuid
+ gEfiDxeIpmiTransportProtocolGuid
+
+
+[Guids]
+   gAmiTseSetupEnterGuid
+   gAmiTseAfterFirstBootOptionGuid
+   gAmiTseEventBeforeBootGuid
+   gAmiTseBootOrderChangeGuid
+   gAmiTseNVRAMUpdateGuid
+   gAmiTsePasswordPromptEnterGuid
+   gAmiTsePasswordPromptExitGuid
+   gAmiTseUserPasswordValidGuid
+   gAmiTseAdminPasswordValidGuid
+   gAmiTseInvalidPasswordGuid
+   gAmiTseBeforeTimeOutGuid
+   gAmiTseAfterTimeOutGuid
+   gAmiTseOemTSEVarGuid
+   gAmiTseOemPortingVar1Guid
+   gAmiTseOemPortingVar2Guid
+   gAmiTseOemPortingVar3Guid
+   gAmiTseOemPortingVar4Guid
+   gAmiTseOemPortingVar5Guid
+   gAmiTseOemPortingGuid1
+   gAmiTseOemPortingGuid2
+  gEfiHobListGuid
+ gEfiIpmiBootGuid
+ gEfiServerMgmtSetupVariableGuid
+
+
+[Pcd]
+  
+
+
+[Depex]
+  TRUE
+
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /DTSE_FOR_APTIO_4_50
+  GCC:*_*_*_CC_FLAGS = -nodefaultlibs -DTSE_FOR_APTIO_4_50
+  *_*_*_BUILD_FLAGS=-s
+

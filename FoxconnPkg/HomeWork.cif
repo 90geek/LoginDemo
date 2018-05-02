@@ -1,0 +1,15 @@
+<component>
+	name = "HomeWork"
+	category = ModulePart
+	LocalRoot = "FoxconnPkg\"
+	RefName = "HomeWork"
+[INF]
+"HomeWork\Pei\HomeWorkPeim.inf"
+"HomeWork\Dxe\HomeWorkDxe.inf"
+[files]
+"HomeWork\HomeWork.sdl"	
+"HomeWork\HomeWork.c"	
+"HomeWork\HomeWork.h"	
+"HomeWork\HomeWork.sd"	
+"HomeWork\HomeWork.uni"	
+<endComponent>

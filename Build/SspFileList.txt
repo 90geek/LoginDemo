@@ -1,0 +1,3 @@
+include "AmiCompatibilityPkg//CmosManager//Template.ssp"
+include "AmiCompatibilityPkg//CmosManager//CmosBoard.ssp"
+include "AmiCRBPkg//CRB//RSTeBootInfo.ssp"

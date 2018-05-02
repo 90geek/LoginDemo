@@ -1,0 +1,49 @@
+ CpuIoPei
+
+ Timestamp is 5ae04a1f (Wed Apr 25 17:27:59 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000084H .data                   CODE
+ 0001:00000084 00000000H .rdata                  CODE
+ 0001:00000084 000004fdH .text                   CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiPeiCpuIoPpiInstalledGuid 00000220     CpuIoPei:AutoGen.obj
+ 0001:00000010       _gCpuIoPpi                 00000230     CpuIoPei:CpuIoPei.obj
+ 0001:00000060       _gPpiList                  00000280     CpuIoPei:CpuIoPei.obj
+ 0001:0000006c       _mInStride                 0000028c     CpuIoPei:CpuIoPei.obj
+ 0001:00000078       _mOutStride                00000298     CpuIoPei:CpuIoPei.obj
+ 0001:00000084       __ModuleEntryPoint         000002a4 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000000bc       _CpuIoCheckParameter       000002dc f   CpuIoPei:CpuIoPei.obj
+ 0001:0000017f       _CpuMemoryServiceRead      0000039f f   CpuIoPei:CpuIoPei.obj
+ 0001:00000236       _CpuMemoryServiceWrite     00000456 f   CpuIoPei:CpuIoPei.obj
+ 0001:000002ed       _CpuIoServiceRead          0000050d f   CpuIoPei:CpuIoPei.obj
+ 0001:000003a3       _CpuIoServiceWrite         000005c3 f   CpuIoPei:CpuIoPei.obj
+ 0001:00000456       _CpuIoRead8                00000676 f   CpuIoPei:CpuIoPei.obj
+ 0001:0000045d       _CpuIoRead16               0000067d f   CpuIoPei:CpuIoPei.obj
+ 0001:00000468       _CpuIoRead32               00000688 f   CpuIoPei:CpuIoPei.obj
+ 0001:0000046f       _CpuIoRead64               0000068f f   CpuIoPei:CpuIoPei.obj
+ 0001:00000474       _CpuIoWrite8               00000694 f   CpuIoPei:CpuIoPei.obj
+ 0001:0000047f       _CpuIoWrite16              0000069f f   CpuIoPei:CpuIoPei.obj
+ 0001:0000048c       _CpuIoWrite32              000006ac f   CpuIoPei:CpuIoPei.obj
+ 0001:00000497       _CpuIoWrite64              000006b7 f   CpuIoPei:CpuIoPei.obj
+ 0001:00000498       _CpuMemRead8               000006b8 f   CpuIoPei:CpuIoPei.obj
+ 0001:0000049f       _CpuMemRead16              000006bf f   CpuIoPei:CpuIoPei.obj
+ 0001:000004aa       _CpuMemRead32              000006ca f   CpuIoPei:CpuIoPei.obj
+ 0001:000004b1       _CpuMemRead64              000006d1 f   CpuIoPei:CpuIoPei.obj
+ 0001:000004bd       _CpuMemWrite8              000006dd f   CpuIoPei:CpuIoPei.obj
+ 0001:000004c8       _CpuMemWrite16             000006e8 f   CpuIoPei:CpuIoPei.obj
+ 0001:000004d5       _CpuMemWrite32             000006f5 f   CpuIoPei:CpuIoPei.obj
+ 0001:000004e0       _CpuMemWrite64             00000700 f   CpuIoPei:CpuIoPei.obj
+ 0001:000004f2       _LShiftU64                 00000712 f   BaseLib:LShiftU64.obj
+ 0001:0000050d       _GetPeiServicesTablePointer 0000072d f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00000528       _InternalMemCopyMem        00000748 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000564       _InternalMemZeroMem        00000784 f   BaseMemoryLibRepStr:ZeroMem.obj
+
+ entry point at        0001:00000084
+
+ Static symbols
+

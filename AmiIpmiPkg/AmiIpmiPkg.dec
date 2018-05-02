@@ -1,0 +1,125 @@
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+## @file AmiIpmiPkg.dec
+#
+##
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = AmiIpmiPkg
+  PACKAGE_GUID                   = 3A21584F-1306-40ac-AF65-818CAF445B31
+  PACKAGE_VERSION                = 0.1
+
+[Includes]
+#
+# Define include file paths
+# 
+  ../
+  ../Build
+  Include
+  Include/Include
+  Include/Ppi
+  Include/Protocol
+
+[Guids]
+  gAmiIpmiPkgTokenSpaceGuid       = { 0x1e21c326, 0xd40, 0x40f2, { 0x9f, 0x2, 0x3a, 0x9b, 0x78, 0x38, 0xaa, 0x6b } }
+  gEfiServerMgmtSetupVariableGuid = { 0x1239999, 0xfc0e, 0x4b6e, { 0x9e, 0x79, 0xd5, 0x4d, 0x5d, 0xb6, 0xcd, 0x20 } }
+  gEfiIpmiCmosClearVariableGuid   = { 0x675b8766, 0x7f03, 0x4181, { 0x9b, 0xe1, 0x73, 0xbc, 0x45, 0xdf, 0xf7, 0x99 } }
+  gEfiIpmiBootGuid                = { 0x842680f2, 0x1a9c, 0x48e6, { 0xa4, 0x33, 0xbe, 0x9a, 0xcb, 0xd, 0xd4, 0x38 } }
+
+[Ppis]
+  gEfiPeiIpmiTransportPpiGuid     = { 0x8122cebd, 0xf4fd, 0x4ea8, { 0x97, 0x6c, 0xf0, 0x3, 0xad, 0xdc, 0x4c, 0xb4 } }
+  gEfiPeiIpmiUsbTransportPpiGuid  = { 0xcbdd2397, 0xd2c5, 0x415b, { 0xbd, 0x77, 0x96, 0x30, 0xa1, 0xb7, 0x85, 0x3d } }
+  gEfiPeiSelPpiGuid               = { 0xe50b6e5d, 0x359b, 0x4be0, { 0xa0, 0xb0, 0x7, 0x15, 0xa3, 0x1, 0xa6, 0x6 } }
+
+[Protocols]
+  gEfiDxeIpmiTransportProtocolGuid    = { 0x4a1d0e66, 0x5271, 0x4e22, { 0x83, 0xfe, 0x90, 0x92, 0x1b, 0x74, 0x82, 0x13 } }
+  gEfiSmmIpmiTransportProtocolGuid    = { 0x1dbd1503, 0xa60, 0x4230, { 0xaa, 0xa3, 0x80, 0x16, 0xd8, 0xc3, 0xde, 0x2f } }
+  gEfiBmcSelfTestLogProtocolGuid      = { 0x9FE6A332, 0x1A1F, 0x43e3, { 0xBD, 0x25, 0xF7, 0x89, 0x1C, 0x6F, 0xC7, 0x4A } }
+  gEfiSmFrbProtocolGuid               = { 0xbc5f861c, 0x86ed, 0x417e, { 0xbb, 0x7b, 0x6c, 0x2, 0x6b, 0xcd, 0x75, 0x5b } }
+  gEfiSelStatusCodeProtocolGuid       = { 0xbc5f861c, 0x86ed, 0x417e, { 0xbb, 0x7b, 0x6c, 0x2, 0x6b, 0xdc, 0x65, 0x23 } }
+  gEfiRedirFruProtocolGuid            = { 0x28638cfa, 0xea88, 0x456c, { 0x92, 0xa5, 0xf2, 0x49, 0xca, 0x48, 0x85, 0x35 } }
+  gEfiRedirElogProtocolGuid           = { 0x16d11030, 0x71ba, 0x4e5e, { 0xa9, 0xf9, 0xb4, 0x75, 0xa5, 0x49, 0x4, 0x8a } }
+  gEfiDxeIpmiUsbTransportProtocolGuid = { 0x42D353B0, 0x8C1E, 0x4ACA, { 0xBE, 0xAC, 0x28, 0xFB, 0x24, 0xF2, 0x0C, 0x42 } }
+
+[PcdsFixedAtBuild]
+  gAmiIpmiPkgTokenSpaceGuid.PcdStrIntelCoroporation|L"Intel(R) Corporation"|VOID*|0x40000030
+  gAmiIpmiPkgTokenSpaceGuid.PcdStrMfg|L"Intel"|VOID*|0x40000031
+  gAmiIpmiPkgTokenSpaceGuid.PcdStrProduct|L"EPGSVR"|VOID*|0x40000032
+
+[PcdsDynamic]
+#Smbios Type 1 Strings
+  gAmiIpmiPkgTokenSpaceGuid.PcdSystemManufacturer|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000011
+  gAmiIpmiPkgTokenSpaceGuid.PcdSystemProductName|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000012
+  gAmiIpmiPkgTokenSpaceGuid.PcdSystemVersion|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000013
+  gAmiIpmiPkgTokenSpaceGuid.PcdSystemSerialNumber|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000014
+  gAmiIpmiPkgTokenSpaceGuid.PcdSystemUuid|{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}|VOID*|0x40000015
+
+#Smbios Type 2 Strings
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardManufacturer|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000017
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardProductName|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000018
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardVersion|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000019
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardSerialNumber|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x4000001A
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardAssetTag|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x4000001B
+#Default values for PcdBaseBoardFeatureFlag: HotSwappable = 0; Motherboard = 1; Removable = 0; Replaceable = 1; RequiresDaughterCard = 0;
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardFeatureFlag|0x09|UINT8|0x4000001C
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardChassisLocation|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x4000001D
+#Base board type: EfiBaseBoardTypeMotherBoard = 0xA
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardType|0x0A|UINT8|0x4000001E
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardChassisLink|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x4000001F
+  gAmiIpmiPkgTokenSpaceGuid.PcdBaseBoardNumberLinks|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000020
+
+#Smbios Type 3 Strings
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisManufacturer|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000021
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisVersion|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000022
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisSerialNumber|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000023
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisAssetTag|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x40000024
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisType|0x00|UINT8|0x40000025
+#Default value: EfiChassisStateSafe = 3
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisBootupState|0x03|UINT8|0x40000026
+#Default value: EfiChassisStateSafe = 3
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisPowerSupplyState|0x03|UINT8|0x40000027
+#Default value: EfiChassisStateSafe = 3
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisThermalState|0x03|UINT8|0x40000028
+#Default value: EfiChassisSecurityStatusUnknown = 2
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisSecurityState|0x02|UINT8|0x40000029
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisOemDefined|0x00|UINT32|0x4000002A
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisHeight|0x02|UINT8|0x4000002B
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisElementRecordLength|0x00|UINT8|0x4000002C
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisElementCount|0x00|UINT8|0x4000002D
+  gAmiIpmiPkgTokenSpaceGuid.PcdChassisElements|L"To be filled by O.E.M.To be filled by O.E.M.To be filled by O.E.M."|VOID*|0x4000002E
+
+#SdrVersionNo
+  gAmiIpmiPkgTokenSpaceGuid.PcdSdrVersionNo|L"Unknown"|VOID*|0x4000002F
+
+#Possible values for BulkDataTransferInterfaceType: UsbInterface(1)/NonUsbInterface(2)
+#Default value for BulkDataTransferInterfaceType: NonUsbInterface(2)
+  gAmiIpmiPkgTokenSpaceGuid.BulkDataTransferInterfaceType|0x02|UINT8|0x40000033
+
+#Timeout to be sent to UsbBulkTransfer method
+  gAmiIpmiPkgTokenSpaceGuid.BulkDataTransferTimeout|65535|UINT16|0x40000034
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**         5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093     **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+  

@@ -1,0 +1,10 @@
+<component>
+	name = "CryptoUtils"
+	category = ModulePart
+	LocalRoot = "AmiCryptoPkg\Utils\"
+	RefName = "AmiCryptoUtils"
+[files]
+"CryptoUtils.sdl"	
+"CryptoCon.exe"
+"keygen.exe"
+<endComponent>

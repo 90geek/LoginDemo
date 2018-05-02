@@ -1,0 +1,2 @@
+#define SMBIOS_OEM_UPDATE_LIST 
+

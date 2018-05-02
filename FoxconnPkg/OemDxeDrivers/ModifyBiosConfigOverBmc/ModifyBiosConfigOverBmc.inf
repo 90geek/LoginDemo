@@ -1,0 +1,59 @@
+#**********************************************************************
+#<OEM_FHDR_START>
+#
+# Name:  ModifyBiosConfigOverBmc.inf
+#
+# Description:  INF description file for ModifyBiosConfigOverBmc driver
+#
+#<OEM_FHDR_END>
+#**********************************************************************
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ModifyBiosConfigOverBmc
+  FILE_GUID                      = 0389B16E-F382-4e84-8995-699B4A001A56
+  MODULE_TYPE                    = DXE_DRIVER
+  PI_SPECIFICATION_VERSION       = 0x0001000A
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = ModifyBiosConfig
+
+[Sources]
+ModifyBiosConfigOverBmc.h
+ModifyBiosConfigOverBmc.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmiIpmiPkg/AmiIpmiPkg.dec
+  AmiTsePkg/AmiTsePkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiCompatibilityPkg\AmiCompatibilityPkg.dec
+  GrantleyPkg/PlatformPkg.dec	
+  
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  MemoryAllocationLib
+  BaseLib  
+  BaseMemoryLib
+  UefiLib
+  AmiDxeLib
+  DebugLib
+  IoLib
+
+[Protocols]
+  gEfiDxeIpmiTransportProtocolGuid  #CONSUMES
+  gAmiLegacyBootProtocolGuid        #CONSUMES
+
+[Guids]
+  gEfiSetupVariableGuid
+  gAmiTseNVRAMUpdateGuid
+  gAmiTseEventBeforeBootGuid
+  
+[Pcd]
+
+
+[Depex]
+  gEfiDxeIpmiTransportProtocolGuid

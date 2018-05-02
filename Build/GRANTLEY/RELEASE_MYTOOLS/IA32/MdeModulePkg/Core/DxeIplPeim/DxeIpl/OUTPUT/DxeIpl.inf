@@ -1,0 +1,220 @@
+## @file
+#  Last PEIM executed in PEI phase to load DXE Core from a Firmware Volume.
+#
+#  This module produces a special PPI named the DXE Initial Program Load (IPL)
+#  PPI to discover and dispatch the DXE Foundation and components that are
+#  needed to run the DXE Foundation.
+#
+#  Copyright (c) 2006 - 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+[Defines]
+  INF_VERSION                = 0x00010017
+  BASE_NAME                  = DxeIpl
+  FILE_GUID                  = 86D70125-BAA3-4296-A62F-602BEBBB9081
+  MODULE_TYPE                = PEIM
+  VERSION_STRING             = 1.0
+  ENTRY_POINT                = PeimInitializeDxeIpl
+
+[Packages.IA32]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec
+
+[Binaries.IA32]
+  PE32|DxeIpl.efi
+  PEI_DEPEX|DxeIpl.depex
+
+[PatchPcd.IA32]
+
+[Protocols.IA32]
+
+[Ppis.IA32]
+  ## PRODUCES
+  gEfiDxeIplPpiGuid
+
+  ## PRODUCES
+  gEfiPeiDecompressPpiGuid
+
+  ## SOMETIMES_PRODUCES # Not produced on S3 boot path
+  gEfiEndOfPeiSignalPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiPeiReadOnlyVariable2PpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiPeiLoadFilePpiGuid
+
+  ## SOMETIMES_CONSUMES # Consumed on S3 boot path
+  gEfiPeiS3Resume2PpiGuid
+
+  ## SOMETIMES_CONSUMES # Consumed on recovery boot path
+  gEfiPeiRecoveryModulePpiGuid
+
+  ## SOMETIMES_CONSUMES
+  ## UNDEFINED # HOB
+  gEfiVectorHandoffInfoPpiGuid
+
+  #*** AMI PORTING BEGIN ***#
+  ## SOMETIMES_PRODUCES(Not produced on S3 or recovery boot path)
+  gEfiPeiLoadedImagePpiGuid
+
+  ## PRODUCES
+  gAmiReadyToLoadDxeCorePpiGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiPeiFirmwareVolumeInfoPpiGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiPeiFirmwareVolumeInfo2PpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gPcdPpiGuid
+
+  ## CONSUMES
+  gEfiPeiPcdPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gGetPcdInfoPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiGetPcdInfoPpiGuid
+
+
+[Guids.IA32]
+  ## SOMETIMES_CONSUMES ## Variable:L"MemoryTypeInformation"
+  ## SOMETIMES_PRODUCES ## HOB
+  gEfiMemoryTypeInformationGuid
+
+  #*** AMI PORTING BEGIN ***#
+  gAmiRecoveryImageHobGuid
+
+  gAmiGlobalVariableGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation StackHob
+  gEfiHobMemoryAllocStackGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation BspStoreHob
+  gEfiHobMemoryAllocBspStoreGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation ModuleHob
+  gEfiHobMemoryAllocModuleGuid
+
+  ## SOMETIMES_PRODUCES ## GUID # FV File System Guid.
+  gEfiFirmwareFileSystem2Guid
+
+  ## PRODUCES  ## UNDEFINED # specifies tiano custom decompress algorithm.
+  gTianoCustomDecompressGuid
+
+  ## SOMETIMES_CONSUMES   ## UNDEFINED
+  gEfiStatusCodeSpecificDataGuid
+
+  ## SOMETIMES_CONSUMES   ## UNDEFINED
+  gEfiStatusCodeDataTypeDebugGuid
+
+  ## PRODUCES ## HOB
+  ## CONSUMES ## HOB
+  gPerformanceProtocolGuid
+
+  ## PRODUCES ## HOB
+  ## CONSUMES ## HOB
+  gPerformanceExProtocolGuid
+
+  ## PRODUCES  ## UNDEFINED # specifies LZMA custom decompress algorithm.
+  gLzmaCustomDecompressGuid
+
+
+[PcdEx.IA32]
+
+[LibraryClasses.IA32]
+## @LIB_INSTANCES
+#  MdePkg/Library/PeiServicesTablePointerLibIdt/PeiServicesTablePointerLibIdt.inf
+#  MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
+#  MdePkg/Library/BaseLib/BaseLib.inf
+#  MdePkg/Library/PeiHobLib/PeiHobLib.inf
+#  MdePkg/Library/PeiServicesLib/PeiServicesLib.inf
+#  MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr.inf
+#  MdePkg/Library/PeiMemoryAllocationLib/PeiMemoryAllocationLib.inf
+#  MdePkg/Library/PeiPcdLib/PeiPcdLib.inf
+#  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
+#  MdePkg/Library/BasePciExpressLib/BasePciExpressLib.inf
+#  MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress.inf
+#  MdePkg/Library/PeiExtractGuidedSectionLib/PeiExtractGuidedSectionLib.inf
+#  MdeModulePkg/Library/OemHookStatusCodeLibNull/OemHookStatusCodeLibNull.inf
+#  GrantleyPkg/Library/IntelIchAcpiTimerLib/IntelIchAcpiTimerLib.inf
+#  MdePkg/Library/BasePostCodeLibPort80/BasePostCodeLibPort80.inf
+#  IntelFrameworkModulePkg/Library/BaseUefiTianoCustomDecompressLib/BaseUefiTianoCustomDecompressLib.inf
+#  MdeModulePkg/Library/PeiReportStatusCodeLib/PeiReportStatusCodeLib.inf
+#  MdePkg/Library/PeimEntryPoint/PeimEntryPoint.inf
+#  MdeModulePkg/Library/DebugAgentLibNull/DebugAgentLibNull.inf
+#  MdeModulePkg/Library/PeiPerformanceLib/PeiPerformanceLib.inf
+#  AmiCompatibilityPkg/Library/AmiPeiLib.inf
+#  IntelFrameworkModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+
+[Depex.IA32]
+#  (gEfiPeiMemoryDiscoveredPpiGuid AND gEfiPeiLoadFilePpiGuid AND gEfiPeiMasterBootModePpiGuid # # [BootMode] #  S3_RESUME                        ## SOMETIMES_CONSUMES #  RECOVERY_FULL                    ## SOMETIMES_CONSUMES # # # [Hob] # MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # MEMORY_ALLOCATION_MODULE for DxeCore # MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # New Stack HoB # MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # Old Stack HOB # # [Hob.IPF] # MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # MEMORY_ALLOCATION_BSP_STORE #) AND (gEfiPeiPcdPpiGuid)
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC (EBC is for build only) AARCH64
+#
+#*** AMI PORTING END *****#
+#*** AMI PORTING END *****#
+#*** AMI PORTING END *****#
+#*** AMI PORTING END *****#
+#*** AMI PORTING END *****#
+#*** AMI PORTING BEGIN ***#
+#*** AMI PORTING END *****#
+#
+# [BootMode]
+#  S3_RESUME                        ## SOMETIMES_CONSUMES
+#  RECOVERY_FULL                    ## SOMETIMES_CONSUMES
+#
+#
+# [Hob]
+# MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # MEMORY_ALLOCATION_MODULE for DxeCore
+# MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # New Stack HoB
+# MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # Old Stack HOB
+#
+# [Hob.IPF]
+# MEMORY_ALLOCATION                 ## SOMETIMES_PRODUCES # MEMORY_ALLOCATION_BSP_STORE
+#
+
+[BuildOptions.IA32]
+## @AsBuilt
+##   MSFT:RELEASE_MYTOOLS_IA32_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   MSFT:RELEASE_MYTOOLS_IA32_CBINDLINK_FLAGS = /nologo /NODEFAULTLIB /NOENTRY /DLL /ALIGN:16
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLDLINK_FLAGS = /nologo /NODEFAULTLIB /ENTRY:ReferenceAcpiTable /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER
+##   MSFT:RELEASE_MYTOOLS_IA32_VFR_FLAGS = -n
+##   MSFT:RELEASE_MYTOOLS_IA32_PP_FLAGS = /nologo /E /TC /FIAutoGen.h
+##   MSFT:RELEASE_MYTOOLS_IA32_GENFW_FLAGS = 
+##   MSFT:RELEASE_MYTOOLS_IA32_DLINK_FLAGS = /MACHINE:I386 /NOLOGO /NODEFAULTLIB /IGNORE:4001 /OPT:REF /OPT:ICF=10 /MAP /ALIGN:32 /SECTION:.xdata,D /SECTION:.pdata,D /LTCG /DLL /ENTRY:$(IMAGE_ENTRY_POINT) /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER /SAFESEH:NO /BASE:0 /DRIVER /MERGE:.data=.text /MERGE:.rdata=.text /IGNORE:4254 /PDB:$(DEBUG_DIR)/$(BASE_NAME).pdb
+##   MSFT:RELEASE_MYTOOLS_IA32_SLINK_FLAGS = /nologo /LTCG
+##   MSFT:RELEASE_MYTOOLS_IA32_ASM_FLAGS = /nologo /c /WX /W3 /Cx /Zd /coff
+##   MSFT:RELEASE_MYTOOLS_IA32_ASL_FLAGS = 
+##   MSFT:RELEASE_MYTOOLS_IA32_CC_FLAGS = /nologo /c /WX /GS- /W3 /Gs32768 /Gy /D UNICODE /GL /FIAutoGen.h /EHs-c- /GR- /GF -D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819 /O1ib2  -DMDEPKG_NDEBUG  /D CRB_FLAG /D VFR_CRB_FLAG /D EXTERNAL_PACKAGE /D SSA_FLAG /D SSA_LOADER_FLAG /D HSX_HOST  /D BDX_HOST /D LT_FLAG /DTRAD_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DME_SUPPORT_FLAG=1 /DSPS_SUPPORT=1 /DPFAT_FLAG=1 /D AMI_PAM_SAVE_RESTORE_SWSMI_VALUE=0xBE /D AMI_PAM_SAVE_CMD=0xE0 /D AMI_PAM_RESTORE_CMD=0xE1 /DUSB_PRECONDITION_ENABLE_FLAG=1 /DWDT_SUPPORT_ENABLED=1
+##   MSFT:RELEASE_MYTOOLS_IA32_VFRPP_FLAGS = /nologo /E /TC /DVFRCOMPILE /FI$(MODULE_NAME)StrDefs.h -D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819 /O1ib2  -DMDEPKG_NDEBUG  /D CRB_FLAG /D VFR_CRB_FLAG /D EXTERNAL_PACKAGE /D SSA_FLAG /D SSA_LOADER_FLAG /D HSX_HOST  /D BDX_HOST /D LT_FLAG /DTRAD_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DME_SUPPORT_FLAG=1 /DSPS_SUPPORT=1 /DPFAT_FLAG=1 /D AMI_PAM_SAVE_RESTORE_SWSMI_VALUE=0xBE /D AMI_PAM_SAVE_CMD=0xE0 /D AMI_PAM_RESTORE_CMD=0xE1 /DUSB_PRECONDITION_ENABLE_FLAG=1 /DWDT_SUPPORT_ENABLED=1
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLCC_FLAGS = /nologo /c /TC /FIAutoGen.h /Dmain=ReferenceAcpiTable
+##   MSFT:RELEASE_MYTOOLS_IA32_CBINCC_FLAGS = /nologo /c /TC /Os /FIAutoGen.h
+##   MSFT:RELEASE_MYTOOLS_IA32_APP_FLAGS = /nologo /E /TC
+##   MSFT:RELEASE_MYTOOLS_IA32_OPTROM_FLAGS = -e
+##   MSFT:RELEASE_MYTOOLS_IA32_NASMB_FLAGS = -f bin
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLPP_FLAGS = /nologo /EP /TC
+##   MSFT:RELEASE_MYTOOLS_IA32_OBJCOPY_FLAGS = objcopy not needed for
+##   MSFT:RELEASE_MYTOOLS_IA32_MAKE_FLAGS = /nologo -s
+##   MSFT:RELEASE_MYTOOLS_IA32_ASMLINK_FLAGS = /nologo /tiny
+##   MSFT:RELEASE_MYTOOLS_IA32_NASM_FLAGS = -Ox -f win32

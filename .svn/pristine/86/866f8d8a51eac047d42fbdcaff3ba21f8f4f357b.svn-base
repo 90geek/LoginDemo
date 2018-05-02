@@ -1,0 +1,9 @@
+<component>
+	name = "ASL"
+	category = ModulePart
+	LocalRoot = "AmiChipsetModulePkg\ASL\"
+	RefName = "TbtAsl"
+[files]
+"TbtGpe.asl"	
+"TbtOemPorting.asl"	
+<endComponent>

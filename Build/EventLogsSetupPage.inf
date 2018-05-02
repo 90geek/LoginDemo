@@ -1,0 +1,64 @@
+## @file
+#   The [Sources] section for this file is auto-generated from ELINKs:
+#   SERVER_MGMT_SETUP_DEFINITIONS, ServerMgmtSetupStringFiles and ServerMgmtSetupCallbackFiles
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = EventLogsSetupPage
+  FILE_GUID                      = FFE0FCDC-809A-4d48-A060-6A8A6A269176
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = EventLogsSetupPageEntry
+#
+#  This flag specifies whether HII resource section is generated into PE image.
+#
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+  
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+ ../AmiGpnvErrorLoggingPkg/Gpnv/SmbiosElogSetupScreen/SmbiosElogSetupScreenVfr.sd
+ ../AmiGpnvErrorLoggingPkg/Gpnv/SmbiosElogSetupScreen/SmbiosElogSetupScreenVfr.uni
+ ../AmiGpnvErrorLoggingPkg\Gpnv\SmbiosElogSetupScreen/SmbiosElogLookupTable.h
+
+  ../AmiGpnvErrorLoggingPkg\Gpnv\EventLogsSetupPage/EventLogsSetupPage.c
+  ../AmiGpnvErrorLoggingPkg\Gpnv\EventLogsSetupPage/EventLogsSetupPage.h
+  ../AmiGpnvErrorLoggingPkg\Gpnv\EventLogsSetupPage/EventLogsSetupPage.vfr
+  ../AmiGpnvErrorLoggingPkg\Gpnv\EventLogsSetupPage/EventLogsSetupPage.uni
+  
+[Packages]
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiGpnvErrorLoggingPkg/AmiGpnvErrorLoggingPkg.dec
+  
+[LibraryClasses]
+  AmiDxeLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiHiiServicesLib
+  HiiLib
+  PcdLib
+  MemoryAllocationLib
+  
+[Protocols]
+  gEventLogsHiiHandleGuidx
+  gEventLogsDynamicGuid
+ 
+[Guids]
+  gEventLogsFormsetGuid
+  
+
+[Pcd]
+
+[Depex]
+  gEventLogsDynamicGuid
+
+

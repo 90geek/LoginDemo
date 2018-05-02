@@ -1,0 +1,200 @@
+ CryptoPPI
+
+ Timestamp is 5ae04ab8 (Wed Apr 25 17:30:32 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000005dcH .data                   CODE
+ 0001:000005e0 00000114H .rdata                  CODE
+ 0001:00000700 0000d023H .text                   CODE
+ 0001:0000d740 00001144H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _ghLen                     00000220     PeiCryptLib:Pkcs1_sigDecode.obj
+ 0001:00000010       _CumulativeDays            00000230     PeiCryptLib:TimeWrapper.obj
+ 0001:00000080       _gEfiCertSha256Guid        000002a0     CryptoPPI:AutoGen.obj
+ 0001:00000090       _gEfiCertRsa2048Guid       000002b0     CryptoPPI:AutoGen.obj
+ 0001:000000a0       _gEfiCertX509Guid          000002c0     CryptoPPI:AutoGen.obj
+ 0001:000000b0       _EfiErrorStatus            000002d0     AmiPeiLib:StdLibC.obj
+ 0001:000003f0       _PiErrorStatus             00000610     AmiPeiLib:StdLibC.obj
+ 0001:0000043c       _AmiErrorStatus            0000065c     AmiPeiLib:StdLibC.obj
+ 0001:00000470       _EfiWarningStatus          00000690     AmiPeiLib:StdLibC.obj
+ 0001:000004d8       _PiWarningStatus           000006f8     AmiPeiLib:StdLibC.obj
+ 0001:00000520       _EfiUnknown                00000740     AmiPeiLib:StdLibC.obj
+ 0001:000005bc       _mSigPeiInitPpi            000007dc     CryptoPPI:CryptoPei.obj
+ 0001:000005d0       _mPpiSigListVariable       000007f0     CryptoPPI:CryptoPei.obj
+ 0001:000005e0       ??_C@_01LOCGONAA@?$AA?$AA@ 00000800     PeiCryptLib:sha1.obj
+ 0001:000005e4       ??_C@_01IFKFHFEL@?$IA?$AA@ 00000804     PeiCryptLib:sha1.obj
+ 0001:000006e8       _KeyE                      00000908     CryptoPPI:CryptoPei.obj
+ 0001:000006ec       _LenE                      0000090c     CryptoPPI:CryptoPei.obj
+ 0001:000006f0       _saltlen                   00000910     CryptoPPI:CryptoPei.obj
+ 0001:00000700       __ModuleEntryPoint         00000920 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000070b       _CryptoGetRawImage         0000092b f   CryptoPPI:CryptoPei.obj
+ 0001:000007b4       _PeiHash                   000009d4 f   CryptoPPI:CryptoPei.obj
+ 0001:0000083a       _PeiVerifySig              00000a5a f   CryptoPPI:CryptoPei.obj
+ 0001:00000944       _PeiPkcs7Verify            00000b64 f   CryptoPPI:CryptoPei.obj
+ 0001:00000a2c       _PeiGetKey                 00000c4c f   CryptoPPI:CryptoPei.obj
+ 0001:00000a91       _PeiVerifyKey              00000cb1 f   CryptoPPI:CryptoPei.obj
+ 0001:00000c29       _CryptoPei_Init            00000e49 f   CryptoPPI:CryptoPei.obj
+ 0001:00000d4e       _MemCmp                    00000f6e f   AmiPeiLib:Memory.obj
+ 0001:00000dba       _MemCpy                    00000fda f   AmiPeiLib:Memory.obj
+ 0001:00000dbf       _MemSet                    00000fdf f   AmiPeiLib:Memory.obj
+ 0001:00000dc4       _Atoi                      00000fe4 f   AmiPeiLib:StdLibC.obj
+ 0001:00000df0       _memset                    00001010     AmiPeiLib:MemSet.obj
+ 0001:00000dfa       _MemSetAsm                 0000101a f   AmiPeiLib:MemSet.obj
+ 0001:00000e50       _memcpy                    00001070     AmiPeiLib:MemCpy.obj
+ 0001:00000e50       _MemCpyAsm                 00001070 f   AmiPeiLib:MemCpy.obj
+ 0001:00000e50       _MemCpy32                  00001070     AmiPeiLib:MemCpy.obj
+ 0001:00000ef0       _EnableLongMode            00001110 f   AmiPeiLib:EnableLongMode.obj
+ 0001:00000f60       _Pkcs7_Microsoft_oid       00001180 f   PeiCryptLib:Pkcs7.obj
+ 0001:00000fc0       _Pkcs7_store_octet_string  000011e0 f   PeiCryptLib:Pkcs7.obj
+ 0001:000010a0       _Pkcs7_parse_IssuerSerial_sequence 000012c0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00001190       _Pkcs7_signer_info_common_hdr_parse 000013b0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00001ad0       _Pkcs7_RFC6131_TimeStampToken_parse 00001cf0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00001b20       _Pkcs7_TimeStamp_parse     00001d40 f   PeiCryptLib:Pkcs7.obj
+ 0001:00001c80       _Pkcs7_signer_info_parse   00001ea0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00001cf0       _Pkcs7_parse_Authenticode_contentInfo 00001f10 f   PeiCryptLib:Pkcs7.obj
+ 0001:00001ee0       _Pkcs7_parse_contentInfo_tstInfo 00002100 f   PeiCryptLib:Pkcs7.obj
+ 0001:00002540       _Pkcs7_parse_Authenticode_certificate 00002760 f   PeiCryptLib:Pkcs7.obj
+ 0001:00002d00       _Pkcs7_return_signing_cerificate 00002f20 f   PeiCryptLib:Pkcs7.obj
+ 0001:00002d90       _Pkcs7_x509_certificate_chain_validate 00002fb0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00002db0       _Pkcs7_x509_certificate_chain_validate_with_timestamp 00002fd0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00003180       _Pkcs7_decrypt_validate_digest 000033a0 f   PeiCryptLib:Pkcs7.obj
+ 0001:00003400       _Pkcs7_certificate_validate_digest 00003620 f   PeiCryptLib:Pkcs7.obj
+ 0001:00003630       _Pkcs7_x509_return_pubKey  00003850 f   PeiCryptLib:Pkcs7.obj
+ 0001:00003720       _Pkcs7_x509_return_Cert_pubKey 00003940 f   PeiCryptLib:Pkcs7.obj
+ 0001:00003760       _crypto_import_rsa2048_public_key 00003980 f   PeiCryptLib:RSAKeyImport.obj
+ 0001:00003870       _crypto_public_key_import  00003a90 f   PeiCryptLib:RSAKeyImport.obj
+ 0001:00003890       _crypto_public_key_free    00003ab0 f   PeiCryptLib:RSAKeyImport.obj
+ 0001:000038b0       _crypto_public_key_decrypt_pkcs1 00003ad0 f   PeiCryptLib:RSAKeyImport.obj
+ 0001:00003a20       _malloc                    00003c40 f   PeiCryptLib:Memalloc.obj
+ 0001:00003b30       _os_zalloc                 00003d50 f   PeiCryptLib:Memalloc.obj
+ 0001:00003b50       _free                      00003d70 f   PeiCryptLib:Memalloc.obj
+ 0001:00003be0       _realloc                   00003e00 f   PeiCryptLib:Memalloc.obj
+ 0001:00003c50       _ResetCRmm                 00003e70 f   PeiCryptLib:Memalloc.obj
+ 0001:00003ca0       _InitCRmm                  00003ec0 f   PeiCryptLib:Memalloc.obj
+ 0001:00003cf0       _sha1_vector               00003f10 f   PeiCryptLib:sha1.obj
+ 0001:00003d60       _SHA1Init                  00003f80 f   PeiCryptLib:sha1.obj
+ 0001:00003db0       _SHA1Update                00003fd0 f   PeiCryptLib:sha1.obj
+ 0001:00006590       _SHA1Final                 000067b0 f   PeiCryptLib:sha1.obj
+ 0001:000066d0       _crypto_rsa_import_public_key 000068f0 f   PeiCryptLib:rsa.obj
+ 0001:00006830       _crypto_rsa_get_modulus_len 00006a50 f   PeiCryptLib:rsa.obj
+ 0001:00006850       _crypto_rsa_exptmod        00006a70 f   PeiCryptLib:rsa.obj
+ 0001:000069b0       _crypto_rsa_free           00006bd0 f   PeiCryptLib:rsa.obj
+ 0001:000069f0       _sha256_vector             00006c10 f   PeiCryptLib:sha256.obj
+ 0001:00006a70       _sha256_init               00006c90 f   PeiCryptLib:sha256.obj
+ 0001:00006ae0       _sha256_process            00006d00 f   PeiCryptLib:sha256.obj
+ 0001:00006ff0       _sha256_done               00007210 f   PeiCryptLib:sha256.obj
+ 0001:00007210       _pkcs_1_mgf1               00007430 f   PeiCryptLib:Pkcs1_sigDecode.obj
+ 0001:00007350       _pkcs_1_pss_decode         00007570 f   PeiCryptLib:Pkcs1_sigDecode.obj
+ 0001:000076c0       _wpa_set_trace_level       000078e0 f   PeiCryptLib:wpa_debug.obj
+ 0001:000076d0       _x509_name_compare         000078f0 f   PeiCryptLib:x509v3.obj
+ 0001:000079f0       _x509_parse_algorithm_identifier 00007c10 f   PeiCryptLib:x509v3.obj
+ 0001:00007a80       _x509_parse_name           00007ca0 f   PeiCryptLib:x509v3.obj
+ 0001:00007db0       _x509_parse_time           00007fd0 f   PeiCryptLib:x509v3.obj
+ 0001:00007f90       _x509_rsadsi_oid           000081b0 f   PeiCryptLib:x509v3.obj
+ 0001:00007fe0       _x509_pkcs_oid             00008200 f   PeiCryptLib:x509v3.obj
+ 0001:00008020       _x509_digest_oid           00008240 f   PeiCryptLib:x509v3.obj
+ 0001:00008060       _x509_sha1_oid             00008280 f   PeiCryptLib:x509v3.obj
+ 0001:000080c0       _x509_sha256_oid           000082e0 f   PeiCryptLib:x509v3.obj
+ 0001:00008140       _x509_certificate_parse    00008360 f   PeiCryptLib:x509v3.obj
+ 0001:00008cf0       _x509_certificate_check_signature 00008f10 f   PeiCryptLib:x509v3.obj
+ 0001:00009120       _x509_valid_issuer         00009340 f   PeiCryptLib:x509v3.obj
+ 0001:00009190       _asn1_get_next             000093b0 f   PeiCryptLib:asn1.obj
+ 0001:00009330       _asn1_get_oid              00009550 f   PeiCryptLib:asn1.obj
+ 0001:00009470       _asn1_bit_string_to_long   00009690 f   PeiCryptLib:asn1.obj
+ 0001:000095a0       _os_mktime                 000097c0 f   PeiCryptLib:TimeWrapper.obj
+ 0001:00009730       _os_get_time               00009950 f   PeiCryptLib:TimeWrapper.obj
+ 0001:000097b0       _bignum_init               000099d0 f   PeiCryptLib:bignum.obj
+ 0001:00009880       _bignum_deinit             00009aa0 f   PeiCryptLib:bignum.obj
+ 0001:00009930       _bignum_get_unsigned_bin_len 00009b50 f   PeiCryptLib:bignum.obj
+ 0001:000099f0       _bignum_get_unsigned_bin   00009c10 f   PeiCryptLib:bignum.obj
+ 0001:0000a1b0       _bignum_set_unsigned_bin   0000a3d0 f   PeiCryptLib:bignum.obj
+ 0001:0000a510       _bignum_cmp                0000a730 f   PeiCryptLib:bignum.obj
+ 0001:0000b570       _bignum_exptmod            0000b790 f   PeiCryptLib:bignum.obj
+ 0001:0000c3b0       __aullshr                  0000c5d0 f   PeiCryptLib:IA32math.obj
+ 0001:0000c3d0       __strdup                   0000c5f0 f   PeiCryptLib:Scrtlib.obj
+ 0001:0000c450       __tolower                  0000c670 f   PeiCryptLib:Scrtlib.obj
+ 0001:0000c4b0       __stricmp                  0000c6d0 f   PeiCryptLib:Scrtlib.obj
+ 0001:0000c580       _AtoiEX                    0000c7a0 f   PeiCryptLib:Scrtlib.obj
+ 0001:0000c5f0       _md5_vector                0000c810 f   PeiCryptLib:md5.obj
+ 0001:0000c660       _MD5Init                   0000c880 f   PeiCryptLib:md5.obj
+ 0001:0000c6a0       _MD5Update                 0000c8c0 f   PeiCryptLib:md5.obj
+ 0001:0000c7d0       _MD5Final                  0000c9f0 f   PeiCryptLib:md5.obj
+ 0001:0000d740       _gCurDesc                  0000d960     PeiCryptLib:Memalloc.obj
+ 0001:0000d744       _gFirstDesc                0000d964     PeiCryptLib:Memalloc.obj
+ 0001:0000d748       _gMemHeap                  0000d968     PeiCryptLib:Memalloc.obj
+ 0001:0000d74c       _gMaxHeapSize              0000d96c     PeiCryptLib:Memalloc.obj
+ 0001:0000d750       _crypto_trace_level        0000d970     PeiCryptLib:wpa_debug.obj
+ 0001:0000d868       _pFwKeyHob                 0000da88     CryptoPPI:CryptoPei.obj
+ 0001:0000d880       _M                         0000daa0     <common>
+ 0001:0000e880       _ppPS                      0000eaa0     <common>
+
+ entry point at        0001:00000700
+
+ Static symbols
+
+ 0001:00003eb0       _SHA1Transform             000040d0 f   PeiCryptLib:sha1.obj
+ 0001:000067c0       _crypto_rsa_parse_integer  000069e0 f   PeiCryptLib:rsa.obj
+ 0001:00006c20       _sha256_compress           00006e40 f   PeiCryptLib:sha256.obj
+ 0001:00007820       _x509_str_compare          00007a40 f   PeiCryptLib:x509v3.obj
+ 0001:00007910       _x509_str_strip_whitespace 00007b30 f   PeiCryptLib:x509v3.obj
+ 0001:000079c0       _x509_whitespace           00007be0 f   PeiCryptLib:x509v3.obj
+ 0001:000082f0       _x509_parse_tbs_certificate 00008510 f   PeiCryptLib:x509v3.obj
+ 0001:000086a0       _x509_parse_public_key     000088c0 f   PeiCryptLib:x509v3.obj
+ 0001:000087a0       _x509_parse_validity       000089c0 f   PeiCryptLib:x509v3.obj
+ 0001:000088b0       _x509_parse_extensions     00008ad0 f   PeiCryptLib:x509v3.obj
+ 0001:00008930       _x509_parse_extension      00008b50 f   PeiCryptLib:x509v3.obj
+ 0001:00008a70       _x509_parse_extension_data 00008c90 f   PeiCryptLib:x509v3.obj
+ 0001:00008ae0       _x509_id_ce_oid            00008d00 f   PeiCryptLib:x509v3.obj
+ 0001:00008b20       _x509_parse_ext_key_usage  00008d40 f   PeiCryptLib:x509v3.obj
+ 0001:00008b90       _x509_parse_ext_basic_constraints 00008db0 f   PeiCryptLib:x509v3.obj
+ 0001:00009550       _rotate_bits               00009770 f   PeiCryptLib:asn1.obj
+ 0001:00009800       _mp_init                   00009a20 f   PeiCryptLib:bignum.obj
+ 0001:000098b0       _mp_clear                  00009ad0 f   PeiCryptLib:bignum.obj
+ 0001:00009950       _mp_unsigned_bin_size      00009b70 f   PeiCryptLib:bignum.obj
+ 0001:00009990       _mp_count_bits             00009bb0 f   PeiCryptLib:bignum.obj
+ 0001:00009a50       _mp_to_unsigned_bin        00009c70 f   PeiCryptLib:bignum.obj
+ 0001:00009b00       _bn_reverse                00009d20 f   PeiCryptLib:bignum.obj
+ 0001:00009b60       _mp_div_2d                 00009d80 f   PeiCryptLib:bignum.obj
+ 0001:00009d10       _mp_init_copy              00009f30 f   PeiCryptLib:bignum.obj
+ 0001:00009d50       _mp_zero                   00009f70 f   PeiCryptLib:bignum.obj
+ 0001:00009db0       _mp_copy                   00009fd0 f   PeiCryptLib:bignum.obj
+ 0001:00009e90       _mp_rshd                   0000a0b0 f   PeiCryptLib:bignum.obj
+ 0001:00009f50       _mp_exch                   0000a170 f   PeiCryptLib:bignum.obj
+ 0001:00009fb0       _mp_clamp                  0000a1d0 f   PeiCryptLib:bignum.obj
+ 0001:00009ff0       _mp_grow                   0000a210 f   PeiCryptLib:bignum.obj
+ 0001:0000a0a0       _mp_mod_2d                 0000a2c0 f   PeiCryptLib:bignum.obj
+ 0001:0000a1e0       _mp_read_unsigned_bin      0000a400 f   PeiCryptLib:bignum.obj
+ 0001:0000a290       _mp_mul_2d                 0000a4b0 f   PeiCryptLib:bignum.obj
+ 0001:0000a410       _mp_lshd                   0000a630 f   PeiCryptLib:bignum.obj
+ 0001:0000a530       _mp_cmp                    0000a750 f   PeiCryptLib:bignum.obj
+ 0001:0000a590       _mp_cmp_mag                0000a7b0 f   PeiCryptLib:bignum.obj
+ 0001:0000a640       _mp_cmp_d                  0000a860 f   PeiCryptLib:bignum.obj
+ 0001:0000a690       _mp_add                    0000a8b0 f   PeiCryptLib:bignum.obj
+ 0001:0000a730       _s_mp_add                  0000a950 f   PeiCryptLib:bignum.obj
+ 0001:0000a8f0       _s_mp_sub                  0000ab10 f   PeiCryptLib:bignum.obj
+ 0001:0000aa60       _mp_sub                    0000ac80 f   PeiCryptLib:bignum.obj
+ 0001:0000ab10       _mp_mul                    0000ad30 f   PeiCryptLib:bignum.obj
+ 0001:0000ab70       _s_mp_mul_digs             0000ad90 f   PeiCryptLib:bignum.obj
+ 0001:0000ad20       _fast_s_mp_mul_digs        0000af40 f   PeiCryptLib:bignum.obj
+ 0001:0000b010       _mp_init_size              0000b230 f   PeiCryptLib:bignum.obj
+ 0001:0000b0b0       _mp_mod                    0000b2d0 f   PeiCryptLib:bignum.obj
+ 0001:0000b150       _mp_div                    0000b370 f   PeiCryptLib:bignum.obj
+ 0001:0000b3e0       _mp_abs                    0000b600 f   PeiCryptLib:bignum.obj
+ 0001:0000b420       _mp_set                    0000b640 f   PeiCryptLib:bignum.obj
+ 0001:0000b460       _mp_init_multi             0000b680 f   PeiCryptLib:bignum.obj
+ 0001:0000b520       _mp_clear_multi            0000b740 f   PeiCryptLib:bignum.obj
+ 0001:0000b5a0       _mp_exptmod                0000b7c0 f   PeiCryptLib:bignum.obj
+ 0001:0000b5f0       _s_mp_exptmod              0000b810 f   PeiCryptLib:bignum.obj
+ 0001:0000bc50       _mp_sqr                    0000be70 f   PeiCryptLib:bignum.obj
+ 0001:0000bc80       _mp_reduce_2k_l            0000bea0 f   PeiCryptLib:bignum.obj
+ 0001:0000bd60       _mp_reduce_2k_setup_l      0000bf80 f   PeiCryptLib:bignum.obj
+ 0001:0000bdd0       _mp_2expt                  0000bff0 f   PeiCryptLib:bignum.obj
+ 0001:0000be50       _mp_reduce_setup           0000c070 f   PeiCryptLib:bignum.obj
+ 0001:0000bea0       _mp_reduce                 0000c0c0 f   PeiCryptLib:bignum.obj
+ 0001:0000c070       _s_mp_sqr                  0000c290 f   PeiCryptLib:bignum.obj
+ 0001:0000c250       _s_mp_mul_high_digs        0000c470 f   PeiCryptLib:bignum.obj
+ 0001:0000c8c0       _MD5Transform              0000cae0 f   PeiCryptLib:md5.obj

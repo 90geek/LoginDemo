@@ -1,0 +1,193 @@
+ StatusCodePei
+
+ Timestamp is 5ae04a06 (Wed Apr 25 17:27:34 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000924H .data                   CODE
+ 0001:00000928 00000512H .rdata                  CODE
+ 0001:00000e40 000022b9H .text                   CODE
+ 0001:000030fc 00000018H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gStatusCodeCallbackGuid   00000200     StatusCodePei:AutoGen.obj
+ 0001:00000010       _gEfiPeiRscHandlerPpiGuid  00000210     StatusCodePei:AutoGen.obj
+ 0001:00000020       _gEfiPeiStatusCodePpiGuid  00000220     StatusCodePei:AutoGen.obj
+ 0001:00000030       _gAmiDebugServicePpiGuid   00000230     StatusCodePei:AutoGen.obj
+ 0001:00000040       _AST2400SerialPortDebugDecodeTable 00000240     AST2400PlatformHookSerialPortLib:AST2400PlatformHookSerialPortLib.obj
+ 0001:00000048       _AST2400SerialPortDebugInitTable 00000248     AST2400PlatformHookSerialPortLib:AST2400PlatformHookSerialPortLib.obj
+ 0001:00000074       _AST2400_SUC_access_Table  00000274     AST2400PlatformHookSerialPortLib:AST2400PlatformHookSerialPortLib.obj
+ 0001:00000098       _EfiErrorStatus            00000298     AmiPeiLib:StdLibC.obj
+ 0001:000003d8       _PiErrorStatus             000005d8     AmiPeiLib:StdLibC.obj
+ 0001:00000424       _AmiErrorStatus            00000624     AmiPeiLib:StdLibC.obj
+ 0001:00000458       _EfiWarningStatus          00000658     AmiPeiLib:StdLibC.obj
+ 0001:000004c0       _PiWarningStatus           000006c0     AmiPeiLib:StdLibC.obj
+ 0001:00000508       _EfiUnknown                00000708     AmiPeiLib:StdLibC.obj
+ 0001:00000518       _ProgressCheckpointMap     00000718     StatusCodePei:StatusCodeMapPei.obj
+ 0001:00000600       _ErrorCheckpointMap        00000800     StatusCodePei:StatusCodeMapPei.obj
+ 0001:000006d8       _ProgressBeepMap           000008d8     StatusCodePei:StatusCodeMapPei.obj
+ 0001:000006e8       _ErrorBeepMap              000008e8     StatusCodePei:StatusCodeMapPei.obj
+ 0001:00000750       _gDataTypeStringGuid       00000950     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000760       _gSpecificDataGuid         00000960     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000770       _CheckPointStatusCodes     00000970     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000778       _BeepStatusCodes           00000978     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000780       _StringMaxSize             00000980     StatusCodePei:StatusCodePei.obj
+ 0001:00000784       _InitPartsList             00000984     StatusCodePei:StatusCodePei.obj
+ 0001:0000078c       _StringList                0000098c     StatusCodePei:StatusCodePei.obj
+ 0001:00000794       _SimpleList                00000994     StatusCodePei:StatusCodePei.obj
+ 0001:000007a0       _MiscList                  000009a0     StatusCodePei:StatusCodePei.obj
+ 0001:000007a8       _CheckpointList            000009a8     StatusCodePei:StatusCodePei.obj
+ 0001:000007b0       _ErrorMessage              000009b0     StatusCodePei:StatusCodePei.obj
+ 0001:00000848       _RscHandlerPpi             00000a48     StatusCodePei:StatusCodePei.obj
+ 0001:00000850       _RscHandlerPpiDescriptor   00000a50     StatusCodePei:StatusCodePei.obj
+ 0001:00000864       _PeiDebugPpiDescriptor     00000a64     StatusCodePei:StatusCodePei.obj
+ 0001:00000870       _StatusCodePpi             00000a70     StatusCodePei:StatusCodePei.obj
+ 0001:00000874       _StatusCodePpiDescriptor   00000a74     StatusCodePei:StatusCodePei.obj
+ 0001:00000880       __gPcd_BinaryPatch_PcdSerialRegisterBase 00000a80     StatusCodePei:AutoGen.obj
+ 0001:00000888       _mStatusString             00000a88     BasePrintLib:PrintLibInternal.obj
+ 0001:00000928       ??_C@_0BL@DBGGIPGN@Reset?5PPI?5is?5not?5available?$AA@ 00000b28     StatusCodePei:StatusCodePei.obj
+ 0001:00000944       ??_C@_0BD@CAJABIEM@DXE?5Core?5not?5found?$AA@ 00000b44     StatusCodePei:StatusCodePei.obj
+ 0001:00000958       ??_C@_0BC@HNBBLDGL@DXE?5IPL?5not?5found?$AA@ 00000b58     StatusCodePei:StatusCodePei.obj
+ 0001:0000096c       ??_C@_0BA@EBJHPADN@S3?5resume?5error?$AA@ 00000b6c     StatusCodePei:StatusCodePei.obj
+ 0001:0000097c       ??_C@_0BB@GGGLFIGL@S3?5OS?5Wake?5error?$AA@ 00000b7c     StatusCodePei:StatusCodePei.obj
+ 0001:00000990       ??_C@_0BP@GBPOIEH@S3?5boot?5script?5execution?5error?$AA@ 00000b90     StatusCodePei:StatusCodePei.obj
+ 0001:000009b0       ??_C@_0BJ@EBDLIPJF@Invalid?5recovery?5capsule?$AA@ 00000bb0     StatusCodePei:StatusCodePei.obj
+ 0001:000009cc       ??_C@_0BL@PEAFGEFC@Recovery?5capsule?5not?5found?$AA@ 00000bcc     StatusCodePei:StatusCodePei.obj
+ 0001:000009e8       ??_C@_0BB@PBPOKDGC@S3?5resume?5failed?$AA@ 00000be8     StatusCodePei:StatusCodePei.obj
+ 0001:000009fc       ??_C@_0BI@NHMLDIPC@S3?5Resume?5PPI?5not?5found?$AA@ 00000bfc     StatusCodePei:StatusCodePei.obj
+ 0001:00000a14       ??_C@_0BA@MIJEAEIA@Recovery?5failed?$AA@ 00000c14     StatusCodePei:StatusCodePei.obj
+ 0001:00000a24       ??_C@_0BH@IOIEFDIF@Recovery?5PPI?5not?5found?$AA@ 00000c24     StatusCodePei:StatusCodePei.obj
+ 0001:00000a3c       ??_C@_09INEOHMFK@CPU?5error?$AA@ 00000c3c     StatusCodePei:StatusCodePei.obj
+ 0001:00000a48       ??_C@_0BD@BMPINDFD@Internal?5CPU?5error?$AA@ 00000c48     StatusCodePei:StatusCodePei.obj
+ 0001:00000a5c       ??_C@_0N@MGIMCOCE@No?5Microcode?$AA@ 00000c5c     StatusCodePei:StatusCodePei.obj
+ 0001:00000a6c       ??_C@_0BF@KDDJKLNM@CPU?5self?5test?5failed?$AA@ 00000c6c     StatusCodePei:StatusCodePei.obj
+ 0001:00000a84       ??_C@_0BH@FGMABPPJ@Memory?5installed?5twice?$AA@ 00000c84     StatusCodePei:StatusCodePei.obj
+ 0001:00000a9c       ??_C@_0BF@HMKPDMDL@Memory?5not?5installed?$AA@ 00000c9c     StatusCodePei:StatusCodePei.obj
+ 0001:00000ab4       ??_C@_0L@NGODPBLK@ERROR?3?5?$CFa?6?$AA@ 00000cb4     StatusCodePei:StatusCodePei.obj
+ 0001:00000ac0       ??_C@_0BI@PEEPINON@ASSERT?5in?5?$CFs?5on?5?$CFi?3?5?$CFs?6?$AA@ 00000cc0     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000ad8       ??_C@_0CN@KEDECEKD@ERROR?3?5Class?3?$CFX?$DL?5Subclass?3?$CFX?$DL?5Op@ 00000cd8     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000b08       ??_C@_02PCIJFNDE@?$AN?6?$AA@ 00000d08     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000b0c       ??_C@_0BD@OMEPNDED@ASSERT?5?$CFa?$CI?$CFd?$CJ?3?5?$CFa?6?$AA@ 00000d0c     StatusCodePei:StatusCodeCommon.obj
+ 0001:00000b20       ??_C@_0M@LCCONGAO@EFI_SUCCESS?$AA@ 00000d20     AmiPeiLib:StdLibC.obj
+ 0001:00000b2c       ??_C@_0DB@PMLHLBMO@?$CF08x?9?$CF04x?9?$CF04x?9?$CF02x?$CF02x?9?$CF02x?$CF02x@ 00000d2c     AmiPeiLib:StdLibC.obj
+ 0001:00000b60       ??_C@_06DCBEJCPP@?$CFs?$CI?$CFX?$CJ?$AA@ 00000d60     AmiPeiLib:StdLibC.obj
+ 0001:00000b68       ??_C@_02DKCKIIND@?$CFs?$AA@ 00000d68     AmiPeiLib:StdLibC.obj
+ 0001:00000b6c       ??_C@_0BB@MFGDFIJM@Compromised?5Data?$AA@ 00000d6c     BasePrintLib:PrintLibInternal.obj
+ 0001:00000b80       ??_C@_0BB@KFJAMCOC@Invalid?5Language?$AA@ 00000d80     BasePrintLib:PrintLibInternal.obj
+ 0001:00000b94       ??_C@_0M@FKGOBENP@End?5of?5File?$AA@ 00000d94     BasePrintLib:PrintLibInternal.obj
+ 0001:00000ba0       ??_C@_0O@GLPDOMCP@Reserved?5?$CI30?$CJ?$AA@ 00000da0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000bb0       ??_C@_0O@NMJOLAMF@Reserved?5?$CI29?$CJ?$AA@ 00000db0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000bc0       ??_C@_0N@JEJDHPO@End?5of?5Media?$AA@ 00000dc0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000bd0       ??_C@_09BOMAGJEG@CRC?5Error?$AA@ 00000dd0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000bdc       ??_C@_0BD@KHMPCIOG@Security?5Violation?$AA@ 00000ddc     BasePrintLib:PrintLibInternal.obj
+ 0001:00000bf0       ??_C@_0BF@EHOBGFMI@Incompatible?5Version?$AA@ 00000df0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c08       ??_C@_0P@NCJHBCLM@Protocol?5Error?$AA@ 00000e08     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c18       ??_C@_0L@DJKNJKHM@TFTP?5Error?$AA@ 00000e18     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c24       ??_C@_0L@LKIFCMNO@ICMP?5Error?$AA@ 00000e24     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c30       ??_C@_07LCKDCBKK@Aborted?$AA@ 00000e30     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c38       ??_C@_0BA@IGIBFFPH@Already?5started?$AA@ 00000e38     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c48       ??_C@_0M@DCJFAFHJ@Not?5started?$AA@ 00000e48     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c54       ??_C@_08PAFJCNGP@Time?5out?$AA@ 00000e54     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c60       ??_C@_0L@IFPBNFC@No?5mapping?$AA@ 00000e60     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c6c       ??_C@_0M@ENKCBFEP@No?5Response?$AA@ 00000e6c     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c78       ??_C@_0O@NFHOBIDO@Access?5Denied?$AA@ 00000e78     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c88       ??_C@_09CFCBFJND@Not?5Found?$AA@ 00000e88     BasePrintLib:PrintLibInternal.obj
+ 0001:00000c94       ??_C@_0O@JNCJKCCD@Media?5changed?$AA@ 00000e94     BasePrintLib:PrintLibInternal.obj
+ 0001:00000ca4       ??_C@_08KEGAJDNN@No?5Media?$AA@ 00000ea4     BasePrintLib:PrintLibInternal.obj
+ 0001:00000cb0       ??_C@_0M@HDLEPOFA@Volume?5Full?$AA@ 00000eb0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000cbc       ??_C@_0P@EIOJGIF@Volume?5Corrupt?$AA@ 00000ebc     BasePrintLib:PrintLibInternal.obj
+ 0001:00000ccc       ??_C@_0BB@GOILNEAA@Out?5of?5Resources?$AA@ 00000ecc     BasePrintLib:PrintLibInternal.obj
+ 0001:00000ce0       ??_C@_0BA@LNEDDFNB@Write?5Protected?$AA@ 00000ee0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000cf0       ??_C@_0N@HHEABDHO@Device?5Error?$AA@ 00000ef0     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d00       ??_C@_09NKFGCIPN@Not?5Ready?$AA@ 00000f00     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d0c       ??_C@_0BB@EGELJFOB@Buffer?5Too?5Small?$AA@ 00000f0c     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d20       ??_C@_0BA@FLNMPMCF@Bad?5Buffer?5Size?$AA@ 00000f20     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d30       ??_C@_0M@BEECMOIL@Unsupported?$AA@ 00000f30     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d3c       ??_C@_0BC@HOFHKGJN@Invalid?5Parameter?$AA@ 00000f3c     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d50       ??_C@_0L@PLPBEPPC@Load?5Error?$AA@ 00000f50     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d5c       ??_C@_0BD@IFJNJCCO@Warning?5Stale?5Data?$AA@ 00000f5c     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d70       ??_C@_0BJ@ODIPDGHB@Warning?5Buffer?5Too?5Small?$AA@ 00000f70     BasePrintLib:PrintLibInternal.obj
+ 0001:00000d8c       ??_C@_0BG@ECIJMOED@Warning?5Write?5Failure?$AA@ 00000f8c     BasePrintLib:PrintLibInternal.obj
+ 0001:00000da4       ??_C@_0BH@GKKCJEPJ@Warning?5Delete?5Failure?$AA@ 00000fa4     BasePrintLib:PrintLibInternal.obj
+ 0001:00000dbc       ??_C@_0BG@CFJMNNJK@Warning?5Unknown?5Glyph?$AA@ 00000fbc     BasePrintLib:PrintLibInternal.obj
+ 0001:00000dd4       ??_C@_07PBILKAFL@Success?$AA@ 00000fd4     BasePrintLib:PrintLibInternal.obj
+ 0001:00000ddc       _mHexStr                   00000fdc     BasePrintLib:PrintLibInternal.obj
+ 0001:00000dec       ??_C@_0O@MLOLIMFM@?$DMnull?5string?$DO?$AA@ 00000fec     BasePrintLib:PrintLibInternal.obj
+ 0001:00000dfc       ??_C@_0M@BJJDNPHK@?$DMnull?5guid?$DO?$AA@ 00000ffc     BasePrintLib:PrintLibInternal.obj
+ 0001:00000e08       ??_C@_0M@LHGBCIKM@?$DMnull?5time?$DO?$AA@ 00001008     BasePrintLib:PrintLibInternal.obj
+ 0001:00000e14       ??_C@_0BK@FCPKCIDD@?$CF02d?1?$CF02d?1?$CF04d?5?5?$CF02d?3?$CF02d?$AA@ 00001014     BasePrintLib:PrintLibInternal.obj
+ 0001:00000e30       ??_C@_04JIMNDDED@?$CF08X?$AA@ 00001030     BasePrintLib:PrintLibInternal.obj
+ 0001:00000e38       ??_C@_01LIIJDEN@?$AN?$AA@  00001038     BasePrintLib:PrintLibInternal.obj
+ 0001:00000e40       __ModuleEntryPoint         00001040 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000ea8       _CreateRscHandlerCallbackPacket 000010a8 f   StatusCodePei:StatusCodePei.obj
+ 0001:00000eeb       _PpiUnregister             000010eb f   StatusCodePei:StatusCodePei.obj
+ 0001:00000f4d       _PpiRegister               0000114d f   StatusCodePei:StatusCodePei.obj
+ 0001:00000fcf       _ReportStatusCodePei       000011cf f   StatusCodePei:StatusCodePei.obj
+ 0001:00001047       _DebugPrintHelper          00001247 f   StatusCodePei:StatusCodePei.obj
+ 0001:0000108b       _DebugAssertHelper         0000128b f   StatusCodePei:StatusCodePei.obj
+ 0001:000010ce       _ReportAssertString        000012ce f   StatusCodePei:StatusCodeCommon.obj
+ 0001:00001101       _ReportData                00001301 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:00001165       _CreateString              00001365 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:00001298       _SerialOutput              00001498 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:000012f1       _SerialStatusInit          000014f1 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:000012f9       _StringStatusReport        000014f9 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:0000131d       _AmiReportStatusCode       0000151d f   StatusCodePei:StatusCodeCommon.obj
+ 0001:000013ca       _Port80Checkpoint          000015ca f   StatusCodePei:StatusCodeCommon.obj
+ 0001:000013d1       _CheckPointStatus          000015d1 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:00001428       _BeepStatus                00001628 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:00001484       _BeepService               00001684 f   StatusCodePei:StatusCodeCommon.obj
+ 0001:000014cb       _GetPeiServicesTablePointer 000016cb f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:000014e5       _GetHobList                000016e5 f   PeiHobLib:HobLib.obj
+ 0001:000014ff       _GetNextHob                000016ff f   PeiHobLib:HobLib.obj
+ 0001:0000152c       _GetFirstGuidHob           0000172c f   PeiHobLib:HobLib.obj
+ 0001:0000155c       _FindNextHobByType         0000175c f   AmiPeiLib:Misc.obj
+ 0001:00001599       _FindNextHobByGuid         00001799 f   AmiPeiLib:Misc.obj
+ 0001:000015d9       _MemCmp                    000017d9 f   AmiPeiLib:Memory.obj
+ 0001:00001634       _ItoaHelper                00001834 f   AmiPeiLib:StdLibC.obj
+ 0001:000016f3       _ItoaEx                    000018f3 f   AmiPeiLib:StdLibC.obj
+ 0001:00001725       _StrtolEx                  00001925 f   AmiPeiLib:StdLibC.obj
+ 0001:000017c9       _Strupr                    000019c9 f   AmiPeiLib:StdLibC.obj
+ 0001:000017e8       _GetStatusCodeString       000019e8 f   AmiPeiLib:StdLibC.obj
+ 0001:0000186b       _Sprintf_s_va_list         00001a6b f   AmiPeiLib:StdLibC.obj
+ 0001:00001b45       _Sprintf_s                 00001d45 f   AmiPeiLib:StdLibC.obj
+ 0001:00001ba3       _MicroSecondDelay          00001da3 f   IntelIchAcpiTimerLib:IntelIchAcpiTimerLib.obj
+ 0001:00001be4       _SerialPortInitialize      00001de4 f   BaseSerialPortLib16550:BaseSerialPortLib16550.obj
+ 0001:00001c97       _SerialPortWrite           00001e97 f   BaseSerialPortLib16550:BaseSerialPortLib16550.obj
+ 0001:00001cf7       _AsciiSPrint               00001ef7 f   BasePrintLib:PrintLib.obj
+ 0001:00001d15       _BasePrintLibFillBuffer    00001f15 f   BasePrintLib:PrintLibInternal.obj
+ 0001:00001d41       _BasePrintLibValueToString 00001f41 f   BasePrintLib:PrintLibInternal.obj
+ 0001:00001d85       _BasePrintLibSPrintMarker  00001f85 f   BasePrintLib:PrintLibInternal.obj
+ 0001:00002700       _BasePrintLibSPrint        00002900 f   BasePrintLib:PrintLibInternal.obj
+ 0001:00002724       _AmiBeep                   00002924 f   SbBeepLibPcAt:SbBeepLibPcAt.obj
+ 0001:0000276a       _CompareGuid               0000296a f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:0000279b       _PciOr8                    0000299b f   BasePciLibCf8:PciLib.obj
+ 0001:000027d3       _PlatformHookSerialPortInitialize 000029d3 f   AST2400PlatformHookSerialPortLib:AST2400PlatformHookSerialPortLib.obj
+ 0001:0000285e       _lpc_read                  00002a5e f   AST2400PlatformHookSerialPortLib:AST2400PlatformHookSerialPortLib.obj
+ 0001:0000291e       _lpc_write                 00002b1e f   AST2400PlatformHookSerialPortLib:AST2400PlatformHookSerialPortLib.obj
+ 0001:000029c6       _PciCf8Read8               00002bc6 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00002a19       _PciCf8Write16             00002c19 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00002a53       _PciCf8AndThenOr16         00002c53 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00002abf       _PciCf8Read32              00002cbf f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00002b06       _PciCf8Write32             00002d06 f   BasePciCf8Lib:PciCf8Lib.obj
+ 0001:00002b53       _AmiSioLibSetLpcGenericDecoding 00002d53 f   AmiSioPeiLib:AmiSioPeiLib.obj
+ 0001:00002c35       _AmiSioLibSetLpcDeviceDecoding 00002e35 f   AmiSioPeiLib:AmiSioPeiLib.obj
+ 0001:00002f30       _memset                    00003130     AmiPeiLib:MemSet.obj
+ 0001:00002f3a       _MemSetAsm                 0000313a f   AmiPeiLib:MemSet.obj
+ 0001:00002f90       _MemCpy32                  00003190     AmiPeiLib:MemCpy.obj
+ 0001:00002f90       _memcpy                    00003190     AmiPeiLib:MemCpy.obj
+ 0001:00002f90       _MemCpyAsm                 00003190 f   AmiPeiLib:MemCpy.obj
+ 0001:00003030       _EnableLongMode            00003230 f   AmiPeiLib:EnableLongMode.obj
+ 0001:000030a0       _InternalMemCopyMem        000032a0 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:000030dc       _InternalMemZeroMem        000032dc f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:000030fc       _ErrorCodeActions          000032fc     StatusCodePei:StatusCodePei.obj
+ 0001:00003104       _StatusRuntime             00003304     StatusCodePei:StatusCodeCommon.obj
+ 0001:00003108       _RtErrorCodeActions        00003308     StatusCodePei:StatusCodeCommon.obj
+ 0001:00003110       _gNullVaList               00003310     <common>
+
+ entry point at        0001:00000e40
+
+ Static symbols
+
+ 0001:00001b62       _InternalAcpiDelay         00001d62 f    CIL library: CIL module

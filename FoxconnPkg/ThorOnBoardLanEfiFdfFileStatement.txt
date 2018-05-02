@@ -1,0 +1,3 @@
+FILE DRIVER = 7d06dcb5-c8c5-4f7d-abd5-526ee2ede523 {
+     SECTION PE32  = ThorPkg/E5519X3.EFI
+  }

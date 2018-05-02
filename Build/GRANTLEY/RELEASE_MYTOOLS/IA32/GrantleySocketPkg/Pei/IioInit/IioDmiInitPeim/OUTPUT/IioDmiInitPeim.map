@@ -1,0 +1,51 @@
+ IioDmiInitPeim
+
+ Timestamp is 5ae04a7f (Wed Apr 25 17:29:35 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000180H .data                   CODE
+ 0001:00000180 0000005cH .rdata                  CODE
+ 0001:000001dc 00000831H .text                   CODE
+ 0001:00000a10 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gEfiPlatformInfoGuid      00000220     IioDmiInitPeim:AutoGen.obj
+ 0001:00000010       _gEfiPeiMemoryDiscoveredPpiGuid 00000230     IioDmiInitPeim:AutoGen.obj
+ 0001:00000020       _gPchDmiTcVcMapPpiGuid     00000240     IioDmiInitPeim:AutoGen.obj
+ 0001:00000030       _gPchInitPpiGuid           00000250     IioDmiInitPeim:AutoGen.obj
+ 0001:00000180       ??_C@_17HDJIHIPC@?$AAN?$AA?1?$AAA?$AA?$AA@ 000003a0     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:00000188       ??_C@_15HIJHELAL@?$AA3?$AAd?$AA?$AA@ 000003a8     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:00000190       ??_C@_15OFEAHDLC@?$AA3?$AAc?$AA?$AA@ 000003b0     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:00000198       ??_C@_15FNPMBENH@?$AA3?$AAb?$AA?$AA@ 000003b8     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001a0       ??_C@_15EPEJLLDJ@?$AA3?$AAa?$AA?$AA@ 000003c0     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001a8       ??_C@_15LDMLJIKO@?$AA2?$AAd?$AA?$AA@ 000003c8     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001b0       ??_C@_15COBMKABH@?$AA2?$AAc?$AA?$AA@ 000003d0     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001b8       ??_C@_15JGKAMHHC@?$AA2?$AAb?$AA?$AA@ 000003d8     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001c0       ??_C@_15IEBFGIJM@?$AA2?$AAa?$AA?$AA@ 000003e0     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001c8       ??_C@_15BADELFNM@?$AA1?$AAb?$AA?$AA@ 000003e8     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001d0       ??_C@_15CIBBKDC@?$AA1?$AAa?$AA?$AA@ 000003f0     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001d8       ??_C@_13COJANIEC@?$AA0?$AA?$AA@ 000003f8     IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000001dc       __ModuleEntryPoint         000003fc f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:000001f8       _GetPlatformDmiPolicy      00000418 f   IioDmiInitPeim:IioDmiPeim.obj
+ 0001:0000027c       _IioSetDmiTcVcMapping      0000049c f   IioDmiInitPeim:IioDmiPeim.obj
+ 0001:0000034c       _IioPollDmiVcStatus        0000056c f   IioDmiInitPeim:IioDmiPeim.obj
+ 0001:000003a9       _DmiTcVcSetup              000005c9 f   IioDmiInitPeim:IioDmiPeim.obj
+ 0001:0000058a       _IioIsocConfiguration      000007aa f   IioDmiInitPeim:IioDmiPeim.obj
+ 0001:00000865       _GetHobList                00000a85 f   PeiHobLib:HobLib.obj
+ 0001:0000087f       _GetNextHob                00000a9f f   PeiHobLib:HobLib.obj
+ 0001:000008ac       _GetFirstGuidHob           00000acc f   PeiHobLib:HobLib.obj
+ 0001:000008db       _GetPciExpressBaseAddress  00000afb f   BasePciExpressLib:PciExpressLib.obj
+ 0001:000008ea       _IsSoftSdvPlatform         00000b0a f   PlatformHooksLib:PlatformHooks.obj
+ 0001:00000973       _CompareGuid               00000b93 f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:00000997       _GetPeiServicesTablePointer 00000bb7 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:000009b4       _InternalMemCopyMem        00000bd4 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:000009f0       _InternalMemZeroMem        00000c10 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000a10       _LocalPcdPciExpressBaseAddress 00000c30     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:000001dc
+
+ Static symbols
+

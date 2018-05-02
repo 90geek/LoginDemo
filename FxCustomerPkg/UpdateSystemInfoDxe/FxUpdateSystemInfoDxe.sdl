@@ -1,0 +1,150 @@
+TOKEN
+	Name  = "FxUpdateSystemInfoDxe_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable FxUpdateSystemInfoDxe support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Master = Yes
+#JPG002005-	Token = "WCS_SUPPORT" "=" "1"   #CWC001004+
+	Token = "Baidu_SUPPORT" "=" "1"   #JPG002005+
+End
+
+###LLY001006- START
+#INFComponent
+#
+#    Name  = "FxUpdateSystemInfoDxe"
+#   File  = "FxUpdateSystemInfoDxe.inf"
+#    Package  = "FxPlatformPkg"
+#    ModuleTypes = "DXE_DRIVER"
+#    Token = "FxUpdateSystemInfoDxe_SUPPORT" "=" "1"
+#End
+###LLY001006- END
+
+###LLY001006+ START
+PATH
+    Name  = "UpdateSystemInfo_DIR"
+#CWC001004-    Path  = "FxPlatformPkg/Megatron/Dxe/UpdateSystemInfoDxe"
+End
+
+ELINK
+    Name  = "FxUpdateSystemInfoDxeEntry,"
+    Parent  = "SetupStringInit"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "$(UpdateSystemInfo_DIR)/FxUpdateSystemInfoDxe.c"
+    Parent  = "SetupCallbackFiles"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "$(UpdateSystemInfo_DIR)/FxSystemInfo.h"
+    Parent  = "SetupCallbackFiles"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "AmiIpmiPkg/AmiIpmiPkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "AmiCompatibilityPkg/AmiCompatibilityPkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "AmiNetworkPkg/AmiNetworkPkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = BeforeParent
+End
+#GCH001010 + start
+ELINK
+    Name  = "GrantleyPkg/PlatformPkg.dec"
+    Parent  = "AdditionalSetupPackages"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+    Name  = "gEfiSetupVariableGuid"
+    Parent  = "AdditionalSetupGuids"    
+    InvokeOrder = AfterParent
+End
+#GCH001010 + end
+ELINK
+    Name  = "gEfiNetworkStackSetupGuid"
+    Parent  = "AdditionalSetupGuids"    
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiMemoryMapGuid"
+    Parent  = "AdditionalSetupGuids"    
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiSimpleNetworkProtocolGuid"
+    Parent  = "AdditionalSetupProtocols"    
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiServerMgmtSetupVariableGuid"
+    Parent  = "AdditionalSetupGuids"    
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiSmbiosProtocolGuid"
+    Parent  = "AdditionalSetupProtocols"    
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gEfiSmbiosProtocolGuid"
+    Parent  = "AdditionalSetupProtocols"    
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "IpmiInterfaceLib"
+    Parent  = "AdditionalSetupLibraryClasses"
+    InvokeOrder = BeforeParent
+End
+
+ELINK
+	Name  = "HobLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End 
+
+ELINK
+	Name  = "NetLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PcdLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "AmiDxeLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PciLib"
+	Parent  = "AdditionalSetupLibraryClasses"
+	InvokeOrder = AfterParent
+End
+###LLY001006+ END
+

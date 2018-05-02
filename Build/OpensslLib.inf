@@ -1,0 +1,991 @@
+## @file
+#  This module provides openSSL Library implementation.
+#
+#  Copyright (c) 2010 - 2015, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = OpensslLib
+  MODULE_UNI_FILE                = OpensslLib.uni
+  FILE_GUID                      = C873A7D0-9824-409f-9B42-2C158B992E69
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = OpensslLib
+  DEFINE OPENSSL_PATH            = openssl-1.0.2f
+  DEFINE OPENSSL_FLAGS           = -DOPENSSL_NO_STDIO -DOPENSSL_NO_FP_API -DOPENSSL_NO_SSL3 -DOPENSSL_NO_SSL3_METHOD -DOPENSSL_SYSNAME_UWIN -DOPENSSL_SYS_UEFI -DL_ENDIAN -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DOPENSSL_NO_CAMELLIA -DOPENSSL_NO_SEED -DOPENSSL_NO_RC5 -DOPENSSL_NO_MDC2 -DOPENSSL_NO_CMS -DOPENSSL_NO_JPAKE -DOPENSSL_NO_CAPIENG -DOPENSSL_NO_ERR -DOPENSSL_NO_KRB5 -DOPENSSL_NO_DYNAMIC_ENGINE -DGETPID_IS_MEANINGLESS -DOPENSSL_NO_POSIX_IO -DOPENSSL_NO_DGRAM -DOPENSSL_NO_ASM#AptioV porting
+  DEFINE OPENSSL_EXFLAGS         = -DOPENSSL_SMALL_FOOTPRINT -DOPENSSL_NO_SHA0 -DOPENSSL_NO_LHASH -DOPENSSL_NO_HW -DOPENSSL_NO_OCSP -DOPENSSL_NO_LOCKING -DOPENSSL_NO_DEPRECATED -DOPENSSL_NO_RIPEMD -DOPENSSL_NO_RC2 -DOPENSSL_NO_IDEA -DOPENSSL_NO_BF -DOPENSSL_NO_CAST -DOPENSSL_NO_WHIRLPOOL -DOPENSSL_NO_DSA -DOPENSSL_NO_EC -DOPENSSL_NO_ECDH -DOPENSSL_NO_ECDSA -DOPENSSL_NO_SRP -DOPENSSL_NO_ENGINE
+
+#
+# OPENSSL_FLAGS is set to define the following flags to be compatible with
+# EDK II build system and UEFI executiuon environment
+#
+#   OPENSSL_SYSNAME_UWIN
+#   OPENSSL_SYS_UEFI
+#   L_ENDIAN
+#   _CRT_SECURE_NO_DEPRECATE
+#   _CRT_NONSTDC_NO_DEPRECATE
+#   OPENSSL_NO_CAMELLIA
+#   OPENSSL_NO_SEED
+#   OPENSSL_NO_RC5
+#   OPENSSL_NO_MDC2
+#   OPENSSL_NO_SOCK
+#   OPENSSL_NO_CMS
+#   OPENSSL_NO_JPAKE
+#   OPENSSL_NO_CAPIENG
+#   OPENSSL_NO_ERR
+#   OPENSSL_NO_KRB5
+#   OPENSSL_NO_DYNAMIC_ENGINE
+#   GETPID_IS_MEANINGLESS
+#   OPENSSL_NO_STDIO
+#   OPENSSL_NO_POSIX_IO
+#   OPENSSL_NO_FP_API
+#   OPENSSL_NO_DGRAM
+#   OPENSSL_NO_ASM
+#
+
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF ARM AARCH64
+#
+
+[Sources]
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/e_os.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/e_os2.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/cryptlib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/mem.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/mem_clr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/mem_dbg.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/cversion.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ex_data.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/cpt_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ebcdic.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/uid.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/o_time.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/o_str.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/o_dir.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/o_fips.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/o_init.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/fips_ers.c
+
+  #
+  # OBJECTS
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/objects/o_names.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/objects/obj_dat.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/objects/obj_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/objects/obj_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/objects/obj_xref.c
+
+  #
+  # MD4
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/md4/md4_dgst.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/md4/md4_one.c
+
+  #
+  # MD5
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/md5/md5_dgst.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/md5/md5_one.c
+
+  #
+  # SHA
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/sha/sha_dgst.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/sha/sha1dgst.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/sha/sha_one.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/sha/sha1_one.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/sha/sha256.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/sha/sha512.c
+
+  #
+  # MDC2 - Disabled by OPENSSL_NO_MDC2
+  #
+  # crypto/mdc2/mdc2dgst.c
+  # crypto/mdc2/mdc2_one.c
+
+  #
+  # HMAC
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/hmac/hmac.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/hmac/hm_ameth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/hmac/hm_pmeth.c
+
+  #
+  # RIPEMD - Disabled by OPENSSL_NO_RIPEMD
+  #
+  # crypto/ripemd/rmd_dgst.c
+  # crypto/ripemd/rmd_one.c
+
+  #
+  # WHIRLPOOL - Disabled by OPENSSL_NO_WHIRLPOOL
+  #
+  # crypto/whrlpool/wp_dgst.c
+  # crypto/whrlpool/wp_block.c
+
+  #
+  # DES
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/cbc_cksm.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/cbc_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/cfb64enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/cfb_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/ecb3_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/ecb_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/enc_read.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/enc_writ.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/fcrypt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/ofb64enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/ofb_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/pcbc_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/qud_cksm.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/rand_key.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/rpc_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/set_key.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/des_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/fcrypt_b.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/xcbc_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/str2key.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/cfb64ede.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/ofb64ede.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/ede_cbcm_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/des_old.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/des_old2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/des/read2pwd.c
+
+  #
+  # AES
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_core.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_misc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_ecb.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_cbc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_cfb.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_ofb.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_ctr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_ige.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/aes/aes_wrap.c
+
+  #
+  # RC2 - Disabled by OPENSSL_NO_RC2
+  #
+  # crypto/rc2/rc2_ecb.c
+  # crypto/rc2/rc2_skey.c
+  # crypto/rc2/rc2_cbc.c
+  # crypto/rc2/rc2cfb64.c
+  # crypto/rc2/rc2ofb64.c
+
+  #
+  # RC4
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rc4/rc4_skey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rc4/rc4_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rc4/rc4_utl.c
+
+  #
+  # RC5 - Disabled by OPENSSL_NO_RC5
+  #
+  # crypto/rc5/rc5_skey.c
+  # crypto/rc5/rc5_ecb.c
+  # crypto/rc5/rc5_enc.c
+  # crypto/rc5/rc5cfb64.c
+  # crypto/rc5/rc5ofb64.c
+
+  #
+  # IDEA - Disabled by OPENSSL_NO_IDEA
+  #
+  # crypto/idea/i_cbc.c
+  # crypto/idea/i_cfb64.c
+  # crypto/idea/i_ofb64.c
+  # crypto/idea/i_ecb.c
+  # crypto/idea/i_skey.c
+
+  #
+  # BLOWFISH - Disabled by OPENSSL_NO_BF
+  #
+  # crypto/bf/bf_skey.c
+  # crypto/bf/bf_ecb.c
+  # crypto/bf/bf_enc.c
+  # crypto/bf/bf_cfb64.c
+  # crypto/bf/bf_ofb64.c
+
+  #
+  # CAST - Disabled by OPENSSL_NO_CAST
+  #
+  # crypto/cast/c_skey.c
+  # crypto/cast/c_ecb.c
+  # crypto/cast/c_enc.c
+  # crypto/cast/c_cfb64.c
+  # crypto/cast/c_ofb64.c
+
+  #
+  # CAMELLIA - Disabled by OPENSSL_NO_CAMELLIA
+  #
+  # crypto/camellia/camellia.c
+  # crypto/camellia/cmll_misc.c
+  # crypto/camellia/cmll_ecb.c
+  # crypto/camellia/cmll_cbc.c
+  # crypto/camellia/cmll_ofb.c
+  # crypto/camellia/cmll_cfb.c
+  # crypto/camellia/cmll_ctr.c
+  # crypto/camellia/cmll_utl.c
+
+  #
+  # SEED - Disabled by OPENSSL_NO_SEED
+  #
+  # crypto/seed/seed.c
+  # crypto/seed/seed_ecb.c
+  # crypto/seed/seed_cbc.c
+  # crypto/seed/seed_cfb.c
+  # crypto/seed/seed_ofb.c
+
+  #
+  # MODES
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/cbc128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/ctr128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/cts128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/cfb128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/ofb128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/gcm128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/ccm128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/xts128.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/modes/wrap128.c
+
+  #
+  # BIGNUM
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_add.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_div.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_exp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_ctx.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_mul.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_mod.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_print.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_rand.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_shift.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_word.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_blind.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_kron.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_sqrt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_gcd.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_prime.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_sqr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_asm.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_recp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_mont.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_mpi.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_exp2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_gf2m.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_nist.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_depr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_const.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bn/bn_x931p.c
+
+  #
+  # ELLIPTIC CURVE - Disabled by OPENSSL_NO_EC
+  #
+  # crypto/ec/ec_lib.c
+  # crypto/ec/ecp_smpl.c
+  # crypto/ec/ecp_mont.c
+  # crypto/ec/ecp_nist.c
+  # crypto/ec/ec_cvt.c
+  # crypto/ec/ec_mult.c
+  # crypto/ec/ec_err.c
+  # crypto/ec/ec_curve.c
+  # crypto/ec/ec_check.c
+  # crypto/ec/ec_print.c
+  # crypto/ec/ec_asn1.c
+  # crypto/ec/ec_key.c
+  # crypto/ec/ec2_smpl.c
+  # crypto/ec/ec2_mult.c
+  # crypto/ec/ec_ameth.c
+  # crypto/ec/ec_pmeth.c
+  # crypto/ec/eck_prn.c
+  # crypto/ec/ecp_nistp224.c
+  # crypto/ec/ecp_nistp256.c
+  # crypto/ec/ecp_nistp521.c
+  # crypto/ec/ecp_nistputil.c
+  # crypto/ec/ecp_oct.c
+  # crypto/ec/ec2_oct.c
+  # crypto/ec/ec_oct.c
+
+  #
+  # RSA
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_eay.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_gen.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_sign.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_saos.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_pk1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_ssl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_none.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_oaep.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_chk.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_null.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_pss.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_x931.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_asn1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_depr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_ameth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_prn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_pmeth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rsa/rsa_crpt.c
+
+  #
+  # DSA - Disabled by OPENSSL_NO_DSA
+  #
+  # crypto/dsa/dsa_gen.c
+  # crypto/dsa/dsa_key.c
+  # crypto/dsa/dsa_lib.c
+  # crypto/dsa/dsa_asn1.c
+  # crypto/dsa/dsa_vrf.c
+  # crypto/dsa/dsa_sign.c
+  # crypto/dsa/dsa_err.c
+  # crypto/dsa/dsa_ossl.c
+  # crypto/dsa/dsa_depr.c
+  # crypto/dsa/dsa_ameth.c
+  # crypto/dsa/dsa_pmeth.c
+  # crypto/dsa/dsa_prn.c
+
+  #
+  # ECDSA - Disabled by OPENSSL_NO_ECDSA
+  #
+  # crypto/ecdsa/ecs_lib.c
+  # crypto/ecdsa/ecs_asn1.c
+  # crypto/ecdsa/ecs_ossl.c
+  # crypto/ecdsa/ecs_sign.c
+  # crypto/ecdsa/ecs_vrf.c
+  # crypto/ecdsa/ecs_err.c
+
+  #
+  # DIFFIE-HELLMAN
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_asn1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_gen.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_key.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_check.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_depr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_ameth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_pmeth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_prn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dh/dh_rfc5114.c
+  # crypto/dh/dh_kdf.c
+
+  #
+  # ECDH - Disabled by OPENSSL_NO_ECDH
+  #
+  # crypto/ecdh/ech_lib.c
+  # crypto/ecdh/ech_ossl.c
+  # crypto/ecdh/ech_key.c
+  # crypto/ecdh/ech_err.c
+  # crypto/ecdh/ech_kdf.c
+
+  #
+  # DSO
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_dl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_dlfcn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_null.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_openssl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_win32.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_vms.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/dso/dso_beos.c
+
+  #
+  # ENGINE - Disabled by OPENSSL_NO_ENGINE
+  #
+  # crypto/engine/eng_err.c
+  # crypto/engine/eng_lib.c
+  # crypto/engine/eng_list.c
+  # crypto/engine/eng_init.c
+  # crypto/engine/eng_ctrl.c
+  # crypto/engine/eng_table.c
+  # crypto/engine/eng_pkey.c
+  # crypto/engine/eng_fat.c
+  # crypto/engine/eng_all.c
+  # crypto/engine/tb_rsa.c
+  # crypto/engine/tb_dsa.c
+  # crypto/engine/tb_ecdsa.c
+  # crypto/engine/tb_dh.c
+  # crypto/engine/tb_ecdh.c
+  # crypto/engine/tb_rand.c
+  # crypto/engine/tb_store.c
+  # crypto/engine/tb_cipher.c
+  # crypto/engine/tb_digest.c
+  # crypto/engine/tb_pkmeth.c
+  # crypto/engine/tb_asnmth.c
+  # crypto/engine/eng_openssl.c
+  # crypto/engine/eng_cnf.c
+  # crypto/engine/eng_dyn.c
+  # crypto/engine/eng_cryptodev.c
+  # crypto/engine/eng_rdrand.c
+
+  #
+  # BUFFER
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/buffer/buffer.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/buffer/buf_str.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/buffer/buf_err.c
+
+  #
+  # BIO
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bio_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bio_cb.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bio_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_file.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_mem.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_null.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_fd.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_sock.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bf_null.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bf_buff.c
+  
+  #
+  # Not Required by UEFI.
+  #
+  # crypto/bio/b_print.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/b_dump.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bf_nbio.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_log.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_bio.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/bio/bss_dgram.c
+
+  #
+  # STACK
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/stack/stack.c
+
+  #
+  # LHASH
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/lhash/lhash.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/lhash/lh_stats.c
+
+  #
+  # RAND
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rand/md_rand.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rand/randfile.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rand/rand_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rand/rand_err.c
+  # crypto/rand/rand_egd.c
+  # crypto/rand/rand_win.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/rand/rand_unix.c
+  # crypto/rand/rand_os2.c
+  # crypto/rand/rand_nw.c
+
+  #
+  # ERR
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/err/err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/err/err_all.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/err/err_prn.c
+
+  #
+  # EVP
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/encode.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/digest.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_key.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_acnf.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_cnf.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_des.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_bf.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_idea.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_des3.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_camellia.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_rc4.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_aes.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/names.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_seed.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_xcbc_d.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_rc2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_cast.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_rc5.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_null.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_md2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_md4.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_md5.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_sha.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_sha1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_wp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_dss.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_dss1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_mdc2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_ripemd.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_ecdsa.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_open.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_seal.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_sign.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_verify.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p_dec.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/bio_md.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/bio_b64.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/bio_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_null.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/c_all.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/c_allc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/c_alld.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/bio_ok.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_pkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/evp_pbe.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p5_crpt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/p5_crpt2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_old.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/pmeth_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/pmeth_fn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/pmeth_gn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/m_sigver.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_aes_cbc_hmac_sha1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_aes_cbc_hmac_sha256.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/evp/e_rc4_hmac_md5.c
+
+  #
+  # ASN1
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_object.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_bitstr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_utctm.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_gentm.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_time.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_int.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_octet.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_print.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_type.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_set.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_dup.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_d2i_fp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_i2d_fp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_enum.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_utf8.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_sign.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_digest.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_verify.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_mbstr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_strex.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_algor.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_val.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_pubkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_sig.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_req.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_attrib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_bignum.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_long.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_name.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_x509.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_x509a.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_crl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_info.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_spki.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/nsseq.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_nx509.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/d2i_pu.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/d2i_pr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/i2d_pu.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/i2d_pr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_req.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_x509.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_x509a.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_crl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_pkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_spki.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/t_bitst.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_new.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_fre.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_dec.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_utl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_typ.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/tasn_prn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/ameth_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/f_int.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/f_string.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/n_pkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/f_enum.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_pkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_bool.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/x_exten.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/bio_asn1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/bio_ndef.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn_mime.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn1_gen.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn1_par.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn1_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn1_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_bytes.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/a_strnid.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/evp_asn1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn_pack.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/p5_pbe.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/p5_pbev2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/p8_pkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/asn1/asn_moid.c
+
+  #
+  # PEM
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_sign.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_seal.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_info.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_all.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_x509.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_xaux.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_oth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_pk8.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pem_pkey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pem/pvkfmt.c
+
+  #
+  # X509
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_def.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_d2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_r2x.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_cmp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_obj.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_req.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509spki.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_vfy.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_set.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509cset.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509rset.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509name.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_v3.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_ext.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_att.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509type.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_lu.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x_all.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_txt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_trs.c
+  #
+  #  Not Required by UEFI.
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/by_file.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/by_dir.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509/x509_vpm.c
+
+  #
+  # X509v3
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_bcons.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_bitst.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_conf.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_extku.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_ia5.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_prn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_utl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_genn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_alt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_skey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_akey.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_pku.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_int.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_enum.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_sxnet.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_cpols.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_crld.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_purp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_info.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_ocsp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_akeya.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_pmaps.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_pcons.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_ncons.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_pcia.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_pci.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/pcy_cache.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/pcy_node.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/pcy_data.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/pcy_map.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/pcy_tree.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/pcy_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_asid.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/x509v3/v3_addr.c
+  #
+  #  Not Required by UEFI.
+  #
+  # crypto/x509v3/v3_scts.c
+
+  #
+  # CONF
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_api.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_def.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_mod.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_mall.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/conf/conf_sap.c
+
+  #
+  # TXT_DB
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/txt_db/txt_db.c
+
+  #
+  # PKCS7
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pk7_asn1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pk7_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pkcs7err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pk7_doit.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pk7_smime.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pk7_attr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/pk7_mime.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs7/bio_pk7.c
+
+  #
+  # PKCS12
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_add.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_asn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_attr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_crpt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_crt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_decr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_init.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_key.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_kiss.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_mutl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_utl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_npas.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/pk12err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_p8d.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pkcs12/p12_p8e.c
+
+  #
+  # COMP
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/comp/comp_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/comp/comp_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/comp/c_rle.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/comp/c_zlib.c
+
+  #
+  # OCSP - Disabled by OPENSSL_NO_OCSP
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_asn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_ext.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_ht.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_cl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_srv.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_prn.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_vfy.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ocsp/ocsp_err.c
+
+  #
+  # UI
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ui/ui_lib.c
+  #
+  #  Not Required by UEFI.
+  #
+  # crypto/ui/ui_err.c
+  # crypto/ui/ui_openssl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ui/ui_util.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ui/ui_compat.c
+
+  #
+  # KRB5
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/krb5/krb5_asn.c
+
+  #
+  # CMS - Disabled by OPENSSL_NO_CMS
+  #
+  # crypto/cms/cms_lib.c
+  # crypto/cms/cms_asn1.c
+  # crypto/cms/cms_att.c
+  # crypto/cms/cms_io.c
+  # crypto/cms/cms_smime.c
+  # crypto/cms/cms_err.c
+  # crypto/cms/cms_sd.c
+  # crypto/cms/cms_dd.c
+  # crypto/cms/cms_cd.c
+  # crypto/cms/cms_env.c
+  # crypto/cms/cms_enc.c
+  # crypto/cms/cms_ess.c
+  # crypto/cms/cms_pwri.c
+  # crypto/cms/cms_kari.c
+
+  #
+  # PQUEUE
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/pqueue/pqueue.c
+
+  #
+  # TS
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_req_utils.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_req_print.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_rsp_utils.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_rsp_print.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_rsp_sign.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_rsp_verify.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_verify_ctx.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_conf.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/ts/ts_asn1.c
+
+  #
+  # SRP - Disabled by OPENSSL_NO_SRP
+  #
+  # crypto/srp/srp_lib.c
+  # crypto/srp/srp_vfy.c
+
+  #
+  # CMAS
+  #
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/cmac/cmac.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/cmac/cm_ameth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/crypto/cmac/cm_pmeth.c
+
+   # AptioV - Add ssl related files to build process >>>
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/bio_ssl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_both.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_clnt.c
+#   ssl/d1_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_meth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_pkt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_srvr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/d1_srtp.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/kssl.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/kssl.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/kssl_lcl.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s23_clnt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s23_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s23_meth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s23_pkt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s23_srvr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s2_clnt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s2_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s2_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s2_meth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s2_pkt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s2_srvr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_both.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_clnt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_cbc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_meth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_pkt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/s3_srvr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl2.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl23.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl3.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_algs.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_asn1.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_cert.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_ciph.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_err.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_err2.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_locl.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_rsa.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_sess.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_stat.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/ssl_txt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_clnt.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_enc.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_lib.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_meth.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_reneg.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_srvr.c
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/tls1.h
+ ../CryptoPkg/Library/OpensslLib/openssl-1.0.2f/ssl/t1_ext.c
+   # AptioV - Add ssl related files to build process <<<
+
+[Packages]
+  MdePkg/MdePkg.dec
+  CryptoPkg/CryptoPkg.dec
+
+[LibraryClasses]
+  DebugLib
+
+[BuildOptions]
+   #
+   # Override MSFT build option to remove /W4 (to silence warning messages when building OpenSSL).
+   #
+# AMI PORTING BEGIN  - Remove flags to enable debugging
+   MSFT:DEBUG_VS2003_IA32_CC_FLAGS        == /nologo /c /WX /Gs32768 /Gy /D UNICODE /GL /FIAutoGen.h /EHs-c- /GR- /GF /GX- /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:RELEASE_VS2003_IA32_CC_FLAGS      == /nologo /c /WX /Gs32768 /Gy /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF /GX- -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w  -DTHIRTY_TWO_BIT
+   MSFT:DEBUG_VS2003xASL_IA32_CC_FLAGS    == /nologo /c /WX /Gs32768 /Gy /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF /GX- /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:RELEASE_VS2003xASL_IA32_CC_FLAGS  == /nologo /c /WX /Gs32768 /Gy /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF /GX- -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:DEBUG_DDK3790_IA32_CC_FLAGS       == /nologo /c /WX /Gy /Gs32768 /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:RELEASE_DDK3790_IA32_CC_FLAGS     == /nologo /c /WX /Gy /Gs32768 /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:DEBUG_DDK3790xASL_IA32_CC_FLAGS   == /nologo /c /WX /Gy /Gs32768 /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:RELEASE_DDK3790xASL_IA32_CC_FLAGS == /nologo /c /WX /Gy /Gs32768 /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:DEBUG_*_IA32_CC_FLAGS             == /nologo /c /WX /GS- /Gs32768 /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF /Gy /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:RELEASE_*_IA32_CC_FLAGS           == /nologo /c /WX /GS- /Gs32768 /D UNICODE  /GL /FIAutoGen.h /EHs-c- /GR- /GF -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:NOOPT_*_IA32_CC_FLAGS             == /nologo /c /WX /GS- /Gs32768 /D UNICODE  /FIAutoGen.h /EHs-c- /GR- /GF /Gy /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+   MSFT:DEBUG_*_X64_CC_FLAGS              == /nologo /c /WX /GS- /X /Gs32768 /D UNICODE  /GL /Gy /FIAutoGen.h /EHs-c- /GR- /GF /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+   MSFT:RELEASE_*_X64_CC_FLAGS            == /nologo /c /WX /GS- /X /Gs32768 /D UNICODE  /GL /Gy /FIAutoGen.h /EHs-c- /GR- /GF -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+   MSFT:NOOPT_*_X64_CC_FLAGS              == /nologo /c /WX /GS- /X /Gs32768 /D UNICODE /Gy /FIAutoGen.h /EHs-c- /GR- /GF /Zi /Gm -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+   MSFT:DEBUG_*_IPF_CC_FLAGS              == /nologo /c /WX /GS- /X /EHs-c- /GR- /Gy  /GL /FIAutoGen.h /QIPF_fr32 /Zi -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+   MSFT:RELEASE_*_IPF_CC_FLAGS            == /nologo /c /WX /GS- /X /EHs-c- /GR- /Gy  /GL /FIAutoGen.h /QIPF_fr32 -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+   MSFT:NOOPT_*_IPF_CC_FLAGS              == /nologo /c /WX /GS- /X /EHs-c- /GR- /Gy  /FIAutoGen.h /QIPF_fr32 /Zi -U_WIN32 -U_WIN64 -U_MSC_VER $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+# AMI PORTING END  - Remove flags to enable debugging
+
+  INTEL:*_*_IA32_CC_FLAGS   = -U_WIN32 -U_WIN64 -U_MSC_VER -U__ICC $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DTHIRTY_TWO_BIT
+  INTEL:*_*_X64_CC_FLAGS    = -U_WIN32 -U_WIN64 -U_MSC_VER -U__ICC $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+  INTEL:*_*_IPF_CC_FLAGS    = -U_WIN32 -U_WIN64 -U_MSC_VER -U__ICC $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) /w -DSIXTY_FOUR_BIT
+
+  GCC:*_*_IA32_CC_FLAGS     = -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DTHIRTY_TWO_BIT
+  GCC:*_*_X64_CC_FLAGS      = -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DSIXTY_FOUR_BIT_LONG
+  GCC:*_*_IPF_CC_FLAGS      = -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DSIXTY_FOUR_BIT_LONG
+  GCC:*_*_ARM_CC_FLAGS      = $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DTHIRTY_TWO_BIT
+  GCC:*_*_AARCH64_CC_FLAGS  = $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DSIXTY_FOUR_BIT_LONG
+
+  # suppress the following warnings in openssl so we don't break the build with warnings-as-errors:
+  # 1295: Deprecated declaration <entity> - give arg types
+  #  550: <entity> was set but never used
+  # 1293: assignment in condition
+  #  111: statement is unreachable (invariably "break;" after "return X;" in case statement)
+  #   68: integer conversion resulted in a change of sign ("if (Status == -1)")
+  #  177: <entity> was declared but never referenced
+  #  223: function <entity> declared implicitly
+  #  144: a value of type <type> cannot be used to initialize an entity of type <type>
+  #  513: a value of type <type> cannot be assigned to an entity of type <type>
+  #  188: enumerated type mixed with another type (i.e. passing an integer as an enum without a cast)
+  # 1296: Extended constant initialiser used
+  RVCT:*_*_ARM_CC_FLAGS     = $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) --library_interface=aeabi_clib99 --fpu=vfpv3 -DTHIRTY_TWO_BIT --diag_suppress=1296,1295,550,1293,111,68,177,223,144,513,188
+  XCODE:*_*_IA32_CC_FLAGS   = -mmmx -msse -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DTHIRTY_TWO_BIT
+  XCODE:*_*_X64_CC_FLAGS    = -mmmx -msse -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -w -DSIXTY_FOUR_BIT_LONG
+#### AMI PORTING BEGIN  #####
+   GCC:*_*_AARCH64_CC_FLAGS	              = $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -DSIXTY_FOUR_BIT
+   GCC:*_*_ARM_CC_FLAGS	              = $(OPENSSL_FLAGS) $(OPENSSL_EXFLAGS) -DTHIRTY_TWO_BIT
+#### AMI PORTING END  #####

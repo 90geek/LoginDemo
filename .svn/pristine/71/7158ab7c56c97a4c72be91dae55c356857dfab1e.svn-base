@@ -1,0 +1,19 @@
+<component>
+	name = "Nvme"
+	category = eModule
+	LocalRoot = "AmiModulePkg\Nvme\"
+	RefName = "NVMe"
+[INF]
+"Nvme.inf"
+"NvmeControllerLib.inf"
+"NvmeSmm\NvmeSmm.inf"
+[files]
+"Nvme.sdl"	
+"Nvme.sd"	
+"Nvme.uni"	
+"NvmeSetup.c"	
+"NVMe.chm"	
+[parts]
+"NVMEINT13"
+"NvmeProtocol"
+<endComponent>

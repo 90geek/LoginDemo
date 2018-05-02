@@ -1,0 +1,20 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = OemCsm16
+  FILE_GUID                      = E998C6D8-572B-4e18-96CC-031EA3DD558C
+  MODULE_TYPE                    = USER_DEFINED
+  VERSION_STRING                 = 1.0
+
+[Sources]
+  CsmKrnl.csm16
+  ../AmiCRBPkg\CRB\RSTeInt15.csm16
+  ../AmiModulePkg\AHCI\SB/AhciAcc.csm16
+ ../AmiModulePkg\LegacySerialRedirection/Csm16/SerialCallback.csm16
+ ../AmiModulePkg\LegacySerialRedirection/Csm16/SerialBootCall.csm16
+ ../AmiModulePkg\LegacySerialRedirection/Csm16/SredirBootFail.csm16
+  ../AmiModulePkg\CSM/Oem16Sig.csm16
+  
+  
+[Packages] 
+  MdePkg/MdePkg.dec
+

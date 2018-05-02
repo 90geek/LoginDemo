@@ -1,0 +1,17 @@
+<component>
+	name = "GrantleySocketPkg"
+	category = eChipset
+	LocalRoot = "GrantleySocketPkg\"
+	RefName = "GrantleySocketPkg"
+[files]
+"SocketPkg.dec"	
+"GrantleySocketPkg.sdl"	
+"Grantley_BDX-EP_RC_ReleaseNotes.pdf" 	
+"Grantley-EP_RC_User_Guide.pdf" 	
+[parts]
+"GrantleySocketPkg.Include"
+"GrantleySocketPkg.Library"
+"GrantleySocketPkg.Pei"
+"GrantleySocketPkg.Dxe"
+"GrantleySocketPkg.Smm"
+<endComponent>

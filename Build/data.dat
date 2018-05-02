@@ -1,0 +1,8 @@
+CsmKrnl.csm16obj+
+RSTeInt15.csm16obj+
+AhciAcc.csm16obj+
+SerialCallback.csm16obj+
+SerialBootCall.csm16obj+
+SredirBootFail.csm16obj+
+Oem16Sig.csm16obj+
+Oem16End.csm16obj,c:\1218_alibaba\Build\GRANTLEY\RELEASE_MYTOOLS\X64\Build\OemCsm16\OUTPUT\OemCsm16.bin,,,,

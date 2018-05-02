@@ -1,0 +1,597 @@
+TOKEN
+	Name  = "Ali_1218_SUPPORT"
+	Value  = "1"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	TOKEN = "SKU_NUM" "=" "2"
+	Help  = "Main switch to enable CFG-Ali-1218 A support in Project"
+End
+
+#TH0164>>>
+TOKEN
+	Name  = "FITC_NM_FILE_NAME"
+	Value  = "Thor_SPS_NM_20160106A_for_Ali_1218" #LLY011001
+	Help  = "This token describes the input filename for Node Manager to SPSfitc.exe. Do not fill any value if Node Manager support is not Present"
+	TokenType = Expression
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0164<<<
+
+#CDL002038>>
+TOKEN
+	Name  = HandleLastbootError_Support
+	Value  = "0"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+        TargetH = Yes	
+	Help  = "Main switch to enable HandleLastbootError Support  in Project"
+End
+#CDL002038<<
+
+#TH0097A>>>>
+TOKEN   
+    Name  = "SERIAL_DBG_MSG"
+    Value  = "1"   
+    Help  = "Main switch to print QPI/MRC debug message when debug mode is disabled"   
+    TokenType = Boolean   
+    TargetH = Yes
+    TargetMAK = Yes
+End
+#TH0097A<<<<
+
+#TH0154A>>>
+TOKEN
+    Name  = "DEFAULT_CORRECTABLE_ERROR_THRESHOLD"
+    Value = "500" #CDL002041 ++ 
+    Help  = "Modify the default correctable error threshold to 5000 for Ali."
+    TokenType = Integer
+    TargetH = Yes
+End
+#TH0154A<<<
+
+#CDL002040>>>
+TOKEN
+	Name  = "SERVWORK_MEF406F1"
+	Value  = "1"
+	Help  = "Intel(R) Broadwell -EX Processor B-0 Stepping"
+	TokenType = Boolean
+End
+#CDL002040<<<
+
+#TH0155>>>
+TOKEN
+    Name  = "OEM_SEL_LOG_SUPPORT"
+    Value = "1"
+    Help  = "Main switch to enable OEM SEL support in Project."
+    TokenType = Integer
+    TargetH = Yes
+End
+#TH0155<<<
+
+#TH0165>>>
+TOKEN   
+    Name  = "DEFAULT_CPU_EIST_ENABLED"
+    Value  = "0"   
+    Help  = "Main switch to enable 'CPU EIST': 0.Disabled; 1.Enabled"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_UNCORE_FREQ_SCALING"
+    Value  = "1"   
+    Help  = "Main switch to show 'UFS': 0.Hide; 1.Show. (Default is Enabled)"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_CLUSTER_ON_DIE_EN"
+    Value  = "1"   
+    Help  = "Main switch to show 'Cluster on Die(COD)': 0.Hide(Default is Auto); 1.Show(Default is Disabled)"   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_EARLY_SNOOP_EN"
+    Value  = "1"   
+    Help  = "Main switch to show 'Early Snoop Enable': 0.Hide(Default is Auto); 1.Show(Default is Enabled)"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_AFTER_G3"
+    Value  = "1"   
+    Help  = "Main switch to config 'Restore AC Power Loss(After G3)': 0.Power On; 1.Power Off"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_MWAIT_MONITOR_ITEM"
+    Value  = "0"   
+    Help  = "Main switch to enable 'Monitor/Mwait': 0.Disabled; 1.Enabled"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0165<<<
+
+#TH0169A>>>
+TOKEN   
+    Name  = "OEM_SEL_DEFINITION_FOR_ALI"
+    Value  = "1"   
+    Help  = "Define sensor number according to Ali IBMC FW Specification."
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0169A<<<
+
+#TH0169>>>
+TOKEN   
+    Name  = "OEM_SENSOR_NUM_DEFINITION_FOR_ALI_1218"
+    Value  = "1"   
+    Help  = "Define sensor number according to Ali IBMC FW Specification."
+    TokenType = Boolean   
+    TargetH = Yes
+    Token = "OEM_SEL_DEFINITION_FOR_ALI" "=" "1" #TH0169A
+End
+#TH0169<<<
+
+#TH0173>>>
+TOKEN   
+    Name  = "DEFAULT_DIRECT_CACHE_ACCESS"
+    Value  = "0"   
+    Help  = "Main switch to config 'Direct Cache Access(DCA)': 0.Enable; 1.Auto"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_BOOT_PERFORMANCE_STATE"
+    Value  = "1"   
+    Help  = "Main switch to show 'Boot performance mode': 0.Hide; 1.Show.  (Default is 'Max Performance')"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_VALUE_PACKAGE_CSTATE"
+    Value  = "0"   
+    Help  = "Main switch to config 'Package C State Limit': 0.C0/C1 State.(Also change the options); 1.C6(Retention) State."
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_ACPI_T_STATE"
+    Value  = "0"   
+    Help  = "Main switch to enable 'ACPI T-States': 0.Disable; 1.Enable"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_SET_THORTTLING_MODE"
+	#TH0196    Value  = "0"   
+	Value  = "1"  #TH0196
+    Help  = "Main switch to config 'Set Throttling Mode': 0.Disable; 1.CLTT"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "SHOW_SOCKET_INTERLEAVE_BELOW4GB"
+    Value  = "1"   
+    Help  = "Main switch to show 'Socket Interleave Below 4GB': 0.Hide; 1.Show.  (Default is Disable)"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_PATROL_SCRUB_INTERVAL"
+    Value  = "0"   
+    Help  = "Main switch to config 'Patrol Scrub Interval': 0.default = maximum = 18; 1.default = maximum = 24"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+
+TOKEN   
+    Name  = "DEFAULT_DEMAND_SCRUB"
+    Value  = "0"   
+    Help  = "Main switch to enable 'Demand Scrub': 0.Disable; 1.Enable"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0173<<<
+
+#TH0178>>>
+TOKEN   
+    Name  = "SETUP_COMPORT_CONFIG_SELECT"
+    Value  = "0"   
+    Help  = "Main switch to set the COM port: 0.Physical-3F8, SOL-2F8; 1.Physical-2F8, SOL-3F8"      
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0178<<<
+
+#TH0184>>>
+TOKEN   
+    Name  = "DEFAULT_FRB2_TIMER_ENABLED"
+    Value  = "1"   
+    Help  = "FRB2 Timer is enabled by Setup default"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0184<<<
+
+#TH0185>>>
+TOKEN   
+    Name  = "CHANGE_ONBOARD_HDD_FIRST"
+    Value  = "0"   
+    Help  = "Change the HDD priority for AHCI mode: 0.Off board HDD first; 1.Onboard HDD first"
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0185<<<
+
+#TH0113B>>>
+TOKEN   
+    Name  = "INFORM_BMC_CATCH_QPI_MRC_DEBUG_MESSAGE"
+    Value  = "0"  #CDL002030 Change Token value 1->0   
+    Help  = "Inform BMC to catch QPI/MRC debug message from com port."   
+    TokenType = Boolean   
+    TargetH = Yes
+End
+#TH0113B<<<
+
+#TH0196>>>
+TOKEN   
+    Name  = "DEFAULT_ENERGY_PERF_BIAS_SETTING"
+    Value  = "2"   
+    Help  = "Energy Performance BIAS setting by Setup default"
+    TokenType = Integer 
+    TargetH = Yes
+End
+#TH0196<<<
+#LLY011006>>>
+TOKEN
+    Name = "NCSI_SELECT_SUPPORT"
+    Value = "0"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "Ali_1218_SUPPORT" "=" "1"
+End
+#LLY011006<<<
+#LLY011010+>>>
+TOKEN
+    Name = BMC_WARM_RESET_SUPPORT
+    Value = "0"
+    Help = "Main switch to enable Bmc warm reset support. By default support is enabled."
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "Ali_1218_SUPPORT" "=" "1"
+End
+#LLY011010+<<<
+#LLY011016+>>>
+TOKEN
+    Name  = "DEFAULT_SMART_SELFTEST"
+    Value  = "0"
+    Help  = "Default setup value of HDD SMART status check:\1 - Check SMART status during POST\0 - Do not Check SMART status during POST "
+    TokenType = Integer
+    TargetH = Yes
+    Token = "Ali_1218_SUPPORT" "=" "1"
+End
+#LLY011016+<<<
+#GCH001001 + START
+ELINK
+	Name  = "ChangeBootOptionPriorities,"
+	Parent  = "FBO_UpdateBootListPriority,"
+	InvokeOrder = BeforeParent
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+#GCH001001 + END
+#LLY011020+>>>
+TOKEN
+	Name  = "HIDE_USB_HISPEED_SUPPORT_SETUP_QUESTION"
+	Value  = "1"
+	Help  = "Switch to Hide/Un-hide USB HiSpeed Support setup question."
+	TokenType = Boolean
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+#LLY011020+<<<
+#LLY011021+>>>
+#CPU0 PCIE CTLE
+TOKEN
+	Name  = "CPU0_PCIEPort1aCTLE"
+#ZYY006009-	Value  = "0x1E"
+        Value  = "0x02" #ZYY006009+
+	Help  = "Modify CTLE of PCIE port 1A"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort1bCTLE"
+#ZYY006009-	Value  = "0x1E"
+        Value  = "0x02" #ZYY006009+
+	Help  = "Modify CTLE of PCIE port 1B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort2aCTLE"
+	Value  = "0x1E"
+	Help  = "Modify CTLE of PCIE port 2A"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort2bCTLE"
+	Value  = "0x1E"
+	Help  = "Modify CTLE of PCIE port 2B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort2cCTLE"
+	Value  = "0x1E"
+	Help  = "Modify CTLE of PCIE port 2C"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort2dCTLE"
+	Value  = "0x1E"
+	Help  = "Modify CTLE of PCIE port 2D"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort3aCTLE"
+	Value  = "0x1B"
+	Help  = "Modify CTLE of PCIE port 3A"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort3bCTLE"
+	Value  = "0x1B"
+	Help  = "Modify CTLE of PCIE port 3B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort3cCTLE"
+#LLY011027-	Value  = "0xC"
+	Value  = "0x1E"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 3C"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU0_PCIEPort3dCTLE"
+#LLY011027-	Value  = "0xC"
+	Value  = "0x1E"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 3D"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+#CPU1 PCIE CTLE
+TOKEN
+	Name  = "CPU1_PCIEPort1aCTLE"
+#LLY011027-	Value  = "0x1E"
+	Value  = "0xC"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 1A"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort1bCTLE"
+#LLY011027-	Value  = "0x1E"
+	Value  = "0xC"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 1B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort2aCTLE"
+#LLY011027-	Value  = "0xC"
+	Value  = "0x1E"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 2A"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort2bCTLE"
+#LLY011027-	Value  = "0xC"
+	Value  = "0x1E"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 2B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort2cCTLE"
+#LLY011027-	Value  = "0xC"
+	Value  = "0x1E"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 2C"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort2dCTLE"
+#LLY011027-	Value  = "0xC"
+	Value  = "0x1E"#LLY011027+
+	Help  = "Modify CTLE of PCIE port 2D"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort3aCTLE"
+	Value  = "0x1B"
+	Help  = "Modify CTLE of PCIE port 3A"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort3bCTLE"
+	Value  = "0x1B"
+	Help  = "Modify CTLE of PCIE port 3B"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort3cCTLE"
+	Value  = "0x0"
+	Help  = "Modify CTLE of PCIE port 3C"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "CPU1_PCIEPort3dCTLE"
+	Value  = "0x0"
+	Help  = "Modify CTLE of PCIE port 3D"
+	TokenType = Integer
+	TargetH = Yes
+	Token = "Ali_1218_SUPPORT" "=" "1"
+End
+#LLY011021+<<<
+#LLY011023+>>>
+#QPI TXEQ&CTLE
+TOKEN
+	Name  = "QpiSck0Lnk0TXEQ"
+	Value  = "0x2C36353F"
+	Help  = "Modify the QPI TXEQ of Socket0 Link0"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "QpiSck0Lnk1TXEQ"
+	Value  = "0x3038373F"
+	Help  = "Modify the QPI TXEQ of Socket0 Link1"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "QpiSck1Lnk0TXEQ"
+	Value  = "0x3038373F"
+	Help  = "Modify the QPI TXEQ of Socket1 Link0"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "QpiSck1Lnk1TXEQ"
+	Value  = "0x343A393F"
+	Help  = "Modify the QPI TXEQ of Socket1 Link1"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "QpiSck0Lnk0CTLE"
+	Value  = "0x6"
+	Help  = "Modify the QPI CTLE of Socket0 Link0"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "QpiSck0Lnk1CTLE"
+	Value  = "0x1B"
+	Help  = "Modify the QPI CTLE of Socket0 Link1"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "QpiSck1Lnk0CTLE"
+	Value  = "0x1B"
+	Help  = "Modify the QPI CTLE of Socket1 Link0"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "QpiSck1Lnk1CTLE"
+	Value  = "0x1E"
+	Help  = "Modify the QPI CTLE of Socket1 Link1"
+	TokenType = Integer
+	TargetH = Yes
+        Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+#LLY011023+<<<
+
+#ZYY006021+START
+TOKEN
+    Name  = "RESTORE_FBO_VARIABLES"
+    Value = "0"
+    Help  = "Enable Restore Fixed Boot Order module related variables"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "Ali_1218_SUPPORT" "=" "1"
+End
+
+TOKEN
+	Name  = "PRESERVE_EFIBOOTORDER"
+	Value  = "0"
+	Help  = "1 - Preserve EFI BootOrder through flashing. 0 - Do not preserve EFI BootOrder."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#ZYY006021+END

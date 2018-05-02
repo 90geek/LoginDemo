@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AmiCspLibDxe
+  FILE_GUID                      = 94F399A7-C224-40AD-B695-FDF7EFDE4805
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = AmiCspLib|DXE_DRIVER DXE_CORE DXE_RUNTIME_DRIVER UEFI_DRIVER SMM_CORE DXE_SMM_DRIVER
+
+[Sources]
+  ../AmiCompatibilityPkg\Board/OemPort.c
+ ../Build/OemPortList.c
+ ../AmiCompatibilityPkg\CmosManager/CmosBoard.c
+ ../AmiCRBPkg\Chipset\SB/SBGeneric.c
+ ../AmiCRBPkg\CRB/CRBLib.c
+  
+[Packages] 
+  MdePkg/MdePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  Build/Platform.dec
+  
+[Protocols]
+  gEfiAcpiTableProtocolGuid
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+
+[LibraryClasses]
+  PcdLib
+

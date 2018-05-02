@@ -1,0 +1,113 @@
+ PchInitPeim
+
+ Timestamp is 5ae04aa9 (Wed Apr 25 17:30:17 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00002880H .data                   CODE
+ 0001:00002880 00000048H .rdata                  CODE
+ 0001:000028c8 00003101H .text                   CODE
+ 0001:000059cc 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gChipsetInitInfoHobGuid   00000220     PchInitPeim:AutoGen.obj
+ 0001:00000010       _gPchInitPpiGuid           00000230     PchInitPeim:AutoGen.obj
+ 0001:00000020       _gPchPlatformPolicyPpiGuid 00000240     PchInitPeim:AutoGen.obj
+ 0001:00000030       _gPchUsbPolicyPpiGuid      00000250     PchInitPeim:AutoGen.obj
+ 0001:00000040       _gPchPeiInitDonePpiGuid    00000260     PchInitPeim:AutoGen.obj
+ 0001:00000050       _gPchDmiTcVcMapPpiGuid     00000270     PchInitPeim:AutoGen.obj
+ 0001:00000060       _gPchResetPpiGuid          00000280     PchInitPeim:AutoGen.obj
+ 0001:00000070       _PCH_H_PORTSCxUSB2         00000290     PchInitPeim:PchUsbCommon.obj
+ 0001:000000ac       _PCH_LP_PORTSCxUSB2        000002cc     PchInitPeim:PchUsbCommon.obj
+ 0001:000000d0       _PCH_H_PORTSCxUSB3         000002f0     PchInitPeim:PchUsbCommon.obj
+ 0001:000000e8       _PCH_LP_PORTSCxUSB3        00000308     PchInitPeim:PchUsbCommon.obj
+ 0001:000000f8       _PchChipsetInitTableWbg_A0 00000318     PchInitPeim:PchHsioWbgA0.obj
+ 0001:000003f8       _PchSataSharedHsioWbg_A0   00000618     PchInitPeim:PchHsioWbgA0.obj
+ 0001:000005d8       _PchSataHsioWbg_A0         000007f8     PchInitPeim:PchHsioWbgA0.obj
+ 0001:000009b0       _PchSataHsioWbg_DT_A0      00000bd0     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00000a10       _PchSataSharedHsioWbg_DT_A0 00000c30     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00000a40       _PchsSataHsioWbg_A0        00000c60     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00000e18       _PchsSataSharedHsioWbg_A0  00001038     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00000ff8       _PchSataSharedHsioWbg_MB_A0 00001218     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00001028       _PchSataHsioWbg_MB_A0      00001248     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00001088       _PchSsataHsioWbg_MB_A0     000012a8     PchInitPeim:PchHsioWbgA0.obj
+ 0001:000010e8       _PchsSataHsioWbg_DT_A0     00001308     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00001148       _PchsSataSharedHsioWbg_DT_A0 00001368     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00001178       _PchUsb3HsioWbg_A0         00001398     PchInitPeim:PchHsioWbgA0.obj
+ 0001:000012c8       _PchUsb3SharedHsioWbg_A0   000014e8     PchInitPeim:PchHsioWbgA0.obj
+ 0001:000013a0       _PchGbeSharedHsioWbg_A0    000015c0     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00001400       _PchDmiHsioWbg_A0          00001620     PchInitPeim:PchHsioWbgA0.obj
+ 0001:00001430       _PchChipsetInitTableWbg_B0 00001650     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00001540       _PchSataSharedHsioWbg_B0   00001760     PchInitPeim:PchHsioWbgB0.obj
+ 0001:000016f0       _PchSataHsioWbg_B0         00001910     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00001a60       _PchUsb3SharedHsioWbg_B0   00001c80     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00001b78       _PchUsb3HsioWbg_B0         00001d98     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00001d58       _PchGbeSharedHsioWbg_B0    00001f78     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00001db8       _PchSsataHsioWbg_B0        00001fd8     PchInitPeim:PchHsioWbgB0.obj
+ 0001:000021e8       _PchSataSharedHsioWbg_DT_B0 00002408     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002230       _PchSataSharedHsioWbg_DT_B0_2U 00002450     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002278       _PchSataHsioWbg_DT_B0      00002498     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002308       _PchSataHsioWbg_DT_B0_1U   00002528     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002398       _PchSataHsioWbg_DT_B0_2U_SAS 000025b8     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002428       _PchSataHsioWbg_DT_B0_2U   00002648     PchInitPeim:PchHsioWbgB0.obj
+ 0001:000024b8       _PchSsataHsioWbg_DT_B0     000026d8     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002548       _PchSataSharedHsioWbg_MB_B0 00002768     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002590       _PchSataHsioWbg_MB_B0      000027b0     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002620       _PchSsataHsioWbg_MB_B0     00002840     PchInitPeim:PchHsioWbgB0.obj
+ 0001:000026b0       _PchSataRxEqSharedHsioWbg_B0 000028d0     PchInitPeim:PchHsioWbgB0.obj
+ 0001:000026f8       _PchSataRxEqHsioWbg_B0     00002918     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002788       _PchsSataRxEqHsioWbg_B0    000029a8     PchInitPeim:PchHsioWbgB0.obj
+ 0001:00002880       _EhciControllersMap        00002aa0     PchInitPeim:PchUsbCommon.obj
+ 0001:00002888       _XhciUsb2InternalPortNumberLookUpTable 00002aa8     PchInitPeim:PchUsbCommon.obj
+ 0001:000028c8       __ModuleEntryPoint         00002ae8 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000290f       _PchSataInit               00002b2f f   PchInitPeim:PchInitPeim.obj
+ 0001:00003073       _PchCpuStrapSet            00003293 f   PchInitPeim:PchInitPeim.obj
+ 0001:000030d5       _PchGbeMandatedReset       000032f5 f   PchInitPeim:PchInitPeim.obj
+ 0001:00003230       _PchMiscInit               00003450 f   PchInitPeim:PchInitPeim.obj
+ 0001:00003549       _PchThermalInit            00003769 f   PchInitPeim:PchInitPeim.obj
+ 0001:00003676       _PchIoApicInit             00003896 f   PchInitPeim:PchInitPeim.obj
+ 0001:0000374c       _PchInitialize             0000396c f   PchInitPeim:PchInitPeim.obj
+ 0001:000038fe       _PchMiscEarlyInit          00003b1e f   PchInitPeim:PchInitPeim.obj
+ 0001:0000397f       _InstallPchInitPpi         00003b9f f   PchInitPeim:PchInitPeim.obj
+ 0001:000039fb       _PchUsbInit                00003c1b f   PchInitPeim:PchUsbInit.obj
+ 0001:00003a30       _PchStartUsbInit           00003c50 f   PchInitPeim:PchUsbInit.obj
+ 0001:00003a78       _PchSetDmiTcVcMapping      00003c98 f   PchInitPeim:PchDmiPeim.obj
+ 0001:00003adf       _PchPollDmiVcStatus        00003cff f   PchInitPeim:PchDmiPeim.obj
+ 0001:00003b1e       _PchDmiTcVcProgPoll        00003d3e f   PchInitPeim:PchDmiPeim.obj
+ 0001:00003c06       _PchDmiTcVcProg            00003e26 f   PchInitPeim:PchDmiPeim.obj
+ 0001:00003cfe       _PchDmiTcVcEnablePoll      00003f1e f   PchInitPeim:PchDmiPeim.obj
+ 0001:00003d5c       _PchDmiGen2Prog            00003f7c f   PchInitPeim:PchDmiPeim.obj
+ 0001:00003d8d       _PchDmiMiscProg            00003fad f   PchInitPeim:PchDmiPeim.obj
+ 0001:00004156       _PchsSataInit              00004376 f   PchInitPeim:PchInitEva.obj
+ 0001:0000441d       _PchEvaMiscInit            0000463d f   PchInitPeim:PchInitEva.obj
+ 0001:0000447f       _CommonUsbInit             0000469f f   PchInitPeim:PchUsbCommon.obj
+ 0001:000045ad       _CommonEhciHcsInit         000047cd f   PchInitPeim:PchUsbCommon.obj
+ 0001:000047d8       _CommonXhciHcInit          000049f8 f   PchInitPeim:PchUsbCommon.obj
+ 0001:00004af8       _PerformXhciEhciPortSwitchingFlow 00004d18 f   PchInitPeim:PchUsbCommon.obj
+ 0001:00005077       _GetXhciPortCountAndSetPortRoutingMask 00005297 f   PchInitPeim:PchUsbCommon.obj
+ 0001:00005195       _XhciOverCurrentMapping    000053b5 f   PchInitPeim:PchUsbCommon.obj
+ 0001:00005287       _EhciOverCurrentMapping    000054a7 f   PchInitPeim:PchUsbCommon.obj
+ 0001:0000531f       _Usb2PortLengthProgramming 0000553f f   PchInitPeim:PchUsbCommon.obj
+ 0001:00005421       _CopyMem                   00005641 f   BaseMemoryLibRepStr:CopyMemWrapper.obj
+ 0001:00005439       _AllocatePool              00005659 f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:0000545f       _AllocateZeroPool          0000567f f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:0000547a       _GetPciExpressBaseAddress  0000569a f   BasePciExpressLib:PciExpressLib.obj
+ 0001:00005489       _PchPmTimerStall           000056a9 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:000054fd       _PchStepping               0000571d f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:000056a5       _PchAlternateAccessMode    000058c5 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:000056d0       _GetPchSeries              000058f0 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:00005831       _GetPchEhciMaxControllerNum 00005a51 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:00005845       _GetPchUsbMaxPhysicalPortNum 00005a65 f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:00005859       _ProgramIobp               00005a79 f   PchPlatformLib:IobpAccess.obj
+ 0001:000058df       _ReadIobp                  00005aff f   PchPlatformLib:IobpAccess.obj
+ 0001:00005953       _GetPeiServicesTablePointer 00005b73 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:00005970       _InternalMemCopyMem        00005b90 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:000059ac       _InternalMemZeroMem        00005bcc f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:000059cc       _LocalPcdPciExpressBaseAddress 00005bec     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:000028c8
+
+ Static symbols
+

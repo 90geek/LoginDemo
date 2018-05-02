@@ -1,0 +1,56 @@
+
+
+#
+# This file contains code for Thunderbolt initialization in the PEI stage.
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TbtPei
+  FILE_GUID                      = 1A8E9D96-66E6-461B-95D6-882C984D0B00
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = TbtPeiEntry
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+#  
+
+[Sources]  
+  TbtPei.c
+
+[Packages]
+  MdePkg/MdePkg.dec 
+  MdeModulePkg/MdeModulePkg.dec  
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiChipsetModulePkg/AmiChipsetModulePkg.dec
+#  AmiChipsetPkg/AmiChipsetPkg.dec     #AptioV Server Override
+ 
+[LibraryClasses]
+  PeimEntryPoint
+  AmiPeiLib
+  AmiChipsetIoLib
+  AmiCspLib
+  PcdLib
+  TbtOemLib
+
+[Guids]
+  gAmiTbtHrStatusGuid
+  gAmiTbtHobGuid
+
+[Ppis]
+  gEfiPeiReadOnlyVariable2PpiGuid
+  gEfiPeiStallPpiGuid
+#  gAmiPeiBeforeMrcGuid   #AptioV server override
+  gEfiEndOfPeiSignalPpiGuid
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+	
+[Depex]
+  gEfiPeiCpuIoPpiInstalledGuid AND
+  gEfiPeiReadOnlyVariable2PpiGuid AND
+  gEfiPeiStallPpiGuid 

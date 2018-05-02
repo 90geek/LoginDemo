@@ -1,0 +1,57 @@
+TOKEN
+	Name  = "SmbiosFlashData_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable SmbiosFlashData support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetH = Yes
+	Master = Yes
+	Token = "SmbiosDMIEdit_SUPPORT" "=" "1"
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "0"
+End
+
+TOKEN
+	Name  = "FLASHDATA_SIZE"
+	Value  = "2048"
+	Help  = "SMBIOS Flash Data size."
+	TokenType = Integer
+	TargetEQU = Yes
+	TargetH = Yes
+End
+
+PATH
+	Name  = "SMBIOS_FLASHDATA_DIR"
+End
+
+INFComponent
+    Name  = "SmbiosFlashData"
+    File  = "SmbiosFlashData.inf"
+    Package  = "AmiCompatibilityPkg"
+	ModuleTypes  = "USER_DEFINED"
+    Token = "SMBIOS_TABLES_BUILD_TYPE" "=" "0"
+End
+
+INFComponent
+    Name  = "SmbiosFlashDataDt"
+    File  = "SmbiosFlashDataDt.inf"
+    Package  = "AmiCompatibilityPkg"
+    ModuleTypes  = "USER_DEFINED"
+    Token = "SMBIOS_TABLES_BUILD_TYPE" "=" "1"
+End
+
+FFS_FILE
+    Name  = "SmbiosFlashData"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "AmiCompatibilityPkg.SmbiosFlashData"
+    Rule_Override  = "Uncompressed"
+    Token = "SMBIOS_TABLES_BUILD_TYPE" "=" "0"
+End
+
+FFS_FILE
+    Name  = "SmbiosFlashDataDt"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "AmiCompatibilityPkg.SmbiosFlashDataDt"
+    Rule_Override  = "Uncompressed"
+    Token = "SMBIOS_TABLES_BUILD_TYPE" "=" "1"
+End
+

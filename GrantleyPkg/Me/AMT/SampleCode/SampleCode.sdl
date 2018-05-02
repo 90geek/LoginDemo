@@ -1,0 +1,10 @@
+TOKEN
+	Name  = "AmtSampleCode_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling SampleCode support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+
+

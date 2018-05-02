@@ -1,0 +1,17 @@
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib/OUTPUT/UefiRuntimeServicesTableLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/DxePcdLib/DxePcdLib/OUTPUT/DxePcdLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr/OUTPUT/BaseMemoryLibRepStr.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib/OUTPUT/UefiMemoryAllocationLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdeModulePkg/Library/DxeUdpIoLib/DxeUdpIoLib/OUTPUT/DxeUpdIoLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/AmiModulePkg/Library/DxeAmiDebugLib/DxeAmiDebugLib/OUTPUT/DxeAmiDebugLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdeModulePkg/Library/DxeDpcLib/DxeDpcLib/OUTPUT/DxeDpcLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/BasePrintLib/BasePrintLib/OUTPUT/BasePrintLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/OUTPUT/UefiDevicePathLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib/OUTPUT/UefiHiiServicesLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdeModulePkg/Library/UefiHiiLib/UefiHiiLib/OUTPUT/UefiHiiLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint/OUTPUT/UefiDriverEntryPoint.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/MdeModulePkg/Library/DxeNetLib/DxeNetLib/OUTPUT/DxeNetLib.lib
+c:/1218_alibaba/Build/GRANTLEY/RELEASE_MYTOOLS/X64/AmiNetworkPkg/UefiNetworkStack/Ipv4/Dhcp4Dxe/Dhcp4Dxe/OUTPUT/Dhcp4Dxe.lib

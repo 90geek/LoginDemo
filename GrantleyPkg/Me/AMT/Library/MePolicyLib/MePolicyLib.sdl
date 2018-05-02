@@ -1,0 +1,41 @@
+TOKEN
+	Name  = "MePolicyLib_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling MePolicyLib support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+    Name = "USB_PROVISION_DEFAULT_WITHOUT_AMT"
+    Value = "0"
+    Help = "if set to 1, usb provision is functional when AMT disable"
+    TokenType = Integer
+    TargetH = Yes
+End
+
+INFComponent
+	Name  = "MePolicyLib"
+	File  = "Dxe\MePolicyLib.inf"
+	Package  = "GrantleyPkg"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+INFComponent
+	Name  = "AmtPeiPolicyLib"
+	File  = "Pei\AmtPeiPolicyLib.inf"
+	Package  = "GrantleyPkg"
+	ModuleTypes  = "PEIM"
+End
+
+LibraryMapping
+	Class  = "MePolicyLib"
+	Instance  = "GrantleyPkg.MePolicyLib"
+	ModuleTypes  = "DXE_DRIVER"
+End
+
+LibraryMapping
+	Class  = "AmtPeiPolicyLib"
+	Instance  = "GrantleyPkg.AmtPeiPolicyLib"
+End
+

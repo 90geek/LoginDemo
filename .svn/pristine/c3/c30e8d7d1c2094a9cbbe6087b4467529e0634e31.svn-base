@@ -1,0 +1,609 @@
+TOKEN
+	Name  = "FxOverridePkg_SUPPORT"
+	Value  = 1
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Master = Yes
+	Help  = "Main switch to enable FxOverridePkg support in Project"
+End
+
+Path
+    Name = "FxOverridePkg_DIR"
+End
+
+#TH0008+>>>
+TOKEN
+	Name  = "SHELL_GROUP_SUPPORT"
+	Value  = "1" #TH0008
+	Help  = "1 = Shell Group Support 0 = Shell Grop Not Support."
+	TokenType = Boolean
+	TargetH = Yes
+	TargetMAK = Yes
+End
+#TH0008+<<<
+
+#TH0010>>>
+TOKEN
+	Name  = "SecureBoot_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable SecureBoot Module support in Project"
+	TokenType = Boolean
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "SecureMod_SUPPORT"
+    Value  = "0"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+End
+#TH0010<<<
+
+#TH0011>>>
+TOKEN
+    Name  = "COM0_DEFAULT_CONSOLE_REDIRECTION_ENABLE"
+    Value  = "0"
+    TokenType = Boolean
+    TargetH = Yes
+    Token = "DEBUG_MODE" "=" "1"
+End
+#TH0011<<<
+
+#TH0012>>>
+TOKEN
+	Name  = "KBC_SUPPORT"
+	Value  = "0"
+	Help  = "Enable/Disable KBC support"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "PS2Ctl_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable PS2 Controller support in the project."
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+End
+#TH0012<<<
+
+#TH0013>>>
+TOKEN
+	Name  = "DEFAULT_PXE_OPROM_POLICY"
+	Value  = "$(CSMSETUP_LEGACY_ONLY_OPROMS)"
+	Help  = "Default value of Launch PXE OpROM policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+End
+
+TOKEN
+	Name  = "DEFAULT_MASS_STORAGE_OPROM_POLICY"
+	Value  = "$(CSMSETUP_LEGACY_ONLY_OPROMS)"
+	Help  = "Default value of Launch Storage OpROM policy setup control"
+	TokenType = Integer
+	TargetH = Yes
+	Range  = "$(CSMSETUP_SKIP_OPROMS) - Do not launch\$(CSMSETUP_UEFI_ONLY_OPROMS) - Launch UEFI OpROM only\$(CSMSETUP_LEGACY_ONLY_OPROMS) - Launch Legacy OpROM only"
+End
+#TH0013<<<
+
+#TH0014>>>
+TOKEN
+	Name  = "SETUP_BBS_POPUP_ENABLE"
+	Value  = "1"
+	Help  = "Enable or disable the SETUP_BBS_POPUP_ENABLE. CAUTION This works only if complete TSE sources are present."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0014<<<
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE2_UID"
+#TH0017	Value  = "1"
+	Value  = "0" #TH0017
+	Help  = "Virtual Serial Device 2 UID. Make sure this UID is not used by any SIO serial ports"
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE2_BASE_ADDRESS"
+#TH0017	Value  = "0x3F8"
+	Value  = "0" #TH0017
+	Help  = "Virtual Serial Device 2 Base Address."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+	Name  = "VIRTUAL_SERIAL_DEVICE2_IRQ"
+#TH0017	Value  = "4"
+	Value  = "0" #TH0017
+	Help  = "Virtual Serial Device 2 IRQ."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+#TH0019>>>
+TOKEN
+    Name  = BMC_LAN_COUNT
+	Value  = "1"
+    TokenType = Integer
+    TargetH = Yes
+    Range  = "1-2"
+    Help  = "Number of LAN ports available for BMC use"
+End
+#TH0019<<<
+
+#TH0023>>>Thor_FRB ROM Layout
+
+####Start (hex)	End (hex)	Length (hex)	Area Name
+####-----------	---------	------------	---------
+####00000000	00FFFFFF	01000000	Flash Image
+####00000000	00000FFF	00001000	Descriptor Region
+####00001000	00010FFF	00010000	PDR Region
+####00011000	00020FFF	00010000	DER Region
+####00021000	007FFFFF	007DF000	ME Region
+####00021000	00021FFF	00001000		FPT
+####00022000	00031FFF	00010000		"MFSB" Partition
+####00032000	00041FFF	00010000		"SCA" Partition
+####00042000	00061FFF	00020000		"FTPR" Partition
+####00062000	000A1FFF	00040000		"MFS" Partition
+####000A2000	002A1FFF	00200000		"OPR1" Partition
+####002A2000	002A5FFF	00004000		"ASAP" Partition
+####00800000	00FFFFFF	00800000	BIOS Region
+
+TOKEN
+    Name  = "FPT_START"
+    #TH0087	Value  = "0x21000"
+    Value  = "0x11000"	#TH0087
+    TokenType = Integer
+    TargetH = Yes
+    Token = "MEUD_SUPPORT" "=" "1"
+End
+#TH0023<<<
+
+#TH0024>>>
+TOKEN
+	Name  = "REFLASH_UPDATE_BOOT_BLOCK"
+	Value  = "1"
+	Help  = "Enables/Disables update of the boot block flash area.\When REFLASH_INTERACTIVE is on and REFLASH_UPDATE_BOOT_BLOCK_CONTROL is on\this value can be overriden by the user using setup option."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0024<<<
+
+#TH0027>>>
+TOKEN
+	Name  = "SETUP_ALT_ENTRY_SCAN"
+	Value  = "EFI_SCAN_F2"
+	Help  = "Set to one of the defined constants from EFI_SIMPLE_TEXT_INPUT protocol. Remember to check STR_DEL_ENTER_SETUP string in MiniSetupStr.uni."
+	TokenType = Expression
+	TargetH = Yes
+	Token = "SETUP_ALT_ENTRY_ENABLE" "!=" "0"
+End
+#TH0027<<<
+
+#TH0040>>>
+TOKEN
+	Name  = "IScsi_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable IScsi support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+#TH0040<<<
+
+#TH0049>>>
+TOKEN
+	Name  = "EDK_1_05_RETRIEVE_DATA"
+	Value  = "1"
+	Help  = "Modified code to return BrowserCallback String according to either EDK browser or spec. Please be careful when to change this to 0, May cause Addon Card to not to work."
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "EFI_SPECIFICATION_VERSION" ">=" "0x2000A"
+End
+#TH0049<<<
+
+#TH0051>>>
+TOKEN
+	Name  = "A_S3"
+	Value  = "0"
+	Help  = "S3 supported"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "A_S4"
+	Value  = "0"
+	Help  = "S4 supported"
+	TokenType = Boolean
+	TargetMAK = Yes
+End
+#TH0051<<<
+
+#TH0055>>>
+TOKEN
+	Name  = "LOAD_DEFAULTS_ON_CMOS_CLEAR"
+	Value  = "1"
+	Help  = "Project level control to enable or disable loading setup defaults when CMOS is cleared."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0055<<<
+
+#TH0056>>>
+TOKEN
+	Name  = "Ipv6_SUPPORT"
+	Value  = "1"	#TH0132
+	Help  = "Main switch to enable Ipv6 stack support in Project"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+End
+#TH0056<<<
+
+#ZA0015>>>
+TOKEN
+	Name  = "PCI_EXPRESS_GEN2_SUPPORT"
+	Value  = "0"
+	Help  = "Enables / Disables Pci Bus Driver Native PCI Express Gen2 support"
+	TokenType = Boolean
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "PCI_EXPRESS_SUPPORT" "=" "1"
+End
+#ZA0015<<<
+
+#ZA0029>>>>
+TOKEN
+	Name  = "POPUP_MENU_SHOW_ALL_BBS_DEVICES"
+	Value  = "1"
+	Help  = "1 => Shows all BBS devices in BBS POPup menu. 0 => Shows only the first device of a BBS type in BBS POPUP menu."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#ZA0029<<<
+
+TOKEN
+	Name  = "FIXED_BOOT_ORDER_SUBMENU_MAX_NUM"
+#ZA0030	Value  = "16"
+	Value  = "32" #ZA0030
+	Help  = "All SubMenu Total boot options."
+	TokenType = Integer
+	TargetMAK = Yes
+	TargetH = Yes
+End
+
+#ZA0043>>>
+TOKEN
+	Name  = "S3NvramSave_SUPPORT"
+	#TH0105	Value  = "0"
+	Value  = "1"	#TH0105
+	Help  = "Switch for saving MRC config to NVRAM"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	TargetH = Yes
+	Token = "A_S3" "=" "0"
+End
+#ZA0043<<<
+
+TOKEN
+    Name  = "AST2400_SERIAL_PORT2_PRESENT"
+    Value  = "0" #TH0059 "1"
+    Help  = "Serial Port 2 (COMB / UART2) Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_SERIAL_PORT3_PRESENT"
+    Value  = "0" #TH0059 "1"
+    Help  = "Serial Port 3 (COMC / UART3) Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_SERIAL_PORT4_PRESENT"
+    Value  = "0" #TH0059 "1"
+    Help  = "Serial Port 4 (COMD / UART4) Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_KEYBOARD_PRESENT"
+    Value  = "0" #TH0059 "1"
+    Help  = "Keyboard Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_MOUSE_PRESENT"
+    Value  =  "0" #TH0059 "1"
+    Help  = "Mouse Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_SWC_PRESENT"
+    Value  = "0" #TH0059 "1"
+    Help  = "System Wake-Up Controller Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_GPIO_PORT_PRESENT"
+    Value  = "0" #TH0059 "1"
+    Help  = "GPIO Present / Not Present."
+    TokenType = Boolean
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_CONFIG_INDEX"
+    Value  = "0x4E" #TH0059 "0x2E"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "AST2400_CONFIG_DATA"
+    Value  = "0x4F" #TH0059 "0x2F"
+    TokenType = Integer
+    TargetEQU = Yes
+    TargetH = Yes
+End
+
+SIODEVICE
+    Name  = "AST2400"
+    Parent  = "LpcBridge"
+    IndexPort  = 04eh #TH0059 02eh
+    DataPort  = 04fh #TH0059 02fh
+    StdSioType  = "Yes"
+    DevSelReg  = 07h
+    ActivateReg  = 030h
+    ActivateVal  = 01h
+    DeActivateVal  = 00h
+    BaseHiReg1  = 060h
+    BaseLoReg1  = 061h
+    BaseHiReg2  = 062h
+    BaseLoReg2  = 063h
+    Irq1Reg  = 070h
+    Irq2Reg  = 072h
+    Dma1Reg  = 074h
+    Dma2Reg  = 075h
+    GblRegFlag  = "0xffff00000000"
+    LocalRegFlag  = "0x1ff00000000000000000000000000000033000f000000000000000000000000"
+    EnterConfig  = "Script,'Index;Write;a5h','Index;Write;a5h'"
+    ExitConfig  = "Script,'Index;Write;aah'"
+    SMBIOSStr  = "Test String"
+    GPEbit  = 01dh
+    SleepNum  = 03h
+    ASLfile  = "'AmiModulePkg\IO\AST2400\AST2400DEV.asl','AmiModulePkg\IO\AST2400\AST2400EVT.asl'"
+    ASLdeviceName  = "SIO1"
+    ASL_PTS  = "Method;\_SB.PCI0.LPC0.SIO1.SIOS(Arg0)"
+    ASL_WAK  = "Method;\_SB.PCI0.LPC0.SIO1.SIOW(Arg0)"
+End
+
+#TH0063A>>>
+TOKEN
+	Name  = "TSE_BOOT_NOW_IN_BOOT_ORDER"
+	Value  = "1"
+	Help  = "Turn on to see boot override/BBS Popup menu with in the devices listed in boot order."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0063A<<<
+
+#TH0064>>>
+TOKEN
+	Name  = "SETUP_PASSWORD_NON_CASE_SENSITIVE"
+	Value  = "0"
+	Help  = "Allow to use of case sensitive password. Note:This token should be OFF with SETUP_STORE_KEYCODE_PASSWORD value 1 or 2."
+	TokenType = Boolean
+	TargetH = Yes
+End
+#TH0064<<<
+
+#TH0072>>>
+TOKEN
+    Name  = "IPMI_SMM_KCS_COMMAND_PORT_READ_RETRY_COUNTER"
+    #TH0072A Value  = "0x3E8"
+    Value  = "0x7D0" #TH0072A
+    Help  = "In SMM, the IPMI_KCS_COMMAND_PORT is read these many times with delay calculated with IPMI_KCS_DELAY_PER_RETRY(Default is 5ms per retry) token for particular bit to set."
+    TokenType = Integer
+    TargetH = Yes
+End
+#TH0072<<<
+
+#TH0072A>>>
+TOKEN
+    Name  = "IPMI_KCS_COMMAND_PORT_READ_RETRY_COUNTER"
+    Value  = "0x2710"
+    Help  = "The IPMI_KCS_COMMAND_PORT is read IPMI_KCS_COMMAND_PORT_READ_RETRY_COUNTER many times with delay calculated with IPMI_KCS_DELAY_PER_RETRY(Default is 5ms per retry) token for particular bit to set."
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "IPMI_KCS_DELAY_PER_RETRY"
+    Value  = "5 * 100"
+    Help  = "IPMI_KCS_DELAY_PER_RETRY is given as argument for MicroSecondDelay function in KcsBmc.c file.MicroSecondDelay(1) = 1us delay. By default, delay is given as 5ms."
+    TokenType = Expression
+    TargetH = Yes
+End
+#TH0072A<<<
+
+#TH0084>>>
+TOKEN
+    Name  = "SMBIOS_PRESERVE_NVRAM"
+    Value  = "0"
+    Help = "DMIEdit data is to be preserved across BIOS update using AMI AFU utility. \ON -> AMI DMIEdit data in NVRAM to be preserved \OFF -> No preservation"
+    TokenType = Boolean
+    TargetMAK = Yes
+    TargetH = Yes
+    Token = "SMBIOS_DMIEDIT_DATA_LOC" "=" "2"
+End
+
+TOKEN
+	Name  = "OEMSETUP_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling OEM SETUP Preserve support in the project"
+	TokenType = Boolean
+End
+#TH0084<<<
+
+#TH0085>>>
+TOKEN   
+    Name  = "NEVER_RESTRICT_GLOBAL_VAR"   
+    Value  = "1"   
+    Help  = "Main switch to enable EdkShellBinPkg support in Project"   
+    TokenType = Boolean   
+    TargetH = Yes   
+End   
+#TH0085<<< 
+
+ELINK
+	Name  = "IsPchRtcReset,"
+	#TH0093 Parent  = "IsResetConfigMode"
+	Parent  = "IsDefaultConfigMode"#TH0093
+	InvokeOrder = AfterParent
+	TOKEN = "LOAD_DEFAULTS_ON_CMOS_CLEAR" "=" "1" 	
+End
+
+ELINK
+    Name  = "IsIpmiCmosClear,"
+    #TH0093 Parent  = "IsResetConfigMode"
+    Parent  = "IsDefaultConfigMode"#TH0093
+    InvokeOrder = AfterParent
+End
+
+TOKEN
+	Name  = "RT_ACCESS_SUPPORT_IN_HPKTOOL"
+#TH0094	Value  = "0"
+	Value  = "1" #TH0094
+	Help  = "0 is default. 0=> Not to set RT flag for variables. 1=> enable to add RT attribute for variables, uefisetup.ini attributes persists"
+	TokenType = Expression
+	TargetH = Yes
+	TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "OEM_MANF_ID"
+#TH0107	Value  = "0x51EE"
+	Value  = "0x0000"	#TH0107
+	Help  = "Manufacturer ID of OEM in IPMI 'Get Device ID' command. This is same as 'Enterprise Numbers' from IANA website. Default value: 0x51EE (AMI)."
+	TokenType = Integer
+	TargetH = Yes
+End
+
+TOKEN
+    Name  = "DEFAULT_SMART_SELFTEST"
+#TH0112    Value  = "0"
+    Value  = "1" #TH0112
+    Help  = "Default setup value of HDD SMART status check:\1 - Check SMART status during POST\0 - Do not Check SMART status during POST "
+    TokenType = Integer
+    TargetH = Yes
+End
+
+TOKEN
+    Name  = "BmcUserSettings_SUPPORT"
+    Value  = "0" #TH0186
+    #TH0186 Value  = "1"
+    Help  = "Main switch to enable BmcUserSettings support in Project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+End
+
+TOKEN
+	Name  = "BIOS_VERSION_BACKWARD_COMPATIBILITY"
+        #WYB011004+  Value  = "0"  
+	Value  = "1"  #WYB011004+
+	Help  = "Backward compatibility control token for Type 0 BIOS Version/System BIOS Major Release/System BIOS Minor Release\ON = Backward compatible\           BIOS Version = CORE_MAJOR_VERSION.CORE_MINOR_VERSION.CORE_REVISION\           System BIOS Major Release = CORE_MAJOR_VERSION\           System BIOS Minor Release = CORE_MINOR_VERSION\OFF = Not backward compatible\            BIOS Version = CORE_MAJOR_VERSION.CORE_BUILD_NUMBER\            System BIOS Major Release = CORE_MAJOR_VERSION\            System BIOS Minor Release = CORE_BUILD_NUMBER\            or OEM customized strings)"
+	TokenType = Boolean
+	TargetEQU = Yes
+End
+#GCH001002+ start
+ELINK
+	Name  = "{ SAVE_AND_EXIT_VALUE, HandleSaveAndExit },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+	Disable=YES
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"  
+End
+ELINK
+	Name  = "{ SAVE_AND_EXIT_VALUE, FxHandleSaveAndExit },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"   
+         
+End
+ELINK
+	Name  = "{ SAVE_AND_RESET_VALUE, HandleSaveAndReset },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+	Disable=YES
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"    	
+End
+ELINK
+	Name  = "{ SAVE_AND_RESET_VALUE, FxHandleSaveAndReset },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"   	
+End
+ELINK
+	Name  = "{ SAVE_VALUE, HandleSaveWithoutExit },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+	Disable=YES
+	TOKEN = "Ali_1218_SUPPORT" "=" "1"    	
+End
+ELINK
+	Name  = "{ SAVE_VALUE, FxHandleSaveWithoutExit },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"   	
+End
+ELINK
+	Name  = "{ END_OF_EXIT_PAGE_OPTION_LIST, NULL },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+	Disable=YES
+	TOKEN = "Ali_1218_SUPPORT" "=" "1"    
+End
+ELINK
+	Name  = "{ END_OF_EXIT_PAGE_OPTION_LIST, NULL },"
+	Parent  = "EXIT_PAGE_OPTIONS_LIST"
+	InvokeOrder = AfterParent
+	TOKEN = "Ali_1218_SUPPORT" "=" "1"    
+End
+ELINK
+	Name  = "{{SCAN_F4, 0},0, HandleSaveExitKey, 0 },"
+	Parent  = "HOTKEY_LIST"
+	InvokeOrder = AfterParent
+	Disable=YES
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"    	
+End
+ELINK
+	Name  = "{{SCAN_F4, 0},0, FxHandleSaveExitKey, 0 },"
+	Parent  = "HOTKEY_LIST"
+	InvokeOrder = AfterParent
+        TOKEN = "Ali_1218_SUPPORT" "=" "1"    	
+End
+#GCH001002+ end

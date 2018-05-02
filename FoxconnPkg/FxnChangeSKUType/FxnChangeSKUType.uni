@@ -1,0 +1,16 @@
+
+
+#string STR_EMPTY_STRING            	  	#language en-US ""
+#string STR_HORIZONTAL_LINE               	#language en-US "--------------------------------------------------"
+
+#string STR_CHANGE_SKU_TYPE_TITLT               #language en-US "Change SKU Type Configuration"
+#string STR_CHANGE_SKU_TYPE_HELP                #language en-US "Change the SKU Type configuration"
+#string STR_SUB_CHANGE_SKU_TYPE_TITLE           #language en-US "SKU Type Setting"
+#string STR_ALI_CONFIG                          #language en-US "ALI Config"
+#string STR_ALI_CONFIG_HELP                     #language en-US "Select SKU Type,Default or UC"
+//#string STR_STATUS                              #language en-US "Config Status"
+//#string STR_STATUS_VAL                          #language en-US ""
+
+//#string STR_AUTO                                #language en-US "Auto"
+#string STR_UC  				#language en-US "UC"
+#string STR_DEFAULT                             #language en-US "Default"

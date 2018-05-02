@@ -1,0 +1,11 @@
+<component>
+	name = "Scsi"
+	category = eModule
+	LocalRoot = "MdeModulePkg\Bus\Scsi\"
+	RefName = "MdeModulePkg.Scsi"
+[files]
+"Scsi.sdl"	
+[INF]
+"ScsiBusDxe\ScsiBusDxe.inf"
+"ScsiDiskDxe\ScsiDiskDxe.inf"
+<endComponent>

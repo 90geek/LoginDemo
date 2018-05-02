@@ -1,0 +1,1522 @@
+//**********************************************************************
+//**********************************************************************
+//**                                                                  **
+//**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+//**                                                                  **
+//**                       All Rights Reserved.                       **
+//**                                                                  **
+//**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+//**                                                                  **
+//**                       Phone: (770)-246-8600                      **
+//**                                                                  **
+//**********************************************************************
+//**********************************************************************
+
+//**********************************************************************
+// $Header: /Alaska/Tools/template.sd 6     1/13/10 2:13p Felixp $
+//
+// $Revision: 6 $
+//
+// $Date: 1/13/10 2:13p $
+//**********************************************************************
+// Revision History
+// ----------------
+// $Log: /Alaska/Tools/template.sd $
+// 
+// 6     1/13/10 2:13p Felixp
+// 
+//**********************************************************************
+//<AMI_FHDR_START>
+//
+// Name:  TbtSetup.sd
+//
+// Description:	Intel Thunderbolt setup form
+//
+//<AMI_FHDR_END>
+//**********************************************************************
+
+#ifdef SETUP_DATA_DEFINITION
+    UINT8  TbtEnable;
+    UINT8  TbtHRSeries;
+    UINT8  TbtAICSupport;
+    UINT8  TbtHostLocation;
+    UINT8  TbtHostLocationGroup;
+    UINT8  TbtHostTempLocationSB;
+    UINT8  TbtHostTempLocationNB0;
+    UINT8  TbtHostTempLocationNB1;
+    UINT8  TbtHostTempLocationNB2;
+    UINT8  TbtHostTempLocationNB3;
+    UINT8  TbtWakeupSupport;
+    UINT8  TbtHandlePOC;
+    UINT8  TbtCacheLineSize;
+    UINT8  TbtSecurityLevel;
+    UINT8  SmiNotifyEnabled;
+    UINT8  SwSmiEnabled;
+    UINT8  NotifyEnabled;
+    UINT8  TbtRmvReturnValue;
+    UINT8  TbtOptionRom;
+    UINT16 TbtWakeupDelay;
+    UINT16 TbtSwSMIDelay;
+//Resources for Per Slot under Thunderbolt
+    UINT16 ReserveMemoryPerSlot;
+    UINT16 ReservePMemoryPerSlot;
+    UINT8  ReserveIOPerSlot;
+    UINT8  TbtIOresourceEnable;
+#endif
+
+#if defined(VFRCOMPILE) && !defined(CONTROLS_ARE_DEFINED)
+#define CONTROL_DEFINITION
+#endif
+#ifdef CONTROL_DEFINITION
+
+#define TBT_ONEOF_TBTENABLE\
+    checkbox varid   = SETUP_DATA.TbtEnable,\
+        prompt       = STRING_TOKEN (STR_TBT_ENABLE_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_ENABLE_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TBT_ENABLE,\
+        default      = DEFAULT_TBT_ENABLE, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_SECURITYLEVEL\
+    oneof varid      = SETUP_DATA.TbtSecurityLevel,\
+        prompt       = STRING_TOKEN(STR_TBT_SECURITY_LEVEL_PROMPT),\
+        help         = STRING_TOKEN(STR_TBT_SECURITY_LEVEL_HELP),\
+        default      = DEFAULT_TBT_SECURITY_LEVEL,\
+        option text  = STRING_TOKEN(STR_TBT_SL_MODE1), value = 1, flags = MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_SL_MODE2), value = 2, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_SL_MODE3), value = 3, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_SL_MODE4), value = 4, flags = RESET_REQUIRED;\
+    endoneof;
+
+#if defined (TBT_HR_PWR) && (TBT_HR_PWR != 0xFF)
+#define TBT_ONEOF_CRSECURITYLEVEL\
+    oneof varid      = SETUP_DATA.TbtSecurityLevel,\
+        prompt       = STRING_TOKEN(STR_TBT_SECURITY_LEVEL_PROMPT),\
+        help         = STRING_TOKEN(STR_TBT_SECURITY_LEVEL_HELP),\
+        default      = DEFAULT_TBT_SECURITY_LEVEL,\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE1), value = 1, flags = MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE2), value = 2, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE3), value = 3, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE4), value = 4, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE5), value = 5, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE6), value = 6, flags = RESET_REQUIRED;\
+    endoneof;
+#else
+#define TBT_ONEOF_CRSECURITYLEVEL\
+    oneof varid      = SETUP_DATA.TbtSecurityLevel,\
+        prompt       = STRING_TOKEN(STR_TBT_SECURITY_LEVEL_PROMPT),\
+        help         = STRING_TOKEN(STR_TBT_SECURITY_LEVEL_HELP),\
+        default      = DEFAULT_TBT_SECURITY_LEVEL,\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE1), value = 1, flags = MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE2), value = 2, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE3), value = 3, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE4), value = 4, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CR_SL_MODE6), value = 6, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#define TBT_ONEOF_TBTCACHELINESIZE\
+    oneof varid      = SETUP_DATA.TbtCacheLineSize,\
+        prompt       = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_PROMPT),\
+        help         = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_HELP),\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_000), value = 0x00, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_001), value = 0x01, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_002), value = 0x02, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_004), value = 0x04, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_008), value = 0x08, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_016), value = 0x10, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_032), value = 0x20, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_064), value = 0x40, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_CACHE_LINE_SIZE_128), value = 0x80, flags = RESET_REQUIRED;\
+    endoneof;
+
+#define TBT_ONEOF_TBTWAKEUPSUPPORT\
+    checkbox varid   = SETUP_DATA.TbtWakeupSupport,\
+        prompt       = STRING_TOKEN (STR_TBT_DEVICE_WAKE_UP_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_DEVICE_WAKE_UP_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TB_WAKE_UP_SUPPORT,\
+        default      = DEFAULT_TB_WAKE_UP_SUPPORT, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_TBTHANDLEPOC\
+    checkbox varid   = SETUP_DATA.TbtHandlePOC,\
+        prompt       = STRING_TOKEN (STR_TBT_HANDLE_POC_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HANDLE_POC_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TBT_HANDLE_POC,\
+        default      = DEFAULT_TBT_HANDLE_POC, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_TBTAICSUPPORT\
+    checkbox varid   = SETUP_DATA.TbtAICSupport,\
+        prompt       = STRING_TOKEN (STR_TBT_AIC_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_AIC_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TBT_AIC_SUPPORT,\
+        default      = DEFAULT_TBT_AIC_SUPPORT, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+// Warning !!!   Do not change or clone this definition >>> 
+#define TBT_ONEOF_TBTHOSTLOCATION\
+    numeric varid    = SETUP_DATA.TbtHostLocation,\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = 255,\
+        step         = 1,\
+        default      = DEFAULT_TBT_AIC_LOCATION,\
+        default      = DEFAULT_TBT_AIC_LOCATION, defaultstore = AmiMfgDefault,\
+    endnumeric;
+// Warning !!!   Do not change or clone this definition <<<
+
+#if defined TBT_HIGHLAND_PLATFORM_CONFIG && TBT_HIGHLAND_PLATFORM_CONFIG == 1
+#define TBT_ONEOF_TBTHOSTLOCATIONGROUP\
+    oneof varid      = SETUP_DATA.TbtHostLocationGroup,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_GROUP_H),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_GROUP_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_GROUP_HELP),\
+        default      = DEFAULT_TBT_AIC_LOCATION_GROUP,\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_GROUP_000), value = 0x00, flags = MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_GROUP_001), value = 0x01, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+#else
+#define TBT_ONEOF_TBTHOSTLOCATIONGROUP\
+    oneof varid      = SETUP_DATA.TbtHostLocationGroup,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_GROUP),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_GROUP_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_GROUP_HELP),\
+        default      = DEFAULT_TBT_AIC_LOCATION_GROUP,\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_GROUP_000), value = 0x00, flags = MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_GROUP_001), value = 0x01, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+#endif
+
+#define TBT_ONEOF_TBTHOSTLOCATION_SB\
+    oneof varid      = SETUP_DATA.TbtHostTempLocationSB,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_SB),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        default      = DEFAULT_TBT_TEMP_AIC_LOCATION_SB,\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_000), value = 0x00, flags = MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_001), value = 0x01, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_002), value = 0x02, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_003), value = 0x03, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_004), value = 0x04, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_005), value = 0x05, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_006), value = 0x06, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_SB_007), value = 0x07, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+
+#if defined TBT_HIGHLAND_PLATFORM_CONFIG && TBT_HIGHLAND_PLATFORM_CONFIG == 1
+#define TBT_ONEOF_TBTHOSTLOCATION_NB0\
+    oneof varid      = SETUP_DATA.TbtHostTempLocationNB0,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_NB0H),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        default      = DEFAULT_TBT_TEMP_AIC_LOCATION_NB0,\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_000), value = 0x20, flags = MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_001), value = 0x21, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_002), value = 0x22, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_004), value = 0x24, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_005), value = 0x25, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_006), value = 0x26, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_007), value = 0x27, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_008), value = 0x28, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_009), value = 0x29, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_010), value = 0x2A, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_011), value = 0x2B, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+#else
+#define TBT_ONEOF_TBTHOSTLOCATION_NB0\
+    oneof varid      = SETUP_DATA.TbtHostTempLocationNB0,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_NB0),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        default      = DEFAULT_TBT_TEMP_AIC_LOCATION_NB0,\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_000), value = 0x20, flags = MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_001), value = 0x21, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_002), value = 0x22, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+#endif
+
+#if defined TBT_HIGHLAND_PLATFORM_CONFIG && TBT_HIGHLAND_PLATFORM_CONFIG == 1
+#define TBT_ONEOF_TBTHOSTLOCATION_NB1\
+    oneof varid      = SETUP_DATA.TbtHostTempLocationNB1,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_NB1),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_000), value = 0x30, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_001), value = 0x31, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_002), value = 0x32, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_004), value = 0x34, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_005), value = 0x35, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_006), value = 0x36, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_007), value = 0x37, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_008), value = 0x38, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_009), value = 0x39, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_010), value = 0x3A, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_011), value = 0x3B, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+
+#define TBT_ONEOF_TBTHOSTLOCATION_NB2\
+    oneof varid      = SETUP_DATA.TbtHostTempLocationNB2,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_NB2),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_000), value = 0x40, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_001), value = 0x41, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_002), value = 0x42, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_004), value = 0x44, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_005), value = 0x45, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_006), value = 0x46, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_007), value = 0x47, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_008), value = 0x48, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_009), value = 0x49, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_010), value = 0x4A, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_011), value = 0x4B, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+
+#define TBT_ONEOF_TBTHOSTLOCATION_NB3\
+    oneof varid      = SETUP_DATA.TbtHostTempLocationNB3,\
+        questionid   = AUTO_ID(KEY_TBT_LOCATION_NB3),\
+        prompt       = STRING_TOKEN (STR_TBT_HOST_LOCATION_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_HOST_LOCATION_HELP),\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_000), value = 0x50, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_001), value = 0x51, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_002), value = 0x52, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_004), value = 0x54, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_005), value = 0x55, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_006), value = 0x56, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_007), value = 0x57, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_008), value = 0x58, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_009), value = 0x59, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_010), value = 0x5A, flags = RESET_REQUIRED | INTERACTIVE;\
+        option text  = STRING_TOKEN(STR_TBT_HOST_LOCATION_NB_011), value = 0x5B, flags = RESET_REQUIRED | INTERACTIVE;\
+    endoneof;
+#endif // For HIGHLAND_PLATFORM
+
+#define TBT_ONEOF_SMINOTIFYENABLED\
+    checkbox varid   = SETUP_DATA.SmiNotifyEnabled,\
+        prompt       = STRING_TOKEN (STR_TBT_SMI_NOTIFY_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_SMI_NOTIFY_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TB_SMI_NOTIFY_SUPPORT,\
+        default      = DEFAULT_TB_SMI_NOTIFY_SUPPORT, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_SWSMIENABLED\
+    checkbox varid   = SETUP_DATA.SwSmiEnabled,\
+        prompt       = STRING_TOKEN (STR_TBT_SWSMI_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_SWSMI_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TB_SMI_NOTIFY_SUPPORT,\
+        default      = DEFAULT_TB_SMI_NOTIFY_SUPPORT, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_NOTIFYENABLED\
+    checkbox varid   = SETUP_DATA.NotifyEnabled,\
+        prompt       = STRING_TOKEN (STR_TBT_NOTIFY_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_NOTIFY_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TB_SMI_NOTIFY_SUPPORT,\
+        default      = DEFAULT_TB_SMI_NOTIFY_SUPPORT, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_RMVRETRUNVALUE\
+    oneof varid      = SETUP_DATA.TbtRmvReturnValue,\
+        prompt       = STRING_TOKEN(STR_TBT_RMV_RETURN_VALUE_PROMPT),\
+        help         = STRING_TOKEN(STR_TBT_RMV_RETURN_VALUE_HELP),\
+        default      = DEFAULT_TBT_RMV_RETURN_VALUE,\
+        option text  = STRING_TOKEN(STR_TBT_RMV_RETURN_VALUE_0), value = 0, flags = MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_TBT_RMV_RETURN_VALUE_1), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+
+#define TBT_ONEOF_OPTIONROM\
+    checkbox varid   = SETUP_DATA.TbtOptionRom,\
+        prompt       = STRING_TOKEN (STR_TBT_OPTIONROM_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_OPTIONROM_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_SKIP_TBT_OPTIONROM,\
+        default      = DEFAULT_SKIP_TBT_OPTIONROM, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_IORESOURCEENABLED\
+    checkbox varid   = SETUP_DATA.TbtIOresourceEnable,\
+        prompt       = STRING_TOKEN (STR_TBT_IORESOURCE_SUPPORT_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_IORESOURCE_SUPPORT_HELP),\
+        flags        = RESET_REQUIRED,\
+        default      = DEFAULT_TBT_IO_RESOURCE_SUPPORT,\
+        default      = DEFAULT_TBT_IO_RESOURCE_SUPPORT, defaultstore = AmiMfgDefault,\
+    endcheckbox;
+
+#define TBT_ONEOF_TBTWAKEUPDELAY\
+    numeric varid    = SETUP_DATA.TbtWakeupDelay,\
+        prompt       = STRING_TOKEN (STR_TBT_WAKE_UP_DELAY_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_WAKE_UP_DELAY_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = 65535,\
+        step         = 1,\
+        default      = DEFAULT_TBT_WAK_DELAY,\
+        default      = DEFAULT_TBT_WAK_DELAY, defaultstore = AmiMfgDefault,\
+    endnumeric;
+
+#define TBT_ONEOF_TBTSWSMIDELAY\
+    numeric varid    = SETUP_DATA.TbtSwSMIDelay,\
+        prompt       = STRING_TOKEN (STR_TBT_SWSMI_DELAY_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_SWSMI_DELAY_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = 65535,\
+        step         = 1,\
+        default      = DEFAULT_TBT_SWSMI_DELAY,\
+        default      = DEFAULT_TBT_SWSMI_DELAY, defaultstore = AmiMfgDefault,\
+    endnumeric;
+
+#define TBT_ONEOF_PERSLOTMEMRSVD\
+    numeric varid    = SETUP_DATA.ReserveMemoryPerSlot,\
+        prompt       = STRING_TOKEN (STR_TBT_PERSLOT_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_PERSLOT_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = 32,\
+        default      = 32, defaultstore = AmiMfgDefault,\
+    endnumeric;
+
+#define TBT_ONEOF_PERSLOTPFMEMRSVD\
+    numeric varid    = SETUP_DATA.ReservePMemoryPerSlot,\
+        prompt       = STRING_TOKEN (STR_TBT_PERSLOT_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_PERSLOT_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = 32,\
+        default      = 32, defaultstore = AmiMfgDefault,\
+    endnumeric;
+    
+#define TBT_ONEOF_PERSLOTIORSVD\
+    numeric varid    = SETUP_DATA.ReserveIOPerSlot,\
+        prompt       = STRING_TOKEN (STR_TBT_PERSLOT_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_TBT_PERSLOT_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 4,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = 4,\
+        default      = 4, defaultstore = AmiMfgDefault,\
+    endnumeric;
+
+#if defined (TBT_INTEL_RC_CONFIG) && (TBT_INTEL_RC_CONFIG == 1)
+//---------------------------------------------------------------------------
+//                          ACPI PCIE Setting 
+//---------------------------------------------------------------------------
+#ifdef ACPI_ONEOF_PCIEXPNATIVE
+#undef ACPI_ONEOF_PCIEXPNATIVE
+#define ACPI_ONEOF_PCIEXPNATIVE\
+    oneof varid      = SETUP_DATA.PciExpNative,\
+        prompt       = STRING_TOKEN(STR_ACPI_PCIE_NATIVE_PROMPT),\
+        help         = STRING_TOKEN(STR_ACPI_PCIE_NATIVE_HELP),\
+        option text  = STRING_TOKEN(STR_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif // #ifdef ACPI_ONEOF_PCIEXPNATIVE
+
+#ifdef ACPI_ONEOF_NATIVEASPMENABLE
+#undef ACPI_ONEOF_NATIVEASPMENABLE
+#define ACPI_ONEOF_NATIVEASPMENABLE\
+    oneof varid      = SETUP_DATA.NativeAspmEnable,\
+        prompt       = STRING_TOKEN(STR_NATIVE_ASPM_PROMPT),\
+        help         = STRING_TOKEN(STR_NATIVE_ASPM_HELP),\
+        option text  = STRING_TOKEN(STR_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN(STR_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif // #ifdef ACPI_ONEOF_NATIVEASPMENABLE
+
+//---------------------------------------------------------------------------
+//                       SB PCIE Root Port Setting 
+//---------------------------------------------------------------------------
+#if defined (DISABLE_PCIE_ROOT_PORT_SWAP) && (DISABLE_PCIE_ROOT_PORT_SWAP == 1)
+#ifdef SB_ONEOF_ROOTPORTFUNCTIONSWAPPING
+#undef SB_ONEOF_ROOTPORTFUNCTIONSWAPPING
+#define SB_ONEOF_ROOTPORTFUNCTIONSWAPPING\
+    oneof varid      = SETUP_DATA.RootPortFunctionSwapping,\
+        prompt       = STRING_TOKEN (STR_PCIE_PORT_SWAP_PROMPT),\
+        help         = STRING_TOKEN (STR_PCIE_PORT_SWAP_HELP),\
+        default      = ROOT_PORT_FUN_SWAP_ENABLE,\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+#endif // DISABLE_PCIE_ROOT_PORT_SWAP == 1
+
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 0)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE00
+#undef SB_ONEOF_PCIEROOTPORTHPE00
+#define SB_ONEOF_PCIEROOTPORTHPE00\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD00
+#undef SB_ONEOF_EXTRABUSRSVD00
+#define SB_ONEOF_EXTRABUSRSVD00\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD00
+#undef SB_ONEOF_PCIEMEMRSVD00
+#define SB_ONEOF_PCIEMEMRSVD00\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG00
+#undef SB_ONEOF_PCIEMEMRSVDALIG00
+#define SB_ONEOF_PCIEMEMRSVDALIG00\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD00
+#undef SB_ONEOF_PCIEPFMEMRSVD00
+#define SB_ONEOF_PCIEPFMEMRSVD00\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG00
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG00
+#define SB_ONEOF_PCIEPFMEMRSVDALIG00\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD00
+#undef SB_ONEOF_PCIEIORSVD00
+#define SB_ONEOF_PCIEIORSVD00\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_0],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEROOTPORTEN01
+#undef SB_ONEOF_PCIEROOTPORTEN01
+#define SB_ONEOF_PCIEROOTPORTEN01\
+    oneof varid      = SETUP_DATA.PcieRootPortEn[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIERP2_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIERP_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_PCIEROOTPORTEN02
+#undef SB_ONEOF_PCIEROOTPORTEN02
+#define SB_ONEOF_PCIEROOTPORTEN02\
+    oneof varid      = SETUP_DATA.PcieRootPortEn[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIERP3_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIERP_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_PCIEROOTPORTEN03
+#undef SB_ONEOF_PCIEROOTPORTEN03
+#define SB_ONEOF_PCIEROOTPORTEN03\
+    oneof varid      = SETUP_DATA.PcieRootPortEn[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIERP4_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIERP_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+#endif //TBT_UP_PORT_FUNC == 0
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 1)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE01
+#undef SB_ONEOF_PCIEROOTPORTHPE01
+#define SB_ONEOF_PCIEROOTPORTHPE01\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD01
+#undef SB_ONEOF_EXTRABUSRSVD01
+#define SB_ONEOF_EXTRABUSRSVD01\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD01
+#undef SB_ONEOF_PCIEMEMRSVD01
+#define SB_ONEOF_PCIEMEMRSVD01\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG01
+#undef SB_ONEOF_PCIEMEMRSVDALIG01
+#define SB_ONEOF_PCIEMEMRSVDALIG01\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD01
+#undef SB_ONEOF_PCIEPFMEMRSVD01
+#define SB_ONEOF_PCIEPFMEMRSVD01\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG01
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG01
+#define SB_ONEOF_PCIEPFMEMRSVDALIG01\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD01
+#undef SB_ONEOF_PCIEIORSVD01
+#define SB_ONEOF_PCIEIORSVD01\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_1],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+#endif //TBT_UP_PORT_FUNC == 1
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 2)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE02
+#undef SB_ONEOF_PCIEROOTPORTHPE02
+#define SB_ONEOF_PCIEROOTPORTHPE02\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD02
+#undef SB_ONEOF_EXTRABUSRSVD02
+#define SB_ONEOF_EXTRABUSRSVD02\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD02
+#undef SB_ONEOF_PCIEMEMRSVD02
+#define SB_ONEOF_PCIEMEMRSVD02\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG02
+#undef SB_ONEOF_PCIEMEMRSVDALIG02
+#define SB_ONEOF_PCIEMEMRSVDALIG02\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD02
+#undef SB_ONEOF_PCIEPFMEMRSVD02
+#define SB_ONEOF_PCIEPFMEMRSVD02\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG02
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG02
+#define SB_ONEOF_PCIEPFMEMRSVDALIG02\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD02
+#undef SB_ONEOF_PCIEIORSVD02
+#define SB_ONEOF_PCIEIORSVD02\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_2],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+#endif //TBT_UP_PORT_FUNC == 2
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 3)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE03
+#undef SB_ONEOF_PCIEROOTPORTHPE03
+#define SB_ONEOF_PCIEROOTPORTHPE03\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD03
+#undef SB_ONEOF_EXTRABUSRSVD03
+#define SB_ONEOF_EXTRABUSRSVD03\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD03
+#undef SB_ONEOF_PCIEMEMRSVD03
+#define SB_ONEOF_PCIEMEMRSVD03\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG03
+#undef SB_ONEOF_PCIEMEMRSVDALIG03
+#define SB_ONEOF_PCIEMEMRSVDALIG03\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD03
+#undef SB_ONEOF_PCIEPFMEMRSVD03
+#define SB_ONEOF_PCIEPFMEMRSVD03\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG03
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG03
+#define SB_ONEOF_PCIEPFMEMRSVDALIG03\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD03
+#undef SB_ONEOF_PCIEIORSVD03
+#define SB_ONEOF_PCIEIORSVD03\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_3],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+#endif //TBT_UP_PORT_FUNC == 3
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 4)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE04
+#undef SB_ONEOF_PCIEROOTPORTHPE04
+#define SB_ONEOF_PCIEROOTPORTHPE04\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD04
+#undef SB_ONEOF_EXTRABUSRSVD04
+#define SB_ONEOF_EXTRABUSRSVD04\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD04
+#undef SB_ONEOF_PCIEMEMRSVD04
+#define SB_ONEOF_PCIEMEMRSVD04\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG04
+#undef SB_ONEOF_PCIEMEMRSVDALIG04
+#define SB_ONEOF_PCIEMEMRSVDALIG04\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD04
+#undef SB_ONEOF_PCIEPFMEMRSVD04
+#define SB_ONEOF_PCIEPFMEMRSVD04\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG04
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG04
+#define SB_ONEOF_PCIEPFMEMRSVDALIG04\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD04
+#undef SB_ONEOF_PCIEIORSVD04
+#define SB_ONEOF_PCIEIORSVD04\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_4],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#if !defined (ULT_SUPPORT) || (ULT_SUPPORT == 0)
+#ifdef SB_ONEOF_PCIEROOTPORTEN05
+#undef SB_ONEOF_PCIEROOTPORTEN05
+#define SB_ONEOF_PCIEROOTPORTEN05\
+    oneof varid      = SETUP_DATA.PcieRootPortEn[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIERP6_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIERP_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+#endif //!defined (ULT_SUPPORT) || (ULT_SUPPORT == 0)
+
+#ifdef SB_ONEOF_PCIEROOTPORTEN06
+#undef SB_ONEOF_PCIEROOTPORTEN06
+#define SB_ONEOF_PCIEROOTPORTEN06\
+    oneof varid      = SETUP_DATA.PcieRootPortEn[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIERP7_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIERP_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_PCIEROOTPORTEN07
+#undef SB_ONEOF_PCIEROOTPORTEN07
+#define SB_ONEOF_PCIEROOTPORTEN07\
+    oneof varid      = SETUP_DATA.PcieRootPortEn[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIERP8_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIERP_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = RESET_REQUIRED;\
+    endoneof;
+#endif
+#endif //TBT_UP_PORT_FUNC == 4
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 5)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE05
+#undef SB_ONEOF_PCIEROOTPORTHPE05
+#define SB_ONEOF_PCIEROOTPORTHPE05\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD05
+#undef SB_ONEOF_EXTRABUSRSVD05
+#define SB_ONEOF_EXTRABUSRSVD05\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD05
+#undef SB_ONEOF_PCIEMEMRSVD05
+#define SB_ONEOF_PCIEMEMRSVD05\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG05
+#undef SB_ONEOF_PCIEMEMRSVDALIG05
+#define SB_ONEOF_PCIEMEMRSVDALIG05\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD05
+#undef SB_ONEOF_PCIEPFMEMRSVD05
+#define SB_ONEOF_PCIEPFMEMRSVD05\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG05
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG05
+#define SB_ONEOF_PCIEPFMEMRSVDALIG05\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD05
+#undef SB_ONEOF_PCIEIORSVD05
+#define SB_ONEOF_PCIEIORSVD05\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_5],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+#endif //TBT_UP_PORT_FUNC == 5
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 6)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE06
+#undef SB_ONEOF_PCIEROOTPORTHPE06
+#define SB_ONEOF_PCIEROOTPORTHPE06\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD06
+#undef SB_ONEOF_EXTRABUSRSVD06
+#define SB_ONEOF_EXTRABUSRSVD06\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD06
+#undef SB_ONEOF_PCIEMEMRSVD06
+#define SB_ONEOF_PCIEMEMRSVD06\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG06
+#undef SB_ONEOF_PCIEMEMRSVDALIG06
+#define SB_ONEOF_PCIEMEMRSVDALIG06\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD06
+#undef SB_ONEOF_PCIEPFMEMRSVD06
+#define SB_ONEOF_PCIEPFMEMRSVD06\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG06
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG06
+#define SB_ONEOF_PCIEPFMEMRSVDALIG06\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD06
+#undef SB_ONEOF_PCIEIORSVD06
+#define SB_ONEOF_PCIEIORSVD06\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_6],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+#endif //TBT_UP_PORT_FUNC == 6
+#if defined (TBT_UP_PORT_FUNC) && (TBT_UP_PORT_FUNC == 7)
+#ifdef SB_ONEOF_PCIEROOTPORTHPE07
+#undef SB_ONEOF_PCIEROOTPORTHPE07
+#define SB_ONEOF_PCIEROOTPORTHPE07\
+    oneof varid      = SETUP_DATA.PcieRootPortHPE[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_HPE_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_HPE_HELP),\
+        option text  = STRING_TOKEN (STR_COMMON_DISABLED), value = 0, flags = RESET_REQUIRED;\
+        option text  = STRING_TOKEN (STR_COMMON_ENABLED), value = 1, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;\
+    endoneof;
+#endif
+
+#ifdef SB_ONEOF_EXTRABUSRSVD07
+#undef SB_ONEOF_EXTRABUSRSVD07
+#define SB_ONEOF_EXTRABUSRSVD07\
+    numeric varid    = SETUP_DATA.ExtraBusRsvd[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RBUS_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RBUS_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_EXTRA_BUS_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED,\
+        default      = TBT_DEFAULT_EXTRA_BUS_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVD07
+#undef SB_ONEOF_PCIEMEMRSVD07
+#define SB_ONEOF_PCIEMEMRSVD07\
+    numeric varid    = SETUP_DATA.PcieMemRsvd[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEMEMRSVDALIG07
+#undef SB_ONEOF_PCIEMEMRSVDALIG07
+#define SB_ONEOF_PCIEMEMRSVDALIG07\
+    numeric varid    = SETUP_DATA.PcieMemRsvdalig[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 26,\
+        default      = 26, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVD07
+#undef SB_ONEOF_PCIEPFMEMRSVD07
+#define SB_ONEOF_PCIEPFMEMRSVD07\
+    numeric varid    = SETUP_DATA.PciePFMemRsvd[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = TBT_MAX_PCIE_PF_MEM_RESERVED,\
+        step         = 1,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_PF_MEM_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEPFMEMRSVDALIG07
+#undef SB_ONEOF_PCIEPFMEMRSVDALIG07
+#define SB_ONEOF_PCIEPFMEMRSVDALIG07\
+    numeric varid    = SETUP_DATA.PciePFMemRsvdalig[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_PF_RMEM_ALIG_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 1,\
+        maximum      = 31,\
+        step         = 1,\
+        default      = 28,\
+        default      = 28, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+
+#ifdef SB_ONEOF_PCIEIORSVD07
+#undef SB_ONEOF_PCIEIORSVD07
+#define SB_ONEOF_PCIEIORSVD07\
+    numeric varid    = SETUP_DATA.PcieIoRsvd[OFFSET_7],\
+        prompt       = STRING_TOKEN (STR_PCH_PCIE_RVIO_PROMPT),\
+        help         = STRING_TOKEN (STR_PCH_PCIE_RVIO_HELP),\
+        flags        = RESET_REQUIRED,\
+        minimum      = 0,\
+        maximum      = TBT_MAX_PCIE_IO_RESERVED,\
+        step         = 4,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED,\
+        default      = TBT_DEFAULT_PCIE_IO_RESERVED, defaultstore = AmiMfgDefault,\
+    endnumeric;
+#endif
+#endif //TBT_UP_PORT_FUNC == 7
+#endif // #if defined (TBT_INTEL_RC_CONFIG) && (TBT_INTEL_RC_CONFIG == 1)
+
+#endif // #ifdef CONTROL_DEFINITION
+
+#ifdef CONTROLS_WITH_DEFAULTS
+    TBT_ONEOF_TBTENABLE
+    TBT_ONEOF_SECURITYLEVEL
+    TBT_ONEOF_CRSECURITYLEVEL
+    TBT_ONEOF_TBTWAKEUPSUPPORT
+    TBT_ONEOF_TBTHANDLEPOC
+    TBT_ONEOF_TBTAICSUPPORT
+    TBT_ONEOF_TBTHOSTLOCATION
+//    TBT_ONEOF_TBTHOSTLOCATIONGROUP
+//    TBT_ONEOF_TBTHOSTLOCATION_SB
+//    TBT_ONEOF_TBTHOSTLOCATION_NB0
+//    TBT_ONEOF_TBTHOSTLOCATION_NB1
+//    TBT_ONEOF_TBTHOSTLOCATION_NB2
+//    TBT_ONEOF_TBTHOSTLOCATION_NB3
+    TBT_ONEOF_TBTCACHELINESIZE
+    TBT_ONEOF_SMINOTIFYENABLED
+    TBT_ONEOF_SWSMIENABLED
+    TBT_ONEOF_NOTIFYENABLED
+    TBT_ONEOF_RMVRETRUNVALUE
+    TBT_ONEOF_OPTIONROM
+    TBT_ONEOF_TBTWAKEUPDELAY
+    TBT_ONEOF_TBTSWSMIDELAY
+    TBT_ONEOF_IORESOURCEENABLED
+    TBT_ONEOF_PERSLOTMEMRSVD
+    TBT_ONEOF_PERSLOTPFMEMRSVD
+    TBT_ONEOF_PERSLOTIORSVD
+#endif // #ifdef CONTROLS_WITH_DEFAULTS
+
+//---------------------------------------------------------------------------
+//                ADVANCED - CRB Configuration Form
+//---------------------------------------------------------------------------
+#ifdef ADVANCED_FORM_SET //CHIPSET_FORM_SET
+
+//#ifdef FORM_SET_TYPEDEF
+//If you need any additional type definitions add them here
+//typedef struct{
+//    UINT8 MyField;
+//} MyVariable;
+//#endif
+
+//#ifdef FORM_SET_VARSTORE
+//If you need custom varstore's define them here
+//    varstore MY_VARIABLE,
+//        key   = AUTO_ID(MY_VARSTORE_ID),
+//        name  = MyVariable,
+//        guid  = SETUP_GUID;
+//#endif
+
+//#ifdef FORM_SET_ITEM
+//	Define controls to be added to the top level page of the formset
+//	checkbox varid = SETUP_DATA.MyCombobox,
+//		prompt = STRING_TOKEN(...),
+//		help = STRING_TOKEN(...),  
+//		flags = 0, // Flags behavior for checkbox is overloaded so that it equals a DEFAULT value.  1 = ON, 0 = off
+//	endcheckbox;	
+//#endif
+
+#ifdef FORM_SET_GOTO
+// Define goto commands for the forms defined in this file
+    goto TBT_FORM_ID, 
+        prompt = STRING_TOKEN(STR_TBT_FORM),
+        help = STRING_TOKEN(STR_TBT_FORM_HELP);
+#endif
+
+#ifdef FORM_SET_FORM
+// Define forms
+    #ifndef TBT_FORM_SETUP
+    #define TBT_FORM_SETUP
+	form formid = AUTO_ID(TBT_FORM_ID),
+		title = STRING_TOKEN(STR_TBT_FORM);
+		
+		SUBTITLE(STRING_TOKEN (STR_TBT_SUBTITLE))
+	
+        text 
+            help    = STRING_TOKEN (STR_TBT_SPEC_VERSION_HELP),
+            text    = STRING_TOKEN (STR_TBT_SPEC_VERSION_NAME),
+            text    = STRING_TOKEN (STR_TBT_SPEC_VERSION_VALUE),
+            flags   = 0, key = 0;
+
+        text 
+            help    = STRING_TOKEN (STR_TBT_RC_VERSION_HELP),
+            text    = STRING_TOKEN (STR_TBT_RC_VERSION_NAME),
+            text    = STRING_TOKEN (STR_TBT_RC_VERSION_VALUE),
+            flags   = 0, key = 0;
+
+        suppressif ideqval SETUP_DATA.TbtEnable == 0x0;
+            text 
+                help    = STRING_TOKEN (STR_TBT_HOST_HELP),
+                text    = STRING_TOKEN (STR_TBT_HOST_NAME),
+                text    = STRING_TOKEN (STR_TBT_HOST_VALUE),
+                flags   = 0, key = 0;
+        endif;
+
+        SEPARATOR
+        
+        grayoutif ideqval SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER;
+            TBT_ONEOF_TBTENABLE
+            suppressif ideqval SETUP_DATA.TbtEnable == 0x0;
+                suppressif ideqval SETUP_DATA.TbtHRSeries == 0x1;
+                    TBT_ONEOF_SECURITYLEVEL
+                endif;
+                suppressif NOT ideqval SETUP_DATA.TbtHRSeries == 0x1; // if TBT chip is not equal CR, hide CR setting.
+                    TBT_ONEOF_CRSECURITYLEVEL
+                endif;
+                suppressif ideqval SETUP_DATA.TbtSecurityLevel == 0x5;
+                    TBT_ONEOF_TBTWAKEUPSUPPORT
+            #if defined (TBT_HR_PWR) && (TBT_HR_PWR != 0xFF)
+                    suppressif ideqval SETUP_DATA.TbtWakeupSupport == 0x1;
+                        TBT_ONEOF_TBTHANDLEPOC
+                    endif;
+            #endif
+                    suppressif ideqval SETUP_DATA.TbtHRSeries == 0x1;
+                        TBT_ONEOF_TBTAICSUPPORT
+                        suppressif ideqval SETUP_DATA.TbtAICSupport == 0x0;
+#if defined TBT_NB_PCIE_SLOT_SUPPORT && TBT_NB_PCIE_SLOT_SUPPORT == 1
+                            TBT_ONEOF_TBTHOSTLOCATIONGROUP
+#endif
+                            suppressif NOT ideqval SETUP_DATA.TbtHostLocationGroup == 0x0;
+                                TBT_ONEOF_TBTHOSTLOCATION_SB
+                            endif;
+                            suppressif NOT ideqval SETUP_DATA.TbtHostLocationGroup == 0x1;
+                                TBT_ONEOF_TBTHOSTLOCATION_NB0
+                            endif;
+#if defined TBT_HIGHLAND_PLATFORM_CONFIG && TBT_HIGHLAND_PLATFORM_CONFIG == 1
+                            suppressif NOT ideqval SETUP_DATA.TbtHostLocationGroup == 0x2;
+                                TBT_ONEOF_TBTHOSTLOCATION_NB1
+                            endif;
+                            suppressif NOT ideqval SETUP_DATA.TbtHostLocationGroup == 0x3;
+                                TBT_ONEOF_TBTHOSTLOCATION_NB2
+                            endif;
+                            suppressif NOT ideqval SETUP_DATA.TbtHostLocationGroup == 0x4;
+                                TBT_ONEOF_TBTHOSTLOCATION_NB3
+                            endif;
+#endif
+                        endif;
+                    endif;
+                    TBT_ONEOF_TBTCACHELINESIZE
+                    TBT_ONEOF_SMINOTIFYENABLED
+                    suppressif ideqval SETUP_DATA.SmiNotifyEnabled == 0x0;
+                        TBT_ONEOF_SWSMIENABLED
+                        TBT_ONEOF_NOTIFYENABLED
+                    endif; // SmiNotifyEnabled == 0x0;
+#if !defined TBT_HIGHLAND_PLATFORM_CONFIG || TBT_HIGHLAND_PLATFORM_CONFIG == 0
+                    TBT_ONEOF_RMVRETRUNVALUE
+#endif
+                    TBT_ONEOF_OPTIONROM
+                    suppressif NOT ideqval SETUP_DATA.TbtHRSeries == 0x1;
+                        TBT_ONEOF_TBTWAKEUPDELAY
+                    endif; // TbtHRSeries == 0x1;
+                    TBT_ONEOF_TBTSWSMIDELAY
+                    TBT_ONEOF_IORESOURCEENABLED
+                    TBT_ONEOF_PERSLOTMEMRSVD
+                    TBT_ONEOF_PERSLOTPFMEMRSVD
+                    suppressif ideqval SETUP_DATA.TbtIOresourceEnable ==0x0;
+                        TBT_ONEOF_PERSLOTIORSVD
+                    endif; // TbtIOresourceEnable ==0x0;
+                endif; // TbtSecurityLevel == 0x5;
+            endif; // TbtEnable ==0x0;
+        endif; // SYSTEM_ACCESS.Access == SYSTEM_PASSWORD_USER;
+	endform; // TBT_FORM_ID
+	#endif // TBT_FORM_SETUP
+#endif  // FORM_SET_FORM
+
+#endif  // ADVANCED_FORM_SET
+//**********************************************************************
+//**********************************************************************
+//**                                                                  **
+//**        (C)Copyright 1985-2014, American Megatrends, Inc.         **
+//**                                                                  **
+//**                       All Rights Reserved.                       **
+//**                                                                  **
+//**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+//**                                                                  **
+//**                       Phone: (770)-246-8600                      **
+//**                                                                  **
+//**********************************************************************
+//**********************************************************************

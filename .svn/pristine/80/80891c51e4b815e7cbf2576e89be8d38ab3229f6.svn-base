@@ -1,0 +1,72 @@
+## @file
+#  Component description file for FxUpdateSystemInfoDxe module
+#
+#  Copyright 2011 - 2015, Foxconn Corporation.
+#  
+#  This software contains information confidential and proprietary to
+#  Foxconn Corporation. It shall not be reproduced in whole or in part,
+#  or transferred to other documents, or disclosed to third parties, or used
+#  for any purpose other than that for which it was obtained without the prior
+#  written consent of Foxconn Corporation.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = FxUpdateSystemInfoDxe
+  FILE_GUID                      = 59DA278B-DC9E-4570-97CC-4C23B29712C4
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+##LLY001006-  ENTRY_POINT                    = FxUpdateSystemInfoDxeEntry
+
+[Sources]
+  FxUpdateSystemInfoDxe.c
+  FxSystemInfo.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+##JPG002005-  FxPlatformPkg/Megatron/FxPlatformPkg.dec
+  AmiIpmiPkg/AmiIpmiPkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  GrantleySocketPkg/SocketPkg.dec
+  GrantleyPkg/PlatformPkg.dec
+  AmiNetworkPkg/AmiNetworkPkg.dec
+  FxCustomerPkg/FxCustomerPkg.dec ##JPG002005+
+##JPG002005-  FxCustomerPkg/WCSPkg/WCSSystemInfoUpdate/WCSSystemInfoUpdate.dec
+##JPG002005-  FxCommonLibPkg/FxCommonLibPkg.dec #CWC001006+
+  AmiModulePkg/AmiModulePkg.dec   #DJH002021++
+  
+  
+[LibraryClasses]
+  UefiLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+  PciLib
+  PcdLib
+  HobLib
+  NetLib
+  AmiDxeLib #ZCH001009+
+  FxI2CLib #CWC001006+
+
+[Protocols]
+  gEfiDxeIpmiTransportProtocolGuid          ##consuming
+  gEfiSmbiosProtocolGuid                    ##consuming
+  gEfiPciEnumerationCompleteProtocolGuid    ##consuming
+  gEfiSimpleNetworkProtocolGuid             ##consuming
+  
+[Guids]
+  gEfiMemoryMapGuid
+  gEfiHobListGuid
+  gEfiNetworkStackSetupGuid
+  gEfiServerMgmtSetupVariableGuid           ##LLY001004 +
+  gEfiSetupVariableGuid                     ##GCH001010 +
+[Depex]
+  gEfiSmbiosProtocolGuid AND
+  gEfiDxeIpmiTransportProtocolGuid AND
+  gEfiPciRootBridgeIoProtocolGuid
+  
+[Pcd]
+  gAmiModulePkgTokenSpaceGuid.PchDiskError  #DJH002022++

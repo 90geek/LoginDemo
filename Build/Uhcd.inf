@@ -1,0 +1,67 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Uhcd
+  FILE_GUID                      = 580DD900-385D-11d7-883A-00500473D4EB
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = AmiUsbDriverEntryPoint
+
+[Sources]
+  ../AmiModulePkg\Usb/Uhcd.c
+  ../AmiModulePkg\Usb/AmiUsbHc.c
+  ../AmiModulePkg\Usb/UsbBus.c
+  ../AmiModulePkg\Usb/EfiUsbKb.c
+  ../AmiModulePkg\Usb/Tree.c
+  ../AmiModulePkg\Usb/EfiUsbKb.h
+  ../AmiModulePkg\Usb/UsbBus.h
+  ../AmiModulePkg\Usb/Tree.h
+  ../AmiModulePkg\Usb/EfiUsbMass.c
+  ../AmiModulePkg\Usb/EfiUsbMs.c
+  ../AmiModulePkg\Usb/EfiUsbCcid.c
+  ../AmiModulePkg\Usb/EfiUsbPoint.c
+  ../AmiModulePkg\Usb/EfiUsbHid.c
+  ../AmiModulePkg\Usb/ComponentName.c
+  ../AmiModulePkg\Usb/UsbMisc.c
+  ../AmiModulePkg\Usb/ComponentName.h
+  ../AmiModulePkg\Usb/UsbPort.c
+  ../AmiModulePkg\Usb\Rt/Debug.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+
+[LibraryClasses]
+  AmiDxeLib
+  UefiDriverEntryPoint
+  MemoryAllocationLib
+
+[Protocols]
+  gEfiSimpleTextInputExProtocolGuid
+  gEfiUsbHcProtocolGuid
+  gEfiDriverBindingProtocolGuid
+  gEfiUsbPolicyProtocolGuid
+  gEfiUsbProtocolGuid
+  gEfiUsb2HcProtocolGuid
+  gEfiPciIoProtocolGuid
+  gUsbTimingPolicyProtocolGuid
+  gEfiSmmControl2ProtocolGuid
+  gEfiComponentName2ProtocolGuid
+  gNonSmmEmul6064TrapProtocolGuid
+  gEfiDevicePathProtocolGuid
+  gEfiUsbIoProtocolGuid
+  gEfiBlockIoProtocolGuid
+  gEfiSimpleTextInProtocolGuid
+  gAmiEfiKeycodeProtocolGuid
+  gEfiSimplePointerProtocolGuid
+  gEfiSmmPeriodicTimerDispatch2ProtocolGuid
+  gAmiBlockIoWriteProtectionProtocolGuid
+  
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+
+[Depex]
+  TRUE
+

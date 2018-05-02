@@ -1,0 +1,174 @@
+/*++
+  This file contains an 'Intel Peripheral Driver' and is        
+  licensed for Intel CPUs and chipsets under the terms of your  
+  license agreement with Intel or your vendor.  This file may   
+  be modified by the user, subject to additional terms of the   
+  license agreement                                             
+--*/
+/*++
+  
+Copyright 1996 - 2016, Intel Corporation.
+
+This source code and any documentation accompanying it ("Material") is furnished
+under license and may only be used or copied in accordance with the terms of that
+license.  No license, express or implied, by estoppel or otherwise, to any
+intellectual property rights is granted to you by disclosure or delivery of these
+Materials.  The Materials are subject to change without notice and should not be
+construed as a commitment by Intel Corporation to market, license, sell or support
+any product or technology.  Unless otherwise provided for in the license under which
+this Material is provided, the Material is provided AS IS, with no warranties of
+any kind, express or implied, including without limitation the implied warranties
+of fitness, merchantability, or non-infringement.  Except as expressly permitted by
+the license for the Material, neither Intel Corporation nor its suppliers assumes
+any responsibility for any errors or inaccuracies that may appear herein.  Except
+as expressly permitted by the license for the Material, no part of the Material
+may be reproduced, stored in a retrieval system, transmitted in any form, or
+distributed by any means without the express written consent of Intel Corporation.
+
+  Module Name:
+
+    HwpProc.asi
+
+  Abstract:
+
+    Contains the _CPC object for processors
+
+NOTES:-
+  This Processor Power Management BIOS Source Code is furnished under license
+  and may only be used or copied in accordance with the terms of the license.
+  The information in this document is furnished for informational use only, is
+  subject to change without notice, and should not be construed as a commitment
+  by Intel Corporation. Intel Corporation assumes no responsibility or liability
+  for any errors or inaccuracies that may appear in this document or any
+  software that may be provided in association with this document.
+
+  Except as permitted by such license, no part of this document may be
+  reproduced, stored in a retrieval system, or transmitted in any form or by
+  any means without the express written consent of Intel Corporation.
+
+  WARNING: You are authorized and licensed to install and use this BIOS code
+  ONLY on an IST PC. This utility may damage any system that does not
+  meet these requirements.
+
+  An IST PC is a computer which
+  (1) Is capable of seamlessly and automatically transitioning among
+      multiple performance states (potentially operating at different
+      efficiency ratings) based upon power source changes, end user
+      preference, processor performance demand, and thermal conditions; and
+  (2) Includes an Intel Pentium II processors, Intel Pentium III
+      processor, Mobile Intel Pentium III Processor-M, Mobile Intel Pentium 4
+      Processor-M, Intel Pentium M Processor, or any other future Intel 
+      processors that incorporates the capability to transition between 
+      different performance states by altering some, or any combination of, 
+      the following processor attributes: core voltage, core frequency, bus 
+      frequency, number of processor cores available, or any other attribute 
+      that changes the efficiency (instructions/unit time-power) at which the 
+      processor operates.
+
+--*/
+
+    //
+    // _PDC Flag Bit definitions:
+    //     [00] = If set, OSPM is capable of direct access to Performance State MSR's
+    //     [01] = If set, OSPM supports the C1 "I/O then Halt" FFh sequence for 
+    //            multi-processor configuation
+    //     [02] = If set, OSPM is capable of direct access to On Demand throttling MSR's
+    //     [03] = If set, OSPM is capable of independent C1, P state and T state support 
+    //            for each processor for multi-processor configuations. This bit does not 
+    //            indicate support for asymmetrical _CST, _PSS, or _TSS objects for
+    //            individual processors in the system.
+    //     [04] = If set, OSPM is capable of independent C2 and C3 state support for each
+    //            processor for multi-processor configuations. This bit does not 
+    //            indicate support for asymmetrical _CST objects for individual
+    //            processors in the system.
+    //     [05] = If set, OSPM is capable of native P state software coordination using
+    //            BIOS supplied _PSD information for multi-processor configuations. 
+    //     [06] = If set, OSPM is capable of native C state software coordination using
+    //            BIOS supplied _CSD information for multi-processor configuations. 
+    //     [07] = If set, OSPM is capable of native ACPI throttling software coordination 
+    //            using BIOS supplied _TSD information for multi-processor configuations. 
+    //     [08] = If set, OSPM is capable of performing native C state instructions (beyond 
+    //            halt) for the C1 handler in multi-processor configuations. 
+    //     [09] = If set, OSPM is capable of performing native C state instructions for 
+    //            the C2/C3 handlers in multi-processor configuations. 
+    //     [10] = Reserved
+    //     [11] = OSPM is capable of hardware coordination of P states.   
+    //  [31:12] = Reserved
+    //
+    //
+
+
+    External (HWEN, FieldUnitObj) //HWPM
+    External (HWOB, IntObj) // OOB mode HWPM enabled flag
+    External (HWPS, IntObj)
+    
+  
+
+   Name (NCPC, Package() {     // CPC packge entried for HWPM interface
+   21, //length of the package including this entry length
+    2,
+    ResourceTemplate(){Register(FFixedHW, 8, 0, 0x771, 4)},     // IA32_HWP_BASE_CAPABILITY [7:0] ,Highest Performance
+    ResourceTemplate(){Register(FFixedHW, 8, 8, 0x771, 4)},    //(IA32_HWP_BASE_CAPABILITY[15:8],guaranteed performance
+    ResourceTemplate(){Register(FFixedHW, 8, 16, 0x771, 4)},   //IA32_HWP_BASE_CAPABILITY[23:16],most efficient performance
+    ResourceTemplate(){Register(FFixedHW, 8, 16, 0x771, 4)},   //IA32_HWP_BASE_CAPABILITY[31:24],lowest performance
+    ResourceTemplate(){Register(FFixedHW, 8, 8, 0x771, 4)},    //IA32_HWP_BASE_CAPABILITY[15:8], nominal performance
+    ResourceTemplate(){Register(FFixedHW, 8, 16, 0x774, 4)},   //IA32_HWP_REQUEST [23:16], desired performance
+    ResourceTemplate(){Register(FFixedHW, 8, 0, 0x774, 4)},    //IA32_HWP_REQUEST [7:0], minimum performance
+    ResourceTemplate(){Register(FFixedHW, 8, 8, 0x774, 4)},    //IA32_HWP_REQUEST [15:8], maximum performance
+    ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //NULL entry for tolerence register 
+    ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //NULL entry for time window register 
+    ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},     //dummy entry for counter wrap time
+    ResourceTemplate(){Register(FFixedHW, 64, 0, 0xE7, 4)},     //IA32_MPERF for nominal counter  register
+    ResourceTemplate(){Register(FFixedHW, 64, 0, 0xE8, 4)},     //IA32_APERF for delivered counter register
+    ResourceTemplate(){Register(FFixedHW, 1, 2, 0x777, 4)},     // Performance Limited Register MSR IA32_HWP_STATUS[2]
+    ResourceTemplate(){Register(FFixedHW, 1, 0, 0x770, 4)},     // Enable Register MSR IA32_PM_ENABLE[0]
+    1,      												    // Publish Autonomous Selection Enabled
+    ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},      //NULL entry for AutonomousActivityWindowRegister 
+    ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},      //NULL entry for EnergyPerformancePreferenceRegister
+    ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},       //NULL entry for Performance Preference Register 
+})
+ Name (ZCPC, Package() {     // CPC packge entried for HWPM interface
+   21, //length of the package including this entry length
+    2,
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},   // IA32_HWP_BASE_CAPABILITY [7:0] ,Highest Performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //(IA32_HWP_BASE_CAPABILITY[15:8],guaranteed performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)}, //IA32_HWP_BASE_CAPABILITY[23:16],most efficient performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},   //IA32_HWP_BASE_CAPABILITY[31:24],lowest performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //IA32_HWP_BASE_CAPABILITY[15:8], nominal performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},   //IA32_HWP_REQUEST [23:16], desired performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //IA32_HWP_REQUEST [7:0], minimum performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //IA32_HWP_REQUEST [15:8], maximum performance
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //NULL entry for tolerence register 
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //NULL entry for time window register 
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},     //dummy entry for counter wrap time
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},     //IA32_MPERF for nominal counter  register
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},    //IA32_APERF for delivered counter register
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},     // Performance Limited Register MSR IA32_HWP_STATUS[2]
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},     // Enable Register MSR IA32_PM_ENABLE[0]
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)} ,     // Publish Autonomous Selection Enabled
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},      //NULL entry for AutonomousActivityWindowRegister 
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},      //NULL entry for EnergyPerformancePreferenceRegister
+   ResourceTemplate(){Register(SystemMemory, 0, 0, 0, 0)},       //NULL entry for Performance Preference Register 
+})
+
+
+    //
+    // CPC METHOD
+    //
+    Method(_CPC,0)
+    {
+      If(LEqual(HWEN,1)) //HWPM-Native Knob Enabled
+      {    
+         If(LEqual(HWPS,1)){  //OSC supports
+	   If(LEqual(HWOB,0)){//if not OOB mode 
+            Return(NCPC)  // Return native CPC table
+           
+	 }
+        }
+       }
+      
+      Return(ZCPC)   // Return native CPC table   
+      }
+    //
+    //HWPM-end 
+    //

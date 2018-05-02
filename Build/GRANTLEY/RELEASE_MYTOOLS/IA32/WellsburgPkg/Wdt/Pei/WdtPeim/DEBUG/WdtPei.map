@@ -1,0 +1,41 @@
+ WdtPei
+
+ Timestamp is 5ae04abb (Wed Apr 25 17:30:35 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000080H .data                   CODE
+ 0001:00000080 00000000H .rdata                  CODE
+ 0001:00000080 000003c9H .text                   CODE
+ 0001:00000449 00000001H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gWdtHobGuid               00000200     WdtPei:AutoGen.obj
+ 0001:00000010       _gWdtPpiGuid               00000210     WdtPei:AutoGen.obj
+ 0001:00000020       _gEfiEndOfPeiSignalPpiGuid 00000220     WdtPei:AutoGen.obj
+ 0001:00000030       _gPchResetCallbackPpiGuid  00000230     WdtPei:AutoGen.obj
+ 0001:00000080       __ModuleEntryPoint         00000280 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:0000008c       _IsWakeFromS3_S4           0000028c f   WdtPei:WdtPei.obj
+ 0001:000000d0       _WdtPeiEntryPoint          000002d0 f   WdtPei:WdtPei.obj
+ 0001:000001c5       _EndOfPeiCallback          000003c5 f   WdtPei:WdtPei.obj
+ 0001:00000247       _WdtPchResetCallback       00000447 f   WdtPei:WdtPei.obj
+ 0001:0000024f       _WdtReloadAndStart         0000044f f   WdtPei:WdtCommon.obj
+ 0001:000002b8       _WdtDisable                000004b8 f   WdtPei:WdtCommon.obj
+ 0001:000002e0       _WdtCheckStatus            000004e0 f   WdtPei:WdtCommon.obj
+ 0001:000002f9       _WdtAllowKnownReset        000004f9 f   WdtPei:WdtCommon.obj
+ 0001:00000328       _IsWdtRequired             00000528 f   WdtPei:WdtCommon.obj
+ 0001:00000344       _IsWdtEnabled              00000544 f   WdtPei:WdtCommon.obj
+ 0001:0000035d       _GetHobList                0000055d f   PeiHobLib:HobLib.obj
+ 0001:00000377       _GetNextHob                00000577 f   PeiHobLib:HobLib.obj
+ 0001:000003a4       _CompareGuid               000005a4 f   BaseMemoryLibRepStr:MemLibGuid.obj
+ 0001:000003d5       _GetPeiServicesTablePointer 000005d5 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:000003f0       _InternalMemCopyMem        000005f0 f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:0000042c       _InternalMemZeroMem        0000062c f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000449       _mAllowExpectedReset       00000649     WdtPei:WdtCommon.obj
+
+ entry point at        0001:00000080
+
+ Static symbols
+

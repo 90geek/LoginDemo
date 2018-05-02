@@ -1,0 +1,35 @@
+TOKEN
+    Name  = "PeiIpmiInitialize_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling PeiIpmiInitialize support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+INFComponent
+    Name  = "PeiIpmiBmcInitialize"
+    File  = "PeiIpmiBmcInitialize.inf"
+    Package  = "AmiIpmiPkg"
+    ModuleTypes  = "PEIM"
+End
+
+FFS_FILE
+    Name  = "PeiIpmiBmcInitialize"
+    FD_AREA  = "FV_BB"
+    INFComponent  = "AmiIpmiPkg.PeiIpmiBmcInitialize"
+    Apriori_Index  = "3"
+End
+
+ELINK
+    Name  = "INIT_LPC_BMC_HOOK"
+    InvokeOrder = ReplaceParent
+End
+
+ELINK
+    Name  = "InitLpcBmc,"
+    Parent  = "INIT_LPC_BMC_HOOK"
+    InvokeOrder = AfterParent
+End
+

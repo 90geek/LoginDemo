@@ -1,0 +1,108 @@
+TOKEN
+	Name  = "PlatformDxe_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for Enabling Dxe support in the project"
+	TokenType = Boolean
+	Master = Yes
+End
+
+TOKEN
+	Name  = "S3NvramSave_SUPPORT"
+	Value  = "1"
+	Help  = "Switch for saving MRC config to NVRAM"
+	TokenType = Boolean
+End
+
+TOKEN
+    Name  = "SaveMemoryConfig_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for saving MRC config to NVRAM"
+    TokenType = Boolean
+End
+
+TOKEN
+	Name  = "OnBoardVideoEfi_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable OnBoardVideoEfi support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "PlatformType_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PlatformType support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "PlatformEarlyDxe_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable PlatformEarlyDxe support in Project"
+	TokenType = Boolean
+End
+
+TOKEN
+	Name  = "VarstoreVariableInitDxe_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable VarstoreVariableInitDxe support in Project"
+	TokenType = Boolean
+End
+
+FFS_FILE
+	Name  = "OnBoardVideoEfi"
+	FD_AREA  = "FV_MAIN"
+	FILE_Stmt  = "GrantleyPkg\Platform\Dxe\OnBoardVideoEfiFdfFileStatement.txt"
+	Token = "OnBoardVideoEfi_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "PlatformType"
+	File  = "PlatformType\PlatformType.inf"
+	Package  = "GrantleyPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "PlatformType_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "S3NvramSave"
+	File  = "S3NvramSave\S3NvramSave.inf"
+	Package  = "GrantleyPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "S3NvramSave_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = "SaveMemoryConfig"
+    File  = "SaveMemoryConfig\SaveMemoryConfig.inf"
+    Package  = "GrantleyPkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "SaveMemoryConfig_SUPPORT" "=" "1"
+End
+
+INFComponent
+    Name  = PlatformEarlyDxe
+    File  = "PlatformEarlyDxe\PlatformEarlyDxe.inf"
+    Package  = "GrantleyPkg"
+    ModuleTypes  = "DXE_DRIVER"
+    Token = "PlatformEarlyDxe_SUPPORT" "=" "1"
+End
+
+INFComponent
+	Name  = "VarstoreVariableInitDxe"
+	File  = "VarstoreVariableInitDxe\VarstoreVariableInitDxe.inf"
+	Package  = "GrantleyPkg"
+	ModuleTypes  = "DXE_DRIVER"
+	Token = "VarstoreVariableInitDxe_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "CompressDxeLib"
+    Instance  = "GrantleyPkg.CompressDxeLib"
+    Override  = "GrantleyPkg.S3NvramSave"
+End
+
+LibraryMapping
+	Class  = "UefiBootServicesTableLib"
+	Instance  = "MdePkg.UefiBootServicesTableLib"
+    Override  = "GrantleyPkg.S3NvramSave"
+End

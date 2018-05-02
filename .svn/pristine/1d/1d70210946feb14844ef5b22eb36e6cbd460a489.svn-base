@@ -1,0 +1,13 @@
+<component>
+	name = "IA32FamilyCpuPkg"
+	category = ModulePart
+	LocalRoot = "GrantleyPkg\Override\Restricted\IA32FamilyCpuPkg\"
+	RefName = "GrantleyPkg.IA32FamilyCpuPkg"
+[INF]
+"PiSmmCpuDxeSmm\PiSmmCpuDxeSmm.inf"
+[files]
+"IA32FamilyCpuPkg.sdl"	
+[parts]
+"GrantleyPkg.Override.Restricted.IA32FamilyCpuPkg.Include.Include"
+"GrantleyPkg.Override.Restricted.IA32FamilyCpuPkg.Library.Library"
+<endComponent>

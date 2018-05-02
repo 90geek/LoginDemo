@@ -1,0 +1,40 @@
+ PchSmbusArpDisabled
+
+ Timestamp is 5ae04aa0 (Wed Apr 25 17:30:08 2018)
+
+ Preferred load address is 00000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000030H .data                   CODE
+ 0001:00000030 00000000H .rdata                  CODE
+ 0001:00000030 00000805H .text                   CODE
+ 0001:00000838 00000004H .bss                    CODE
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0001:00000000       _gPeiSmbusPolicyPpiGuid    00000220     PchSmbusArpDisabled:AutoGen.obj
+ 0001:00000010       _gEfiPeiMemoryDiscoveredPpiGuid 00000230     PchSmbusArpDisabled:AutoGen.obj
+ 0001:00000020       _gEfiPeiSmbus2PpiGuid      00000240     PchSmbusArpDisabled:AutoGen.obj
+ 0001:00000030       __ModuleEntryPoint         00000250 f   PeimEntryPoint:PeimEntryPoint.obj
+ 0001:00000046       _SmbusExecute              00000266 f   PchSmbusArpDisabled:PchSmbusEntry.obj
+ 0001:00000067       _InitializePchSmbusPeim    00000287 f   PchSmbusArpDisabled:PchSmbusEntry.obj
+ 0001:00000104       _InitializePeiPrivate      00000324 f   PchSmbusArpDisabled:PchSmbusEntry.obj
+ 0001:0000018e       _MemoryDiscoveredPpiNotifyCallback 000003ae f   PchSmbusArpDisabled:PchSmbusEntry.obj
+ 0001:000001a3       _SmbusNotify               000003c3 f   PchSmbusArpDisabled:PchSmbusArpdisabled.obj
+ 0001:000001a3       _SmbusGetArpMap            000003c3 f   PchSmbusArpDisabled:PchSmbusArpdisabled.obj
+ 0001:000001a3       _SmbusArpDevice            000003c3 f   PchSmbusArpDisabled:PchSmbusArpdisabled.obj
+ 0001:000001a9       _SmbusIoWrite              000003c9 f   PchSmbusArpDisabled:PchSmbusExec.obj
+ 0001:000001c7       _AcquireBus                000003e7 f   PchSmbusArpDisabled:PchSmbusExec.obj
+ 0001:0000020f       _SmbusExec                 0000042f f   PchSmbusArpDisabled:PchSmbusExec.obj
+ 0001:00000717       _AllocatePool              00000937 f   PeiMemoryAllocationLib:MemoryAllocationLib.obj
+ 0001:0000073f       _GetPciExpressBaseAddress  0000095f f   BasePciExpressLib:PciExpressLib.obj
+ 0001:0000074e       _PchPmTimerStall           0000096e f   PchPlatformLib:PchPlatformLibrary.obj
+ 0001:000007c2       _GetPeiServicesTablePointer 000009e2 f   PeiServicesTablePointerLibIdt:PeiServicesTablePointer.obj
+ 0001:000007dc       _InternalMemCopyMem        000009fc f   BaseMemoryLibRepStr:CopyMem.obj
+ 0001:00000818       _InternalMemZeroMem        00000a38 f   BaseMemoryLibRepStr:ZeroMem.obj
+ 0001:00000838       _LocalPcdPciExpressBaseAddress 00000a58     BasePciExpressLib:PciExpressLib.obj
+
+ entry point at        0001:00000030
+
+ Static symbols
+

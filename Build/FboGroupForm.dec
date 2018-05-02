@@ -1,0 +1,10 @@
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = FboGroupFormLib
+  PACKAGE_GUID                   = 072a622d-0a5f-4d69-ab23-81222cc85c12
+  PACKAGE_VERSION                = 0.1
+
+[Guids]
+gFixedBootOrderSetupGuid = {0x7e07911a, 0x4807, 0x4b0f, {0xa4, 0x74, 0xf5, 0x43, 0x1c, 0xa9, 0x07, 0xb4}}
+

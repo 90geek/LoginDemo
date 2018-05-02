@@ -1,0 +1,29 @@
+TOKEN
+    Name  = "AmiIpmiPkgLibrary_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling AmiIpmiPkg Library support in the project"
+    TokenType = Boolean
+    Master = Yes
+End
+
+TOKEN
+    Name  = "DxeIpmiInterfaceLib_SUPPORT"
+    Value  = "1"
+    Help  = "Main switch to enable DxeIpmiInterfaceLib support in Project"
+    TokenType = Boolean
+End
+
+INFComponent
+    Name  = "DxeIpmiInterfaceLib"
+    File  = "DxeIpmiInterfaceLib\DxeIpmiInterfaceLib.inf"
+    Package  = "AmiIpmiPkg"
+    Token = "DxeIpmiInterfaceLib_SUPPORT" "=" "1"
+End
+
+LibraryMapping
+    Class  = "IpmiInterfaceLib"
+    Instance  = "AmiIpmiPkg.DxeIpmiInterfaceLib"
+    ModuleTypes  = "DXE_DRIVER UEFI_APPLICATION"
+    Token = "DxeIpmiInterfaceLib_SUPPORT" "=" "1"
+End
+

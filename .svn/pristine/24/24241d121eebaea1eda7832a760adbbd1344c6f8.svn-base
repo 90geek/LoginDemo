@@ -1,0 +1,125 @@
+TOKEN
+    Name  = "DxeIpmiInitialize_SUPPORT"
+    Value  = "1"
+    Help  = "Switch for Enabling DxeIpmiInitialize support in the project"
+    TokenType = Boolean
+    TargetEQU = Yes
+    TargetMAK = Yes
+    Master = Yes
+End
+
+PATH
+    Name  = "DxeIpmiInitialize_DIR"
+    Path  = "AmiIpmiPkg/Ipmi/IpmiInitialize"
+End
+
+INFComponent
+    Name  = "DxeIpmiInitialize"
+    File  = "DxeIpmiBmcInitialize.inf"
+    Package  = "AmiIpmiPkg"
+    ModuleTypes  = "DXE_RUNTIME_DRIVER"
+End
+
+FFS_FILE
+    Name  = "DxeIpmiInitialize"
+    FD_AREA  = "FV_MAIN"
+    INFComponent  = "AmiIpmiPkg.DxeIpmiInitialize"
+    Apriori_Index  = "5"
+End
+
+PCIDEVICE
+    Title  = "Ipmi KCS Asl Container"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    ASLfile  = "'AmiIpmiPkg\Ipmi\IpmiInitialize\IpmiKcs.asl;After Pci Tree'"
+    Token = "IPMI_SYSTEM_INTERFACE" "=" "$(KCS_INTERFACE)"
+    Virtual = Yes
+End
+
+PCIDEVICE
+    Title  = "Ipmi BT Asl Container"
+    Parent  = "PciHost (Virtual)"
+    Attribute  = "0x0"
+    Dev_type  = "Container"
+    Dev  = 00h
+    ASLfile  = "'AmiIpmiPkg\Ipmi\IpmiInitialize\IpmiBt.asl;After Pci Tree'"
+    Token = "IPMI_SYSTEM_INTERFACE" "=" "$(BT_INTERFACE)"
+    Virtual = Yes
+End
+
+ELINK
+    Name  = "$(DxeIpmiInitialize_DIR)/BmcTimeZoneDefaults.c"
+    Parent  = "TSE_SOURCE_FILES"
+    InvokeOrder = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "gEfiServerMgmtSetupVariableGuid"
+    Parent  = "ADDITIONAL_AMITSE_Guids"
+    InvokeOrder = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "LoadedBmcTimeZoneDefaults,"
+    Parent  = "LoadedConfigDefaultsHook,"
+    InvokeOrder = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "AmiIpmiPkg/AmiIpmiPkg.dec"
+    Parent  = "ADDITIONAL_AMITSE_Packages"
+    InvokeOrder = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "gEfiDxeIpmiTransportProtocolGuid"
+    Parent  = "AdditionalServerMgmtSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "gAmiPostManagerProtocolGuid"
+    Parent  = "AdditionalServerMgmtSetupProtocols"
+    InvokeOrder = AfterParent
+End
+
+ELINK
+    Name  = "$(DxeIpmiInitialize_DIR)/BmcTimeZoneCallback.c"
+    Parent  = "ServerMgmtSetupCallbackFiles"
+    InvokeOrder = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,BMC_TIME_ZONE_KEY,BmcTimeZoneCallback),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name = "InitBmcTimeZoneDisplay,"
+    Parent = "ServerMgmtStringInit"
+    InvokeOrder = AfterParent
+    Token = "BMC_TIMEZONE_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "$(DxeIpmiInitialize_DIR)/BmcWarmReset.c"
+    Parent  = "ServerMgmtSetupCallbackFiles"
+    InvokeOrder = AfterParent
+    Token = "BMC_WARM_RESET_SUPPORT" "=" "1"
+End
+
+ELINK
+    Name  = "ITEM_CALLBACK(SERVER_MGMT_CLASS_ID,SERVER_MGMT_SUBCLASS_ID,BMC_WARM_RESET_KEY,BmcWarmResetCallbackFunction),"
+    parent  ="ServerMgmtSetupItemCallbacks"
+    InvokeOrder  = AfterParent
+    Token = "BMC_WARM_RESET_SUPPORT" "=" "1"
+End

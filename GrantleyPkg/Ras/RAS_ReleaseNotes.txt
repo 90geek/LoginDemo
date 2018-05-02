@@ -1,0 +1,611 @@
+------------------------------------------------------------------------------------------------------------
+Aptio V Grantley RAS Features Support:
+------------------------------------------------------------------------------------------------------------
+06/15/2016
+Module Label: GrantleyPkg_27
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.6.0.
+
+------------------------------------------------------------------------------------------------------------
+
+06/01/2016
+Module Label: GrantleyPkg_26
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.5.0.
+
+------------------------------------------------------------------------------------------------------------
+
+05/18/2016
+Module Label: GrantleyPkg_25
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.4.0.
+
+------------------------------------------------------------------------------------------------------------
+
+05/04/2016
+Module Label: GrantleyPkg_24
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.3.0.
+
+------------------------------------------------------------------------------------------------------------
+
+03/14/2016
+Module Label: GrantleyPkg_23
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.2.0.
+
+------------------------------------------------------------------------------------------------------------
+
+02/16/2016
+Module Label: GrantleyPkg_21.01
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.1.0.
+
+------------------------------------------------------------------------------------------------------------
+
+12/15/2015
+Module Label: GrantleyPkg_19
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 3.0.0.
+
+------------------------------------------------------------------------------------------------------------
+
+
+12/01/2015
+Module Label: GrantleyPkg_18
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 2.9.5.
+
+------------------------------------------------------------------------------------------------------------
+
+
+11/18/2015
+Module Label: GrantleyPkg_17.01
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 2.9.1.
+
+------------------------------------------------------------------------------------------------------------
+
+
+11/03/2015
+Module Label: GrantleyPkg_16
+
+------------------------------------------------------------------------------------------------------------
+New Features Added in this Label: 
+------------------------------------------------------------------------------------------------------------
+
+1. Support for Intel RAS Reference Code Version 2.9.0.
+
+------------------------------------------------------------------------------------------------------------
+
+================================================================
+RAS features validation status using ITP C Scripts and IDK Tool. 
+================================================================
+
+=====================
+Memory RAS Features :
+=====================
+Feature                  : Memory Correctable and UnCorrectable Errors Enabling and Logging Support
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+-------------------------------------------------------------------------------------------------------
+
+Feature                  : DeviceTagging Enabling and Logging Support
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+---------------------------------------------------------------------------------------------------------
+
+Feature                  : SDDC Enabling and Logging Support
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+---------------------------------------------------------------------------------------------------------
+
+Feature                  : Patrol Scrubbing and Demand Scrubbing Support
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+------------------------------------------------------------------------------------------------------------
+
+Feature                  : HA and IMC Corrupt data containment (Poisoning)
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+-------------------------------------------------------------------------------------------------------------
+
+Feature                  : Sparing and Mirroring Support
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+-------------------------------------------------------------------------------------------------------------
+
+========================
+PCI, PCI-e AER Logging
+========================
+
+Feature                  : PCI, PCI-e AER Logging
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+-------------------------------------------------------------------------------------------------------------
+
+===================
+Enhanced MCA Gen2 :
+====================
+
+Feature                  : Enhanced MCA Gen2
+
+Project Label            : 5.011_MayanCity_0ACFL019
+
+Module  Label            : GrantleyPkg_16
+
+-------------------------------------------------------------------------------------------------------------
+
+02/16/2015
+Module Label: GrantleyPkg_06
+
+-----------------------------------------------------------------------------
+Fixes and enhancements made in this Label:
+-----------------------------------------------------------------------------
+[TAG] None
+[Category] Improvement
+[Description] Sensor Specific Offset value and Sensor Number for Memory Errors is updated.
+[Files] GrantleyPkg\Ras\RuntimeErrorlog\Board\Bmc\RtErrorLogBmc.c
+
+[TAG] None
+[Category] Improvement
+[Description] Redundant code check is removed.
+[Files] GrantleyPkg\Ras\Smm\SmmErrorLog\SmmErrorHandler.c
+GrantleyPkg\Ras\Smm\SmmErrorLog\MemoryErrorHandler.c
+
+[TAG] EIP196567 
+[Category] Improvement
+[Description]  Error logging SMI won`t work when first boot. After clearing the errors in ClearColdBootErrors() we need to unmask the PCIE errors. 
+[Files] GrantleyPkg\Ras\Smm\SmmErrorLog\SmmErrorHandler.h
+GrantleyPkg\Ras\Smm\SmmErrorLog\IIoErrorHandler.c
+GrantleyPkg\Ras\Smm\SmmErrorLog\SmmErrorHandler.c
+
+;------------------------------------------------------------------------------;
+
+
+;-----------------------------------------------------------------------------
+; Notes on feature support
+;-----------------------------------------------------------------------------
+
+1. For PCI Error Injection validation using ITP C-Scripts, "S/W Error Injection Support" setup 
+   option needs to be kept disabled.As per Intel support, MSR 0x790 (BIT 0) should be 
+   SET for PCI Error Injection to work.
+
+;------------------------------------------------------------------------------
+Known Issues
+;------------------------------------------------------------------------------
+
+1. Using RAS Tool, PCI Errors are not getting injected on C0 CPUs. We are working with Intel on this.
+     (In case of B0 CPUs, PCI Error Injection was validated to working fine with RAS Tool.)
+
+;------------------------------------------------------------------------------;
+
+
+;------------------------------------------------------------------------------;
+
+
+=========================================================
+Setup Options to change to support Grantley RAS Features
+=========================================================
+
+------------------------------------------------------------------------------------------------------------
+Functionality:
+------------------------------------------------------------------------------------------------------------
+
+Setup Questions:
+
+We have below setup questions Support for Error Logging:
+
+1.  System Errors               : Enable/Disable Runtime Error Logging Support.
+
+2.  S/W Error Injection Support : RAS tool and other utilities needs MSR 0x790 to be unlocked.
+
+3.  System Memory Poison        : Enable/Disable Poison Support.
+
+4.  IIO Error Enable            : Enable/Disable the IIO Error Logging.
+
+5.  PCH Error Enable            : Enable/Disable the PCH Error Logging.
+
+6.  EMCA Logging Support        : Enable/Disable the EMCA Logging.
+
+7.  EMCA CMCI-SMI Morphing      : Enable/Disable EMCA CSMI for Correctable Errors
+
+8.  WHEA Settings		
+    WHEA Support                : Enable/Disable the WHEA ACPI support
+    WHEA FFM Logging	        : Enable/Disable the WHEA FFM logging of errors
+
+9.  QPI Error Enabling       
+    SMI QPI Lane Failover       : Enable/Disable SMI when QPI failover 
+    
+10. Memory Error Enabling    
+    Memory Corrected Error      : Enable/Disable the Correctable Error Logging support 
+    Spare Interrupt             : Enabling SMI when correctable error events
+    
+11. Memory RAS Configuration 
+    SpareError/Memory Correctable Threshold : Enter the Spare/Correctable Error Threshold value.
+    
+12. PCI Error Enabling 
+    PCI-EX Error Enable     : Enable/Disable the PCIE Error Logging.
+    Enable SERR propagation : Enable/Disable the SERR.
+    Enable PERR propagation : Enable/Disable the PERR.
+    PCIe Correctable error threshold : Enter the PCIe CE threshold(1-255), 0-No threshold.
+--------------------
+Memory RAS Features
+--------------------
+
+Memory error logging
+--------------------
+
+Setup Options to be changed for supporting Memory error logging:
+
+1. IntelRCSetup ->Runtime Error Logging -> System Errors -  Enable/Disable Runtime Error Logging Support.
+2. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Memory Corrected Error - Enable/Disable the Correctable Error Logging support 
+3. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Spare Interrupt [SMI]
+4. IntelRCSetup ->Memory Configuration ->Memory RAS configuration -> Correctable Error Threshold
+
+
+Memory Rank Sparing Support
+---------------------------
+
+Hardware Requirements :
+
+1. Minimum need to use 2R DIMM's to validate the Rank Sparing support.
+
+Setup Options to be changed for supporting Memory Rank Spare logging:
+
+1. IntelRCSetup ->Runtime Error Logging -> System Errors -  Enable/Disable Runtime Error Logging Support.
+2. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Memory Corrected Error - Enable/Disable the Correctable Error Logging support 
+3. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Spare Interrupt [SMI]
+4. IntelRCSetup ->Memory Configuration ->Memory RAS configuration -> Correctable Error Threshold
+5. IntelRCSetup ->Memory RAS configuration -> Memory Rank Sparing [Enable]
+6. IntelRCSetup ->Memory RAS configuration -> Multi Rank Sparing [Auto or whichever Rank needs to be validated]
+
+Memory Mirroring Support
+------------------------
+
+Harware Requirements :
+
+1. Popuate DIMM's of same size and rank in each CHannel's under same Memory Controller.
+
+Setup Options to be changed for supporting Mirror Logging:
+
+1. IntelRCSetup ->Runtime Error Logging -> System Errors -  Enable/Disable Runtime Error Logging Support.
+2. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Memory Corrected Error - Enable/Disable the Correctable Error Logging support 
+3. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Mirror FailOver [SMI]
+4. IntelRCSetup ->Memory RAS configuration -> RAS Mode [Mirror] 
+
+
+DevTagging Logging Support
+---------------------------
+
+
+Setup Options to be changed for supporting DevTagging Logging:
+
+1. IntelRCSetup ->Runtime Error Logging -> System Errors -  Enable/Disable Runtime Error Logging Support.
+2. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Memory Corrected Error - Enable/Disable the Correctable Error Logging support 
+3. IntelRCSetup ->Runtime Error Logging ->Memory Error Enabling -> Spare Interrupt [SMI]
+4. IntelRCSetup ->Memory Configuration ->Memory RAS configuration -> Correctable Error Threshold
+5. IntelRCSetup ->Memory RAS configuration ->Device Tagging -> Enable
+
+
+Memory Error Logging with eMCA Support:
+
+Setup Options to be changed for supporting Memory ErrorLogging:
+
+1. IntelRCSetup ->Runtime Error Logging -> System Errors -  Enable/Disable Runtime Error Logging Support.
+2. IntelRCSetup ->Runtime Error Logging -> Memory Error Enabling -> Memory Corrected Error - Enable/Disable the Correctable Error Logging support 
+3. IntelRCSetup ->Runtime Error Logging -> Memory Error Enabling -> Spare Interrupt [SMI]
+4. IntelRCSetup ->Runtime Error Logging -> EMCA Logging Support - Enable/Disable the EMCA Logging.
+5. IntelRCSetup ->Runtime Error Logging -> EMCA CMCI-SMI Morphing - Enable/Disable EMCA CSMI for Correctable Errors
+
+Demand Scrub Support
+--------------------
+
+1. IntelRCSetup -> Memory RAS configuration ->Demand Scrub-> Enable
+
+Patrol Scrub Support
+--------------------
+
+1. IntelRCSetup -> Memory RAS configuration ->Patrol Scrub-> Enable
+
+PCI-e error logging
+--------------------
+
+Setup Options to be changed for supporting PCI-e error logging:
+
+1. IntelRCSetup ->Runtime Error Logging -> System Errors
+2. IntelRCSetup ->Runtime Error Logging -> IIO Error Enable - Enable/Disable the IIO Error Logging
+3. IntelRCSetup ->Runtime Error Logging -> PCH Error Enable - Enable/Disable the IIO Error Logging
+4. IntelRCSetup ->Runtime Error Logging -> PCI/PCI Error Enabling -> PCI-EX Error Enable - Enable/Disable the PCIE Error Logging
+5. IntelRCSetup ->Runtime Error Logging -> PCI/PCI Error Enabling -> Enable SERR propagation - Enable/Disable the SERR
+6. IntelRCSetup ->Runtime Error Logging -> PCI/PCI Error Enabling -> Enable PERR propagation - Enable/Disable the PERR
+7. IntelRCSetup ->Runtime Error Logging -> PCI/PCI Error Enabling -> PCIe Correctable error threshold - PCIe CE threshold(1-255), 0-No threshold.
+
+WHEA/APEI
+---------
+
+Setup Options to be changed for supporting WHEA Errorlogging:
+1. IntelRCSetup ->Runtime Error Logging -> System Errors
+2. IntelRCSetup ->Runtime Error Logging -> Whea settings->WHEA Support - Enable/Disable WHEA Support.
+3. IntelRCSetup ->Runtime Error Logging -> Whea settings->WHEA Error Injection - Enable/Disable WHEA Injection Support.
+4. IntelRCSetup ->Runtime Error Logging -> Whea settings->WHEA Error Injection - Enable/Disable WHEA FFM Logging Support.
+
+
+================================================
+Test procedure used to validate the Error Logging
+================================================
+
+1. Memory Error logging:
+
+Hardware Method: Correctable Memory Error Logging: Used the Faulty DIMM (shorting the two data pins) which generates correctable memory errors.
+
+Software Method : Used Intel ITP II C Scripts to inject memory errors.
+
+Procedure to use Intel C Scripts :
+
+a. Intel ITP II Version                : 1.0.2048.400
+
+b. Intel ITP II C Scripts Version      : 1.0.10.135955
+
+c. In windows Start” menu Intel->Intel DFx Abstraction Layer->Config Console. 
+   select  HSX_Grantley_ReferenceSettings and click the Apply button and close the window.
+
+d. Double-click on the “starthsxCscripts.py” file that is found in the CScritps II “haswellx” folder. 
+
+e. Error Injection Syntax :
+   Examples : 
+	ei.injectMemError(0x100000, errType = "uce") for uncorrectable
+	ei.injectMemError(0x100000)  for correctable
+	
+	To generate 3 multiple errors at once : it should be more than threshold
+	for x in range(0x3):
+	...     ei.injectMemError(0x1000 + x)
+	...
+   
+   	sv.socket0.uncore0.imc0_c0_correrrcnt_0.show to check Error Count for correctable errors
+	sv.socket0.uncore0.imc0_c0_correrrorstatus.show to check error status check for correctale errors
+	sv.socket0.uncore0.ha0_mc5_status.show to check the status of uncorrectable errors
+
+2. PCI Error logging:
+PCI errors are generated Using Adaptec SCSI Card 29320LPE. 
+	a. Plug in Adaptec SCSI Card 29320LPE on to the system.
+	b. Boot the system to DOS, Windows or Linux Operating System.
+	c. Use any utility to change the Adaptec PCI card Configuration space offset 43h value to 01 for generate SERR, 04 for PERR. Sometimes will trigger SERR/PERR signal at the same time.
+	d. You may see System generating NMI.
+	e. Reset the system and Use the SEL view Utility to view the SEL log of the PCI errors. 
+
+3. QPI, IOH core, VT-d Error Logging:
+No hardware or software utilities are available to generate these Errors. Verified code flow with debugger utilities like Intel ITP. 
+
+================================================
+IPMI SEL log Format with Different Errors
+================================================
+
+BMC SEL log format on Memory errors:
+------------------------------------
+
+Memory SEL Log:
+
+  SensorType Bit[7:0] = EFI_MEMORY_SENSOR_TYPE <0x0C>
+  SensorNumber Bit[7:0] = 0x8
+
+  Event Data 1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  Event Data 1 Bit[3:0] = Error Type 
+   Error Type:
+      Correctable Memory Error: 0x00
+      UnCorrectable Memory Error: 0x01
+      Parity Error: 0x02
+      Correctable Memory Error Logging Limit Reached: 0x05
+
+  Event Data 2 Bit[0] = Current/Last Boot Error 
+    Current Boot : 0
+    Last Boot    : 1
+
+   DIMM Location is logged to "Event Data 2 and 3" as Follows 
+   
+     Event Data 2 Bit[2:1] = Memory Controller Number
+     
+	 Event Data 3 Bit[7:6]: CPU Socket Number.
+	 Event Data 3 Bit[5:4]: Channel Number.
+	 Event Data 3 Bit[3:0]: DIMM Number.
+
+BMC SEL log format on PCI errors.
+------------------------------------
+
+PCIe SEL Log:
+  SensorType Bit[7:0] = SEL_SENS_TYPE_CRIT_ERR <0x13>
+  SensorNumber Bit[7:0] = 0x00
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type 
+Error Type
+  PCI PERR                   -           0x04
+  PCI SERR                   -           0x05
+  Bus Correctable Error      -           0x07
+  Bus Uncorrectable Error    -           0x08
+  Bus Fatal Error            -           0x0A
+  OEMEvData2 Bit[7:0] = PCI bus number for failed device.
+  OEMEvData3 Bit[7:3] = PCI device number for failed device.
+  OEMEvData3 Bit[2:0] = PCI function number for failed device.
+
+LastBootError Behavior on  PCI errors :
+---------------------------------------
+
+PCIe SEL Log:
+  SensorType Bit[7:0] = SEL_SENS_TYPE_CRIT_ERR <0x13>
+  SensorNumber Bit[7:0] = 0x00
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = 0xF (Indicates LastBoot PCIe Error )
+  OEMEvData2 Bit[7:0] = PCI bus number for failed device.
+  OEMEvData3 Bit[7:3] = PCI device number for failed device.
+  OEMEvData3 Bit[2:0] = PCI function number for failed device.
+
+BMC SEL log format on CPU QPI errors.
+---------------------------------------------------
+
+QPI error is logged as Processor configuration error in the SEL.
+
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type (PROCESSOR CONFIGURATION_ERROR)
+  OEMEvData2 Bit[7:4] = Error Source (QPI Error Source) 
+  OEMEvData2 Bit[3:0] = Error Severity (Correctable/Uncorrectable)
+  OEMEvData3 Bit[7:4] = Socket Number
+  OEMEvData3 Bit[3:0] = QPI Port Number
+
+
+BMC SEL log format on IOH QPI errors.
+---------------------------------------------------
+
+QPI error is logged as Processor configuration error in the SEL.
+
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type (PROCESSOR CONFIGURATION_ERROR)
+  OEMEvData2 Bit[3:0] = QPI Port number.
+  OEMEvData2 Bit[7:4] = CPU Socket Number.
+  OEMEvData3          =  Coherent Interface (IRP) Local Group Error code as per IvyBridge-EX 4S Processor
+			External Design Specification (EDS) specification.
+
+			B4h - Write Cache Detected ECC Correctable Error.
+			C1h - Coherency Interface Protocol Layer Received Poisoned packet
+			C2h - I/O module Write Cache uncorrectable Data ECC error
+			C3h - I/O module CSR access crossing 32-bit boundary.
+			D7h - Coherent Interface Protocol Layer Received Unexpected or Illegal Response/Completion
+			DAh - Coherent Interface Protocol Layer Queue/Table Overflow or Underflow
+			DBh - Coherent Interface Protocol Parity Error. 
+
+BMC SEL log format on IOH Core errors.
+---------------------------------------------------
+
+IOH Core error is logged as Processor configuration error in the SEL.
+
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type (PROCESSOR CONFIGURATION_ERROR)
+  OEMEvData2 Bit[7:0] = CPU Socket Number.
+  OEMEvData3          = IIO Core Local Group Error code as per Ivy Bridge-EX 4S Processor
+			External Design Specification (EDS) specification.
+
+			c4h - Master Abort Error
+			c5h - Completer Abort Error
+			c6h - Overflow/Underflow Error
+
+
+BMC SEL log format on Intel VT-d errors.
+---------------------------------------------------
+
+VT-d error is logged as Processor configuration error in the SEL.
+
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type (PROCESSOR CONFIGURATION_ERROR)
+  OEMEvData2 Bit[7:0] = CPU Socket Number.
+  OEMEvData3          = Intel VT-d Local Group error code as per IvyBridge-EX 4S Processor
+			External Design Specification (EDS)
+
+			90h - Data Parity Error during Context Cache Lookup
+			91h - Data Parity Error during L1 Lookup 
+			92h - Data Parity Error during L2 Lookup 
+			93h - Data Parity Error during L3 Lookup 
+			94h - TLB0 Data Parity Error
+			95h - TLB1 Data Parity Error
+			96h - Unsuccessful completion status received in the coherent interface
+			97h - Illegal request to 0xFEE 
+			98h - Protected Memory region space violated status
+			A0h - Intel VT-d spec defined errors
+
+BMC SEL log format on CPU Core errors.
+---------------------------------------------------
+
+CPU core error is logged as Processor configuration error in the SEL.
+
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type (PROCESSOR CONFIGURATION_ERROR)
+  OEMEvData2 Bit[7:4] = Error Source - CoreSource.
+  OEMEvData2 Bit[3:0] = Error Severity.
+  OEMEvData3 Bit[7:4] = CPU Socket Number.
+  OEMEvData3 Bit[3:0] = Core MCA Bank
+
+    Error Severity:
+     02 - Fatal Error
+     03 - Correctable Error
+
+    Core MCA Bank: 
+     00 - Instruction Fetch Unit
+     01 - Data Cache Unit
+     02 - Data Translation Look-aside Buffer
+     03 - Mid Level Cache
+
+BMC SEL log format on Cbo errors.
+---------------------------------------------------
+
+Cbo error is logged as Processor configuration error in the SEL.
+
+  OEMEvData1 Bit[7:4] = 0xA (Indicates that OEMEvData2 and OEMEvData3 are OEM values)
+  OEMEvData1 Bit[3:0] = Error Type (PROCESSOR CONFIGURATION_ERROR)
+  OEMEvData2 Bit[7:4] = Error Source - CboSource.
+  OEMEvData2 Bit[3:0] = Error Severity.
+  OEMEvData3 Bit[7:5] = Core ID
+  OEMEvData3 Bit[4:3] = Thread ID
+  OEMEvData3 Bit[2:0] = Caching Agent MCA Bank
+
+    Error Severity:
+     02 - Fatal Error
+     03 - Correctable Error
+
+    Core MCA Bank: 
+     00 - Cbo0
+     01 - Cbo1
+     02 - Cbo2

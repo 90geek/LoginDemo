@@ -1,0 +1,8 @@
+<component>
+	name = "Protocol"
+	category = ModulePart
+	LocalRoot = "GrantleySocketPkg\Override\IA32FamilyCpuPkg\Include\Protocol\"
+	RefName = "GrantleySocketPkg.Override.IA32FamilyCpuPkg.Include.Protocol"
+[files]
+"IntelCpuPcdsSetDone.h"	
+<endComponent>

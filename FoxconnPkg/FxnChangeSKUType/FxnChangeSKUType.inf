@@ -1,0 +1,49 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = FxnChangeSKUType
+  FILE_GUID                      = d77d6cb0-2db2-11e8-9c2e-005056c00008
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = FxnChangeSKUTypeEntryPoint
+  
+[Sources]
+  FxnChangeSKUType.c
+  FxnChangeSKUType.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+  AmiTsePkg/AmiTsePkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+#ZYY006022-  FoxconnPkg/FxnFeaturePkg.dec
+  AmiCompatibilityPkg/AmiCompatibilityPkg.dec
+#ZYY006022-  CpRcPkg/CpRcPkg.dec
+#ZYY006022- PurleySktPkg/SocketPkg.dec
+  GrantleySocketPkg/SocketPkg.dec  ##ZYY006022+
+  AmiIpmiPkg/AmiIpmiPkg.dec
+  GrantleyPkg/PlatformPkg.dec
+  
+[Guids]
+  gAmiTseOemTSEVarGuid
+  #gEfiSocketPowermanagementVarGuid
+  #gEfiServerMgmtSetupVariableGuid
+  gEfiGlobalVariableGuid
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  DebugLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  PcdLib
+  ###
+  AmiDxeLib
+  IoLib
+  ###
+  MemoryAllocationLib
+[Protocols]
+  gEfiVariableWriteArchProtocolGuid
+  
+[Depex]
+  TRUE
+  

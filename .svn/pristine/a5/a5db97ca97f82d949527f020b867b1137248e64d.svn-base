@@ -1,0 +1,30 @@
+<component>
+	name = "GrantleyPkg"
+	category = eModule
+	LocalRoot = "GrantleyPkg\"
+	RefName = "GrantleyPkg"
+[INF]
+"SataSgpio\SataSgpio.inf"
+[files]
+"GrantleyPkg.sdl"	
+"PlatformPkg.mak"	
+"PlatformPkg.dec"	
+"BuildOutImage.bat"	
+"ChipsetFeaturesNotes.txt"	
+[parts]
+"GrantleyPkg.Include"
+"GrantleyPkg.Library"
+"GrantleyPkg.Acpi"
+"GrantleyPkg.Cpu"
+"GrantleyPkg.Legacy"
+"GrantleyPkg.Override"
+"GrantleyPkg.Pci"
+"GrantleyPkg.Platform"
+"GrantleyPkg.Ras"
+"GrantleyPkg.Tool"
+"GrantleyPkg.Me"
+"GrantleyPkg.IntelLtsxFit"
+"GrantleyPkg.Overclocking"
+"GrantleyPkg.OemVtdRmrr"
+"GrantleyPkg.OemSpecVtdRmrr"
+<endComponent>

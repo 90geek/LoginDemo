@@ -1,0 +1,27 @@
+#**********************************************************************
+#**********************************************************************
+#**                                                                  **
+#**        (C)Copyright 1985-2011, American Megatrends, Inc.         **
+#**                                                                  **
+#**                       All Rights Reserved.                       **
+#**                                                                  **
+#**      5555 Oakbrook Parkway, Suite 200, Norcross, GA 30093        **
+#**                                                                  **
+#**                       Phone: (770)-246-8600                      **
+#**                                                                  **
+#**********************************************************************
+#**********************************************************************
+## @file
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = AmiCspLib
+  PACKAGE_GUID                   = 072a622d-0a5f-4d69-ab23-81222cc85c12
+  PACKAGE_VERSION                = 0.1
+
+[Includes]
+   
+../AmiModulePkg\Nvme 
+../AmiCRBPkg\Chipset\SB 
+../AmiCRBPkg\Board\SB
+

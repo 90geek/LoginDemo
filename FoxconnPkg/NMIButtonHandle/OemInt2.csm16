@@ -1,0 +1,152 @@
+;   TITLE OEMINT.ASM -- OEM INTERRUPT IMPLEMENTATION EXAMPLE
+;***************************************************************************
+;***************************************************************************
+;**                                                                       **
+;**              (C)Copyright 1985-2006, American Megatrends, Inc.        **
+;**                                                                       **
+;**                          All Rights Reserved.                         **
+;**                                                                       **
+;**                  6145-F Northbelt Pkwy, Norcross, GA 30071            **
+;**                                                                       **
+;**                        Phone (770)-246-8600                           **
+;**                                                                       **
+;***************************************************************************
+;***************************************************************************
+;***************************************************************************
+
+INCLUDE token.equ
+
+Int2TblHdr STRUCT
+	bEventNo DB 00h
+	wHandler DW 0000h
+Int2TblHdr ENDS
+
+.386p
+;----------------------------------------------------------------------------
+;	CSMOEM_CSEG  S E G M E N T  STARTS
+;----------------------------------------------------------------------------
+CSMOEM_CSEG SEGMENT PARA PUBLIC 'CODE' USE16
+	ASSUME cs:CSMOEM_CSEG, ds:CSMOEM_CSEG
+
+coreH4DigitTable        LABEL   WORD
+	DW		1000h					; Divisor for 4th Digit
+	DW		100h					; Divisor for 3rd Digit
+	DW		10h						; Divisor for 2nd Digit
+	DW		1						; Divisor for 1st Digit
+	DW		0						; End of division
+ 
+nmimsg1:
+	db	 ' Unexpected NMI at CS:IP '
+nmimsgend1:
+
+nmimsg:
+	db	' Re-booting due to Unexpected NMI at CS:IP '
+nmimsgend:
+
+OldIntHandler	LABEL DWORD
+	IntOfsSav	dw	0
+	IntSegSav	dw	0
+
+INT2_CS_IP	equ	(2*2)
+
+
+;----------------------------------------------------------------------------
+;				OemInt2  STARTS
+;----------------------------------------------------------------------------
+OemInt2 PROC NEAR PUBLIC
+
+	mov		bp, sp
+	push	bp
+
+	;clear screen
+	mov		ah, 6
+	mov		al, 0
+	mov		ch, 0
+	mov		cl, 0
+	mov		dh, 24
+	mov		dl, 79
+	mov		bh, 7
+	int		10h   
+
+	;print message
+	mov		ax, 1301h
+	mov		bh, 0
+	mov		bl, 0Fh
+	mov		dx, 0b00h
+; JM002A
+	;mov	cx, nmimsgend - nmimsg
+	;mov	bp, nmimsg
+	mov		cx, nmimsgend1 - nmimsg1
+	mov		bp, nmimsg1
+; JM002A
+	push	cs
+	pop		es
+	int		10h
+
+	pop		bp
+	mov		eax, dword ptr [bp+INT2_CS_IP] 
+	push	eax
+	mov		edx, eax
+	shr		edx, 16	
+	mov		si, offset cs:coreH4DigitTable
+
+DisplayAddress:
+	movzx	ecx, word ptr cs:[si]	; Get divisor from table
+	or		ecx, ecx				; Are we done with division
+	jz		exitDA					; Yes-Exit
+	mov		eax, edx				; Get initial dividend
+	xor		edx, edx				; Clear high dividend byte
+	div		ecx						; Perform division by 10 factor
+	add		al, '0'					; Convert quotient to ASCII
+	cmp		al, '9'					; Is it out of number range
+	jbe		notInHex				; No -Go print it
+	add		al, 'A'-('9'+1)			; Yes-Convert to hex range
+
+notInHex:
+	mov		ah, 0eh
+	int		10h						; Display current digit
+	add		si, 0002h				; Advance to next table entry
+	jmp		DisplayAddress			; Go determine next digit
+
+exitDA:	
+	mov		al, ':'
+	mov		ah, 0Eh					; Use INT 10h TTY service
+	int		10h
+
+	pop		eax
+	movzx	edx, ax
+	mov		si, offset cs:coreH4DigitTable
+
+DisplayAddress1:
+	movzx	ecx, word ptr cs:[si]	; Get divisor from table
+	or		ecx, ecx				; Are we done with division
+	jz		exitDA1					; Yes-Exit
+	mov		eax, edx				; Get initial dividend
+	xor		edx, edx				; Clear high dividend byte
+	div		ecx						; Perform division by 10 factor
+	add		al, '0'					; Convert quotient to ASCII
+	cmp		al, '9'					; Is it out of number range
+	jbe		notInHex1				; No -Go print it
+	add		al, 'A'-('9'+1)			; Yes-Convert to hex range
+
+notInHex1:
+	mov		ah, 0eh
+    int		10h						; Display current digit
+	add		si, 0002h				; Advance to next table entry
+	jmp		DisplayAddress1			; Go determine next digit
+
+exitDA1:
+	jmp exitDA1
+	retf 2
+
+;----------------------------------------------------------------------------
+;				OemInt2  ENDP
+;----------------------------------------------------------------------------
+OemInt2 ENDP
+
+
+;----------------------------------------------------------------------------
+;	CSMOEM_CSEG  S E G M E N T  ENDS
+;----------------------------------------------------------------------------
+CSMOEM_CSEG ENDS
+END

@@ -1,0 +1,38 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ProcessorStartup
+  FILE_GUID                      = 0833A84D-8A39-431f-BD1C-30965AAE71DD
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformSecLib
+
+[Sources]
+ SecCore.asm
+ ../AmiIntelCpuPkg\Library\ProcessorStartup/Ia32/mbiosmac.mac
+ ../AmiIntelCpuPkg\Library\ProcessorStartup/Ia32/mbiosequ.equ
+ ../AmiIntelCpuPkg\Library\ProcessorStartup/Ia32/equates.equ
+ ../AmiIntelCpuPkg\Library\ProcessorStartup/Ia32/ProcessorStartup.asm
+ ../AmiIntelCpuPkg\Library\ProcessorStartup/ProcessorStartup.c
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartup.asm
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupChipset.asm
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupCore.asm
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupOem.asm
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupUncore.asm
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/Flat32.inc
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupPlatform.inc
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupChipset.inc
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartup.inc
+ ../GrantleySocketPkg\Library\ProcessorStartup/Ia32/ProcessorStartupUncore.inc
+ ../AmiCRBPkg\Board\SB/SBSECInit.asm
+ 
+[Packages]
+ MdePkg/MdePkg.dec
+ IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+ GrantleySocketPkg/SocketPkg.dec
+
+[LibraryClasses]
+ SecOemHookLib
+
+[Pcd]
+ gCpuUncoreTokenSpaceGuid.PcdFlashSecCacheRegionBase
+ gCpuUncoreTokenSpaceGuid.PcdFlashSecCacheRegionSize

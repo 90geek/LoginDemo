@@ -1,0 +1,11 @@
+ACTIVE_PLATFORM	   =  Build/Platform.dsc
+
+TARGET				= RELEASE
+
+TOOL_CHAIN_CONF	   = AmiPkg/Configuration/MYTOOLS_DEF.txt
+
+TOOL_CHAIN_TAG		= MYTOOLS
+
+MAX_CONCURRENT_THREAD_NUMBER = 4
+
+BUILD_RULE_CONF = AmiPkg/Configuration/build_rule.txt

@@ -1,0 +1,12 @@
+<component>
+	name = "Library"
+	category = ModulePart
+	LocalRoot = "GrantleySocketPkg\Override\IA32FamilyCpuPkg\Include\Library\"
+	RefName = "GrantleySocketPkg.Override.IA32FamilyCpuPkg.Include.Library.Library"
+[files]
+"CpuConfigLib.h"	
+"CpuOnlyResetLib.h"	
+"PlatformSecLib.h"	
+"SocketLga1156Lib.h"	
+"SocketLga775Lib.h"	
+<endComponent>

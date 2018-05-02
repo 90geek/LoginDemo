@@ -1,0 +1,750 @@
+TOKEN
+	Name  = "OEMPCIECFG_SUPPORT"
+	Value  = "1"
+	Help  = "Main switch to enable OEMPCIECFG support in Project"
+	TokenType = Boolean
+	TargetEQU = Yes
+	TargetMAK = Yes
+	Master = Yes
+	Token = "Foxconn_SUPPORT" "=" "1"
+End
+
+#Porting Onboard PCIE Devices and Slot for Thor MB  
+#Devices of Wellsburg
+PCIDEVICE
+	Title  = "BMC PCI Bridge"
+	Parent  = "PCIE Root Port #3"
+	Attribute  = "0x0"
+	Dev_type  = "Pci2PciBridge"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	IntA = 	LNKA; 16
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "On Board Video"
+	Parent  = "BMC PCI Bridge"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\ASTVBIOS.396"
+	DeviceID  = 02000h
+	VendorID  = 01a03h
+	IntD = LNKD; 19
+	IntA = LNKA; 16
+	IntB = LNKB; 17
+	IntC = LNKC; 18
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "7650b165-448a-48b0-819b-753772d9aa51"
+End
+
+PCIDEVICE
+	Title  = "OnBoard I350"
+	Parent  = "PCIE Root Port #4"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\BA1543L2.LOM"
+	DeviceID  = 01521h
+	VendorID  = 08086h
+	IntA = LNKA; 16
+	IntB = LNKB; 17
+	IntC = LNKC; 18
+	IntD = LNKD; 19
+	ASLdeviceName  = "LAN1"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "f5d2bc63-ef6d-4941-b6f2-1567514f4458"
+End
+
+PCIDEVICE
+	Title  = "OnBoard I350"
+	Parent  = "PCIE Root Port #4"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\BA1543L2.LOM"
+	DeviceID  = 01521h
+	VendorID  = 08086h
+	IntA = 	LNKA; 32
+	IntB = 	LNKB; 36
+	IntC = 	LNKC; 37
+	IntD = 	LNKD; 38
+	ASLdeviceName  = "LAN1"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "f5d2bc63-ef6d-4941-b6f2-1567514f4458"
+End
+
+PCIDEVICE
+	Title  = "UEFI LAN I350"
+	Parent  = "PCIE Root Port #4"
+	Attribute  = "0x0"
+	Dev_type  = "Container"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\E5907X3.EFI"
+	DeviceID  = 01521h
+	VendorID  = 08086h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	Virtual = Yes
+	UefiRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "31756431-c1eb-40cb-9f85-ce275d58a010"
+End
+
+#Devices of CPU0
+PCIDEVICE
+	Title  = "OnBoard I350: (D3:F2)NB PCI-E Root Port #9"
+	Parent  = "NB PCI-E Root Port #9"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\BA1543L2.LOM"
+	DeviceID  = 01521h
+	VendorID  = 08086h
+	IntA = LNKA; 16
+	IntB = LNKB; 17
+	IntC = LNKC; 18
+	IntD = LNKD; 19
+	ASLdeviceName  = "LAN1"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "f5d2bc63-ef6d-4941-b6f2-1567514f4458"
+End
+
+PCIDEVICE
+	Title  = "OnBoard I350: (D3:F2)NB PCI-E Root Port #9"
+	Parent  = "NB PCI-E Root Port #9"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\BA1543L2.LOM"
+	DeviceID  = 01521h
+	VendorID  = 08086h
+	IntA = 	LNKA; 32
+	IntB = 	LNKB; 36
+	IntC = 	LNKC; 37
+	IntD = 	LNKD; 38
+	ASLdeviceName  = "LAN1"
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	PCIExpress = Yes
+	LegacyRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "f5d2bc63-ef6d-4941-b6f2-1567514f4458"
+End
+
+PCIDEVICE
+	Title  = "UEFI LAN I350: (D3:F2)NB PCI-E Root Port #9"
+	Parent  = "NB PCI-E Root Port #9"
+	Attribute  = "0x0"
+	Dev_type  = "Container"
+	Dev  = 00h
+	Fun  = 00h
+	SleepNum  = 01h
+	ROMFile  = "FoxconnPkg\E5907X3.EFI"
+	DeviceID  = 01521h
+	VendorID  = 08086h
+	DeviceType = OnBoard
+	PCIBusSize = 32bit
+	OptionROM = Yes
+	ROMMain = No
+	Virtual = Yes
+	UefiRom = Yes
+	FFSFileName  = "ROM Storage"
+	ROMSectionGuid  = "31756431-c1eb-40cb-9f85-ce275d58a010"
+End
+
+PCIDEVICE
+	Title  = "10G Mezzanine Slot x8: (D1:F0)NB PCI-E Root Port  #1"
+	Parent  = "NB PCI-E Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 05h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "10G Mezzanine Slot x8: (D1:F0)NB PCI-E Root Port  #1"
+	Parent  = "NB PCI-E Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 05h
+	SleepNum  = 00h
+	IntA = 	LNKA; 26
+	IntB = 	LNKB; 28
+	IntC = 	LNKC; 29
+	IntD = 	LNKD; 30
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "SAS Mezzanine x8: (D3:F0)NB PCI-E Root Port #7"
+	Parent  = "NB PCI-E Root Port #7"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 06h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "SAS Mezzanine x8: (D3:F0)NB PCI-E Root Port #7"
+	Parent  = "NB PCI-E Root Port #7"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 06h
+	SleepNum  = 00h
+	IntA = 	LNKA; 40
+	IntB = 	LNKB; 44
+	IntC = 	LNKC; 45
+	IntD = 	LNKD; 46
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot1 x16/x8: (D2:F0)NB PCI-E Root Port #3"
+	Parent  = "NB PCI-E Root Port #3"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 01h
+	SleepNum  = 03h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot1 x16/x8: (D2:F0)NB PCI-E Root Port #3"
+	Parent  = "NB PCI-E Root Port #3"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 01h
+	SleepNum  = 03h
+	IntA = 	LNKA; 32
+	IntB = 	LNKB; 36
+	IntC = 	LNKC; 37
+	IntD = 	LNKD; 38
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot3 x8: (D2:F2)NB PCI-E Root Port #5"
+	Parent  = "NB PCI-E Root Port #5"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 03h
+	SleepNum  = 03h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot3 x8: (D2:F2)NB PCI-E Root Port #5"
+	Parent  = "NB PCI-E Root Port #5"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 03h
+	SleepNum  = 03h
+	IntA = 	LNKA; 34
+	IntB = 	LNKB; 37
+	IntC = 	LNKC; 36
+	IntD = 	LNKD; 38
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot3 x4: (D3:F3)NB PCI-E Root Port #a"
+	Parent  = "NB PCI-E Root Port #a"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 03h
+	SleepNum  = 03h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot3 x4: (D3:F3)NB PCI-E Root Port #a"
+	Parent  = "NB PCI-E Root Port #a"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 03h
+	SleepNum  = 03h
+	IntA = 	LNKA; 34
+	IntB = 	LNKB; 37
+	IntC = 	LNKC; 36
+	IntD = 	LNKD; 38
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+#Devices of CPU1
+PCIDEVICE
+	Title  = "Slot4 x8: (D1:F0)NB1 PCI-E Root Port #1"
+	Parent  = "NB1 PCI-E Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 04h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot4 x8: (D1:F0)NB1 PCI-E Root Port #1"
+	Parent  = "NB1 PCI-E Root Port #1"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 04h
+	SleepNum  = 00h
+	IntA = 	LNKA; 50
+	IntB = 	LNKB; 52
+	IntC = 	LNKC; 53
+	IntD = 	LNKD; 54
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot2 x16/x8: (D3:F0)NB1 PCI-E Root Port #7"
+	Parent  = "NB1 PCI-E Root Port #7"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot2 x16/x8: (D3:F0)NB1 PCI-E Root Port #7"
+	Parent  = "NB1 PCI-E Root Port #7"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 02h
+	SleepNum  = 00h
+	IntA = 	LNKA; 64
+	IntB = 	LNKB; 68
+	IntC = 	LNKC; 69
+	IntD = 	LNKD; 70
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot4 x8: (D3:F2)NB1 PCI-E Root Port #9"
+	Parent  = "NB1 PCI-E Root Port #9"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 04h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot4 x8: (D3:F2)NB1 PCI-E Root Port #9"
+	Parent  = "NB1 PCI-E Root Port #9"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 04h
+	SleepNum  = 00h
+	IntA = 	LNKA; 66
+	IntB = 	LNKB; 69
+	IntC = 	LNKC; 68
+	IntD = 	LNKD; 70
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+
+PCIDEVICE
+	Title  = "Slot7 x4: (D2:F0)NB1 PCI-E Root Port #3"
+	Parent  = "NB1 PCI-E Root Port #3"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 07h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot7 x4: (D2:F0)NB1 PCI-E Root Port #3"
+	Parent  = "NB1 PCI-E Root Port #3"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 07h
+	SleepNum  = 00h
+	IntA = 	LNKA; 56
+	IntB = 	LNKB; 60
+	IntC = 	LNKC; 61
+	IntD = 	LNKD; 62
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot8 x4: (D2:F1)NB1 PCI-E Root Port #4"
+	Parent  = "NB1 PCI-E Root Port #4"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 08h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot8 x4: (D2:F1)NB1 PCI-E Root Port #4"
+	Parent  = "NB1 PCI-E Root Port #4"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 08h
+	SleepNum  = 00h
+	IntA = 	LNKA; 64
+	IntB = 	LNKB; 68
+	IntC = 	LNKC; 69
+	IntD = 	LNKD; 70
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+#DJH002028++>>
+PCIDEVICE
+	Title  = "Slot9 x4: (D2:F2)NB1 PCI-E Root Port #5"
+	Parent  = "NB1 PCI-E Root Port #5"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 09h
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot9 x4: (D2:F2)NB1 PCI-E Root Port #5"
+	Parent  = "NB1 PCI-E Root Port #5"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 09h
+	SleepNum  = 00h
+	IntA = 	LNKA; 56
+	IntB = 	LNKB; 61
+	IntC = 	LNKC; 60
+	IntD = 	LNKD; 62
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot10 x4: (D2:F3)NB1 PCI-E Root Port #6"
+	Parent  = "NB1 PCI-E Root Port #6"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 0Ah
+	SleepNum  = 00h
+	IntA = 	LNKA; 16
+	IntB = 	LNKB; 17
+	IntC = 	LNKC; 18
+	IntD = 	LNKD; 19
+	Token = "NB_IOxAPIC_SUPPORT" "=" "0"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+
+PCIDEVICE
+	Title  = "Slot10 x4: (D2:F3)NB1 PCI-E Root Port #6"
+	Parent  = "NB1 PCI-E Root Port #6"
+	Attribute  = "0x0"
+	Dev_type  = "PciDevice"
+	Dev  = 00h
+	Slot  = 0Ah
+	SleepNum  = 00h
+	IntA = 	LNKA; 64
+	IntB = 	LNKB; 69
+	IntC = 	LNKC; 68
+	IntD = 	LNKD; 70
+	Token = "NB_IOxAPIC_SUPPORT" "=" "1"
+	Token = "Thor_SUPPORT" "=" "1"
+	DeviceType = Slot
+	PCIBusSize = 32bit
+	ROMMain = No
+	PCIExpress = Yes
+End
+#DJH002028++<<
+
+TOKEN
+	Name  = "OnBoardLanEfi_SUPPORT"
+	Value  = "0"
+	Help  = "Main switch to enable OnBoardLanEfi support in Project"
+	TokenType = Boolean
+End
+
+FFS_FILE
+	Name  = "OnBoardLanEfi"
+	FD_AREA  = "FV_MAIN"
+	FILE_Stmt  = "FoxconnPkg\ThorOnBoardLanEfiFdfFileStatement.txt"
+	Token = "OnBoardLanEfi_SUPPORT" "=" "1"
+End
+
+ELINK
+	Name  = "OPROM(20,8086,1521,FoxconnPkg\BA1543L2.LOM)"
+	Parent  = "CSM_OPROM_LIST"
+	InvokeOrder = AfterParent
+End
+
+#
+# PCIe slot programming for _DSM. Data goes into Pcislot.asl
+#
+ELINK
+	Name  = "PCI_SLOT_DSM(0x1, Slot1 x16, \_SB.PCI0.BR2A),"
+	Parent  = "DsmAsl"
+	Help  = "eLink for creating platform device names with DSM method. Specify Slot number, name and current device scope"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PCI_SLOT_DSM(0x3, Slot3 x8, \_SB.PCI0.BR2C),"
+	Parent  = "DsmAsl"
+	Help  = "eLink for creating platform device names with DSM method. Specify Slot number, name and current device scope"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PCI_SLOT_DSM(0x3, Slot3 x4, \_SB.PCI0.BR3D),"
+	Parent  = "DsmAsl"
+	Help  = "eLink for creating platform device names with DSM method. Specify Slot number, name and current device scope"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PCI_SLOT_DSM(0x2, Slot2 x16, \_SB.PCI1.QR3A),"
+	Parent  = "DsmAsl"
+	Help  = "eLink for creating platform device names with DSM method. Specify Slot number, name and current device scope"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PCI_SLOT_DSM(0x4, Slot4 x8, \_SB.PCI1.QR3C),"
+	Parent  = "DsmAsl"
+	Help  = "eLink for creating platform device names with DSM method. Specify Slot number, name and current device scope"
+	InvokeOrder = AfterParent
+End
+
+ELINK
+	Name  = "PCI_SLOT_DSM(0x4, Slot4 x8, \_SB.PCI1.QR1A),"
+	Parent  = "DsmAsl"
+	Help  = "eLink for creating platform device names with DSM method. Specify Slot number, name and current device scope"
+	InvokeOrder = AfterParent
+End

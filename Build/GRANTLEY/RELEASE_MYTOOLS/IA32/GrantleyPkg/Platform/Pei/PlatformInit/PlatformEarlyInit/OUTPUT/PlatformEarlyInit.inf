@@ -1,0 +1,232 @@
+## @file
+#  PlatformEarlyInit PEIM
+#
+#  Copyright (c) 2009 - 2015, Intel Corporation. All rights reserved.<BR>
+#
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution. The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+#
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+[Defines]
+  INF_VERSION                = 0x00010017
+  BASE_NAME                  = PlatformEarlyInit
+  FILE_GUID                  = EE685731-CFF3-4ee7-9388-7E63FC5A59B0
+  MODULE_TYPE                = PEIM
+  ENTRY_POINT                = PlatformEarlyInitEntry
+
+[Packages.IA32]
+  IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  WellsburgPkg/WellsburgPkg.dec
+  GrantleyPkg/PlatformPkg.dec
+  GrantleySocketPkg/SocketPkg.dec
+  ServerCommonPkg/ServerCommonPkg.dec
+  AmiModulePkg/AmiModulePkg.dec
+
+[Binaries.IA32]
+  PE32|PlatformEarlyInit.efi
+  PEI_DEPEX|PlatformEarlyInit.depex
+
+[PatchPcd.IA32]
+
+[Protocols.IA32]
+
+[Ppis.IA32]
+  ## PRODUCES
+  gPeiBaseMemoryTestPpiGuid
+
+  ## PRODUCES
+  gPchUsbPolicyPpiGuid
+
+  gEfiPeiStallPpiGuid
+
+  gPeiFlashMapPpiGuid
+
+  gEfiPeiBootInRecoveryModePpiGuid
+
+  gEfiPeiRecoveryModulePpiGuid
+
+  gEfiPeiMemoryDiscoveredPpiGuid
+
+  gPeiPlatformMemorySizePpiGuid
+
+  gEfiPeiReadOnlyVariable2PpiGuid
+
+  gEfiPeiMasterBootModePpiGuid
+
+  gEfiPeiResetPpiGuid
+
+  gPeiSmbusPolicyPpiGuid
+
+  gEfiEndOfPeiSignalPpiGuid
+
+  gPeiAtaPolicyPpiGuid
+
+  gPeiCachePpiGuid
+
+  gPchPlatformPolicyPpiGuid
+
+  gEfiPeiVirtualBlockIoPpiGuid
+
+  gEfiPeiDeviceRecoveryModulePpiGuid
+
+  gEfiPeiSmbus2PpiGuid
+
+  gPchInitPpiGuid
+
+  gPeiSpiSoftStrapsPpiGuid
+
+  gPchResetPpiGuid
+
+  gPeiPostScriptTablePpiGuid
+
+  gPeiMpServicePpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gPcdPpiGuid
+
+  ## CONSUMES
+  gEfiPeiPcdPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gGetPcdInfoPpiGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiGetPcdInfoPpiGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiPeiFirmwareVolumeInfoPpiGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiPeiFirmwareVolumeInfo2PpiGuid
+
+
+[Guids.IA32]
+  gEfiSetupVariableGuid
+
+  gEfiGlobalVariableControlGuid
+
+  gEfiSetupVariableDefaultGuid
+
+  gEfiTcgWakeEventDataHobGuid
+
+  gEfiPlatformInfoGuid
+
+  gEfiMemoryTypeInformationGuid
+
+  gEfiFlashMapHobGuid
+
+  gPeiCapsuleOnDataCDGuid
+
+  gPeiCapsuleOnFatIdeDiskGuid
+
+  gPeiCapsuleOnFatUsbDiskGuid
+
+  gEfiMfgUUIDHobGuid
+
+  gEfiMdeModulePkgTokenSpaceGuid
+
+  gEfiPlatformTxtPolicyDataGuid
+
+  #  gEfiBiosIdGuid # Aptio V Grantley Override
+  gEfiAdminPasswordHobGuid
+
+  #  gEfiAuthenticatedVariableGuid #AptioV server override: Usage not in AptioV
+  gEfiVariableGuid
+
+  # Aptio V Grantley Override
+  gAmiGlobalVariableGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation StackHob
+  gEfiHobMemoryAllocStackGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation BspStoreHob
+  gEfiHobMemoryAllocBspStoreGuid
+
+  ## SOMETIMES_PRODUCES ## HOB # MemoryAllocation ModuleHob
+  gEfiHobMemoryAllocModuleGuid
+
+  ## SOMETIMES_CONSUMES   ## UNDEFINED
+  gEfiStatusCodeSpecificDataGuid
+
+  ## SOMETIMES_CONSUMES   ## UNDEFINED
+  ## SOMETIMES_CONSUMES ## GUID
+  gEfiStatusCodeDataTypeDebugGuid
+
+  ## SOMETIMES_PRODUCES ## GUID # FV File System Guid.
+  gEfiFirmwareFileSystem2Guid
+
+  gChipsetInitInfoHobGuid
+
+
+[PcdEx.IA32]
+
+[LibraryClasses.IA32]
+## @LIB_INSTANCES
+#  MdePkg/Library/PeiMemoryAllocationLib/PeiMemoryAllocationLib.inf
+#  MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
+#  MdeModulePkg/Library/OemHookStatusCodeLibNull/OemHookStatusCodeLibNull.inf
+#  MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr.inf
+#  MdePkg/Library/BaseLib/BaseLib.inf
+#  MdePkg/Library/PeiServicesTablePointerLibIdt/PeiServicesTablePointerLibIdt.inf
+#  MdePkg/Library/PeiPcdLib/PeiPcdLib.inf
+#  MdePkg/Library/PeiHobLib/PeiHobLib.inf
+#  MdeModulePkg/Library/PeiReportStatusCodeLib/PeiReportStatusCodeLib.inf
+#  IntelFrameworkModulePkg/Library/PeiDxeDebugLibReportStatusCode/PeiDxeDebugLibReportStatusCode.inf
+#  MdePkg/Library/PeiServicesLib/PeiServicesLib.inf
+#  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
+#  MdePkg/Library/BasePciExpressLib/BasePciExpressLib.inf
+#  MdePkg/Library/BasePostCodeLibPort80/BasePostCodeLibPort80.inf
+#  MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress.inf
+#  AmiCompatibilityPkg/Library/AmiPeiLib.inf
+#  CryptoPkg/Library/IntrinsicLib/IntrinsicLib.inf
+#  WellsburgPkg/Library/PchChipsetInitHobLib/PchChipsetInitHobLib.inf
+#  WellsburgPkg/Library/PchPlatformLib/PchPlatformLib.inf
+#  GrantleyPkg/Library/PlatformHooksLib/PlatformHooksLib.inf
+#  MdePkg/Library/PeimEntryPoint/PeimEntryPoint.inf
+#  MdePkg/Library/BasePrintLib/BasePrintLib.inf
+#  Build/AmiCspLibPei.inf
+#  AmiCryptoPkg/CryptoLib/PeiCryptLib.inf
+#  GrantleyPkg/Library/PchPlatformPolicyInitLib/Pei/PchPlatformPolicyInitPeiLib.inf
+#  GrantleyPkg/Library/PlatformClocksLib/Pei/PlatformClocksLib.inf
+#  GrantleyPkg/Me/Heci/Library/MeTypeLib/MeTypeLib.inf
+
+[Depex.IA32]
+#  (gPchInitPpiGuid AND gPeiSpiSoftStrapsPpiGuid AND gEfiPciCfg2PpiGuid AND         #Aptio V Server overrride : After core udpate,this module is getting launched before PcatSingleSegmentPciCfg2Pei gEfiPeiCpuIoPpiInstalledGuid #Aptio V Server overrride : After core udpate,this module is getting launched before PcatSingleSegmentPciCfg2Pei) AND (gEfiPeiPcdPpiGuid)
+
+#BiosIdLib # Aptio V Grantley Override
+
+[BuildOptions.IA32]
+## @AsBuilt
+##   MSFT:RELEASE_MYTOOLS_IA32_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   MSFT:RELEASE_MYTOOLS_IA32_CBINDLINK_FLAGS = /nologo /NODEFAULTLIB /NOENTRY /DLL /ALIGN:16
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLDLINK_FLAGS = /nologo /NODEFAULTLIB /ENTRY:ReferenceAcpiTable /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER
+##   MSFT:RELEASE_MYTOOLS_IA32_VFR_FLAGS = -n
+##   MSFT:RELEASE_MYTOOLS_IA32_PP_FLAGS = /nologo /E /TC /FIAutoGen.h
+##   MSFT:RELEASE_MYTOOLS_IA32_GENFW_FLAGS = 
+##   MSFT:RELEASE_MYTOOLS_IA32_DLINK_FLAGS = /MACHINE:I386 /NOLOGO /NODEFAULTLIB /IGNORE:4001 /OPT:REF /OPT:ICF=10 /MAP /ALIGN:32 /SECTION:.xdata,D /SECTION:.pdata,D /LTCG /DLL /ENTRY:$(IMAGE_ENTRY_POINT) /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER /SAFESEH:NO /BASE:0 /DRIVER /MERGE:.data=.text /MERGE:.rdata=.text /IGNORE:4254 /PDB:$(DEBUG_DIR)/$(BASE_NAME).pdb
+##   MSFT:RELEASE_MYTOOLS_IA32_SLINK_FLAGS = /nologo /LTCG
+##   MSFT:RELEASE_MYTOOLS_IA32_ASM_FLAGS = /nologo /c /WX /W3 /Cx /Zd /coff
+##   MSFT:RELEASE_MYTOOLS_IA32_ASL_FLAGS = 
+##   MSFT:RELEASE_MYTOOLS_IA32_CC_FLAGS = /nologo /c /WX /GS- /W3 /Gs32768 /Gy /D UNICODE /GL /FIAutoGen.h /EHs-c- /GR- /GF -D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819 /O1ib2  -DMDEPKG_NDEBUG  /D CRB_FLAG /D VFR_CRB_FLAG /D EXTERNAL_PACKAGE /D SSA_FLAG /D SSA_LOADER_FLAG /D HSX_HOST  /D BDX_HOST /D LT_FLAG /DTRAD_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DME_SUPPORT_FLAG=1 /DSPS_SUPPORT=1 /DPFAT_FLAG=1 /D AMI_PAM_SAVE_RESTORE_SWSMI_VALUE=0xBE /D AMI_PAM_SAVE_CMD=0xE0 /D AMI_PAM_RESTORE_CMD=0xE1 /DUSB_PRECONDITION_ENABLE_FLAG=1 /DWDT_SUPPORT_ENABLED=1
+##   MSFT:RELEASE_MYTOOLS_IA32_VFRPP_FLAGS = /nologo /E /TC /DVFRCOMPILE /FI$(MODULE_NAME)StrDefs.h -D PI_SPECIFICATION_VERSION=0x1001E -D EFI_SPECIFICATION_VERSION=0x20028 /wd4819 /O1ib2  -DMDEPKG_NDEBUG  /D CRB_FLAG /D VFR_CRB_FLAG /D EXTERNAL_PACKAGE /D SSA_FLAG /D SSA_LOADER_FLAG /D HSX_HOST  /D BDX_HOST /D LT_FLAG /DTRAD_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DPCH_SERVER_BIOS_FLAG=1 /DME_SUPPORT_FLAG=1 /DSPS_SUPPORT=1 /DPFAT_FLAG=1 /D AMI_PAM_SAVE_RESTORE_SWSMI_VALUE=0xBE /D AMI_PAM_SAVE_CMD=0xE0 /D AMI_PAM_RESTORE_CMD=0xE1 /DUSB_PRECONDITION_ENABLE_FLAG=1 /DWDT_SUPPORT_ENABLED=1
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLCC_FLAGS = /nologo /c /TC /FIAutoGen.h /Dmain=ReferenceAcpiTable
+##   MSFT:RELEASE_MYTOOLS_IA32_CBINCC_FLAGS = /nologo /c /TC /Os /FIAutoGen.h
+##   MSFT:RELEASE_MYTOOLS_IA32_APP_FLAGS = /nologo /E /TC
+##   MSFT:RELEASE_MYTOOLS_IA32_OPTROM_FLAGS = -e
+##   MSFT:RELEASE_MYTOOLS_IA32_NASMB_FLAGS = -f bin
+##   MSFT:RELEASE_MYTOOLS_IA32_ASLPP_FLAGS = /nologo /EP /TC
+##   MSFT:RELEASE_MYTOOLS_IA32_OBJCOPY_FLAGS = objcopy not needed for
+##   MSFT:RELEASE_MYTOOLS_IA32_MAKE_FLAGS = /nologo -s
+##   MSFT:RELEASE_MYTOOLS_IA32_ASMLINK_FLAGS = /nologo /tiny
+##   MSFT:RELEASE_MYTOOLS_IA32_NASM_FLAGS = -Ox -f win32

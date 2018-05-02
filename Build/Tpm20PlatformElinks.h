@@ -1,0 +1,4 @@
+#define TPM2SETUPFUNCTIONS_LIST HandleTpm20Setup,
+#define TPM2PHAUTHFUNCTIONS_LIST ChangePlatformAuth,
+#define TPM2PPIFUNCTIONS_LIST HandleTpm20Ppi,
+
